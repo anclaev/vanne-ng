@@ -5,5 +5,15 @@ export interface IEnvironment {
   /**
    * Флаг боевого окружения
    */
-  production: boolean
+  PRODUCTION: boolean
+
+  /**
+   * Токен Sentry
+   */
+  SENTRY_DSN: string | null
+
+  /**
+   * Хост API
+   */
+  API_HOST: string
 }

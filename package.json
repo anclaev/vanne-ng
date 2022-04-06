@@ -1,5 +1,5 @@
 {
-  "name": "@vanne/client",
+  "name": "@vanne/ng",
   "version": "0.0.1",
   "description": "Educational platform",
   "author": "Artem Samarin <av@anclaev.com>",
@@ -23,6 +23,8 @@
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
     "@compodoc/compodoc": "1.1.19",
+    "@sentry/angular": "^6.19.4",
+    "@sentry/tracing": "^6.19.4",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

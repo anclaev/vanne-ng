@@ -1,6 +1,6 @@
 ![Vanne](https://docs.vanne.uno/images/logo.svg)
 
-# vanne-ns
+# vanne-ng
 
 Образовательная платформа.
 
