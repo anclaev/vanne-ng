@@ -1,0 +1,33 @@
+name: deploy
+
+on:    
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+    
+env:
+  REGISTRY: docker.pkg.github.com # we will push our docker-image to the GitHub packages
+  REPO: anclaev/vanne/vanne-client # is the name of our image which will be used to push or pull it
+  CONTAINER: vanne-client # name of the container which will be used to stop or start the container
+
+jobs:
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Setup SSH connection
+        uses: webfactory/ssh-agent@v0.5.1
+        with: 
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+      
+      - name: Adding known hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      
+      - name: Pull project from repo
+        run: |
+          ssh ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}} "cd ${{ secrets.PROJECT_PATH }}/client && git checkout main && git pull"
+      
+      - name: Run deploy script
+        run: |
+          ssh ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}} "cd ${{ secrets.PROJECT_PATH }} && ./build-client.sh && ./run.sh"
