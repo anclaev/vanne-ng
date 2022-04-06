@@ -91,9 +91,27 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#production" 
+                                        <a href="#API_HOST" 
 >
-                                            production
+                                            API_HOST
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#GQL_HOST" 
+>
+                                            GQL_HOST
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#PRODUCTION" 
+>
+                                            PRODUCTION
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#SENTRY_DSN" 
+>
+                                            SENTRY_DSN
                                         </a>
                                 </li>
                             </ul>
@@ -111,9 +129,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="production"></a>
-                                        <span class="name "><b>production</b>
-                                            <a href="#production">
+                                        <a name="API_HOST"></a>
+                                        <span class="name "><b>API_HOST</b>
+                                            <a href="#API_HOST">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -121,7 +139,85 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>production:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>API_HOST:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Хост API</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="GQL_HOST"></a>
+                                        <span class="name "><b>GQL_HOST</b>
+                                            <a href="#GQL_HOST">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>GQL_HOST:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Хост GraphQL</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="PRODUCTION"></a>
+                                        <span class="name "><b>PRODUCTION</b>
+                                            <a href="#PRODUCTION">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>PRODUCTION:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -146,6 +242,45 @@
                             </tr>
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="SENTRY_DSN"></a>
+                                        <span class="name "><b>SENTRY_DSN</b>
+                                            <a href="#SENTRY_DSN">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>SENTRY_DSN:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Токен Sentry</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
             </section>
     </div>
 
@@ -155,7 +290,22 @@
   /**
    * Флаг боевого окружения
    */
-  production: boolean
+  PRODUCTION: boolean
+
+  /**
+   * Токен Sentry
+   */
+  SENTRY_DSN: string
+
+  /**
+   * Хост API
+   */
+  API_HOST: string
+
+  /**
+   * Хост GraphQL
+   */
+  GQL_HOST: string
 }
 </code></pre>
     </div>

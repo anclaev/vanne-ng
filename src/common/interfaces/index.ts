@@ -16,4 +16,9 @@ export interface IEnvironment {
    * Хост API
    */
   API_HOST: string
+
+  /**
+   * Хост GraphQL
+   */
+  GQL_HOST: string
 }
