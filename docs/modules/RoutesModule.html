@@ -75,7 +75,17 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { RouterModule, Routes } from &#x27;@angular/router&#x27;
 import { NgModule } from &#x27;@angular/core&#x27;
 
-const APP_ROUTES: Routes &#x3D; []
+import { AuthComponent } from &#x27;@/app/auth/auth.component&#x27;
+
+/**
+ * Базовые маршруты приложения
+ */
+const APP_ROUTES: Routes &#x3D; [
+  {
+    path: &#x27;sign-in&#x27;,
+    component: AuthComponent,
+  },
+]
 
 /**
  * Базовый модуль роутинга

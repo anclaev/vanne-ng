@@ -52,7 +52,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "sass",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/index.sass"],
+            "styles": ["src/styles/index.sass"],
             "scripts": []
           },
           "configurations": {
@@ -115,7 +115,7 @@
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "sass",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/index.sass"],
+            "styles": ["src/styles/index.sass"],
             "scripts": []
           }
         }

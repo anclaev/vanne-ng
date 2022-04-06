@@ -3,6 +3,7 @@
   "exclude": [
     "src/**/*.spec.ts",
     "src/**/*test.ts",
-    "src/**/environment.prod.ts"
+    "src/**/env.prod.ts",
+    "src/**/env.ts"
   ]
 }
