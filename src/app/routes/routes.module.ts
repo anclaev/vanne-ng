@@ -1,7 +1,17 @@
 import { RouterModule, Routes } from '@angular/router'
 import { NgModule } from '@angular/core'
 
-const APP_ROUTES: Routes = []
+import { AuthComponent } from '@/app/auth/auth.component'
+
+/**
+ * Базовые маршруты приложения
+ */
+const APP_ROUTES: Routes = [
+  {
+    path: 'sign-in',
+    component: AuthComponent,
+  },
+]
 
 /**
  * Базовый модуль роутинга
