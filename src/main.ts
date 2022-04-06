@@ -9,7 +9,7 @@ import { AppModule } from './app/app.module'
 import { ENV } from '@env/env'
 
 Sentry.init({
-  dsn: 'https://5fd83b96db474fa6bd96795b8bbefe9f@o1139050.ingest.sentry.io/6313915',
+  dsn: ENV.SENTRY_DSN,
   environment: ENV.PRODUCTION ? 'production' : 'development',
   tracesSampleRate: 1.0,
   integrations: [

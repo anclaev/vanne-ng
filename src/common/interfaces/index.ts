@@ -10,7 +10,7 @@ export interface IEnvironment {
   /**
    * Токен Sentry
    */
-  SENTRY_DSN: string | null
+  SENTRY_DSN: string
 
   /**
    * Хост API
