@@ -1,0 +1,13 @@
+node_modules
+docs
+.vscode
+.angular
+dist
+.dockerignore
+.editorconfig
+.gitignore
+.prettierrc
+README.md
+CHANGELOG.md
+LICENSE.md
+tsconfig.doc.json
