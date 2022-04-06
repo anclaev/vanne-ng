@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common'
 import { AuthComponent } from './auth.component'
 import { AuthService } from './auth.service'
 
+/**
+ * Модуль авторизации
+ */
 @NgModule({
   imports: [CommonModule],
   providers: [AuthService],
