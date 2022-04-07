@@ -1,9 +1,12 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core'
+import { ServiceWorkerModule } from '@angular/service-worker'
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpClientModule } from '@angular/common/http'
-import * as Sentry from '@sentry/angular'
 import { Router } from '@angular/router'
+import * as Sentry from '@sentry/angular'
+
+import { ENV } from '../environments/env'
 
 import { AppComponent } from './app.component'
 
@@ -41,6 +44,10 @@ import { MeModule } from './me/me.module'
     UsersModule,
     SettingsModule,
     MeModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: ENV.PRODUCTION,
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
   providers: [
     {

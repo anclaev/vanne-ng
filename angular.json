@@ -45,7 +45,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -59,7 +59,9 @@
               "src/manifest.webmanifest"
             ],
             "styles": ["src/styles/index.sass"],
-            "scripts": []
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -81,7 +83,13 @@
                   "with": "src/environments/env.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "serviceWorker": true,
+              "optimization": true,
+              "crossOrigin": "use-credentials",
+              "extractLicenses": true,
+              "aot": true,
+              "buildOptimizer": true
             },
             "development": {
               "buildOptimizer": false,
