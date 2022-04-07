@@ -11,6 +11,7 @@ import { RoutesModule } from '@core/routes/routes.module'
 import { GqlModule } from '@core/gql/gql.module'
 
 import { SharedModule } from '@shared/shared.module'
+import { AuthModule } from './auth/auth.module'
 
 /**
  * Корневой модуль приложения
@@ -22,6 +23,7 @@ import { SharedModule } from '@shared/shared.module'
     BrowserAnimationsModule,
     GqlModule,
     HttpClientModule,
+    AuthModule,
     RoutesModule,
     SharedModule,
   ],

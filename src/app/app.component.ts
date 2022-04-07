@@ -48,6 +48,8 @@ export class AppComponent {
           if ((item.includes(url) && url !== '/') || item === url)
             this.isInternalPage = true
         })
+
+        if (this.isInternalPage && url === '/auth') this.isInternalPage = false
       })
   }
 }

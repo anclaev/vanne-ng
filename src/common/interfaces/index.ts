@@ -1,49 +1,22 @@
-import { Route, Event } from '@angular/router'
+import { IEnvironment, Environment } from './environment.interface'
+import { ICredentials, Credentials } from './credentials.interface'
+import { IRoute, IRouteData, Routes } from './route.interface'
+import { ITeam, Team } from './team.interface'
+import { IUser, User } from './user.interface'
 
-/**
- * Интерфейс переменных окружения
- */
-export interface IEnvironment {
-  /**
-   * Флаг боевого окружения
-   */
-  PRODUCTION: boolean
+type ComponentType = 'internal' | 'public'
 
-  /**
-   * Токен Sentry
-   */
-  SENTRY_DSN: string
-
-  /**
-   * Хост API
-   */
-  API_HOST: string
-
-  /**
-   * Хост GraphQL
-   */
-  GQL_HOST: string
+export {
+  IRoute,
+  IRouteData,
+  IEnvironment,
+  Environment,
+  ITeam,
+  Team,
+  IUser,
+  User,
+  ICredentials,
+  Credentials,
+  Routes,
+  ComponentType,
 }
-
-/**
- * Интерфейс данных внутри маршрута
- */
-export interface IRouteData {
-  /**
-   * Заголовок страницы
-   */
-  title: string
-}
-
-/**
- * Интерфейс маршрута
- */
-interface IRoute extends Route {
-  /**
-   * Данные внутри маршрута
-   */
-  data: IRouteData
-}
-
-export type Routes = IRoute[]
-export type ComponentType = 'internal' | 'public'

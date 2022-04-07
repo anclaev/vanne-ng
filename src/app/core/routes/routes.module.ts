@@ -1,6 +1,11 @@
 import { RouterModule } from '@angular/router'
 import { NgModule } from '@angular/core'
 
+import { NonExistentComponent } from '@/app/shared/components/non-existent/non-existent.component'
+import { AuthComponent } from '@/app/auth/auth.component'
+
+import { AuthGuard } from '@shared/guards/auth.guard'
+
 import { Routes } from '@common/interfaces'
 
 /**
@@ -13,15 +18,16 @@ const APP_ROUTES: Routes = [
     loadChildren: () =>
       import('../../dashboard/dashboard.module').then((m) => m.DashboardModule),
     data: {
-      title: 'Дашборд',
+      title: 'Dashboard',
     },
+    canActivate: [AuthGuard],
   },
   {
     path: 'auth',
-    loadChildren: () =>
-      import('../../auth/auth.module').then((m) => m.AuthModule),
+
+    component: AuthComponent,
     data: {
-      title: 'Auth',
+      title: 'Vanne',
     },
   },
   {
@@ -31,6 +37,7 @@ const APP_ROUTES: Routes = [
     data: {
       title: 'Progress',
     },
+    canActivate: [AuthGuard],
   },
   {
     path: 'alerts',
@@ -39,6 +46,7 @@ const APP_ROUTES: Routes = [
     data: {
       title: 'Alerts',
     },
+    canActivate: [AuthGuard],
   },
   {
     path: 'chats',
@@ -47,6 +55,7 @@ const APP_ROUTES: Routes = [
     data: {
       title: 'Chats',
     },
+    canActivate: [AuthGuard],
   },
   {
     path: 'users',
@@ -55,6 +64,7 @@ const APP_ROUTES: Routes = [
     data: {
       title: 'Users',
     },
+    canActivate: [AuthGuard],
   },
   {
     path: 'me',
@@ -62,6 +72,7 @@ const APP_ROUTES: Routes = [
     data: {
       title: 'I am',
     },
+    canActivate: [AuthGuard],
   },
   {
     path: 'settings',
@@ -69,6 +80,21 @@ const APP_ROUTES: Routes = [
       import('../../settings/settings.module').then((m) => m.SettingsModule),
     data: {
       title: 'Settings',
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: '404',
+    component: NonExistentComponent,
+    data: {
+      title: 'Vanne',
+    },
+  },
+  {
+    path: '**',
+    redirectTo: '/404',
+    data: {
+      title: 'Vanne',
     },
   },
 ]
