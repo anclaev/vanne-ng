@@ -1,4 +1,13 @@
-import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs'
+import {
+  BehaviorSubject,
+  catchError,
+  firstValueFrom,
+  from,
+  map,
+  Observable,
+  of,
+} from 'rxjs'
+
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Router } from '@angular/router'
@@ -37,17 +46,36 @@ export class AuthService {
       )
   }
 
-  public me(): Observable<User> {
+  private refresh(): Observable<User> {
     return this.httpClient
-      .get<User>(this.api + API.AUTH_DATA, {
+      .get<User>(this.api + API.AUTH_REFRESH, {
         withCredentials: true,
       })
       .pipe(
         map((user) => {
-          this.user$$.next(user)
           return user
         }),
       )
+  }
+
+  public me(): Observable<User> {
+    return this.httpClient.get<User>(this.api + API.AUTH_DATA).pipe(
+      map((user) => {
+        this.user$$.next(user)
+        return user
+      }),
+      catchError(() => {
+        const refresh$ = this.refresh().pipe(
+          map((user) => {
+            this.user$$.next(user)
+
+            return user
+          }),
+        )
+
+        return refresh$
+      }),
+    )
   }
 
   public check(returnUrl: string): Observable<boolean> {
