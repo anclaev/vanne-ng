@@ -1,0 +1,22 @@
+body:not([data-404="true"]) vanne-root
+    display: grid
+
+    grid-template-areas: 'nav header' 'nav main' 'nav footer'
+    grid-template-columns: min-content 1fr
+    grid-template-rows: min-content 1fr min-content
+
+    & vanne-footer
+        grid-area: footer
+
+    @media only screen and (max-width: 576px)
+        grid-template-areas: 'header' 'main'
+        grid-template-columns: 1fr
+
+        & vanne-nav
+            position: fixed
+            left: 0
+            bottom: 0
+            right: 0
+
+        & vanne-footer[type="internal"]
+            display: none

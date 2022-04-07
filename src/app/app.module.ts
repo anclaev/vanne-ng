@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpClientModule } from '@angular/common/http'
@@ -14,7 +15,13 @@ import { GqlModule } from './gql/gql.module'
  */
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, GqlModule, HttpClientModule, RoutesModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    GqlModule,
+    HttpClientModule,
+    RoutesModule,
+  ],
   providers: [
     {
       provide: ErrorHandler,

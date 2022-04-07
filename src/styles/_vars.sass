@@ -1,4 +1,8 @@
-$font-family: 'Lato', 'Roboto', 'sans-serif',
+$ff: Lato, Roboto, sans-serif
+$fw-light: 300
+$fw-regular: 400
+$fw-bold: 700
+
 $color-background: #202020,
 $color-background-50: rgba(32, 32, 32, 0.5)
 $color-background-blue: #2c2d36
@@ -6,3 +10,13 @@ $color-background-footer: #33343e
 $color-primary: #facc6d
 $color-primary-42: rgba(250, 204, 109, 0.42),
 $color-content: #fff
+
+=leftOpacityBorder()
+    border-left: 1px solid rgba(255,255,255,0.1)
+
+=rightOpacityBorder()
+    border-right: 1px solid rgba(255,255,255,0.1)
+
+=lrOpacityBorder()
+    @include leftOpacityBorder()
+    @include rightOpacityBorder()
