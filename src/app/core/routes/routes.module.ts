@@ -3,7 +3,13 @@ import { NgModule } from '@angular/core'
 
 import { NonExistentComponent } from '@/app/shared/components/non-existent/non-existent.component'
 import { DashboardComponent } from '@/app/dashboard/dashboard.component'
+import { SettingsComponent } from '@/app/settings/settings.component'
+import { ProgressComponent } from '@/app/progress/progress.component'
+import { AlertsComponent } from '@/app/alerts/alerts.component'
+import { ChatsComponent } from '@/app/chats/chats.component'
+import { UsersComponent } from '@/app/users/users.component'
 import { AuthComponent } from '@/app/auth/auth.component'
+import { MeComponent } from '@/app/me/me.component'
 
 import { AuthGuard } from '@shared/guards/auth.guard'
 
@@ -32,8 +38,7 @@ const APP_ROUTES: Routes = [
   },
   {
     path: 'progress',
-    loadChildren: () =>
-      import('../../progress/progress.module').then((m) => m.ProgressModule),
+    component: ProgressComponent,
     data: {
       title: 'Progress',
     },
@@ -41,8 +46,7 @@ const APP_ROUTES: Routes = [
   },
   {
     path: 'alerts',
-    loadChildren: () =>
-      import('../../alerts/alerts.module').then((m) => m.AlertsModule),
+    component: AlertsComponent,
     data: {
       title: 'Alerts',
     },
@@ -50,8 +54,7 @@ const APP_ROUTES: Routes = [
   },
   {
     path: 'chats',
-    loadChildren: () =>
-      import('../../chats/chats.module').then((m) => m.ChatsModule),
+    component: ChatsComponent,
     data: {
       title: 'Chats',
     },
@@ -59,8 +62,7 @@ const APP_ROUTES: Routes = [
   },
   {
     path: 'users',
-    loadChildren: () =>
-      import('../../users/users.module').then((m) => m.UsersModule),
+    component: UsersComponent,
     data: {
       title: 'Users',
     },
@@ -68,7 +70,7 @@ const APP_ROUTES: Routes = [
   },
   {
     path: 'me',
-    loadChildren: () => import('../../me/me.module').then((m) => m.MeModule),
+    component: MeComponent,
     data: {
       title: 'I am',
     },
@@ -76,8 +78,7 @@ const APP_ROUTES: Routes = [
   },
   {
     path: 'settings',
-    loadChildren: () =>
-      import('../../settings/settings.module').then((m) => m.SettingsModule),
+    component: SettingsComponent,
     data: {
       title: 'Settings',
     },

@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
-import { ProgressRoutingModule } from './progress-routing.module'
+import { SharedModule } from '../shared/shared.module'
+
+import { ProgressComponent } from './progress.component'
 
 @NgModule({
-  imports: [CommonModule, ProgressRoutingModule],
+  declarations: [ProgressComponent],
+  imports: [CommonModule, SharedModule],
 })
 export class ProgressModule {}
