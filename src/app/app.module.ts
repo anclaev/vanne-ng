@@ -11,7 +11,15 @@ import { RoutesModule } from '@core/routes/routes.module'
 import { GqlModule } from '@core/gql/gql.module'
 
 import { SharedModule } from '@shared/shared.module'
+
+import { DashboardModule } from './dashboard/dashboard.module'
+import { ProgressModule } from './progress/progress.module'
+import { SettingsModule } from './settings/settings.module'
+import { AlertsModule } from './alerts/alerts.module'
+import { ChatsModule } from './chats/chats.module'
+import { UsersModule } from './users/users.module'
 import { AuthModule } from './auth/auth.module'
+import { MeModule } from './me/me.module'
 
 /**
  * Корневой модуль приложения
@@ -23,9 +31,16 @@ import { AuthModule } from './auth/auth.module'
     BrowserAnimationsModule,
     GqlModule,
     HttpClientModule,
-    AuthModule,
-    RoutesModule,
     SharedModule,
+    RoutesModule,
+    AuthModule,
+    DashboardModule,
+    ProgressModule,
+    AlertsModule,
+    ChatsModule,
+    UsersModule,
+    SettingsModule,
+    MeModule,
   ],
   providers: [
     {

@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 
-import { ChatsRoutingModule } from './chats-routing.module'
+import { ChatsComponent } from './chats.component'
 
 @NgModule({
-  imports: [CommonModule, ChatsRoutingModule],
+  declarations: [ChatsComponent],
+  imports: [CommonModule],
 })
 export class ChatsModule {}
