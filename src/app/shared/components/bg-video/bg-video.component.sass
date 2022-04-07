@@ -1,0 +1,36 @@
+.bg-video__container
+    position: fixed
+    overflow: hidden
+
+    right: 0
+    bottom: 0
+
+    &, & > video
+        top: 0
+        left: 0
+
+    & > video
+        position: absolute
+
+        width: 100%
+        height: 100%
+
+@media (min-aspect-ratio: 16/9)
+    .bg-video__container > video
+        height: 300%
+        top: -100%
+
+@media (max-aspect-ratio: 16/9)
+    .bg-video__container > video
+        width: 300%
+        left: -100%
+
+@supports (object-fit: cover)
+    .bg-video__container > video
+        top: 0
+        left: 0
+
+        width: 100%
+        height: 100%
+
+        object-fit: cover

@@ -7,6 +7,7 @@ import { Router } from '@angular/router'
 
 import { AppComponent } from './app.component'
 
+import { SharedModule } from './shared/shared.module'
 import { RoutesModule } from './routes/routes.module'
 import { GqlModule } from './gql/gql.module'
 
@@ -21,6 +22,7 @@ import { GqlModule } from './gql/gql.module'
     GqlModule,
     HttpClientModule,
     RoutesModule,
+    SharedModule,
   ],
   providers: [
     {
