@@ -12,6 +12,7 @@ import { GqlModule } from '@core/gql/gql.module'
 
 import { SharedModule } from '@shared/shared.module'
 import { AuthModule } from './auth/auth.module'
+import { DashboardModule } from './dashboard/dashboard.module'
 
 /**
  * Корневой модуль приложения
@@ -23,9 +24,10 @@ import { AuthModule } from './auth/auth.module'
     BrowserAnimationsModule,
     GqlModule,
     HttpClientModule,
-    AuthModule,
-    RoutesModule,
     SharedModule,
+    RoutesModule,
+    AuthModule,
+    DashboardModule,
   ],
   providers: [
     {

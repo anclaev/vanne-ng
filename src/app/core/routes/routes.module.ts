@@ -2,6 +2,7 @@ import { RouterModule } from '@angular/router'
 import { NgModule } from '@angular/core'
 
 import { NonExistentComponent } from '@/app/shared/components/non-existent/non-existent.component'
+import { DashboardComponent } from '@/app/dashboard/dashboard.component'
 import { AuthComponent } from '@/app/auth/auth.component'
 
 import { AuthGuard } from '@shared/guards/auth.guard'
@@ -15,8 +16,7 @@ const APP_ROUTES: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: () =>
-      import('../../dashboard/dashboard.module').then((m) => m.DashboardModule),
+    component: DashboardComponent,
     data: {
       title: 'Dashboard',
     },
