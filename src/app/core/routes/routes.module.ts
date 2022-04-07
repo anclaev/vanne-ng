@@ -13,7 +13,7 @@ const APP_ROUTES: Routes = [
     loadChildren: () =>
       import('../../dashboard/dashboard.module').then((m) => m.DashboardModule),
     data: {
-      title: 'Дашборд',
+      title: 'Dashboard',
     },
   },
   {

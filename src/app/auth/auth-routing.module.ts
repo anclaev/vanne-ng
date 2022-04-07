@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+import { NgModule } from '@angular/core'
 
-import { SignInComponent } from './sign-in/sign-in.component'
+import { AuthComponent } from './auth.component'
 
 const routes: Routes = [
   {
-    path: 'sign-in',
-    component: SignInComponent,
+    path: '',
+    component: AuthComponent,
   },
   {
-    path: '*',
-    redirectTo: 'sign-in',
+    path: '**',
+    redirectTo: '/auth',
   },
 ]
 
