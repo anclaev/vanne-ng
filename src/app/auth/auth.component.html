@@ -1,1 +1,39 @@
-<p>auth is working!</p>
+<main class="welcome">
+  <section class="welcome-side">
+    <vanne-logo></vanne-logo>
+    <div class="welcome-side-form">
+      <form [formGroup]="authForm">
+        <div class="welcome-side-form__field">
+          <label for="login">Login</label>
+          <input
+            id="login"
+            placeholder="Login"
+            type="text"
+            autocomplete="username"
+            formControlName="login"
+          />
+        </div>
+        <div class="welcome-side-form__field">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            autocomplete="current-password"
+            placeholder="Password"
+            type="password"
+            formControlName="password"
+          />
+        </div>
+
+        <button (click)="onSubmit()">Sign in</button>
+      </form>
+    </div>
+    <vanne-footer type="public"></vanne-footer>
+  </section>
+  <section class="welcome-banner">
+    <h1 class="welcome-banner__title">Educational community for students</h1>
+    <vanne-bg-video
+      poster="/assets/media/home-1.png"
+      source="/assets/media/home-1.mp4"
+    ></vanne-bg-video>
+  </section>
+</main>

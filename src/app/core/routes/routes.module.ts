@@ -1,6 +1,9 @@
 import { RouterModule } from '@angular/router'
 import { NgModule } from '@angular/core'
 
+import { NonExistentComponent } from '@/app/shared/components/non-existent/non-existent.component'
+import { AuthComponent } from '@/app/auth/auth.component'
+
 import { AuthGuard } from '@shared/guards/auth.guard'
 
 import { Routes } from '@common/interfaces'
@@ -21,10 +24,10 @@ const APP_ROUTES: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () =>
-      import('../../auth/auth.module').then((m) => m.AuthModule),
+
+    component: AuthComponent,
     data: {
-      title: 'Auth',
+      title: 'Vanne',
     },
   },
   {
@@ -79,6 +82,20 @@ const APP_ROUTES: Routes = [
       title: 'Settings',
     },
     canActivate: [AuthGuard],
+  },
+  {
+    path: '404',
+    component: NonExistentComponent,
+    data: {
+      title: 'Vanne',
+    },
+  },
+  {
+    path: '**',
+    redirectTo: '/404',
+    data: {
+      title: 'Vanne',
+    },
   },
 ]
 

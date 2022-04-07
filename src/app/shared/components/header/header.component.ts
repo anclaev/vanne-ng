@@ -13,16 +13,20 @@ import { ComponentType } from '@/common/interfaces'
   styleUrls: ['./header.component.sass'],
 })
 export class HeaderComponent {
+  public login: string = 'Users'
+
   @Input() type: ComponentType = 'public'
 
   constructor(
     public navService: NavService,
     public authService: AuthService,
     public toastService: ToastService,
-  ) {}
+  ) {
+    this.login = this.authService.currentUser?.login || 'User'
+  }
 
   public logout() {
     this.authService.logout()
-    this.toastService.show('You are logged out')
+    this.toastService.show(`Goodbye, ${this.login}!`)
   }
 }

@@ -3,15 +3,11 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 
-import { AuthRoutingModule } from './auth-routing.module'
 import { SharedModule } from '../shared/shared.module'
+import { AuthComponent } from './auth.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatSnackBarModule,
-    AuthRoutingModule,
-  ],
+  declarations: [AuthComponent],
+  imports: [CommonModule, SharedModule, ReactiveFormsModule, MatSnackBarModule],
 })
 export class AuthModule {}

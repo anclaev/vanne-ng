@@ -7,6 +7,7 @@ import { NavService } from '@shared/services/nav.service'
 import { ToastService } from './services/toast.service'
 import { AuthService } from './services/auth.service'
 
+import { NonExistentComponent } from './components/non-existent/non-existent.component'
 import { BgVideoComponent } from './components/bg-video/bg-video.component'
 import { FooterComponent } from './components/footer/footer.component'
 import { HeaderComponent } from './components/header/header.component'
@@ -22,6 +23,7 @@ import { NavComponent } from './components/nav/nav.component'
     NavComponent,
     HeaderComponent,
     FooterComponent,
+    NonExistentComponent,
   ],
   exports: [
     BgVideoComponent,
@@ -29,6 +31,7 @@ import { NavComponent } from './components/nav/nav.component'
     NavComponent,
     HeaderComponent,
     FooterComponent,
+    NonExistentComponent,
   ],
 })
 export class SharedModule {}

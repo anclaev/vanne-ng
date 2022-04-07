@@ -34,10 +34,6 @@ export class AuthService {
           this.user$$.next(user)
           return user
         }),
-        catchError(() => {
-          this.user$$.next(null)
-          return of(null)
-        }),
       )
   }
 
