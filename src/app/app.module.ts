@@ -7,21 +7,14 @@ import { Router } from '@angular/router'
 import { AppComponent } from './app.component'
 
 import { RoutesModule } from './routes/routes.module'
-import { AuthModule } from './auth/auth.module'
-import { GQLModule } from './gql/gql.module'
+import { GqlModule } from './gql/gql.module'
 
 /**
  * Корневой модуль приложения
  */
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    GQLModule,
-    HttpClientModule,
-    RoutesModule,
-    AuthModule,
-  ],
+  imports: [BrowserModule, GqlModule, HttpClientModule, RoutesModule],
   providers: [
     {
       provide: ErrorHandler,

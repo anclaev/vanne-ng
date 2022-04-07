@@ -6,7 +6,6 @@
 
 ## Технологии
 
-- [Tailwind](https://tailwindcss.com/)
 - [Angular 13](https://angular.io/)
 - [Apollo Angular](https://apollo-angular.com/docs/)
 - [Sentry](https://sentry.io/)

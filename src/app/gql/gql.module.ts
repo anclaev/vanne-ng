@@ -32,4 +32,4 @@ export const createApolloClient = (
     },
   ],
 })
-export class GQLModule {}
+export class GqlModule {}
