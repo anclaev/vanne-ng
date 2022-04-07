@@ -1,0 +1,89 @@
+@import "../../../../styles/_vars"
+
+:host
+    background: $color-background-blue
+    grid-area: nav
+
+.vanne-nav
+    height: 100%
+    overflow-x: hidden
+
+    flex-direction: column
+
+    min-width: 300px
+
+    &, &__route, &__route > span, &__route > img
+        transition: .3s
+
+    @media only screen and (max-width: 576px)
+        height: auto !important
+        min-width: auto !important
+        width: 100% !important
+
+        flex-direction: row
+
+        & > vanne-logo
+            display: none
+
+        &__route
+            display: flex
+            justify-content: center
+            align-items: center
+
+            flex-grow: 1
+
+            width: 60px !important
+            height: 60px !important
+            min-height: auto !important
+
+            padding: 0 !important
+
+            & > img
+                margin-right: 0 !important
+
+            & > span
+                display: none
+
+    @media only screen and (min-width: 576px)
+        &[data-hidden="true"]
+            min-width: 70px
+
+            & .vanne-nav__route
+                padding: 20px
+
+                & > img
+                    margin-right: 0
+                    margin-left: 6px
+
+                & > span
+                    user-selection: none
+                    opacity: 0
+                    width: 0
+
+    & > vanne-logo
+        width: 100%
+        border-bottom: 1px solid rgba(255,255,255,.1)
+
+    &, &__route
+        display: flex
+        align-items: center
+
+    &__route
+        width: 100%
+        min-height: 70px
+
+        padding: 15px 33px
+
+        font-size: 12px
+        font-weight: $fw-regular
+
+        &--active
+            background: $color-primary-42
+
+        & > img
+            margin-right: 20px
+
+        & > span
+            text-transform: uppercase
+            letter-spacing: 0.06em
+            color: $color-content

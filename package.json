@@ -10,8 +10,8 @@
     "dev": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "docs:serve": "compodoc --hideGenerator -d docs --customFavicon src/favicon.ico --customLogo src/assets/logo.svg -n 'Vanne' -p tsconfig.doc.json -s",
-    "docs": "compodoc --hideGenerator -d docs --customFavicon src/favicon.ico --customLogo src/assets/logo.svg -n 'Vanne' -p tsconfig.doc.json"
+    "docs:serve": "compodoc --hideGenerator -d docs --customFavicon src/favicon.ico --customLogo src/assets/svg/logo.svg -n 'Vanne' -p tsconfig.doc.json -s",
+    "docs": "compodoc --hideGenerator -d docs --customFavicon src/favicon.ico --customLogo src/assets/svg/logo.svg -n 'Vanne' -p tsconfig.doc.json"
   },
   "dependencies": {
     "@angular/animations": "~13.3.0",

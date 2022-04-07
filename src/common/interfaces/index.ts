@@ -41,3 +41,4 @@ interface IRoute extends Route {
 }
 
 export type Routes = IRoute[]
+export type ComponentType = 'internal' | 'public'
