@@ -7,9 +7,10 @@ import { Router } from '@angular/router'
 
 import { AppComponent } from './app.component'
 
-import { SharedModule } from './shared/shared.module'
-import { RoutesModule } from './routes/routes.module'
-import { GqlModule } from './gql/gql.module'
+import { RoutesModule } from '@core/routes/routes.module'
+import { GqlModule } from '@core/gql/gql.module'
+
+import { SharedModule } from '@shared/shared.module'
 
 /**
  * Корневой модуль приложения

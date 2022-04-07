@@ -4,7 +4,17 @@ import { NgModule } from '@angular/core'
 /**
  * Базовые маршруты приложения
  */
-const APP_ROUTES: Routes = []
+const APP_ROUTES: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('../../dashboard/dashboard.module').then((m) => m.DashboardModule),
+    data: {
+      title: 'Дашборд',
+    },
+  },
+]
 
 /**
  * Базовый модуль роутинга
