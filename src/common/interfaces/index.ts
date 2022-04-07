@@ -1,4 +1,4 @@
-import { Route } from '@angular/router'
+import { Route, Event } from '@angular/router'
 
 /**
  * Интерфейс переменных окружения
@@ -26,18 +26,20 @@ export interface IEnvironment {
 }
 
 /**
+ * Интерфейс данных внутри маршрута
+ */
+export interface IRouteData {
+  /**
+   * Заголовок страницы
+   */
+  title: string
+}
+
+/**
  * Интерфейс маршрута
  */
 interface IRoute extends Route {
-  /**
-   * Поле передаваемых данных
-   */
-  data: {
-    /**
-     * Заголовок страницы
-     */
-    title: string
-  }
+  data: IRouteData
 }
 
 export type Routes = IRoute[]

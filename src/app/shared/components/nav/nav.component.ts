@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 
 import { ComponentType } from '@common/interfaces'
 
-import { NavService } from './nav.service'
+import { NavService } from '@shared/services/nav.service'
 
 @Component({
   selector: 'vanne-nav',
