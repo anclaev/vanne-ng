@@ -1,3 +1,5 @@
+import { Route } from '@angular/router'
+
 /**
  * Интерфейс переменных окружения
  */
@@ -22,3 +24,20 @@ export interface IEnvironment {
    */
   GQL_HOST: string
 }
+
+/**
+ * Интерфейс маршрута
+ */
+interface IRoute extends Route {
+  /**
+   * Поле передаваемых данных
+   */
+  data: {
+    /**
+     * Заголовок страницы
+     */
+    title: string
+  }
+}
+
+export type Routes = IRoute[]
