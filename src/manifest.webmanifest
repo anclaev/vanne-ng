@@ -1,8 +1,8 @@
 {
   "lang": "en",
   "name": "Vanne",
-  "description": "Educational community",
   "short_name": "Vanne",
+  "description": "Educational community",
   "orientation": "portrait-primary",
   "icons": [
     {
@@ -16,11 +16,35 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/favs/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/favs/mstile-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/favs/mstile-150x150.png",
+      "sizes": "150x150",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/favs/mstile-310x310.png",
+      "sizes": "310x310",
+      "type": "image/png",
+      "purpose": "maskable any"
     }
   ],
   "theme_color": "#141414",
   "background_color": "#141414",
-  "scope": "/",
+  "scope": "./",
   "start_url": "./",
   "display": "fullscreen"
 }

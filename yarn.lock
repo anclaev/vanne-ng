@@ -15,7 +15,7 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     sourcemap-codec "1.4.8"
 
-"@ampproject/remapping@^2.1.0":
+"@ampproject/remapping@^2.0.0", "@ampproject/remapping@^2.1.0":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.1.2.tgz#4edca94973ded9630d20101cd8559cedb8d8bd34"
   integrity sha512-hoyByceqwKirw7w3Z7gnIIZC3Wx3J484Y3L/cMpXFbr7d9ZQj2mODrirNzcJa+SM3UlpWXYvKV4RlRpFXlWgXg==
@@ -218,6 +218,15 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/localize@13.3.2":
+  version "13.3.2"
+  resolved "https://registry.yarnpkg.com/@angular/localize/-/localize-13.3.2.tgz#a0506da43faa3dd46b54dd84b4f11809112cac19"
+  integrity sha512-xJkJ/565SvRtc+iqwueEMe+lJjPd3ywDMez4z1zwtKf7+YKW+QMacru3tL81LPpoPq/ugY/kjsTilPAsMvxjlQ==
+  dependencies:
+    "@babel/core" "7.17.2"
+    glob "7.2.0"
+    yargs "^17.2.1"
+
 "@angular/material@13.3.2":
   version "13.3.2"
   resolved "https://registry.yarnpkg.com/@angular/material/-/material-13.3.2.tgz#ea6743da2b362c553a30eecc93b52fdd7941c771"
@@ -239,10 +248,26 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/platform-server@~13.3.0":
+  version "13.3.2"
+  resolved "https://registry.yarnpkg.com/@angular/platform-server/-/platform-server-13.3.2.tgz#dec54fd11ababb2aec249473bc96c3632a63bfc6"
+  integrity sha512-c5u179r1T/pRcJjL20gDH/WiG+K9fWO4uXakICnO4imq20ZSjJQLSOks5eAFY9kOxUWPNxBN+vVNK9STKnT/gQ==
+  dependencies:
+    domino "^2.1.2"
+    tslib "^2.3.0"
+    xhr2 "^0.2.0"
+
 "@angular/router@~13.3.0":
   version "13.3.2"
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-13.3.2.tgz#26bb9590c2a32ae4e7937831c1b205add4d86d42"
   integrity sha512-SJGGib9eA22QEbzMy7b7IUQDDrRBMaQ51FEqyCpBsOZ5xM2VhdnVnix0HT0fVRF/I63xUBgiDSVgPn6QPNv1kw==
+  dependencies:
+    tslib "^2.3.0"
+
+"@angular/service-worker@~13.3.0":
+  version "13.3.2"
+  resolved "https://registry.yarnpkg.com/@angular/service-worker/-/service-worker-13.3.2.tgz#f7e7d1e902e76fb28be55917babbbbda1a77f94b"
+  integrity sha512-DOW5PPnIOdT/ZXeDsT21tIrIW1P4OCnrZslwafpM1sRu5RVbvConZepRGvjKdAG8ZIpxYCdkK0dg8+IrepAspA==
   dependencies:
     tslib "^2.3.0"
 
@@ -302,6 +327,27 @@
     semver "^6.3.0"
     source-map "^0.5.0"
 
+"@babel/core@7.17.2":
+  version "7.17.2"
+  resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.17.2.tgz#2c77fc430e95139d816d39b113b31bf40fb22337"
+  integrity sha512-R3VH5G42VSDolRHyUO4V2cfag8WHcZyxdq5Z/m8Xyb92lW/Erm/6kM+XtRFGf3Mulre3mveni2NHfEUws8wSvw==
+  dependencies:
+    "@ampproject/remapping" "^2.0.0"
+    "@babel/code-frame" "^7.16.7"
+    "@babel/generator" "^7.17.0"
+    "@babel/helper-compilation-targets" "^7.16.7"
+    "@babel/helper-module-transforms" "^7.16.7"
+    "@babel/helpers" "^7.17.2"
+    "@babel/parser" "^7.17.0"
+    "@babel/template" "^7.16.7"
+    "@babel/traverse" "^7.17.0"
+    "@babel/types" "^7.17.0"
+    convert-source-map "^1.7.0"
+    debug "^4.1.0"
+    gensync "^1.0.0-beta.2"
+    json5 "^2.1.2"
+    semver "^6.3.0"
+
 "@babel/core@^7.12.3", "@babel/core@^7.17.2", "@babel/core@^7.17.5", "@babel/core@^7.7.5":
   version "7.17.9"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.17.9.tgz#6bae81a06d95f4d0dec5bb9d74bbc1f58babdcfe"
@@ -332,7 +378,7 @@
     jsesc "^2.5.1"
     source-map "^0.5.0"
 
-"@babel/generator@^7.16.8", "@babel/generator@^7.17.9":
+"@babel/generator@^7.16.8", "@babel/generator@^7.17.0", "@babel/generator@^7.17.9":
   version "7.17.9"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.17.9.tgz#f4af9fd38fa8de143c29fce3f71852406fc1e2fc"
   integrity sha512-rAdDousTwxbIxbz5I7GEQ3lUip+xVCXooZNbsydCWs3xA7ZsYOv+CFRdzGxRX78BmQHu9B1Eso59AOZQOJDEdQ==
@@ -531,7 +577,7 @@
     "@babel/traverse" "^7.16.8"
     "@babel/types" "^7.16.8"
 
-"@babel/helpers@^7.16.7", "@babel/helpers@^7.17.9":
+"@babel/helpers@^7.16.7", "@babel/helpers@^7.17.2", "@babel/helpers@^7.17.9":
   version "7.17.9"
   resolved "https://registry.yarnpkg.com/@babel/helpers/-/helpers-7.17.9.tgz#b2af120821bfbe44f9907b1826e168e819375a1a"
   integrity sha512-cPCt915ShDWUEzEp3+UNRktO2n6v49l5RSnG9M5pS24hA+2FAc5si+Pn1i4VVbQQ+jh+bIZhPFQOJOzbrOYY1Q==
@@ -549,7 +595,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.14.7", "@babel/parser@^7.16.12", "@babel/parser@^7.16.7", "@babel/parser@^7.17.9":
+"@babel/parser@^7.14.7", "@babel/parser@^7.16.12", "@babel/parser@^7.16.7", "@babel/parser@^7.17.0", "@babel/parser@^7.17.9":
   version "7.17.9"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.17.9.tgz#9c94189a6062f0291418ca021077983058e171ef"
   integrity sha512-vqUSBLP8dQHFPdPi9bc5GK9vRkYHJ49fsZdtoJ8EQ8ibpwk5rPKfvNIwChB0KVXcIjcepEBBd2VHC5r9Gy8ueg==
@@ -1172,7 +1218,7 @@
     "@babel/parser" "^7.16.7"
     "@babel/types" "^7.16.7"
 
-"@babel/traverse@^7.13.0", "@babel/traverse@^7.16.10", "@babel/traverse@^7.16.7", "@babel/traverse@^7.16.8", "@babel/traverse@^7.17.3", "@babel/traverse@^7.17.9":
+"@babel/traverse@^7.13.0", "@babel/traverse@^7.16.10", "@babel/traverse@^7.16.7", "@babel/traverse@^7.16.8", "@babel/traverse@^7.17.0", "@babel/traverse@^7.17.3", "@babel/traverse@^7.17.9":
   version "7.17.9"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.17.9.tgz#1f9b207435d9ae4a8ed6998b2b82300d83c37a0d"
   integrity sha512-PQO8sDIJ8SIwipTPiR71kJQCKQYB5NGImbOviK8K+kg5xkNSYXLBupuX9QhatFowrsvo9Hj8WgArg3W7ijNAQw==
@@ -3186,6 +3232,11 @@ domhandler@^4.0.0, domhandler@^4.2.0, domhandler@^4.3.1:
   integrity sha512-GrwoxYN+uWlzO8uhUXRl0P+kHE4GtVPfYzVLcUxPL7KNdHKj66vvlhiweIHqYYXWlw+T8iLMp42Lm67ghw4WMQ==
   dependencies:
     domelementtype "^2.2.0"
+
+domino@^2.1.2:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/domino/-/domino-2.1.6.tgz#fe4ace4310526e5e7b9d12c7de01b7f485a57ffe"
+  integrity sha512-3VdM/SXBZX2omc9JF9nOPCtDaYQ67BGp5CoLpIQlO2KCAPETs8TcDHacF26jXadGbvUteZzRTeos2fhID5+ucQ==
 
 domutils@^2.5.2, domutils@^2.8.0:
   version "2.8.0"
@@ -7532,6 +7583,11 @@ ws@~8.2.3:
   version "8.2.3"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.2.3.tgz#63a56456db1b04367d0b721a0b80cae6d8becbba"
   integrity sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA==
+
+xhr2@^0.2.0:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/xhr2/-/xhr2-0.2.1.tgz#4e73adc4f9cfec9cbd2157f73efdce3a5f108a93"
+  integrity sha512-sID0rrVCqkVNUn8t6xuv9+6FViXjUVXq8H5rWOH2rz9fDNQEd4g0EA2XlcEdJXRz5BMEn4O1pJFdT+z4YHhoWw==
 
 xmldoc@^1.1.2:
   version "1.1.2"
