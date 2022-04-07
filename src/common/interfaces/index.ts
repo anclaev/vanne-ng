@@ -39,6 +39,9 @@ export interface IRouteData {
  * Интерфейс маршрута
  */
 interface IRoute extends Route {
+  /**
+   * Данные внутри маршрута
+   */
   data: IRouteData
 }
 

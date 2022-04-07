@@ -16,6 +16,7 @@
   <a
     [routerLink]="['/']"
     [routerLinkActive]="['vanne-nav__route--active']"
+    [routerLinkActiveOptions]="{ exact: true }"
     class="vanne-nav__route"
   >
     <img src="/assets/svg/dashboard.svg" alt="Icon: Dashboard" />
@@ -29,14 +30,14 @@
     <img src="/assets/svg/progress.svg" alt="Icon: Progress" />
     <span>Progress</span>
   </a>
-  <a
+  <!-- <a
     [routerLink]="['/debts']"
     [routerLinkActive]="['vanne-nav__route--active']"
     class="vanne-nav__route"
   >
     <img src="/assets/svg/debts.svg" alt="Icon: Debts" />
     <span>Debts</span>
-  </a>
+  </a> -->
   <a
     [routerLink]="['/alerts']"
     [routerLinkActive]="['vanne-nav__route--active']"

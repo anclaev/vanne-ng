@@ -3,7 +3,6 @@ import { Title } from '@angular/platform-browser'
 import { Component } from '@angular/core'
 import { filter, map } from 'rxjs'
 
-import { IRouteData } from '@/common/interfaces'
 import { internalRoutes } from '@/common'
 
 /**

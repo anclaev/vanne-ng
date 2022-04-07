@@ -6,7 +6,7 @@ import { STORAGE } from '@common/enums'
 export class NavService {
   public isHidden: boolean = localStorage.getItem(STORAGE.NAV_HIDDEN) === 'true'
 
-  public toggleStatus() {
+  public toggleStatus(): void {
     this.isHidden = !this.isHidden
     localStorage.setItem(STORAGE.NAV_HIDDEN, this.isHidden.toString())
   }

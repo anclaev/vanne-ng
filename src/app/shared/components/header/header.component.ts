@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { Router } from '@angular/router'
+// import { Router } from '@angular/router'
 
 // import { AuthService } from '@common/auth/auth.service'
 import { NavService } from '@shared/services/nav.service'
@@ -14,11 +14,7 @@ import { ComponentType } from '@/common/interfaces'
 export class HeaderComponent {
   @Input() type: ComponentType = 'public'
 
-  constructor(
-    public navService: NavService,
-    // private authService: AuthService,
-    private router: Router,
-  ) {}
+  constructor(public navService: NavService) {}
 
   public logout() {
     // this.authService.logout()
