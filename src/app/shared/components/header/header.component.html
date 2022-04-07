@@ -1,0 +1,51 @@
+<header [attr.data-type]="type" class="vanne-header">
+  <button
+    class="vanne-header__menu"
+    (click)="navService.toggleStatus()"
+    [attr.data-hidden]="navService.isHidden"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <a
+    routerLink="/me"
+    routerLinkActive="vanne-header-me--active"
+    class="vanne-header-me"
+  >
+    <div class="vanne-header-me__avatar">
+      <img
+        src="/assets/media/ava-default.png"
+        width="44px"
+        height="44px"
+        alt="Icon: Avatar"
+      />
+    </div>
+    <span>Artem Samarin</span>
+  </a>
+  <a
+    routerLink="/settings"
+    routerLinkActive="vanne-header-settings--active"
+    class="vanne-header-settings"
+  >
+    <img
+      src="/assets/svg/settings.svg"
+      width="19px"
+      height="19px"
+      alt="Icon: Settings"
+    />
+
+    <span>Account settings</span>
+  </a>
+  <div class="vanne-header__septum"></div>
+  <a class="vanne-header-logout" (click)="logout()">
+    <img
+      src="/assets/svg/logout.svg"
+      width="18px"
+      height="18px"
+      alt="Icon: Logout"
+    />
+
+    <span>Logout</span>
+  </a>
+</header>

@@ -1,0 +1,65 @@
+<nav
+  class="vanne-nav"
+  [attr.data-type]="type"
+  [attr.data-hidden]="navService.isHidden"
+>
+  <vanne-logo
+    width="110"
+    height="25"
+    *ngIf="!navService.isHidden; else smallLogo"
+  ></vanne-logo>
+
+  <ng-template #smallLogo>
+    <vanne-logo width="37" height="25" type="small"> </vanne-logo>
+  </ng-template>
+
+  <a
+    [routerLink]="['/']"
+    [routerLinkActive]="['vanne-nav__route--active']"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="vanne-nav__route"
+  >
+    <img src="/assets/svg/dashboard.svg" alt="Icon: Dashboard" />
+    <span>Dashboard</span>
+  </a>
+  <a
+    [routerLink]="['/progress']"
+    [routerLinkActive]="['vanne-nav__route--active']"
+    class="vanne-nav__route"
+  >
+    <img src="/assets/svg/progress.svg" alt="Icon: Progress" />
+    <span>Progress</span>
+  </a>
+  <!-- <a
+    [routerLink]="['/debts']"
+    [routerLinkActive]="['vanne-nav__route--active']"
+    class="vanne-nav__route"
+  >
+    <img src="/assets/svg/debts.svg" alt="Icon: Debts" />
+    <span>Debts</span>
+  </a> -->
+  <a
+    [routerLink]="['/alerts']"
+    [routerLinkActive]="['vanne-nav__route--active']"
+    class="vanne-nav__route"
+  >
+    <img src="/assets/svg/alerts.svg" alt="Icon: Alerts" />
+    <span>Alerts</span>
+  </a>
+  <a
+    [routerLink]="['/chats']"
+    [routerLinkActive]="['vanne-nav__route--active']"
+    class="vanne-nav__route"
+  >
+    <img src="/assets/svg/messages.svg" alt="Icon: Messages" />
+    <span>Messages</span>
+  </a>
+  <a
+    [routerLink]="['/users']"
+    [routerLinkActive]="['vanne-nav__route--active']"
+    class="vanne-nav__route"
+  >
+    <img src="/assets/svg/users.svg" alt="Icon: Users" />
+    <span>Users</span>
+  </a>
+</nav>

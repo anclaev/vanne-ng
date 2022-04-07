@@ -1,13 +1,87 @@
 @import './_vars'
+@import './_material'
+@import './_grid'
+
+*
+  box-sizing: border-box
 
 html
-  font-family: $font-family
+  height: 100%
+
+  font-family: $ff
+  font-weight: $fw-regular
+
+html, body
+  padding: 0
+  margin: 0
+
+body
+  min-height: 100vh
+  overflow-x: hidden
+
   background: $color-background
   color: $color-content
 
-html,
-body
-  min-height: 100vh
+  & vanne-root
+    min-height: 100vh
 
-vanne-root 
-  height: 100%
+a
+  color: $color-primary
+  text-decoration: none
+
+p
+  margin: 0
+
+button, input
+  outline: none
+  border: 0
+
+  background: inherit
+  color: $color-content
+
+  transition: border-color .2s
+
+input[type='text'], input[type='password']
+  padding: 14px 12px
+
+  font-size: 16px
+  font-family: $ff
+  letter-spacing: 0.5px
+
+  border-bottom: 1px solid $color-primary-42
+
+  &:focus
+    border-color: $color-primary
+
+    &::placeholder
+      color: rgba($color-content, 0.87)
+
+    &::-ms-reveal, &::-ms-clear
+      color: $color-primary
+
+button
+  cursor: pointer
+  padding: 16px 40px
+
+  text-align: center
+  text-transform: uppercase
+
+  font-size: 14px
+  font-family: $ff
+
+  border: 1px solid $color-primary-42
+  border-radius: 7px
+
+  &:hover
+    border-color: $color-primary
+
+::-webkit-scrollbar
+  width: 7px
+  background: $color-background
+
+::-webkit-scrollbar-thumb
+  background: $color-primary
+  opacity: 0.5
+
+*::selection
+  background: $color-primary-42

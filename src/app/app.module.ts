@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpClientModule } from '@angular/common/http'
@@ -6,9 +7,10 @@ import { Router } from '@angular/router'
 
 import { AppComponent } from './app.component'
 
-import { RoutesModule } from './routes/routes.module'
-import { AuthModule } from './auth/auth.module'
-import { GQLModule } from './gql/gql.module'
+import { RoutesModule } from '@core/routes/routes.module'
+import { GqlModule } from '@core/gql/gql.module'
+
+import { SharedModule } from '@shared/shared.module'
 
 /**
  * Корневой модуль приложения
@@ -17,10 +19,11 @@ import { GQLModule } from './gql/gql.module'
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    GQLModule,
+    BrowserAnimationsModule,
+    GqlModule,
     HttpClientModule,
     RoutesModule,
-    AuthModule,
+    SharedModule,
   ],
   providers: [
     {

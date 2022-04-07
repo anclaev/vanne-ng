@@ -1,0 +1,26 @@
+<footer class="footer" *ngIf="type === 'public'; else internalFooter">
+  <div class="footer__nav">
+    <span>Privacy Policy</span>
+    <span>Join Us</span>
+    <span>Contact Us</span>
+  </div>
+  <div class="footer__me">
+    Powered by
+    <a [href]="me.link" target="blank" rel="noreferrer noopener">
+      {{ me.title }}
+    </a>
+  </div>
+</footer>
+
+<ng-template #internalFooter>
+  <footer class="footer footer--internal">
+    <span>Privacy Policy</span>
+    <span>Contact Us</span>
+    <div class="footer__me">
+      Powered by
+      <a [href]="me.link" target="blank" rel="noreferrer noopener">
+        {{ me.title }}
+      </a>
+    </div>
+  </footer>
+</ng-template>

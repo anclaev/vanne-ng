@@ -1,0 +1,3 @@
+export enum STORAGE {
+  NAV_HIDDEN = 'VANNE_NAV_HIDDEN',
+}

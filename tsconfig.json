@@ -18,12 +18,14 @@
     "target": "es2017",
     "module": "es2020",
     "lib": ["es2020", "dom", "esnext.asynciterable"],
+    "allowSyntheticDefaultImports": true,
     "paths": {
       "@/*": ["src/*"],
       "@env/*": ["src/environments/*"],
+      "@core/*": ["src/app/core/*"],
+      "@shared/*": ["src/app/shared/*"],
       "@common/*": ["src/common/*"]
-    },
-    "allowSyntheticDefaultImports": true
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
