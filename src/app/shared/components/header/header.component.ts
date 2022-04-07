@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core'
 // import { Router } from '@angular/router'
 
+import { ToastService } from '@shared/services/toast.service'
 import { AuthService } from '@shared/services/auth.service'
 import { NavService } from '@shared/services/nav.service'
 
@@ -14,9 +15,14 @@ import { ComponentType } from '@/common/interfaces'
 export class HeaderComponent {
   @Input() type: ComponentType = 'public'
 
-  constructor(public navService: NavService, public authService: AuthService) {}
+  constructor(
+    public navService: NavService,
+    public authService: AuthService,
+    public toastService: ToastService,
+  ) {}
 
   public logout() {
-    // console.log('Click to logout!')
+    this.authService.logout()
+    this.toastService.show('You are logged out')
   }
 }

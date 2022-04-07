@@ -51,10 +51,6 @@ export class AuthService {
           this.user$$.next(user)
           return user
         }),
-        catchError(() => {
-          console.log('Unauthorized')
-          return of(null)
-        }),
       )
   }
 
