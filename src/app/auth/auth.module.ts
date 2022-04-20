@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 
 import { SharedModule } from '../shared/shared.module'
-import { AuthComponent } from './auth.component'
+
+import { SignInComponent } from './sign-in/sign-in.component'
 
 @NgModule({
-  declarations: [AuthComponent],
+  declarations: [SignInComponent],
   imports: [CommonModule, SharedModule, ReactiveFormsModule, MatSnackBarModule],
 })
 export class AuthModule {}

@@ -1,15 +1,8 @@
 import { RouterModule } from '@angular/router'
 import { NgModule } from '@angular/core'
 
-import { NonExistentComponent } from '@/app/shared/components/non-existent/non-existent.component'
 import { DashboardComponent } from '@/app/dashboard/dashboard.component'
-import { SettingsComponent } from '@/app/settings/settings.component'
-import { ProgressComponent } from '@/app/progress/progress.component'
-import { AlertsComponent } from '@/app/alerts/alerts.component'
-import { ChatsComponent } from '@/app/chats/chats.component'
-import { UsersComponent } from '@/app/users/users.component'
-import { AuthComponent } from '@/app/auth/auth.component'
-import { MeComponent } from '@/app/me/me.component'
+import { SignInComponent } from '@/app/auth/sign-in/sign-in.component'
 
 import { AuthGuard } from '@shared/guards/auth.guard'
 
@@ -29,71 +22,16 @@ const APP_ROUTES: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'auth',
+    path: 'sign-in',
 
-    component: AuthComponent,
-    data: {
-      title: 'Vanne',
-    },
-  },
-  {
-    path: 'progress',
-    component: ProgressComponent,
-    data: {
-      title: 'Progress',
-    },
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'alerts',
-    component: AlertsComponent,
-    data: {
-      title: 'Alerts',
-    },
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'chats',
-    component: ChatsComponent,
-    data: {
-      title: 'Chats',
-    },
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'users',
-    component: UsersComponent,
-    data: {
-      title: 'Users',
-    },
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'me',
-    component: MeComponent,
-    data: {
-      title: 'I am',
-    },
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'settings',
-    component: SettingsComponent,
-    data: {
-      title: 'Settings',
-    },
-    canActivate: [AuthGuard],
-  },
-  {
-    path: '404',
-    component: NonExistentComponent,
+    component: SignInComponent,
     data: {
       title: 'Vanne',
     },
   },
   {
     path: '**',
-    redirectTo: '/404',
+    redirectTo: '/',
     data: {
       title: 'Vanne',
     },
