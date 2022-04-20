@@ -8,11 +8,12 @@ import { TitleService } from './services/title.service'
 import { AuthService } from './services/auth.service'
 
 import { BgVideoComponent } from './components/bg-video/bg-video.component'
+import { LogoComponent } from './components/logo/logo.component'
 
 @NgModule({
   imports: [CommonModule, RouterModule, MatSnackBarModule],
   providers: [AuthService, ToastService, TitleService],
-  declarations: [BgVideoComponent],
-  exports: [BgVideoComponent],
+  declarations: [BgVideoComponent, LogoComponent],
+  exports: [BgVideoComponent, LogoComponent],
 })
 export class SharedModule {}

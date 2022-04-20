@@ -1,0 +1,15 @@
+<img
+  src="/assets/svg/logo.svg"
+  alt="Logo: Vanne"
+  [width]="width"
+  [height]="height"
+  *ngIf="type === 'default'; else logoSmall"
+/>
+<ng-template #logoSmall>
+  <img
+    src="/assets/svg/logo-small.svg"
+    alt="Logo: Vanne (small)"
+    [width]="width"
+    [height]="height"
+  />
+</ng-template>
