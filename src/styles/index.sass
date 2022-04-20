@@ -1,6 +1,5 @@
 @import './_vars'
 @import './_material'
-@import './_grid'
 
 *
   box-sizing: border-box
@@ -52,6 +51,9 @@ input[type='text'], input[type='password']
   letter-spacing: 0.5px
 
   border-bottom: 1px solid $color-primary-42
+
+  &::placeholder
+    transition: .2s
 
   &:focus
     border-color: $color-primary

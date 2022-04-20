@@ -3,6 +3,8 @@ import { Title } from '@angular/platform-browser'
 import { Component } from '@angular/core'
 import { filter, map } from 'rxjs'
 
+import { randomNum } from '@shared/utils/funcs'
+
 import { internalRoutes } from '@/common'
 
 /**
@@ -14,12 +16,15 @@ import { internalRoutes } from '@/common'
 })
 export class AppComponent {
   public isInternalPage: boolean = false
+  public background: string
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
   ) {
+    this.background = '/assets/media/bg/' + randomNum(1, 3)
+
     this.router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
@@ -49,7 +54,8 @@ export class AppComponent {
             this.isInternalPage = true
         })
 
-        if (this.isInternalPage && url === '/auth') this.isInternalPage = false
+        if (this.isInternalPage && url === '/sign-in')
+          this.isInternalPage = false
       })
   }
 }

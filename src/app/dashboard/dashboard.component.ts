@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
-import { AuthService } from '../shared/services/auth.service'
+
+import { AuthService } from '@shared/services/auth.service'
 
 @Component({
   selector: 'vanne-dashboard',
@@ -7,9 +8,9 @@ import { AuthService } from '../shared/services/auth.service'
   styleUrls: ['./dashboard.component.sass'],
 })
 export class DashboardComponent {
-  public welcome: string = ''
+  constructor(private authService: AuthService) {}
 
-  constructor(public authService: AuthService) {
-    this.welcome = `Hi, ${this.authService.currentUser?.login}!`
+  logout() {
+    this.authService.logout()
   }
 }

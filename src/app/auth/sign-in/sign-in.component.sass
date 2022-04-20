@@ -1,0 +1,55 @@
+@import '../../../styles/_vars'
+
+:host > main, .header--public, .sign-in
+    display: flex
+
+:host > main, .sign-in
+    align-items: center
+
+.header--public, .sign-in
+    justify-content: center
+
+:host > main
+    flex-direction: column
+
+    height: 100vh
+
+    padding: 0 20px
+
+.header--public > vanne-logo, .copyright
+    margin: 40px 0
+
+    @media only screen and (max-width: 576px)
+        margin: 30px 0
+
+.sign-in
+    width: 100%
+    margin-bottom: 20px
+
+    flex-grow: 1
+
+    @media only screen and (max-width: 576px)
+        margin-bottom: 0
+
+    & > form, & > form *
+        width: 100%
+
+    &__field
+        &:not(:last-of-type)
+            margin-bottom: 30px
+
+        & > label
+            display: none
+
+    & > form
+        max-width: 275px
+
+        & > button
+            margin-top: 50px
+
+.copyright
+    display: block
+    text-transform: lowercase
+
+    font-size: 14px
+    font-weight: $fw-light

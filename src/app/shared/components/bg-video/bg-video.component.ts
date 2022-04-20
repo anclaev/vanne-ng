@@ -9,8 +9,7 @@ import { Component, Input } from '@angular/core'
   styleUrls: ['./bg-video.component.sass'],
 })
 export class BgVideoComponent {
-  @Input('poster') png!: string
-  @Input('source') mp4!: string
+  @Input('media') name!: string
 
   public isMobile = window.innerWidth <= 576 || window.innerHeight <= 415
 }

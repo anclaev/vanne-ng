@@ -1,5 +1,3 @@
-<div class="bg-video__container">
-  <video [muted]="true" [loop]="true" [autoplay]="true" [poster]="png">
-    <source [src]="mp4" type="video/mp4" *ngIf="!isMobile" />
-  </video>
-</div>
+<video [muted]="true" [loop]="true" [autoplay]="true" [poster]="name + '.png'">
+  <source [src]="name + '.mp4'" type="video/mp4" *ngIf="!isMobile" />
+</video>
