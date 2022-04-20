@@ -105,7 +105,7 @@ export class AuthService {
       .subscribe({
         next: () => {
           this.user$$.next(null)
-          this.router.navigate(['/auth'])
+          this.router.navigate(['/sign-in'])
         },
       })
   }
