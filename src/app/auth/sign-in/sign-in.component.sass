@@ -28,9 +28,6 @@
 
     flex-grow: 1
 
-    @media only screen and (max-width: 576px)
-        margin-bottom: 0
-
     & > form, & > form *
         width: 100%
 
@@ -46,6 +43,23 @@
 
         & > button
             margin-top: 50px
+
+            & > span, & > .sign-in-loader
+                transition: .2s
+
+            & > .sign-in-loader
+                opacity: 0
+
+        & > button[loading=true]
+            border-color: transparent
+            pointer-events: none
+            cursor: default
+
+            & > span
+                opacity: 0
+
+            & > .sign-in-loader
+                opacity: 1
 
 .copyright
     display: block
