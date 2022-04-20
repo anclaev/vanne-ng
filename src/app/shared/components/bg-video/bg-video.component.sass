@@ -1,32 +1,42 @@
-.bg-video__container
+@import '../../../../styles/_vars'
+
+:host
     position: fixed
     overflow: hidden
 
-    right: 0
-    bottom: 0
+    z-index: -1
 
-    &, & > video
+    &, &:after
+        right: 0
+        bottom: 0
+
+    &, &:after, & > video
         top: 0
         left: 0
 
-    & > video
+    &:after, & > video
         position: absolute
 
         width: 100%
         height: 100%
 
+    &:after
+        content: ''
+        background: $color-background
+        opacity: .4
+
 @media (min-aspect-ratio: 16/9)
-    .bg-video__container > video
+    :host > video
         height: 300%
         top: -100%
 
 @media (max-aspect-ratio: 16/9)
-    .bg-video__container > video
+    :host > video
         width: 300%
         left: -100%
 
 @supports (object-fit: cover)
-    .bg-video__container > video
+    :host > video
         top: 0
         left: 0
 
