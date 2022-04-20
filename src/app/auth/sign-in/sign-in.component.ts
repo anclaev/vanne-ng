@@ -12,8 +12,9 @@ import { AuthService } from '@/app/shared/services/auth.service'
   styleUrls: ['./sign-in.component.sass'],
 })
 export class SignInComponent implements OnInit {
-  private loading: boolean = false
   private returnUrl: string = '/'
+
+  public loading: boolean = false
 
   public authForm = new FormGroup({
     login: new FormControl('', [Validators.required, Validators.minLength(2)]),
@@ -72,10 +73,7 @@ export class SignInComponent implements OnInit {
       })
       .pipe(first())
       .subscribe({
-        next: (data) => {
-          if (data && 'login' in data)
-            this.toastService.show(`Welcome, ${data.login}!`)
-
+        next: () => {
           this.loading = false
 
           this.router.navigate([this.returnUrl])

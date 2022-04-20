@@ -26,7 +26,13 @@
         />
       </div>
 
-      <button (click)="onSubmit()">Sign in</button>
+      <button (click)="onSubmit()" [attr.loading]="loading">
+        <span>Sign in</span>
+        <mat-progress-bar
+          mode="indeterminate"
+          class="sign-in-loader"
+        ></mat-progress-bar>
+      </button>
     </form>
   </div>
 

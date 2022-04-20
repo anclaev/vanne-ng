@@ -18,15 +18,16 @@ const APP_ROUTES: Routes = [
     component: DashboardComponent,
     data: {
       title: 'Dashboard',
+      animation: 'DashboardPage',
     },
     canActivate: [AuthGuard],
   },
   {
     path: 'sign-in',
-
     component: SignInComponent,
     data: {
       title: 'Vanne',
+      animation: 'SignInPage',
     },
   },
   {

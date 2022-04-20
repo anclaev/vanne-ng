@@ -8,6 +8,11 @@ export interface IRouteData {
    * Заголовок страницы
    */
   title: string
+
+  /**
+   * Анимация маршрута
+   */
+  animation?: string
 }
 
 /**
