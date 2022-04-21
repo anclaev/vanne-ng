@@ -138,7 +138,7 @@
                                 <a href="#authForm" >authForm</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                 <a href="#loading" >loading</a>
                             </li>
                             <li>
@@ -186,7 +186,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/auth/sign-in/sign-in.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/auth/sign-in/sign-in.component.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -289,8 +289,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/app/auth/sign-in/sign-in.component.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/auth/sign-in/sign-in.component.ts:41</a></div>
                 </td>
             </tr>
 
@@ -326,8 +326,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/auth/sign-in/sign-in.component.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/auth/sign-in/sign-in.component.ts:45</a></div>
                 </td>
             </tr>
 
@@ -374,7 +374,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/auth/sign-in/sign-in.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/auth/sign-in/sign-in.component.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -387,7 +387,7 @@
                 <td class="col-md-4">
                     <a name="loading"></a>
                     <span class="name">
-                            <span class="modifier">Private</span>
+                            <span class="modifier">Public</span>
                         <span ><b>loading</b></span>
                         <a href="#loading"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -406,7 +406,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/auth/sign-in/sign-in.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/auth/sign-in/sign-in.component.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -438,7 +438,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/auth/sign-in/sign-in.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/auth/sign-in/sign-in.component.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -459,14 +459,18 @@ import { first } from &#x27;rxjs&#x27;
 import { ToastService } from &#x27;@/app/shared/services/toast.service&#x27;
 import { AuthService } from &#x27;@/app/shared/services/auth.service&#x27;
 
+import { inOutComponentAnimation } from &#x27;@/common/animations/in-out-component&#x27;
+
 @Component({
   selector: &#x27;vanne-sign-in&#x27;,
   templateUrl: &#x27;./sign-in.component.html&#x27;,
   styleUrls: [&#x27;./sign-in.component.sass&#x27;],
+  animations: [inOutComponentAnimation],
 })
 export class SignInComponent implements OnInit {
-  private loading: boolean &#x3D; false
   private returnUrl: string &#x3D; &#x27;/&#x27;
+
+  public loading: boolean &#x3D; false
 
   public authForm &#x3D; new FormGroup({
     login: new FormControl(&#x27;&#x27;, [Validators.required, Validators.minLength(2)]),
@@ -525,10 +529,7 @@ export class SignInComponent implements OnInit {
       })
       .pipe(first())
       .subscribe({
-        next: (data) &#x3D;&gt; {
-          if (data &amp;&amp; &#x27;login&#x27; in data)
-            this.toastService.show(&#x60;Welcome, ${data.login}!&#x60;)
-
+        next: () &#x3D;&gt; {
           this.loading &#x3D; false
 
           this.router.navigate([this.returnUrl])
@@ -545,7 +546,7 @@ export class SignInComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;main&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div @inOutComponent&gt;
   &lt;header class&#x3D;&quot;header--public&quot;&gt;
     &lt;vanne-logo type&#x3D;&quot;default&quot;&gt;&lt;/vanne-logo&gt;
   &lt;/header&gt;
@@ -573,7 +574,13 @@ export class SignInComponent implements OnInit {
         /&gt;
       &lt;/div&gt;
 
-      &lt;button (click)&#x3D;&quot;onSubmit()&quot;&gt;Sign in&lt;/button&gt;
+      &lt;button (click)&#x3D;&quot;onSubmit()&quot; [attr.loading]&#x3D;&quot;loading&quot;&gt;
+        &lt;span&gt;Sign in&lt;/span&gt;
+        &lt;mat-progress-bar
+          mode&#x3D;&quot;indeterminate&quot;
+          class&#x3D;&quot;sign-in-loader&quot;
+        &gt;&lt;/mat-progress-bar&gt;
+      &lt;/button&gt;
     &lt;/form&gt;
   &lt;/div&gt;
 
@@ -583,7 +590,7 @@ export class SignInComponent implements OnInit {
       &lt;a href&#x3D;&quot;https://t.me/anclaev&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;anclaev&lt;/a&gt;&lt;/span
     &gt;
   &lt;/footer&gt;
-&lt;/main&gt;
+&lt;/div&gt;
 </code></pre>
     </div>
 
@@ -593,21 +600,25 @@ export class SignInComponent implements OnInit {
                 </p>
                 <pre class="line-numbers"><code class="language-scss">@import &#x27;../../../styles/_vars&#x27;
 
-:host &gt; main, .header--public, .sign-in
+:host &gt; div, .header--public, .sign-in
     display: flex
 
-:host &gt; main, .sign-in
+:host &gt; div, .sign-in
     align-items: center
 
 .header--public, .sign-in
     justify-content: center
 
-:host &gt; main
+:host &gt; div
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+
     flex-direction: column
 
     height: 100vh
-
-    padding: 0 20px
 
 .header--public &gt; vanne-logo, .copyright
     margin: 40px 0
@@ -620,9 +631,6 @@ export class SignInComponent implements OnInit {
     margin-bottom: 20px
 
     flex-grow: 1
-
-    @media only screen and (max-width: 576px)
-        margin-bottom: 0
 
     &amp; &gt; form, &amp; &gt; form *
         width: 100%
@@ -639,6 +647,23 @@ export class SignInComponent implements OnInit {
 
         &amp; &gt; button
             margin-top: 50px
+
+            &amp; &gt; span, &amp; &gt; .sign-in-loader
+                transition: .2s
+
+            &amp; &gt; .sign-in-loader
+                opacity: 0
+
+        &amp; &gt; button[loading&#x3D;true]
+            border-color: transparent
+            pointer-events: none
+            cursor: default
+
+            &amp; &gt; span
+                opacity: 0
+
+            &amp; &gt; .sign-in-loader
+                opacity: 1
 
 .copyright
     display: block
@@ -674,8 +699,8 @@ export class SignInComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><main>  <header class="header--public">    <vanne-logo type="default"></vanne-logo>  </header>  <div class="sign-in">    <form [formGroup]="authForm">      <div class="sign-in__field">        <label for="login">Login</label>        <input          id="login"          placeholder="Login"          type="text"          autocomplete="username"          formControlName="login"        />      </div>      <div class="sign-in__field">        <label for="password">Password</label>        <input          id="password"          autocomplete="current-password"          placeholder="Password"          type="password"          formControlName="password"        />      </div>      <button (click)="onSubmit()">Sign in</button>    </form>  </div>  <footer>    <span class="copyright"      >Powered by      <a href="https://t.me/anclaev" rel="noopener noreferrer">anclaev</a></span    >  </footer></main></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'}];
+        var COMPONENT_TEMPLATE = '<div><div @inOutComponent>  <header class="header--public">    <vanne-logo type="default"></vanne-logo>  </header>  <div class="sign-in">    <form [formGroup]="authForm">      <div class="sign-in__field">        <label for="login">Login</label>        <input          id="login"          placeholder="Login"          type="text"          autocomplete="username"          formControlName="login"        />      </div>      <div class="sign-in__field">        <label for="password">Password</label>        <input          id="password"          autocomplete="current-password"          placeholder="Password"          type="password"          formControlName="password"        />      </div>      <button (click)="onSubmit()" [attr.loading]="loading">        <span>Sign in</span>        <mat-progress-bar          mode="indeterminate"          class="sign-in-loader"        ></mat-progress-bar>      </button>    </form>  </div>  <footer>    <span class="copyright"      >Powered by      <a href="https://t.me/anclaev" rel="noopener noreferrer">anclaev</a></span    >  </footer></div></div>'
+    var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'MeComponent', 'selector': 'vanne-me'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SignInComponent'};
 </script>

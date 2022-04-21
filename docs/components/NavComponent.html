@@ -38,7 +38,7 @@
   <li>Components</li>
   <li
   >
-  BgVideoComponent</li>
+  NavComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -64,17 +64,10 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/shared/components/bg-video/bg-video.component.ts</code>
+    <code>src/app/shared/components/nav/nav.component.ts</code>
 </p>
 
 
-    <p class="comment">
-        <h3>Description</h3>
-    </p>
-    <p class="comment">
-        <p>Компонент видеофона</p>
-
-    </p>
 
 
 
@@ -96,19 +89,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>vanne-bg-video</code></td>
+                <td class="col-md-9"><code>vanne-nav</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./bg-video.component.sass</code></td>
+                <td class="col-md-9"><code>./nav.component.sass</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./bg-video.component.html</code></td>
+                <td class="col-md-9"><code>./nav.component.html</code></td>
             </tr>
 
 
@@ -126,21 +119,6 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#isMobile" >isMobile</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
 
                 <tr>
@@ -152,7 +130,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#media" >media</a>
+                                <a href="#status" >status</a>
                             </li>
                         </ul>
                     </td>
@@ -165,6 +143,24 @@
     </table>
 </section>
 
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/shared/components/nav/nav.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
 
     <section>
     <h3 id="inputs">Inputs</h3>
@@ -172,19 +168,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="media"></a>
-                        <b>media</b>
+                        <a name="status"></a>
+                        <b>status</b>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/shared/components/bg-video/bg-video.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/shared/components/nav/nav.component.ts:12</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -194,38 +195,6 @@
 
 
 
-    <section>
-    
-    <h3 id="inputs">
-        Properties
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="isMobile"></a>
-                    <span class="name">
-                            <span class="modifier">Public</span>
-                        <span ><b>isMobile</b></span>
-                        <a href="#isMobile"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>window.innerWidth &lt;&#x3D; 576 || window.innerHeight &lt;&#x3D; 415</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/shared/components/bg-video/bg-video.component.ts:14</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-</section>
 
 </div>
 
@@ -233,79 +202,135 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;
 
-/**
- * Компонент видеофона
- */
-@Component({
-  selector: &#x27;vanne-bg-video&#x27;,
-  templateUrl: &#x27;./bg-video.component.html&#x27;,
-  styleUrls: [&#x27;./bg-video.component.sass&#x27;],
-})
-export class BgVideoComponent {
-  @Input(&#x27;media&#x27;) name!: string
+import { inOutComponentAnimation } from &#x27;@/common/animations/in-out-component&#x27;
 
-  public isMobile &#x3D; window.innerWidth &lt;&#x3D; 576 || window.innerHeight &lt;&#x3D; 415
+@Component({
+  selector: &#x27;vanne-nav&#x27;,
+  templateUrl: &#x27;./nav.component.html&#x27;,
+  styleUrls: [&#x27;./nav.component.sass&#x27;],
+  animations: [inOutComponentAnimation],
+})
+export class NavComponent {
+  @Input(&#x27;status&#x27;) status: boolean &#x3D; false
+
+  constructor() {}
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;video [muted]&#x3D;&quot;true&quot; [loop]&#x3D;&quot;true&quot; [autoplay]&#x3D;&quot;true&quot; [poster]&#x3D;&quot;name + &#x27;.png&#x27;&quot;&gt;
-  &lt;source [src]&#x3D;&quot;name + &#x27;.mp4&#x27;&quot; type&#x3D;&quot;video/mp4&quot; *ngIf&#x3D;&quot;!isMobile&quot; /&gt;
-&lt;/video&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;nav *ngIf&#x3D;&quot;status&quot; class&#x3D;&quot;nav&quot; @inOutComponent&gt;
+  &lt;a
+    class&#x3D;&quot;pin nav__link&quot;
+    routerLink&#x3D;&quot;/&quot;
+    routerLinkActive&#x3D;&quot;nav__link--active&quot;
+    [routerLinkActiveOptions]&#x3D;&quot;{ exact: true }&quot;
+    title&#x3D;&quot;Dashboard&quot;
+  &gt;
+    &lt;img
+      src&#x3D;&quot;/assets/svg/dashboard.svg&quot;
+      width&#x3D;&quot;16&quot;
+      height&#x3D;&quot;16&quot;
+      alt&#x3D;&quot;Dashboard&quot;
+    /&gt;
+  &lt;/a&gt;
+  &lt;a
+    class&#x3D;&quot;pin nav__link&quot;
+    routerLink&#x3D;&quot;/progress&quot;
+    routerLinkActive&#x3D;&quot;nav__link--active&quot;
+    title&#x3D;&quot;Progress&quot;
+  &gt;
+    &lt;img src&#x3D;&quot;/assets/svg/progress.svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; alt&#x3D;&quot;Progress&quot; /&gt;
+  &lt;/a&gt;
+  &lt;a
+    class&#x3D;&quot;pin nav__link&quot;
+    routerLink&#x3D;&quot;/debts&quot;
+    routerLinkActive&#x3D;&quot;nav__link--active&quot;
+    title&#x3D;&quot;Debts&quot;
+  &gt;
+    &lt;img src&#x3D;&quot;/assets/svg/debts.svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; alt&#x3D;&quot;Debts&quot; /&gt;
+  &lt;/a&gt;
+  &lt;a
+    class&#x3D;&quot;pin nav__link&quot;
+    routerLink&#x3D;&quot;/alarms&quot;
+    routerLinkActive&#x3D;&quot;nav__link--active&quot;
+    title&#x3D;&quot;Alarms&quot;
+  &gt;
+    &lt;img src&#x3D;&quot;/assets/svg/alarms.svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; alt&#x3D;&quot;Alarms&quot; /&gt;
+  &lt;/a&gt;
+  &lt;a
+    class&#x3D;&quot;pin nav__link&quot;
+    routerLink&#x3D;&quot;/chats&quot;
+    routerLinkActive&#x3D;&quot;nav__link--active&quot;
+    title&#x3D;&quot;Chats&quot;
+  &gt;
+    &lt;img src&#x3D;&quot;/assets/svg/messages.svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; alt&#x3D;&quot;Chats&quot; /&gt;
+  &lt;/a&gt;
+  &lt;a
+    class&#x3D;&quot;pin nav__link&quot;
+    routerLink&#x3D;&quot;/users&quot;
+    routerLinkActive&#x3D;&quot;nav__link--active&quot;
+    title&#x3D;&quot;Users&quot;
+  &gt;
+    &lt;img src&#x3D;&quot;/assets/svg/users.svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; alt&#x3D;&quot;Users&quot; /&gt;
+  &lt;/a&gt;
+&lt;/nav&gt;
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
-                    <code>./bg-video.component.sass</code>
+                    <code>./nav.component.sass</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">@import &#x27;../../../../styles/_vars&#x27;
 
 :host
-    position: fixed
-    overflow: hidden
+    grid-area: nav
+    overflow-y: scroll
+    overflow-x: scroll
 
-    z-index: -1
+    &amp;::-webkit-scrollbar
+        display: none
 
-    &amp;, &amp;:after
-        right: 0
-        bottom: 0
+    @media only screen and (max-width: 576px)
+        grid-area: initial
 
-    &amp;, &amp;:after, &amp; &gt; video
-        top: 0
-        left: 0
+.nav
+    display: flex
+    flex-direction: column
 
-    &amp;:after, &amp; &gt; video
-        position: absolute
+    max-width: 60px
 
-        width: 100%
-        height: 100%
+    @media only screen and (max-width: 576px)
+        position: fixed
+        z-index: 3
 
-    &amp;:after
-        content: &#x27;&#x27;
-        background: $color-background
-        opacity: .5
+        overflow-x: scroll
 
-@media (min-aspect-ratio: 16/9)
-    :host &gt; video
-        height: 300%
-        top: -100%
+        left: 30px
+        right: 30px
+        bottom: 30px
 
-@media (max-aspect-ratio: 16/9)
-    :host &gt; video
-        width: 300%
-        left: -100%
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
 
-@supports (object-fit: cover)
-    :host &gt; video
-        top: 0
-        left: 0
+        max-width: none
+        max-height: 60px
 
-        width: 100%
-        height: 100%
+        &amp;::-webkit-scrollbar
+            display: none
 
-        object-fit: cover
+        &amp;__link:not(:last-child)
+            margin-bottom: 0 !important
+            margin-right: 20px
+
+    &amp;__link
+        &amp;:not(:last-child)
+            margin-bottom: 30px
+
+        &amp;--active
+            border-color: $color-primary-light
 </code></pre>
     </div>
 
@@ -334,10 +359,10 @@ export class BgVideoComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><video [muted]="true" [loop]="true" [autoplay]="true" [poster]="name + \'.png\'">  <source [src]="name + \'.mp4\'" type="video/mp4" *ngIf="!isMobile" /></video></div>'
+        var COMPONENT_TEMPLATE = '<div><nav *ngIf="status" class="nav" @inOutComponent>  <a    class="pin nav__link"    routerLink="/"    routerLinkActive="nav__link--active"    [routerLinkActiveOptions]="{ exact: true }"    title="Dashboard"  >    <img      src="/assets/svg/dashboard.svg"      width="16"      height="16"      alt="Dashboard"    />  </a>  <a    class="pin nav__link"    routerLink="/progress"    routerLinkActive="nav__link--active"    title="Progress"  >    <img src="/assets/svg/progress.svg" width="16" height="16" alt="Progress" />  </a>  <a    class="pin nav__link"    routerLink="/debts"    routerLinkActive="nav__link--active"    title="Debts"  >    <img src="/assets/svg/debts.svg" width="16" height="16" alt="Debts" />  </a>  <a    class="pin nav__link"    routerLink="/alarms"    routerLinkActive="nav__link--active"    title="Alarms"  >    <img src="/assets/svg/alarms.svg" width="16" height="16" alt="Alarms" />  </a>  <a    class="pin nav__link"    routerLink="/chats"    routerLinkActive="nav__link--active"    title="Chats"  >    <img src="/assets/svg/messages.svg" width="16" height="16" alt="Chats" />  </a>  <a    class="pin nav__link"    routerLink="/users"    routerLinkActive="nav__link--active"    title="Users"  >    <img src="/assets/svg/users.svg" width="16" height="16" alt="Users" />  </a></nav></div>'
     var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'MeComponent', 'selector': 'vanne-me'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'BgVideoComponent'};
+    var ACTUAL_COMPONENT = {'name': 'NavComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -383,7 +408,7 @@ export class BgVideoComponent {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'BgVideoComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'NavComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -77,6 +77,12 @@ import { NgModule } from &#x27;@angular/core&#x27;
 
 import { DashboardComponent } from &#x27;@/app/dashboard/dashboard.component&#x27;
 import { SignInComponent } from &#x27;@/app/auth/sign-in/sign-in.component&#x27;
+import { ProgressComponent } from &#x27;./progress/progress.component&#x27;
+import { SettingsComponent } from &#x27;./settings/settings.component&#x27;
+import { AlarmsComponent } from &#x27;./alarms/alarms.component&#x27;
+import { UsersComponent } from &#x27;./users/users.component&#x27;
+import { DebtsComponent } from &#x27;./debts/debts.component&#x27;
+import { ChatsComponent } from &#x27;./chats/chats.component&#x27;
 
 import { AuthGuard } from &#x27;@shared/guards/auth.guard&#x27;
 
@@ -96,8 +102,61 @@ const APP_ROUTES: Routes &#x3D; [
     canActivate: [AuthGuard],
   },
   {
+    path: &#x27;progress&#x27;,
+    pathMatch: &#x27;full&#x27;,
+    component: ProgressComponent,
+    data: {
+      title: &#x27;Progress&#x27;,
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: &#x27;debts&#x27;,
+    pathMatch: &#x27;full&#x27;,
+    component: DebtsComponent,
+    data: {
+      title: &#x27;Debts&#x27;,
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: &#x27;alarms&#x27;,
+    pathMatch: &#x27;full&#x27;,
+    component: AlarmsComponent,
+    data: {
+      title: &#x27;Alarms&#x27;,
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: &#x27;chats&#x27;,
+    pathMatch: &#x27;full&#x27;,
+    component: ChatsComponent,
+    data: {
+      title: &#x27;Chats&#x27;,
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: &#x27;users&#x27;,
+    pathMatch: &#x27;full&#x27;,
+    component: UsersComponent,
+    data: {
+      title: &#x27;Users&#x27;,
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: &#x27;settings&#x27;,
+    pathMatch: &#x27;full&#x27;,
+    component: SettingsComponent,
+    data: {
+      title: &#x27;Settings&#x27;,
+    },
+    canActivate: [AuthGuard],
+  },
+  {
     path: &#x27;sign-in&#x27;,
-
     component: SignInComponent,
     data: {
       title: &#x27;Vanne&#x27;,
