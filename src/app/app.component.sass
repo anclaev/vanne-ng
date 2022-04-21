@@ -1,0 +1,19 @@
+:host > main[internal="true"]
+    height: 100vh
+    overflow-y: scroll
+
+    padding: 30px
+    grid-gap: 30px
+
+    display: grid
+    grid-template-areas: 'header header' 'nav main'
+    grid-template-columns: max-content 1fr
+    grid-template-rows: max-content 1fr
+
+    & > div > *
+        grid-area: main
+
+    @media only screen and (max-width: 576px)
+        grid-template-areas: 'header' 'main' 'nav'
+        grid-template-rows: max-content 1fr max-content
+        grid-template-columns: 1fr

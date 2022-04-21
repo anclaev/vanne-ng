@@ -16,3 +16,8 @@ export const internalRoutes = [
   '/me',
   '/settings',
 ]
+
+/**
+ * Зона компонента (внутренний/внешний)
+ */
+export type ComponentZone = 'internal' | 'public'

@@ -20,6 +20,7 @@ import { internalRoutes } from '@/common'
 @Component({
   selector: 'vanne-root',
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.sass'],
   animations: [changeRouteAnimation],
 })
 export class AppComponent {
@@ -57,7 +58,6 @@ export class AppComponent {
         if (data.title) this.titleService.setTitle(data.title)
 
         let url = data.event.url
-
         internalRoutes.forEach((item) => {
           if ((item.includes(url) && url !== '/') || item === url)
             this.isInternalPage = true
