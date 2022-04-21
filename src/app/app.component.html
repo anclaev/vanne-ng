@@ -1,7 +1,7 @@
 <main [attr.internal]="isInternalPage">
   <vanne-header [status]="isInternalPage"></vanne-header>
   <vanne-nav [status]="isInternalPage"></vanne-nav>
-  <div [@routeAnimations]="getRouteAnimationData()">
+  <div>
     <router-outlet></router-outlet>
   </div>
   <vanne-bg-video [media]="background"></vanne-bg-video>

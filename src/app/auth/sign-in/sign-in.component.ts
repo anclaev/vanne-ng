@@ -6,10 +6,13 @@ import { first } from 'rxjs'
 import { ToastService } from '@/app/shared/services/toast.service'
 import { AuthService } from '@/app/shared/services/auth.service'
 
+import { inOutComponentAnimation } from '@/common/animations/in-out-component'
+
 @Component({
   selector: 'vanne-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.sass'],
+  animations: [inOutComponentAnimation],
 })
 export class SignInComponent implements OnInit {
   private returnUrl: string = '/'
