@@ -7,7 +7,7 @@ export interface IRouteData {
   /**
    * Заголовок страницы
    */
-  title: string
+  title?: string
 
   /**
    * Анимация маршрута
@@ -22,7 +22,7 @@ export interface IRoute extends Route {
   /**
    * Данные внутри маршрута
    */
-  data: IRouteData
+  data?: IRouteData
 }
 
 export type Routes = IRoute[]

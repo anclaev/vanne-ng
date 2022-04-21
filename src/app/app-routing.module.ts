@@ -9,6 +9,7 @@ import { AlarmsComponent } from './alarms/alarms.component'
 import { UsersComponent } from './users/users.component'
 import { DebtsComponent } from './debts/debts.component'
 import { ChatsComponent } from './chats/chats.component'
+import { MeComponent } from './me/me.component'
 
 import { AuthGuard } from '@shared/guards/auth.guard'
 
@@ -25,6 +26,12 @@ const APP_ROUTES: Routes = [
     data: {
       title: 'Dashboard',
     },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'me',
+    pathMatch: 'full',
+    component: MeComponent,
     canActivate: [AuthGuard],
   },
   {
