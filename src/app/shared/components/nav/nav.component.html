@@ -1,1 +1,55 @@
-<nav *ngIf="status" class="nav" @inOutComponent>Nav</nav>
+<nav *ngIf="status" class="nav" @inOutComponent>
+  <a
+    class="pin nav__link"
+    routerLink="/"
+    routerLinkActive="nav__link--active"
+    title="Dashboard"
+  >
+    <img
+      src="/assets/svg/dashboard.svg"
+      width="16"
+      height="16"
+      alt="Dashboard"
+    />
+  </a>
+  <a
+    class="pin nav__link"
+    routerLink="/progress"
+    routerLinkActive="nav__link--active"
+    title="Progress"
+  >
+    <img src="/assets/svg/progress.svg" width="16" height="16" alt="Progress" />
+  </a>
+  <a
+    class="pin nav__link"
+    routerLink="/debts"
+    routerLinkActive="nav__link--active"
+    title="Debts"
+  >
+    <img src="/assets/svg/debts.svg" width="16" height="16" alt="Debts" />
+  </a>
+  <a
+    class="pin nav__link"
+    routerLink="/alarms"
+    routerLinkActive="nav__link--active"
+    title="Alarms"
+  >
+    <img src="/assets/svg/alarms.svg" width="16" height="16" alt="Alarms" />
+  </a>
+  <a
+    class="pin nav__link"
+    routerLink="/chats"
+    routerLinkActive="nav__link--active"
+    title="Chats"
+  >
+    <img src="/assets/svg/messages.svg" width="16" height="16" alt="Chats" />
+  </a>
+  <a
+    class="pin nav__link"
+    routerLink="/users"
+    routerLinkActive="nav__link--active"
+    title="Users"
+  >
+    <img src="/assets/svg/users.svg" width="16" height="16" alt="Users" />
+  </a>
+</nav>
