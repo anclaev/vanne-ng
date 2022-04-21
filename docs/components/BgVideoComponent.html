@@ -285,7 +285,7 @@ export class BgVideoComponent {
     &amp;:after
         content: &#x27;&#x27;
         background: $color-background
-        opacity: .4
+        opacity: .5
 
 @media (min-aspect-ratio: 16/9)
     :host &gt; video
@@ -335,7 +335,7 @@ export class BgVideoComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><video [muted]="true" [loop]="true" [autoplay]="true" [poster]="name + \'.png\'">  <source [src]="name + \'.mp4\'" type="video/mp4" *ngIf="!isMobile" /></video></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'}];
+    var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'MeComponent', 'selector': 'vanne-me'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BgVideoComponent'};
 </script>

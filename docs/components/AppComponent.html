@@ -52,6 +52,9 @@
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
         </li>
         <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -96,6 +99,10 @@
                 <td class="col-md-9"><code>vanne-root</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./app.component.sass</code></td>
+            </tr>
 
 
 
@@ -159,7 +166,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/app.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/app.component.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -251,7 +258,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/app.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/app.component.ts:21</a></div>
                         </td>
                     </tr>
 
@@ -283,7 +290,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/app.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/app.component.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -297,6 +304,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ActivatedRoute, NavigationEnd, Router } from &#x27;@angular/router&#x27;
+
 import { Title } from &#x27;@angular/platform-browser&#x27;
 import { Component } from &#x27;@angular/core&#x27;
 import { filter, map } from &#x27;rxjs&#x27;
@@ -311,6 +319,7 @@ import { internalRoutes } from &#x27;@/common&#x27;
 @Component({
   selector: &#x27;vanne-root&#x27;,
   templateUrl: &#x27;./app.component.html&#x27;,
+  styleUrls: [&#x27;./app.component.sass&#x27;],
 })
 export class AppComponent {
   public isInternalPage: boolean &#x3D; false
@@ -346,7 +355,6 @@ export class AppComponent {
         if (data.title) this.titleService.setTitle(data.title)
 
         let url &#x3D; data.event.url
-
         internalRoutes.forEach((item) &#x3D;&gt; {
           if ((item.includes(url) &amp;&amp; url !&#x3D;&#x3D; &#x27;/&#x27;) || item &#x3D;&#x3D;&#x3D; url)
             this.isInternalPage &#x3D; true
@@ -361,11 +369,41 @@ export class AppComponent {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;router-outlet&gt;&lt;/router-outlet&gt;
-&lt;vanne-bg-video [media]&#x3D;&quot;background&quot;&gt;&lt;/vanne-bg-video&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;main [attr.internal]&#x3D;&quot;isInternalPage&quot;&gt;
+  &lt;vanne-header [status]&#x3D;&quot;isInternalPage&quot;&gt;&lt;/vanne-header&gt;
+  &lt;vanne-nav [status]&#x3D;&quot;isInternalPage&quot;&gt;&lt;/vanne-nav&gt;
+
+  &lt;router-outlet&gt;&lt;/router-outlet&gt;
+
+  &lt;vanne-bg-video [media]&#x3D;&quot;background&quot;&gt;&lt;/vanne-bg-video&gt;
+&lt;/main&gt;
 </code></pre>
     </div>
 
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./app.component.sass</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host &gt; main[internal&#x3D;&quot;true&quot;]
+    height: calc(100vh - 30px)
+
+    grid-gap: 40px
+
+    display: grid
+    grid-template-areas: &#x27;header header&#x27; &#x27;nav main&#x27;
+    grid-template-columns: 60px 1fr
+    grid-template-rows: 60px 1fr
+
+    @media only screen and (max-width: 576px)
+        height: calc(100vh - 20px)
+
+        grid-template-areas: &#x27;header&#x27; &#x27;main&#x27;
+        grid-template-rows: 50px 1fr
+        grid-template-columns: auto !important
+
+        grid-gap: 30px
+</code></pre>
+    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>
@@ -392,8 +430,8 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><router-outlet></router-outlet><vanne-bg-video [media]="background"></vanne-bg-video></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'}];
+        var COMPONENT_TEMPLATE = '<div><main [attr.internal]="isInternalPage">  <vanne-header [status]="isInternalPage"></vanne-header>  <vanne-nav [status]="isInternalPage"></vanne-nav>  <router-outlet></router-outlet>  <vanne-bg-video [media]="background"></vanne-bg-video></main></div>'
+    var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'MeComponent', 'selector': 'vanne-me'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>

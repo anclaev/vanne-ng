@@ -14,8 +14,15 @@ import { GqlModule } from '@core/gql/gql.module'
 
 import { SharedModule } from '@shared/shared.module'
 
-import { DashboardModule } from './dashboard/dashboard.module'
 import { AppRoutingModule } from './app-routing.module'
+
+import { DashboardModule } from './dashboard/dashboard.module'
+import { ProgressModule } from './progress/progress.module'
+import { SettingsModule } from './settings/settings.module'
+import { AlarmsModule } from './alarms/alarms.module'
+import { DebtsModule } from './debts/debts.module'
+import { ChatsModule } from './chats/chats.module'
+import { UsersModule } from './users/users.module'
 import { AuthModule } from './auth/auth.module'
 
 /**
@@ -32,6 +39,12 @@ import { AuthModule } from './auth/auth.module'
     AppRoutingModule,
     AuthModule,
     DashboardModule,
+    ProgressModule,
+    DebtsModule,
+    AlarmsModule,
+    ChatsModule,
+    SettingsModule,
+    UsersModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: ENV.PRODUCTION,
       registrationStrategy: 'registerWhenStable:30000',

@@ -1,0 +1,116 @@
+@import '../../../../styles/_vars'
+
+:host
+    grid-area: header
+.header--internal
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+
+    & > vanne-logo
+        width: 60px
+        height: 60px
+
+    &__me
+        padding: 0 20px
+
+        &, & > a
+            display: flex
+            align-items: center
+
+        & > a
+            justify-content: center
+
+            user-select: none
+            cursor: pointer
+            overflow: hidden
+
+            min-width: 60px
+            width: 60px
+            min-height: 60px
+            height: 60px
+
+            border: 2px solid $color-primary-light
+            border-radius: 50%
+            transition: .2s
+
+            &:hover
+                border-color: $color-primary
+
+            & > img
+                max-width: 100%
+                max-height: 100%
+
+        & > div
+            margin-left: 30px
+
+            & > span
+                display: block
+                text-transform: uppercase
+                letter-spacing: 0.1em
+                line-height: 170%
+
+                &:first-child
+                    font-size: 13px
+                    font-weight: $fw-bold
+
+                &:last-child
+                    font-size: 10px
+                    font-weight: $fw-light
+
+    &__options
+        display: flex
+        align-items: center
+
+        &--active
+            border-color: $color-primary
+
+        & > button
+            position: relative
+            margin-left: 60px
+
+            &::before
+                content: ''
+                position: absolute
+                opacity: .4
+
+                left: -30px
+
+                width: 2px
+                height: 50%
+
+                background: $color-primary-light
+
+    @media only screen and (max-width: 576px)
+        & > vanne-logo
+            display: none
+
+        &__me
+            flex-grow: 1
+            padding-left: 0
+
+            & > a
+                min-width: 50px
+                width: 50px
+                min-height: 50px
+                height: 50px
+
+            & > div
+                margin-left: 20px
+
+                & > span
+                    letter-spacing: 0.15em
+
+                    &:first-child
+                        font-size: 10px
+
+                    &:last-child
+                        display: none
+
+        &__options
+            & > button
+                margin-left: 20px
+
+                &::before
+                    display: none

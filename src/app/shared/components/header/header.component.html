@@ -1,0 +1,34 @@
+<header *ngIf="status" class="header--internal" @inOutComponent>
+  <vanne-logo [type]="'small'"></vanne-logo>
+  <div class="header--internal__me">
+    <a routerLink="/me" title="To me">
+      <img
+        src="/assets/media/ava-default.png"
+        width="60"
+        height="60"
+        alt="User Avatar"
+      />
+    </a>
+    <div>
+      <span>{{ user }}</span>
+      <span>{{ company }}</span>
+    </div>
+  </div>
+  <div class="header--internal__options">
+    <a
+      class="pin"
+      routerLink="/settings"
+      routerLinkActive="header--internal__options--active"
+      title="Settings"
+      ><img
+        src="/assets/svg/settings.svg"
+        width="16"
+        height="16"
+        alt="Settings"
+    /></a>
+
+    <button class="pin" (click)="authService.logout()" title="Sign out">
+      <img src="/assets/svg/logout.svg" width="16" height="16" alt="Logout" />
+    </button>
+  </div>
+</header>

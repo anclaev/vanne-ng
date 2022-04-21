@@ -86,7 +86,7 @@
                                 <a href="#user$" >user$</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                 <a href="#user$$" >user$$</a>
                             </li>
                         </ul>
@@ -235,8 +235,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">src/app/shared/services/auth.service.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">src/app/shared/services/auth.service.ts:86</a></div>
                 </td>
             </tr>
 
@@ -377,8 +377,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="94"
-                            class="link-to-prism">src/app/shared/services/auth.service.ts:94</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/app/shared/services/auth.service.ts:99</a></div>
                 </td>
             </tr>
 
@@ -543,7 +543,7 @@
                 <td class="col-md-4">
                     <a name="user$$"></a>
                     <span class="name">
-                            <span class="modifier">Private</span>
+                            <span class="modifier">Public</span>
                         <span ><b>user$$</b></span>
                         <a href="#user$$"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -618,7 +618,7 @@ import { ENV } from &#x27;@env/env&#x27;
 
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class AuthService {
-  private user$$: BehaviorSubject&lt;User&gt;
+  public user$$: BehaviorSubject&lt;User&gt;
   private user$: Observable&lt;User&gt;
 
   private api: string &#x3D; ENV.API_HOST
@@ -658,23 +658,28 @@ export class AuthService {
   }
 
   public me(): Observable&lt;User&gt; {
-    return this.httpClient.get&lt;User&gt;(this.api + API.AUTH_DATA).pipe(
-      map((user) &#x3D;&gt; {
-        this.user$$.next(user)
-        return user
-      }),
-      catchError(() &#x3D;&gt; {
-        const refresh$ &#x3D; this.refresh().pipe(
-          map((user) &#x3D;&gt; {
-            this.user$$.next(user)
+    return this.httpClient
+      .get&lt;User&gt;(this.api + API.AUTH_DATA, {
+        withCredentials: true,
+      })
+      .pipe(
+        map((user) &#x3D;&gt; {
+          this.user$$.next(user)
 
-            return user
-          }),
-        )
+          return user
+        }),
+        catchError(() &#x3D;&gt; {
+          const refresh$ &#x3D; this.refresh().pipe(
+            map((user) &#x3D;&gt; {
+              this.user$$.next(user)
 
-        return refresh$
-      }),
-    )
+              return user
+            }),
+          )
+
+          return refresh$
+        }),
+      )
   }
 
   public check(returnUrl: string): Observable&lt;boolean&gt; {

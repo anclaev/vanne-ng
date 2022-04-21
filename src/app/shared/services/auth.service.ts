@@ -19,7 +19,7 @@ import { ENV } from '@env/env'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private user$$: BehaviorSubject<User>
+  public user$$: BehaviorSubject<User>
   private user$: Observable<User>
 
   private api: string = ENV.API_HOST
@@ -59,23 +59,28 @@ export class AuthService {
   }
 
   public me(): Observable<User> {
-    return this.httpClient.get<User>(this.api + API.AUTH_DATA).pipe(
-      map((user) => {
-        this.user$$.next(user)
-        return user
-      }),
-      catchError(() => {
-        const refresh$ = this.refresh().pipe(
-          map((user) => {
-            this.user$$.next(user)
+    return this.httpClient
+      .get<User>(this.api + API.AUTH_DATA, {
+        withCredentials: true,
+      })
+      .pipe(
+        map((user) => {
+          this.user$$.next(user)
 
-            return user
-          }),
-        )
+          return user
+        }),
+        catchError(() => {
+          const refresh$ = this.refresh().pipe(
+            map((user) => {
+              this.user$$.next(user)
 
-        return refresh$
-      }),
-    )
+              return user
+            }),
+          )
+
+          return refresh$
+        }),
+      )
   }
 
   public check(returnUrl: string): Observable<boolean> {

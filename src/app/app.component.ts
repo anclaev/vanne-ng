@@ -1,9 +1,4 @@
-import {
-  ActivatedRoute,
-  ChildrenOutletContexts,
-  NavigationEnd,
-  Router,
-} from '@angular/router'
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 
 import { Title } from '@angular/platform-browser'
 import { Component } from '@angular/core'
@@ -11,7 +6,6 @@ import { filter, map } from 'rxjs'
 
 import { randomNum } from '@shared/utils/funcs'
 
-import { changeRouteAnimation } from '@/common/animations/change-route'
 import { internalRoutes } from '@/common'
 
 /**
@@ -20,7 +14,7 @@ import { internalRoutes } from '@/common'
 @Component({
   selector: 'vanne-root',
   templateUrl: './app.component.html',
-  animations: [changeRouteAnimation],
+  styleUrls: ['./app.component.sass'],
 })
 export class AppComponent {
   public isInternalPage: boolean = false
@@ -30,7 +24,6 @@ export class AppComponent {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
-    private contexts: ChildrenOutletContexts,
   ) {
     this.background = '/assets/media/bg/' + randomNum(1, 3)
 
@@ -57,7 +50,6 @@ export class AppComponent {
         if (data.title) this.titleService.setTitle(data.title)
 
         let url = data.event.url
-
         internalRoutes.forEach((item) => {
           if ((item.includes(url) && url !== '/') || item === url)
             this.isInternalPage = true
@@ -66,11 +58,5 @@ export class AppComponent {
         if (this.isInternalPage && url === '/sign-in')
           this.isInternalPage = false
       })
-  }
-
-  getRouteAnimationData() {
-    return this.contexts.getContext('primary')?.route?.snapshot?.data?.[
-      'animation'
-    ]
   }
 }

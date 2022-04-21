@@ -115,33 +115,6 @@
     </table>
 </section>
 
-    <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#logout" >logout</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
 
     <section>
     <h3 id="constructor">Constructor</h3>
@@ -149,7 +122,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>)</code>
+<code>constructor()</code>
                     </td>
                 </tr>
                         <tr>
@@ -158,36 +131,6 @@
                             </td>
                         </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>authService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
@@ -196,76 +139,29 @@
 
 
 
-    <section>
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="logout"></a>
-                    <span class="name">
-                        <span ><b>logout</b></span>
-                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>logout()</code>
-                </td>
-            </tr>
 
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/dashboard/dashboard.component.ts:13</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;
-
-import { AuthService } from &#x27;@shared/services/auth.service&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { inOutComponentAnimation } from &#x27;@/common/animations/in-out-component&#x27;
+import { Component } from &#x27;@angular/core&#x27;
 
 @Component({
   selector: &#x27;vanne-dashboard&#x27;,
   templateUrl: &#x27;./dashboard.component.html&#x27;,
   styleUrls: [&#x27;./dashboard.component.sass&#x27;],
+  animations: [inOutComponentAnimation],
 })
 export class DashboardComponent {
-  constructor(private authService: AuthService) {}
-
-  logout() {
-    this.authService.logout()
-  }
+  constructor() {}
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;dashboard works!&lt;/p&gt;
-&lt;button (click)&#x3D;&quot;logout()&quot;&gt;Logout&lt;/button&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;section @inOutComponent&gt;Dashboard&lt;/section&gt;
 </code></pre>
     </div>
 
@@ -273,7 +169,8 @@ export class DashboardComponent {
                 <p class="comment">
                     <code>./dashboard.component.sass</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;../../styles/_main&#x27;
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -301,8 +198,8 @@ export class DashboardComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>dashboard works!</p><button (click)="logout()">Logout</button></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'}];
+        var COMPONENT_TEMPLATE = '<div><section @inOutComponent>Dashboard</section></div>'
+    var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'MeComponent', 'selector': 'vanne-me'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DashboardComponent'};
 </script>
