@@ -8,6 +8,9 @@ import { AuthService } from '@/app/shared/services/auth.service'
 
 import { inOutComponentAnimation } from '@/common/animations/in-out-component'
 
+/**
+ * Компонент страницы входа
+ */
 @Component({
   selector: 'vanne-sign-in',
   templateUrl: './sign-in.component.html',
@@ -15,10 +18,19 @@ import { inOutComponentAnimation } from '@/common/animations/in-out-component'
   animations: [inOutComponentAnimation],
 })
 export class SignInComponent implements OnInit {
+  /**
+   * Callback url
+   */
   private returnUrl: string = '/'
 
+  /**
+   * Статус загрузки
+   */
   public loading: boolean = false
 
+  /**
+   * Форма авторизации
+   */
   public authForm = new FormGroup({
     login: new FormControl('', [Validators.required, Validators.minLength(2)]),
     password: new FormControl('', [
@@ -27,6 +39,13 @@ export class SignInComponent implements OnInit {
     ]),
   })
 
+  /**
+   * Конструктор страницы входа
+   * @param {ToastService} toastService Сервис уведомлений
+   * @param {AuthService} authService Сервис авторизации
+   * @param {ActivatedRoute} route Текущий роут приложения
+   * @param {Router} router Сервис роутинга
+   */
   constructor(
     private readonly toastService: ToastService,
     private readonly authService: AuthService,
@@ -38,11 +57,18 @@ export class SignInComponent implements OnInit {
     }
   }
 
+  /**
+   * Метод инициализации компонента
+   */
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'
   }
 
-  onSubmit() {
+  /**
+   * Метод входа в систему
+   * @returns {void}
+   */
+  onSubmit(): void {
     if (this.loading) return
 
     let login = this.authForm.controls['login']

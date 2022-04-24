@@ -62,6 +62,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Сервис авторизации</p>
+
+            </p>
 
 
 
@@ -158,12 +165,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/services/auth.service.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/shared/services/auth.service.ts:37</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Конструктор сервиса</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -172,6 +181,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -186,6 +196,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>HTTP-клиент</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
@@ -198,6 +212,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Сервис роутинга</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -235,14 +253,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">src/app/shared/services/auth.service.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">src/app/shared/services/auth.service.ts:126</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Проверка авторизации пользователя</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -253,6 +273,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -267,6 +288,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Callback url</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -278,7 +303,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Статус авторизации</p>
+
                     </div>
                 </td>
             </tr>
@@ -306,14 +332,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/shared/services/auth.service.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/shared/services/auth.service.ts:63</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Метод авторизации</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -324,6 +352,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -338,6 +367,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Авторизационные данные</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -349,7 +382,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Наблюдаемый пользователь</p>
+
                     </div>
                 </td>
             </tr>
@@ -377,17 +411,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">src/app/shared/services/auth.service.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="143"
+                            class="link-to-prism">src/app/shared/services/auth.service.ts:143</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Метод выхода из системы</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>Subscription</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Подписка на выход из системы</p>
 
                     </div>
                 </td>
@@ -416,17 +458,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">src/app/shared/services/auth.service.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">src/app/shared/services/auth.service.ts:96</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Метод получения данных текущего пользователя</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#User" target="_self" >Observable&lt;User&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Наблюдаемый текущий пользователь</p>
 
                     </div>
                 </td>
@@ -455,17 +505,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/app/shared/services/auth.service.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">src/app/shared/services/auth.service.ts:80</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Метод обновления токена авторизации</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#User" target="_self" >Observable&lt;User&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Наблюдаемый пользователь</p>
 
                     </div>
                 </td>
@@ -503,10 +561,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/services/auth.service.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/shared/services/auth.service.ts:37</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Хост API</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -530,10 +594,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/services/auth.service.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/shared/services/auth.service.ts:32</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Наблюдаемый пользователь</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -557,10 +627,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/shared/services/auth.service.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/shared/services/auth.service.ts:27</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Объект пользователя</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -586,9 +662,20 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/shared/services/auth.service.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/shared/services/auth.service.ts:53</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Геттер текущего пользователя</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#User" target="_self" >User</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -600,11 +687,10 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   BehaviorSubject,
   catchError,
-  firstValueFrom,
-  from,
   map,
   Observable,
   of,
+  Subscription,
 } from &#x27;rxjs&#x27;
 
 import { HttpClient } from &#x27;@angular/common/http&#x27;
@@ -616,22 +702,50 @@ import { API } from &#x27;@/common/enums&#x27;
 
 import { ENV } from &#x27;@env/env&#x27;
 
+/**
+ * Сервис авторизации
+ */
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class AuthService {
+  /**
+   * Объект пользователя
+   */
   public user$$: BehaviorSubject&lt;User&gt;
+
+  /**
+   * Наблюдаемый пользователь
+   */
   private user$: Observable&lt;User&gt;
 
+  /**
+   * Хост API
+   */
   private api: string &#x3D; ENV.API_HOST
 
+  /**
+   * Конструктор сервиса
+   * @description Инициализирует объект пользователя
+   * @param {HttpClient} httpClient HTTP-клиент
+   * @param {Router} router Сервис роутинга
+   */
   constructor(private httpClient: HttpClient, private router: Router) {
     this.user$$ &#x3D; new BehaviorSubject&lt;User&gt;(null)
     this.user$ &#x3D; this.user$$.asObservable()
   }
 
+  /**
+   * Геттер текущего пользователя
+   */
   public get currentUser(): User {
     return this.user$$.value
   }
 
+  /**
+   * Метод авторизации
+   * @description Осуществляет вход в систему
+   * @param {Credentials} credentials Авторизационные данные
+   * @returns {Observable&lt;User&gt;} Наблюдаемый пользователь
+   */
   public login(credentials: Credentials): Observable&lt;User&gt; {
     return this.httpClient
       .post&lt;User&gt;(this.api + API.AUTH_SIGN_IN, credentials, {
@@ -645,6 +759,10 @@ export class AuthService {
       )
   }
 
+  /**
+   * Метод обновления токена авторизации
+   * @returns {Observable&lt;User&gt;} Наблюдаемый пользователь
+   */
   private refresh(): Observable&lt;User&gt; {
     return this.httpClient
       .get&lt;User&gt;(this.api + API.AUTH_REFRESH, {
@@ -657,6 +775,10 @@ export class AuthService {
       )
   }
 
+  /**
+   * Метод получения данных текущего пользователя
+   * @returns {Observable&lt;User&gt;} Наблюдаемый текущий пользователь
+   */
   public me(): Observable&lt;User&gt; {
     return this.httpClient
       .get&lt;User&gt;(this.api + API.AUTH_DATA, {
@@ -682,6 +804,11 @@ export class AuthService {
       )
   }
 
+  /**
+   * Проверка авторизации пользователя
+   * @param {strung} returnUrl Callback url
+   * @returns {Observable&lt;boolean&gt;} Статус авторизации
+   */
   public check(returnUrl: string): Observable&lt;boolean&gt; {
     return this.me().pipe(
       map((data) &#x3D;&gt; !!data),
@@ -695,7 +822,11 @@ export class AuthService {
     )
   }
 
-  public logout() {
+  /**
+   * Метод выхода из системы
+   * @returns {Subscription} Подписка на выход из системы
+   */
+  public logout(): Subscription {
     return this.httpClient
       .post(
         this.api + API.AUTH_SIGN_OUT,

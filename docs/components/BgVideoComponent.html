@@ -184,9 +184,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/shared/components/bg-video/bg-video.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/shared/components/bg-video/bg-video.component.ts:15</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Путь к видео</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -218,10 +224,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/shared/components/bg-video/bg-video.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/components/bg-video/bg-video.component.ts:20</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Флаг типа устройства</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -242,8 +254,14 @@
   styleUrls: [&#x27;./bg-video.component.sass&#x27;],
 })
 export class BgVideoComponent {
+  /**
+   * Путь к видео
+   */
   @Input(&#x27;media&#x27;) name!: string
 
+  /**
+   * Флаг типа устройства
+   */
   public isMobile &#x3D; window.innerWidth &lt;&#x3D; 576 || window.innerHeight &lt;&#x3D; 415
 }
 </code></pre>

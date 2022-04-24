@@ -98,6 +98,7 @@
                                         </a>
                                 </li>
                                 <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#title" 
 >
                                             title
@@ -185,6 +186,11 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
@@ -211,7 +217,7 @@ export interface IRouteData {
   /**
    * Заголовок страницы
    */
-  title: string
+  title?: string
 
   /**
    * Анимация маршрута
@@ -226,7 +232,7 @@ export interface IRoute extends Route {
   /**
    * Данные внутри маршрута
    */
-  data: IRouteData
+  data?: IRouteData
 }
 
 export type Routes &#x3D; IRoute[]

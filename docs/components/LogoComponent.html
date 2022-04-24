@@ -68,6 +68,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Компонент логотипа приложения</p>
+
+    </p>
 
 
 
@@ -173,9 +180,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/shared/components/logo/logo.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/components/logo/logo.component.ts:20</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Ширина логотипа</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -199,9 +212,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/shared/components/logo/logo.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/components/logo/logo.component.ts:25</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Тип логотипа (полный/иконка)</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -225,9 +244,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/shared/components/logo/logo.component.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/shared/components/logo/logo.component.ts:15</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Длина логотипа</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -242,14 +267,28 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;
 
+/**
+ * Компонент логотипа приложения
+ */
 @Component({
   selector: &#x27;vanne-logo&#x27;,
   templateUrl: &#x27;./logo.component.html&#x27;,
   styleUrls: [&#x27;./logo.component.sass&#x27;],
 })
 export class LogoComponent {
+  /**
+   * Длина логотипа
+   */
   @Input() width: string &#x3D; &#x27;153&#x27;
+
+  /**
+   * Ширина логотипа
+   */
   @Input() height: string &#x3D; &#x27;36&#x27;
+
+  /**
+   * Тип логотипа (полный/иконка)
+   */
   @Input() type: &#x27;default&#x27; | &#x27;small&#x27; &#x3D; &#x27;default&#x27;
 }
 </code></pre>

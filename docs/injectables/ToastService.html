@@ -62,6 +62,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Сервис уведомлений</p>
+
+            </p>
 
 
 
@@ -105,12 +112,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/shared/services/toast.service.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/shared/services/toast.service.ts:8</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Сервис уведомлений</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -119,6 +128,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -133,6 +143,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Сервис уведомлений Material</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -170,14 +184,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">src/app/shared/services/toast.service.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">src/app/shared/services/toast.service.ts:21</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Метод показа уведомления</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -188,6 +204,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -202,6 +219,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Текст сообщения</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>action</td>
@@ -214,6 +235,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Текст лейбла кнопки</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -237,14 +262,27 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;
-import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;
+import { Injectable } from &#x27;@angular/core&#x27;
 
+/**
+ * Сервис уведомлений
+ */
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class ToastService {
+  /**
+   * Сервис уведомлений
+   * @param {MatSnackBar} snackBar Сервис уведомлений Material
+   */
   constructor(private readonly snackBar: MatSnackBar) {}
 
-  public show(message: string, action?: string) {
+  /**
+   * Метод показа уведомления
+   * @param {string} message Текст сообщения
+   * @param {string} action Текст лейбла кнопки
+   * @returns {any}
+   */
+  public show(message: string, action?: string): any {
     return this.snackBar.open(message, action, {
       duration: 4000,
       horizontalPosition: &#x27;right&#x27;,
