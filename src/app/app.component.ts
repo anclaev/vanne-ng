@@ -17,9 +17,22 @@ import { internalRoutes } from '@/common'
   styleUrls: ['./app.component.sass'],
 })
 export class AppComponent {
+  /**
+   * Флаг внутренней страницы
+   */
   public isInternalPage: boolean = false
+
+  /**
+   * Текущий фон страницы
+   */
   public background: string
 
+  /**
+   * Конструктор компонента App
+   * @param {Router} router Сервис роутинга
+   * @param {ActivatedRoute} activatedRoute Текущий роут
+   * @param {Title} titleService Сервис заголовка страницы
+   */
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,

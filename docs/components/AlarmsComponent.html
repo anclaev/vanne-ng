@@ -68,14 +68,15 @@
 </p>
 
 
-
-
     <p class="comment">
-        <h3>Implements</h3>
+        <h3>Description</h3>
     </p>
     <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+        <p>Компонент страницы уведомлений</p>
+
     </p>
+
+
 
 
 <section>
@@ -121,120 +122,32 @@
     </table>
 </section>
 
-    <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#ngOnInit" >ngOnInit</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
 
 
 
 
-        </tbody>
-    </table>
-</section>
-
-    <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor()</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/alarms/alarms.component.ts:11</a></div>
-                            </td>
-                        </tr>
-
-            </tbody>
-        </table>
-</section>
 
 
-
-
-
-    <section>
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ngOnInit"></a>
-                    <span class="name">
-                        <span ><b>ngOnInit</b></span>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnInit()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/alarms/alarms.component.ts:14</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;
 
 import { inOutComponentAnimation } from &#x27;@/common/animations/in-out-component&#x27;
 
+/**
+ * Компонент страницы уведомлений
+ */
 @Component({
   selector: &#x27;vanne-alarms&#x27;,
   templateUrl: &#x27;./alarms.component.html&#x27;,
   styleUrls: [&#x27;./alarms.component.sass&#x27;],
   animations: [inOutComponentAnimation],
 })
-export class AlarmsComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class AlarmsComponent {}
 </code></pre>
     </div>
 

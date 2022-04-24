@@ -9,7 +9,13 @@ import { Component, Input } from '@angular/core'
   styleUrls: ['./bg-video.component.sass'],
 })
 export class BgVideoComponent {
+  /**
+   * Путь к видео
+   */
   @Input('media') name!: string
 
+  /**
+   * Флаг типа устройства
+   */
   public isMobile = window.innerWidth <= 576 || window.innerHeight <= 415
 }

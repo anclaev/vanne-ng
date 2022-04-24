@@ -2,6 +2,9 @@ import { Component, Input } from '@angular/core'
 
 import { inOutComponentAnimation } from '@/common/animations/in-out-component'
 
+/**
+ * Компонент меню приложения
+ */
 @Component({
   selector: 'vanne-nav',
   templateUrl: './nav.component.html',
@@ -9,7 +12,8 @@ import { inOutComponentAnimation } from '@/common/animations/in-out-component'
   animations: [inOutComponentAnimation],
 })
 export class NavComponent {
+  /**
+   * Статус отображения меню
+   */
   @Input('status') status: boolean = false
-
-  constructor() {}
 }

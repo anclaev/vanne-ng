@@ -64,6 +64,13 @@
             </p>
 
 
+                <p class="comment">
+                <h3>Description</h3>
+                </p>
+                <p class="comment">
+                    <p>Guard авторизации</p>
+
+                </p>
 
 
 
@@ -107,12 +114,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/shared/guards/auth.guard.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/shared/guards/auth.guard.ts:10</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Конструктор guard</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -121,6 +130,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -135,6 +145,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Сервис авторизации</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -170,14 +184,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">src/app/shared/guards/auth.guard.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/shared/guards/auth.guard.ts:24</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Метод обработки guard</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -188,6 +204,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -202,6 +219,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Нечто</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>state</td>
@@ -214,6 +235,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Текущее состояние роутера</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -241,10 +266,24 @@ import { Injectable } from &#x27;@angular/core&#x27;
 
 import { AuthService } from &#x27;@shared/services/auth.service&#x27;
 
+/**
+ * Guard авторизации
+ */
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class AuthGuard implements CanActivate {
+  /**
+   * Конструктор guard
+   * @param {AuthService} authService Сервис авторизации
+   */
   constructor(private authService: AuthService) {}
 
+  /**
+   * Метод обработки guard
+   * @description Проверяет авторизован ли пользователь в системе
+   * @param {any} _ Нечто
+   * @param {RouterStateSnapshot} state Текущее состояние роутера
+   * @returns {void}
+   */
   canActivate(_: any, state: RouterStateSnapshot) {
     const user &#x3D; this.authService.currentUser
     if (user) {

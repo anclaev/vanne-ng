@@ -83,6 +83,7 @@ import { AlarmsComponent } from &#x27;./alarms/alarms.component&#x27;
 import { UsersComponent } from &#x27;./users/users.component&#x27;
 import { DebtsComponent } from &#x27;./debts/debts.component&#x27;
 import { ChatsComponent } from &#x27;./chats/chats.component&#x27;
+import { MeComponent } from &#x27;./me/me.component&#x27;
 
 import { AuthGuard } from &#x27;@shared/guards/auth.guard&#x27;
 
@@ -99,6 +100,12 @@ const APP_ROUTES: Routes &#x3D; [
     data: {
       title: &#x27;Dashboard&#x27;,
     },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: &#x27;me&#x27;,
+    pathMatch: &#x27;full&#x27;,
+    component: MeComponent,
     canActivate: [AuthGuard],
   },
   {
