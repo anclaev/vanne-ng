@@ -1,6 +1,6 @@
 {
   "name": "@vanne/ng",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Educational platform",
   "author": "Artem Samarin <av@anclaev.com>",
   "private": true,
@@ -10,8 +10,8 @@
     "dev": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "doc:serve": "compodoc --hideGenerator -d docs --customFavicon src/favicon.ico --customLogo src/assets/svg/logo.svg -n Vanne -p tsconfig.doc.json -s",
-    "doc": "compodoc --hideGenerator -d docs --customFavicon src/favicon.ico --customLogo src/assets/svg/logo.svg -n Vanne -p tsconfig.doc.json"
+    "doc:serve": "compodoc --hideGenerator -d docs --customFavicon src/favicon.ico --customLogo src/assets/svg/logo-min.svg -n Vanne -p tsconfig.doc.json -s",
+    "doc": "compodoc --hideGenerator -d docs --customFavicon src/favicon.ico --customLogo src/assets/svg/logo-min.svg -n Vanne -p tsconfig.doc.json"
   },
   "dependencies": {
     "@angular/animations": "~13.3.0",

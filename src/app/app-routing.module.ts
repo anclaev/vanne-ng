@@ -1,15 +1,5 @@
-import { RouterModule } from '@angular/router'
+import { PreloadAllModules, RouterModule } from '@angular/router'
 import { NgModule } from '@angular/core'
-
-import { DashboardComponent } from '@/app/dashboard/dashboard.component'
-import { SignInComponent } from '@/app/auth/sign-in/sign-in.component'
-import { ProgressComponent } from './progress/progress.component'
-import { SettingsComponent } from './settings/settings.component'
-import { AlarmsComponent } from './alarms/alarms.component'
-import { UsersComponent } from './users/users.component'
-import { DebtsComponent } from './debts/debts.component'
-import { ChatsComponent } from './chats/chats.component'
-import { MeComponent } from './me/me.component'
 
 import { AuthGuard } from '@shared/guards/auth.guard'
 
@@ -22,7 +12,8 @@ const APP_ROUTES: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: DashboardComponent,
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
     data: {
       title: 'Dashboard',
     },
@@ -31,13 +22,14 @@ const APP_ROUTES: Routes = [
   {
     path: 'me',
     pathMatch: 'full',
-    component: MeComponent,
+    loadChildren: () => import('./me/me.module').then((m) => m.MeModule),
     canActivate: [AuthGuard],
   },
   {
     path: 'progress',
     pathMatch: 'full',
-    component: ProgressComponent,
+    loadChildren: () =>
+      import('./progress/progress.module').then((m) => m.ProgressModule),
     data: {
       title: 'Progress',
     },
@@ -46,7 +38,8 @@ const APP_ROUTES: Routes = [
   {
     path: 'debts',
     pathMatch: 'full',
-    component: DebtsComponent,
+    loadChildren: () =>
+      import('./debts/debts.module').then((m) => m.DebtsModule),
     data: {
       title: 'Debts',
     },
@@ -55,7 +48,8 @@ const APP_ROUTES: Routes = [
   {
     path: 'alarms',
     pathMatch: 'full',
-    component: AlarmsComponent,
+    loadChildren: () =>
+      import('./alarms/alarms.module').then((m) => m.AlarmsModule),
     data: {
       title: 'Alarms',
     },
@@ -64,7 +58,8 @@ const APP_ROUTES: Routes = [
   {
     path: 'chats',
     pathMatch: 'full',
-    component: ChatsComponent,
+    loadChildren: () =>
+      import('./chats/chats.module').then((m) => m.ChatsModule),
     data: {
       title: 'Chats',
     },
@@ -73,7 +68,8 @@ const APP_ROUTES: Routes = [
   {
     path: 'users',
     pathMatch: 'full',
-    component: UsersComponent,
+    loadChildren: () =>
+      import('./users/users.module').then((m) => m.UsersModule),
     data: {
       title: 'Users',
     },
@@ -82,15 +78,16 @@ const APP_ROUTES: Routes = [
   {
     path: 'settings',
     pathMatch: 'full',
-    component: SettingsComponent,
+    loadChildren: () =>
+      import('./settings/settings.module').then((m) => m.SettingsModule),
     data: {
       title: 'Settings',
     },
     canActivate: [AuthGuard],
   },
   {
-    path: 'sign-in',
-    component: SignInComponent,
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
     data: {
       title: 'Vanne',
     },
@@ -108,7 +105,11 @@ const APP_ROUTES: Routes = [
  * Базовый модуль роутинга
  */
 @NgModule({
-  imports: [RouterModule.forRoot(APP_ROUTES)],
+  imports: [
+    RouterModule.forRoot(APP_ROUTES, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

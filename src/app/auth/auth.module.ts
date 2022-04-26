@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core'
 
 import { SharedModule } from '../shared/shared.module'
 
+import { AuthRoutingModule } from './auth-routing.module'
 import { SignInComponent } from './sign-in/sign-in.component'
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SignInComponent } from './sign-in/sign-in.component'
   imports: [
     CommonModule,
     SharedModule,
+    AuthRoutingModule,
     ReactiveFormsModule,
     MatSnackBarModule,
     MatProgressBarModule,

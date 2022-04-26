@@ -127,7 +127,7 @@ export class AuthService {
     return this.me().pipe(
       map((data) => !!data),
       catchError((err) => {
-        this.router.navigate(['/sign-in'], {
+        this.router.navigate(['/auth'], {
           queryParams: { returnUrl },
         })
 
@@ -154,7 +154,7 @@ export class AuthService {
       .subscribe({
         next: () => {
           this.user$$.next(null)
-          this.router.navigate(['/sign-in'])
+          this.router.navigate(['/auth'])
         },
       })
   }

@@ -63,12 +63,13 @@ export class AppComponent {
         if (data.title) this.titleService.setTitle(data.title)
 
         let url = data.event.url
+
         internalRoutes.forEach((item) => {
           if ((item.includes(url) && url !== '/') || item === url)
             this.isInternalPage = true
         })
 
-        if (this.isInternalPage && url === '/sign-in')
+        if (this.isInternalPage && url.includes('/auth'))
           this.isInternalPage = false
       })
   }

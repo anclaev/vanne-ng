@@ -395,12 +395,13 @@ export class AppComponent {
         if (data.title) this.titleService.setTitle(data.title)
 
         let url &#x3D; data.event.url
+
         internalRoutes.forEach((item) &#x3D;&gt; {
           if ((item.includes(url) &amp;&amp; url !&#x3D;&#x3D; &#x27;/&#x27;) || item &#x3D;&#x3D;&#x3D; url)
             this.isInternalPage &#x3D; true
         })
 
-        if (this.isInternalPage &amp;&amp; url &#x3D;&#x3D;&#x3D; &#x27;/sign-in&#x27;)
+        if (this.isInternalPage &amp;&amp; url.includes(&#x27;/auth&#x27;))
           this.isInternalPage &#x3D; false
       })
   }

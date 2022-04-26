@@ -10,7 +10,8 @@ export const sentryIgnoreRegex = new RegExp(
 export const internalRoutes = [
   '/',
   '/progress',
-  '/alerts',
+  '/alarms',
+  '/debts',
   '/chats',
   '/users',
   '/me',

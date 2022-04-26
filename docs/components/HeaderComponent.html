@@ -474,7 +474,7 @@ export class HeaderComponent {
     this.authService.user$$.subscribe((user) &#x3D;&gt; {
       this.user &#x3D; (user?.username ? user.username : user?.login) || &#x27;&#x27;
       this.company &#x3D; user?.team.name || &#x27;&#x27;
-      this.avatar &#x3D; user?.avatar || &#x27;/assets/media/ava-default.png&#x27;
+      this.avatar &#x3D; user?.avatar || &#x27;/assets/media/ava-default.webp&#x27;
     })
   }
 }
@@ -500,14 +500,19 @@ export class HeaderComponent {
       routerLinkActive&#x3D;&quot;header--internal__options--active&quot;
       title&#x3D;&quot;Settings&quot;
       &gt;&lt;img
-        src&#x3D;&quot;/assets/svg/settings.svg&quot;
+        src&#x3D;&quot;/assets/svg/settings-min.svg&quot;
         width&#x3D;&quot;16&quot;
         height&#x3D;&quot;16&quot;
         alt&#x3D;&quot;Settings&quot;
     /&gt;&lt;/a&gt;
 
     &lt;button class&#x3D;&quot;pin&quot; (click)&#x3D;&quot;authService.logout()&quot; title&#x3D;&quot;Sign out&quot;&gt;
-      &lt;img src&#x3D;&quot;/assets/svg/logout.svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; alt&#x3D;&quot;Logout&quot; /&gt;
+      &lt;img
+        src&#x3D;&quot;/assets/svg/logout-min.svg&quot;
+        width&#x3D;&quot;16&quot;
+        height&#x3D;&quot;16&quot;
+        alt&#x3D;&quot;Logout&quot;
+      /&gt;
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/header&gt;
@@ -662,7 +667,7 @@ export class HeaderComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><header *ngIf="status" class="header--internal" @inOutComponent>  <vanne-logo [type]="\'small\'"></vanne-logo>  <div class="header--internal__me">    <a routerLink="/me" title="To me">      <img [src]="avatar" width="60" height="60" alt="User Avatar" />    </a>    <div>      <span>{{ user }}</span>      <span>{{ company }}</span>    </div>  </div>  <div class="header--internal__options">    <a      class="pin"      routerLink="/settings"      routerLinkActive="header--internal__options--active"      title="Settings"      ><img        src="/assets/svg/settings.svg"        width="16"        height="16"        alt="Settings"    /></a>    <button class="pin" (click)="authService.logout()" title="Sign out">      <img src="/assets/svg/logout.svg" width="16" height="16" alt="Logout" />    </button>  </div></header></div>'
+        var COMPONENT_TEMPLATE = '<div><header *ngIf="status" class="header--internal" @inOutComponent>  <vanne-logo [type]="\'small\'"></vanne-logo>  <div class="header--internal__me">    <a routerLink="/me" title="To me">      <img [src]="avatar" width="60" height="60" alt="User Avatar" />    </a>    <div>      <span>{{ user }}</span>      <span>{{ company }}</span>    </div>  </div>  <div class="header--internal__options">    <a      class="pin"      routerLink="/settings"      routerLinkActive="header--internal__options--active"      title="Settings"      ><img        src="/assets/svg/settings-min.svg"        width="16"        height="16"        alt="Settings"    /></a>    <button class="pin" (click)="authService.logout()" title="Sign out">      <img        src="/assets/svg/logout-min.svg"        width="16"        height="16"        alt="Logout"      />    </button>  </div></header></div>'
     var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'MeComponent', 'selector': 'vanne-me'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
