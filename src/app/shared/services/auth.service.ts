@@ -123,12 +123,12 @@ export class AuthService {
    * @param {strung} returnUrl Callback url
    * @returns {Observable<boolean>} Статус авторизации
    */
-  public check(returnUrl: string): Observable<boolean> {
+  public check(returnUrl: string, redirect?: boolean): Observable<boolean> {
     return this.me().pipe(
       map((data) => !!data),
       catchError((err) => {
         this.router.navigate(['/auth'], {
-          queryParams: { returnUrl },
+          queryParams: { returnUrl, redirect },
         })
 
         return of(err !== 'Unauthorized')

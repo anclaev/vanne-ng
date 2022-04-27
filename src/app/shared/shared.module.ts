@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 import { NgModule } from '@angular/core'
 
-import { ToastService } from './services/toast.service'
-import { AuthService } from './services/auth.service'
-
 import { BgVideoComponent } from './components/bg-video/bg-video.component'
 import { HeaderComponent } from './components/header/header.component'
 import { LogoComponent } from './components/logo/logo.component'
@@ -13,7 +10,6 @@ import { NavComponent } from './components/nav/nav.component'
 
 @NgModule({
   imports: [CommonModule, RouterModule, MatSnackBarModule],
-  providers: [AuthService, ToastService],
   declarations: [
     BgVideoComponent,
     LogoComponent,

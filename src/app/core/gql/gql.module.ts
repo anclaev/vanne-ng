@@ -15,6 +15,7 @@ export const createApolloClient = (
 ): ApolloClientOptions<any> => ({
   link: httpLink.create({
     uri: ENV.GQL_HOST,
+    withCredentials: true,
   }),
   cache: new InMemoryCache(),
 })

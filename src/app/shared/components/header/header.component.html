@@ -1,7 +1,7 @@
 <header *ngIf="status" class="header--internal" @inOutComponent>
   <vanne-logo [type]="'small'"></vanne-logo>
   <div class="header--internal__me">
-    <a routerLink="/me" title="To me">
+    <a [routerLink]="'/u/' + login" title="To me">
       <img [src]="avatar" width="60" height="60" alt="User Avatar" />
     </a>
     <div>

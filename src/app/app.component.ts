@@ -62,11 +62,10 @@ export class AppComponent {
       .subscribe((data: any) => {
         if (data.title) this.titleService.setTitle(data.title)
 
-        let url = data.event.url
+        let url = data.event.urlAfterRedirects
 
         internalRoutes.forEach((item) => {
-          if ((item.includes(url) && url !== '/') || item === url)
-            this.isInternalPage = true
+          if (url.includes(item)) this.isInternalPage = true
         })
 
         if (this.isInternalPage && url.includes('/auth'))

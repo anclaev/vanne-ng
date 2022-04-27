@@ -1,4 +1,4 @@
-import { CanActivate, RouterStateSnapshot } from '@angular/router'
+import { CanActivate, Router, RouterStateSnapshot } from '@angular/router'
 import { Injectable } from '@angular/core'
 
 import { AuthService } from '@shared/services/auth.service'
@@ -19,14 +19,14 @@ export class AuthGuard implements CanActivate {
    * @description Проверяет авторизован ли пользователь в системе
    * @param {any} _ Нечто
    * @param {RouterStateSnapshot} state Текущее состояние роутера
-   * @returns {void}
    */
   canActivate(_: any, state: RouterStateSnapshot) {
     const user = this.authService.currentUser
+
     if (user) {
       return true
     }
 
-    return this.authService.check(state.url)
+    return this.authService.check(state.url, true)
   }
 }

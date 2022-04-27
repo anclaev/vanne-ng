@@ -15,14 +15,8 @@ const APP_ROUTES: Routes = [
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
     data: {
-      title: 'Dashboard',
+      title: 'Дашборд',
     },
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'me',
-    pathMatch: 'full',
-    loadChildren: () => import('./me/me.module').then((m) => m.MeModule),
     canActivate: [AuthGuard],
   },
   {
@@ -31,47 +25,37 @@ const APP_ROUTES: Routes = [
     loadChildren: () =>
       import('./progress/progress.module').then((m) => m.ProgressModule),
     data: {
-      title: 'Progress',
+      title: 'Успеваемость',
     },
     canActivate: [AuthGuard],
   },
   {
-    path: 'debts',
+    path: 'debt',
     pathMatch: 'full',
     loadChildren: () =>
       import('./debts/debts.module').then((m) => m.DebtsModule),
     data: {
-      title: 'Debts',
+      title: 'Задолженности',
     },
     canActivate: [AuthGuard],
   },
   {
-    path: 'alarms',
+    path: 'alarm',
     pathMatch: 'full',
     loadChildren: () =>
       import('./alarms/alarms.module').then((m) => m.AlarmsModule),
     data: {
-      title: 'Alarms',
+      title: 'Уведомления',
     },
     canActivate: [AuthGuard],
   },
   {
-    path: 'chats',
+    path: 'chat',
     pathMatch: 'full',
     loadChildren: () =>
       import('./chats/chats.module').then((m) => m.ChatsModule),
     data: {
-      title: 'Chats',
-    },
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'users',
-    pathMatch: 'full',
-    loadChildren: () =>
-      import('./users/users.module').then((m) => m.UsersModule),
-    data: {
-      title: 'Users',
+      title: 'Чаты',
     },
     canActivate: [AuthGuard],
   },
@@ -81,7 +65,7 @@ const APP_ROUTES: Routes = [
     loadChildren: () =>
       import('./settings/settings.module').then((m) => m.SettingsModule),
     data: {
-      title: 'Settings',
+      title: 'Параметры',
     },
     canActivate: [AuthGuard],
   },
@@ -91,6 +75,15 @@ const APP_ROUTES: Routes = [
     data: {
       title: 'Vanne',
     },
+  },
+  {
+    path: 'u',
+    loadChildren: () =>
+      import('./users/users.module').then((m) => m.UsersModule),
+    data: {
+      title: 'Пользователи',
+    },
+    canActivate: [AuthGuard],
   },
   {
     path: '**',
