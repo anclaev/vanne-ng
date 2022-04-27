@@ -24,8 +24,7 @@
       "@env/*": ["src/environments/*"],
       "@core/*": ["src/app/core/*"],
       "@shared/*": ["src/app/shared/*"],
-      "@common/*": ["src/common/*"],
-      "@gql/*": ["src/common/schemes/*"]
+      "@common/*": ["src/common/*"]
     }
   },
   "angularCompilerOptions": {

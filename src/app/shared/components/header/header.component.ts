@@ -48,7 +48,7 @@ export class HeaderComponent {
     this.authService.user$$.subscribe((user) => {
       this.login = user?.login || ''
       this.user = user?.username || this.login
-      this.company = user?.team.name || ''
+      this.company = user?.team?.name || ''
       this.avatar = user?.avatar || '/assets/media/ava-default.webp'
     })
   }
