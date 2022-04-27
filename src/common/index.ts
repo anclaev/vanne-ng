@@ -9,12 +9,11 @@ export const sentryIgnoreRegex = new RegExp(
 /** Массив внутренних маршрутов */
 export const internalRoutes = [
   '/',
+  '/u',
   '/progress',
-  '/alarms',
-  '/debts',
-  '/chats',
-  '/users',
-  '/me',
+  '/alarm',
+  '/debt',
+  '/chat',
   '/settings',
 ]
 

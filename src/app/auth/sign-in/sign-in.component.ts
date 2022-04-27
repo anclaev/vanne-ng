@@ -61,6 +61,12 @@ export class SignInComponent implements OnInit {
    * Метод инициализации компонента
    */
   ngOnInit(): void {
+    const alreadyAuthenticated = Boolean(
+      this.route.snapshot.queryParams['redirect'],
+    )
+
+    if (!alreadyAuthenticated) this.router.navigate(['/'])
+
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'
   }
 

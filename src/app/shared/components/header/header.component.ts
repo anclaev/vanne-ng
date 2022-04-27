@@ -30,6 +30,11 @@ export class HeaderComponent {
   public user = ''
 
   /**
+   * Логин пользователя
+   */
+  public login = ''
+
+  /**
    * Статус отображения хедера
    */
   @Input('status') status: boolean = false
@@ -41,7 +46,8 @@ export class HeaderComponent {
    */
   constructor(public authService: AuthService) {
     this.authService.user$$.subscribe((user) => {
-      this.user = (user?.username ? user.username : user?.login) || ''
+      this.login = user?.login || ''
+      this.user = user?.username || this.login
       this.company = user?.team.name || ''
       this.avatar = user?.avatar || '/assets/media/ava-default.webp'
     })

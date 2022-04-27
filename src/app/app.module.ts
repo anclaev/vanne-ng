@@ -9,6 +9,8 @@ import * as Sentry from '@sentry/angular'
 
 import { ENV } from '../environments/env'
 
+import { ToastService } from '@shared/services/toast.service'
+import { AuthService } from '@shared/services/auth.service'
 import { SharedModule } from '@shared/shared.module'
 
 import { AppRoutingModule } from './app-routing.module'
@@ -50,6 +52,8 @@ import { GqlModule } from '@core/gql/gql.module'
       deps: [Sentry.TraceService],
       multi: true,
     },
+    AuthService,
+    ToastService,
   ],
   bootstrap: [AppComponent],
 })
