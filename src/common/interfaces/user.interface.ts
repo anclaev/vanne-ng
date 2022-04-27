@@ -8,12 +8,12 @@ export interface IUser {
   /**
    * ID аккаунта
    */
-  _id: string
+  _id: string | null
 
   /**
    * Логин аккаунта
    */
-  login: string
+  login: string | null
 
   /**
    * Имя пользователя
@@ -23,17 +23,17 @@ export interface IUser {
   /**
    * Роль аккаунта
    */
-  role: ROLE
+  role: ROLE | null
 
   /**
    * Компания аккаунта
    */
-  team: ITeam
+  team: ITeam | null
 
   /**
    * Аватар аккаунта
    */
-  avatar: string
+  avatar: string | null
 }
 
 export type User = IUser | null
