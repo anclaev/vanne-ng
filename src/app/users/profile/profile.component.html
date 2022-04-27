@@ -1,1 +1,41 @@
-<section @inOutComponent>profile is working!</section>
+<section @inOutComponent class="profile">
+  <div class="profile-card">
+    <div class="profile-card__avatar" [attr.data-online]="isOnline">
+      <img
+        [src]="profile$$.value.avatar"
+        width="200px"
+        height="200px"
+        [alt]="'Аватар: ' + (profile$$.value.username || profile$$.value.login)"
+      />
+    </div>
+    <div class="profile-card__roles">
+      <div *ngIf="profile$$.value.role">{{ profile$$.value.role }}</div>
+    </div>
+  </div>
+  <div class="profile-desc">
+    <div class="profile-desc-info">
+      <div class="profile-desc-info__field">
+        <span>{{ profile$$.value.username }}</span
+        ><span>{{ profile$$.value.login }}</span>
+      </div>
+      <div class="profile-desc-info__field">
+        <span
+          ><a
+            [href]="'mailto:' + profile$$.value.email || 'av@anclaev.com'"
+            rel="noopenner noreferrer"
+            >{{ profile$$.value.email || 'av@anclaev.com' }}</a
+          ></span
+        >
+        <img src="/assets/svg/email-min.svg" alt="Icon: Email" />
+      </div>
+      <div class="profile-desc-info__field">
+        <span>{{ profile$$.value.phone || '7 995 627 06 76' }}</span>
+        <img src="/assets/svg/phone-min.svg" alt="Icon: Phone" />
+      </div>
+      <div class="profile-desc-info__field">
+        <span>{{ profile$$.value.birthday || '12/10/2001' }}</span>
+        <img src="/assets/svg/cake-min.svg" alt="Icon: Birthday" />
+      </div>
+    </div>
+  </div>
+</section>

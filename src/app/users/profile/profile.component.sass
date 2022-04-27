@@ -1,2 +1,113 @@
-
 @import '../../../styles/_main'
+@import "../../../styles/_vars"
+
+.profile
+    display: grid
+    padding: 0 30px
+
+    grid-template-columns: max-content 1fr
+    align-items: center
+
+    & > div, &-card__roles, &-desc-info, &-desc-info__field
+        display: flex
+
+    &-card
+        padding: 0 30px
+
+        &, &__roles
+            flex-direction: column
+
+        &__avatar
+            position: relative
+
+            &, & > img
+                height: 200px
+                width: 200px
+
+            &[data-online="true"]::before
+                content: ''
+                position: absolute
+                right: 0
+                top: 0
+                background: $color-primary
+                outline: 1px solid $color-primary-42
+                border-radius: 50%
+                width: 46px
+                height: 46px
+
+            & > img
+                border: 2px solid $color-primary-42
+                border-radius: 50%
+
+                user-select: none
+
+        &__roles
+            padding: 30px 0
+            align-items: center
+
+            & > div
+                padding: 5px 15px
+                border: 2px solid $color-primary-light
+                border-radius: 7px
+
+                color: #fff
+                font-size: 14px
+                user-select: none
+
+    &-desc
+        justify-content: center
+
+        &-info
+            width: 100%
+            max-width: 900px
+            justify-content: space-around
+            padding: 0 30px
+
+            flex-wrap: wrap
+
+            & > div
+                padding: 20px 30px
+
+                &:first-child  > span
+                    &:first-child
+                        font-size: 24px
+                        font-weight: $fw-bold
+                        margin-bottom: 10px
+
+                    &:last-child
+                        font-size: 16px
+                        margin-bottom: 0
+
+            &__field
+                flex-direction: column
+                justify-content: center
+                align-items: center
+
+                & > span
+                    text-align: center
+                    font-size: 16px
+                    display: block
+                    margin-bottom: 15px
+
+                & a
+                    color: #fff
+                    transition: .2s
+
+                    &:hover
+                        color: $color-primary
+
+                & img
+                    max-width: 25px
+                    max-height: 20px
+
+@media only screen and (max-width: 768px)
+    .profile
+        grid-template-columns: 1fr
+        grid-template-rows: max-content 1fr
+
+        &-card
+            align-items: center
+
+@media only screen and (max-width: 576px)
+    .profile
+        padding: 0

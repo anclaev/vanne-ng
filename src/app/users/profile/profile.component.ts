@@ -19,6 +19,7 @@ import { GET_PROFILE } from '@common/schemes/query/getProfile'
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   public profile$$: BehaviorSubject<IAccount>
+  public isOnline: boolean = true
   public isMe: boolean = false
 
   private sub: Subscription | null = null
