@@ -246,7 +246,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>check(returnUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>check(returnUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, redirect?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
@@ -291,6 +291,20 @@
                                     <td>
                                         <p>Callback url</p>
 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>redirect</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
                                     </td>
                                 </tr>
                             </tbody>
@@ -809,12 +823,12 @@ export class AuthService {
    * @param {strung} returnUrl Callback url
    * @returns {Observable&lt;boolean&gt;} Статус авторизации
    */
-  public check(returnUrl: string): Observable&lt;boolean&gt; {
+  public check(returnUrl: string, redirect?: boolean): Observable&lt;boolean&gt; {
     return this.me().pipe(
       map((data) &#x3D;&gt; !!data),
       catchError((err) &#x3D;&gt; {
         this.router.navigate([&#x27;/auth&#x27;], {
-          queryParams: { returnUrl },
+          queryParams: { returnUrl, redirect },
         })
 
         return of(err !&#x3D;&#x3D; &#x27;Unauthorized&#x27;)

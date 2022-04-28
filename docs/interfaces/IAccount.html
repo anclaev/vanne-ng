@@ -47,7 +47,7 @@
   <li>Interfaces</li>
   <li
   >
-  IUser</li>
+  IAccount</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -65,18 +65,17 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/common/interfaces/user.interface.ts</code>
+            <code>src/common/models/account.ts</code>
         </p>
 
 
+
             <p class="comment">
-                <h3>Description</h3>
+                <h3>Extends</h3>
             </p>
             <p class="comment">
-                <p>Интерфейс данных пользователя</p>
-
+                        <code><a href="../interfaces/IUser.html" target="_self" >IUser</a></code>
             </p>
-
 
         <section>
             <h3 id="index">Index</h3>
@@ -91,39 +90,21 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#_id" 
+                                        <a href="#birthday" 
 >
-                                            _id
+                                            birthday
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#avatar" 
+                                        <a href="#email" 
 >
-                                            avatar
+                                            email
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#login" 
+                                        <a href="#phone" 
 >
-                                            login
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#role" 
->
-                                            role
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#team" 
->
-                                            team
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#username" 
->
-                                            username
+                                            phone
                                         </a>
                                 </li>
                             </ul>
@@ -141,9 +122,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="_id"></a>
-                                        <span class="name "><b>_id</b>
-                                            <a href="#_id">
+                                        <a name="birthday"></a>
+                                        <span class="name "><b>birthday</b>
+                                            <a href="#birthday">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -151,7 +132,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>_id:     <code>string | null</code>
+                                        <code>birthday:     <code>string | null</code>
 </code>
                                     </td>
                                 </tr>
@@ -168,21 +149,15 @@
 
 
 
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>ID аккаунта</p>
-</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="avatar"></a>
-                                        <span class="name "><b>avatar</b>
-                                            <a href="#avatar">
+                                        <a name="email"></a>
+                                        <span class="name "><b>email</b>
+                                            <a href="#email">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -190,7 +165,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>avatar:     <code>string | null</code>
+                                        <code>email:     <code>string | null</code>
 </code>
                                     </td>
                                 </tr>
@@ -207,21 +182,15 @@
 
 
 
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Аватар аккаунта</p>
-</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="login"></a>
-                                        <span class="name "><b>login</b>
-                                            <a href="#login">
+                                        <a name="phone"></a>
+                                        <span class="name "><b>phone</b>
+                                            <a href="#phone">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -229,7 +198,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>login:     <code>string | null</code>
+                                        <code>phone:     <code>string | null</code>
 </code>
                                     </td>
                                 </tr>
@@ -246,129 +215,6 @@
 
 
 
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Логин аккаунта</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="role"></a>
-                                        <span class="name "><b>role</b>
-                                            <a href="#role">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>role:         <code><a href="../miscellaneous/enumerations.html#ROLE" target="_self" >ROLE | null</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#ROLE" target="_self" >ROLE | null</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Роль аккаунта</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="team"></a>
-                                        <span class="name "><b>team</b>
-                                            <a href="#team">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>team:         <code><a href="../interfaces/ITeam.html" target="_self" >ITeam | null</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="../interfaces/ITeam.html" target="_self" >ITeam | null</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Компания аккаунта</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="username"></a>
-                                        <span class="name "><b>username</b>
-                                            <a href="#username">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>username:     <code>string | null</code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code>string | null</code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Имя пользователя</p>
-</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -376,45 +222,25 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ROLE } from &#x27;../enums&#x27;
-import { ITeam } from &#x27;./team.interface&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IUser } from &#x27;../interfaces&#x27;
 
-/**
- * Интерфейс данных пользователя
- */
-export interface IUser {
-  /**
-   * ID аккаунта
-   */
-  _id: string | null
-
-  /**
-   * Логин аккаунта
-   */
-  login: string | null
-
-  /**
-   * Имя пользователя
-   */
-  username: string | null
-
-  /**
-   * Роль аккаунта
-   */
-  role: ROLE | null
-
-  /**
-   * Компания аккаунта
-   */
-  team: ITeam | null
-
-  /**
-   * Аватар аккаунта
-   */
-  avatar: string | null
+export interface IAccount extends IUser {
+  email: string | null
+  phone: string | null
+  birthday: string | null
 }
 
-export type User &#x3D; IUser | null
+export const initialAccount: IAccount &#x3D; {
+  _id: null,
+  avatar: null,
+  birthday: null,
+  email: null,
+  login: null,
+  phone: null,
+  role: null,
+  team: null,
+  username: null,
+}
 </code></pre>
     </div>
 </div>
@@ -452,7 +278,7 @@ export type User &#x3D; IUser | null
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'IUser.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'IAccount.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

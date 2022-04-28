@@ -96,6 +96,7 @@ export const createApolloClient &#x3D; (
 ): ApolloClientOptions&lt;any&gt; &#x3D;&gt; ({
   link: httpLink.create({
     uri: ENV.GQL_HOST,
+    withCredentials: true,
   }),
   cache: new InMemoryCache(),
 })

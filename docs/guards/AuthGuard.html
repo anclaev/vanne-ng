@@ -184,8 +184,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/shared/guards/auth.guard.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/shared/guards/auth.guard.ts:23</a></div>
                 </td>
             </tr>
 
@@ -261,7 +261,7 @@
 
 
         <div class="tab-pane fade  tab-source-code" id="c-source">
-            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CanActivate, RouterStateSnapshot } from &#x27;@angular/router&#x27;
+            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CanActivate, Router, RouterStateSnapshot } from &#x27;@angular/router&#x27;
 import { Injectable } from &#x27;@angular/core&#x27;
 
 import { AuthService } from &#x27;@shared/services/auth.service&#x27;
@@ -282,15 +282,15 @@ export class AuthGuard implements CanActivate {
    * @description Проверяет авторизован ли пользователь в системе
    * @param {any} _ Нечто
    * @param {RouterStateSnapshot} state Текущее состояние роутера
-   * @returns {void}
    */
   canActivate(_: any, state: RouterStateSnapshot) {
     const user &#x3D; this.authService.currentUser
+
     if (user) {
       return true
     }
 
-    return this.authService.check(state.url)
+    return this.authService.check(state.url, true)
   }
 }
 </code></pre>

@@ -248,7 +248,7 @@ export class NavComponent {
   &lt;/a&gt;
   &lt;a
     class&#x3D;&quot;pin nav__link&quot;
-    routerLink&#x3D;&quot;/debts&quot;
+    routerLink&#x3D;&quot;/debt&quot;
     routerLinkActive&#x3D;&quot;nav__link--active&quot;
     title&#x3D;&quot;Debts&quot;
   &gt;
@@ -256,7 +256,7 @@ export class NavComponent {
   &lt;/a&gt;
   &lt;a
     class&#x3D;&quot;pin nav__link&quot;
-    routerLink&#x3D;&quot;/alarms&quot;
+    routerLink&#x3D;&quot;/alarm&quot;
     routerLinkActive&#x3D;&quot;nav__link--active&quot;
     title&#x3D;&quot;Alarms&quot;
   &gt;
@@ -264,7 +264,7 @@ export class NavComponent {
   &lt;/a&gt;
   &lt;a
     class&#x3D;&quot;pin nav__link&quot;
-    routerLink&#x3D;&quot;/chats&quot;
+    routerLink&#x3D;&quot;/chat&quot;
     routerLinkActive&#x3D;&quot;nav__link--active&quot;
     title&#x3D;&quot;Chats&quot;
   &gt;
@@ -277,7 +277,7 @@ export class NavComponent {
   &lt;/a&gt;
   &lt;a
     class&#x3D;&quot;pin nav__link&quot;
-    routerLink&#x3D;&quot;/users&quot;
+    routerLink&#x3D;&quot;/u&quot;
     routerLinkActive&#x3D;&quot;nav__link--active&quot;
     title&#x3D;&quot;Users&quot;
   &gt;
@@ -368,8 +368,8 @@ export class NavComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><nav *ngIf="status" class="nav" @inOutComponent>  <a    class="pin nav__link"    routerLink="/"    routerLinkActive="nav__link--active"    [routerLinkActiveOptions]="{ exact: true }"    title="Dashboard"  >    <img      src="/assets/svg/dashboard-min.svg"      width="16"      height="16"      alt="Dashboard"    />  </a>  <a    class="pin nav__link"    routerLink="/progress"    routerLinkActive="nav__link--active"    title="Progress"  >    <img      src="/assets/svg/progress-min.svg"      width="16"      height="16"      alt="Progress"    />  </a>  <a    class="pin nav__link"    routerLink="/debts"    routerLinkActive="nav__link--active"    title="Debts"  >    <img src="/assets/svg/debts-min.svg" width="16" height="16" alt="Debts" />  </a>  <a    class="pin nav__link"    routerLink="/alarms"    routerLinkActive="nav__link--active"    title="Alarms"  >    <img src="/assets/svg/alarms-min.svg" width="16" height="16" alt="Alarms" />  </a>  <a    class="pin nav__link"    routerLink="/chats"    routerLinkActive="nav__link--active"    title="Chats"  >    <img      src="/assets/svg/messages-min.svg"      width="16"      height="16"      alt="Chats"    />  </a>  <a    class="pin nav__link"    routerLink="/users"    routerLinkActive="nav__link--active"    title="Users"  >    <img src="/assets/svg/users-min.svg" width="16" height="16" alt="Users" />  </a></nav></div>'
-    var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'MeComponent', 'selector': 'vanne-me'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
+        var COMPONENT_TEMPLATE = '<div><nav *ngIf="status" class="nav" @inOutComponent>  <a    class="pin nav__link"    routerLink="/"    routerLinkActive="nav__link--active"    [routerLinkActiveOptions]="{ exact: true }"    title="Dashboard"  >    <img      src="/assets/svg/dashboard-min.svg"      width="16"      height="16"      alt="Dashboard"    />  </a>  <a    class="pin nav__link"    routerLink="/progress"    routerLinkActive="nav__link--active"    title="Progress"  >    <img      src="/assets/svg/progress-min.svg"      width="16"      height="16"      alt="Progress"    />  </a>  <a    class="pin nav__link"    routerLink="/debt"    routerLinkActive="nav__link--active"    title="Debts"  >    <img src="/assets/svg/debts-min.svg" width="16" height="16" alt="Debts" />  </a>  <a    class="pin nav__link"    routerLink="/alarm"    routerLinkActive="nav__link--active"    title="Alarms"  >    <img src="/assets/svg/alarms-min.svg" width="16" height="16" alt="Alarms" />  </a>  <a    class="pin nav__link"    routerLink="/chat"    routerLinkActive="nav__link--active"    title="Chats"  >    <img      src="/assets/svg/messages-min.svg"      width="16"      height="16"      alt="Chats"    />  </a>  <a    class="pin nav__link"    routerLink="/u"    routerLinkActive="nav__link--active"    title="Users"  >    <img src="/assets/svg/users-min.svg" width="16" height="16" alt="Users" />  </a></nav></div>'
+    var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProfileComponent', 'selector': 'vanne-profile'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavComponent'};
 </script>

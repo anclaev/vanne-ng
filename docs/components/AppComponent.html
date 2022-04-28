@@ -394,11 +394,10 @@ export class AppComponent {
       .subscribe((data: any) &#x3D;&gt; {
         if (data.title) this.titleService.setTitle(data.title)
 
-        let url &#x3D; data.event.url
+        let url &#x3D; data.event.urlAfterRedirects
 
         internalRoutes.forEach((item) &#x3D;&gt; {
-          if ((item.includes(url) &amp;&amp; url !&#x3D;&#x3D; &#x27;/&#x27;) || item &#x3D;&#x3D;&#x3D; url)
-            this.isInternalPage &#x3D; true
+          if (url.includes(item)) this.isInternalPage &#x3D; true
         })
 
         if (this.isInternalPage &amp;&amp; url.includes(&#x27;/auth&#x27;))
@@ -472,7 +471,7 @@ export class AppComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><main [attr.internal]="isInternalPage">  <vanne-header [status]="isInternalPage"></vanne-header>  <vanne-nav [status]="isInternalPage"></vanne-nav>  <router-outlet></router-outlet>  <vanne-bg-video [media]="background"></vanne-bg-video></main></div>'
-    var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'MeComponent', 'selector': 'vanne-me'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
+    var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProfileComponent', 'selector': 'vanne-profile'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>

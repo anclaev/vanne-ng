@@ -89,14 +89,8 @@ const APP_ROUTES: Routes &#x3D; [
     loadChildren: () &#x3D;&gt;
       &quot;import(&#x27;./dashboard/dashboard.module&#x27;).then((m) &#x3D;&gt; m.DashboardModule)&quot;,
     data: {
-      title: &#x27;Dashboard&#x27;,
+      title: &#x27;Дашборд&#x27;,
     },
-    canActivate: [AuthGuard],
-  },
-  {
-    path: &#x27;me&#x27;,
-    pathMatch: &#x27;full&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./me/me.module&#x27;).then((m) &#x3D;&gt; m.MeModule)&quot;,
     canActivate: [AuthGuard],
   },
   {
@@ -105,47 +99,37 @@ const APP_ROUTES: Routes &#x3D; [
     loadChildren: () &#x3D;&gt;
       &quot;import(&#x27;./progress/progress.module&#x27;).then((m) &#x3D;&gt; m.ProgressModule)&quot;,
     data: {
-      title: &#x27;Progress&#x27;,
+      title: &#x27;Успеваемость&#x27;,
     },
     canActivate: [AuthGuard],
   },
   {
-    path: &#x27;debts&#x27;,
+    path: &#x27;debt&#x27;,
     pathMatch: &#x27;full&#x27;,
     loadChildren: () &#x3D;&gt;
       &quot;import(&#x27;./debts/debts.module&#x27;).then((m) &#x3D;&gt; m.DebtsModule)&quot;,
     data: {
-      title: &#x27;Debts&#x27;,
+      title: &#x27;Задолженности&#x27;,
     },
     canActivate: [AuthGuard],
   },
   {
-    path: &#x27;alarms&#x27;,
+    path: &#x27;alarm&#x27;,
     pathMatch: &#x27;full&#x27;,
     loadChildren: () &#x3D;&gt;
       &quot;import(&#x27;./alarms/alarms.module&#x27;).then((m) &#x3D;&gt; m.AlarmsModule)&quot;,
     data: {
-      title: &#x27;Alarms&#x27;,
+      title: &#x27;Уведомления&#x27;,
     },
     canActivate: [AuthGuard],
   },
   {
-    path: &#x27;chats&#x27;,
+    path: &#x27;chat&#x27;,
     pathMatch: &#x27;full&#x27;,
     loadChildren: () &#x3D;&gt;
       &quot;import(&#x27;./chats/chats.module&#x27;).then((m) &#x3D;&gt; m.ChatsModule)&quot;,
     data: {
-      title: &#x27;Chats&#x27;,
-    },
-    canActivate: [AuthGuard],
-  },
-  {
-    path: &#x27;users&#x27;,
-    pathMatch: &#x27;full&#x27;,
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./users/users.module&#x27;).then((m) &#x3D;&gt; m.UsersModule)&quot;,
-    data: {
-      title: &#x27;Users&#x27;,
+      title: &#x27;Чаты&#x27;,
     },
     canActivate: [AuthGuard],
   },
@@ -155,7 +139,7 @@ const APP_ROUTES: Routes &#x3D; [
     loadChildren: () &#x3D;&gt;
       &quot;import(&#x27;./settings/settings.module&#x27;).then((m) &#x3D;&gt; m.SettingsModule)&quot;,
     data: {
-      title: &#x27;Settings&#x27;,
+      title: &#x27;Параметры&#x27;,
     },
     canActivate: [AuthGuard],
   },
@@ -165,6 +149,15 @@ const APP_ROUTES: Routes &#x3D; [
     data: {
       title: &#x27;Vanne&#x27;,
     },
+  },
+  {
+    path: &#x27;u&#x27;,
+    loadChildren: () &#x3D;&gt;
+      &quot;import(&#x27;./users/users.module&#x27;).then((m) &#x3D;&gt; m.UsersModule)&quot;,
+    data: {
+      title: &#x27;Пользователи&#x27;,
+    },
+    canActivate: [AuthGuard],
   },
   {
     path: &#x27;**&#x27;,

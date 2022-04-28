@@ -64,6 +64,12 @@
                             <a href="#createApolloClient" title="src/app/core/gql/gql.module.ts" ><b>createApolloClient</b>&nbsp;&nbsp;&nbsp;(src/.../gql.module.ts)</a>
                         </li>
                         <li>
+                            <a href="#GET_PROFILE" title="src/common/schemes/query/getProfile.ts" ><b>GET_PROFILE</b>&nbsp;&nbsp;&nbsp;(src/.../getProfile.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialAccount" title="src/common/models/account.ts" ><b>initialAccount</b>&nbsp;&nbsp;&nbsp;(src/.../account.ts)</a>
+                        </li>
+                        <li>
                             <a href="#inOutComponentAnimation" title="src/common/animations/in-out-component.ts" ><b>inOutComponentAnimation</b>&nbsp;&nbsp;&nbsp;(src/.../in-out-component.ts)</a>
                         </li>
                         <li>
@@ -102,6 +108,7 @@
 ): ApolloClientOptions&lt;any&gt; &#x3D;&gt; ({
   link: httpLink.create({
     uri: ENV.GQL_HOST,
+    withCredentials: true,
   }),
   cache: new InMemoryCache(),
 })</code>
@@ -114,6 +121,76 @@
 </div>
                 </td>
             </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/schemes/query/getProfile.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GET_PROFILE"></a>
+                    <span class="name">
+                        <span ><b>GET_PROFILE</b></span>
+                        <a href="#GET_PROFILE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>gql&lt;{ account: IAccount }, Login&gt;&#x60;
+  query getProfile($login: String!) {
+    account(login: $login) {
+      birthday
+      email
+      phone
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/models/account.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialAccount"></a>
+                    <span class="name">
+                        <span ><b>initialAccount</b></span>
+                        <a href="#initialAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IAccount.html" target="_self" >IAccount</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  _id: null,
+  avatar: null,
+  birthday: null,
+  email: null,
+  login: null,
+  phone: null,
+  role: null,
+  team: null,
+  username: null,
+}</code>
+                    </td>
+                </tr>
+
 
         </tbody>
     </table>
@@ -174,12 +251,11 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
   &#x27;/&#x27;,
+  &#x27;/u&#x27;,
   &#x27;/progress&#x27;,
-  &#x27;/alarms&#x27;,
-  &#x27;/debts&#x27;,
-  &#x27;/chats&#x27;,
-  &#x27;/users&#x27;,
-  &#x27;/me&#x27;,
+  &#x27;/alarm&#x27;,
+  &#x27;/debt&#x27;,
+  &#x27;/chat&#x27;,
   &#x27;/settings&#x27;,
 ]</code>
                     </td>
