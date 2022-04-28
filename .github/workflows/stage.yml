@@ -1,4 +1,4 @@
-# Деплой клиентской части
+# Stage клиентской части
 
 # Secrets
 # - SSH_PRIVATE_KEY
@@ -6,14 +6,12 @@
 # - SSH_HOST
 # - PROJECT_PATH
 
-name: CI
+name: stage
 
-# Запуск при пуше и слиянии в main
+# Запуск при пуше в develop
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ develop ]
 
   # Мануальный запуск CI
   workflow_dispatch:
@@ -41,9 +39,9 @@ jobs:
       ## Сборка docker-образа
       - name: Building the docker image
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.PROJECT_PATH }} && ./build-client.sh prod"
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.PROJECT_PATH }} && ./build-client.sh stage"
           
       ## Рестарт docker-compose
       - name: Restarting docker-compose
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.PROJECT_PATH }} && ./run.sh prod"
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.PROJECT_PATH }} && ./run.sh stage"
