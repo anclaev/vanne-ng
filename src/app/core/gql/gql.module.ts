@@ -3,7 +3,7 @@ import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular'
 import { HttpLink } from 'apollo-angular/http'
 import { NgModule } from '@angular/core'
 
-import { ENV } from '@env/env'
+import { ENV } from '@/environments/env'
 
 /**
  * Фабрика Apollo Client

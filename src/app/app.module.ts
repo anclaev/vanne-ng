@@ -31,7 +31,7 @@ import { GqlModule } from '@core/gql/gql.module'
     SharedModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: ENV.PRODUCTION,
+      enabled: ENV.ENV !== 'development',
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],

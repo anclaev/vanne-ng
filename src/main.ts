@@ -7,11 +7,11 @@ import { AppModule } from './app/app.module'
 
 import { sentryIgnoreRegex } from '@/common'
 
-import { ENV } from '@env/env'
+import { ENV } from '@/environments/env'
 
 Sentry.init({
   dsn: ENV.SENTRY_DSN,
-  environment: ENV.PRODUCTION ? 'production' : 'development',
+  environment: ENV.ENV,
   ignoreErrors: [sentryIgnoreRegex],
   tracesSampleRate: 1.0,
   integrations: [
@@ -22,7 +22,7 @@ Sentry.init({
   ],
 })
 
-if (ENV.PRODUCTION) {
+if (ENV.ENV === 'production' || ENV.ENV === 'staging') {
   enableProdMode()
 }
 

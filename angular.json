@@ -91,6 +91,33 @@
               "aot": true,
               "buildOptimizer": true
             },
+            "staging": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/env.ts",
+                  "with": "src/environments/env.stage.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "serviceWorker": true,
+              "optimization": true,
+              "crossOrigin": "use-credentials",
+              "extractLicenses": false,
+              "aot": true,
+              "buildOptimizer": true
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
