@@ -14,7 +14,7 @@ import { Router } from '@angular/router'
 import { Credentials, User } from '@/common/interfaces'
 import { API } from '@/common/enums'
 
-import { ENV } from '@env/env'
+import { ENV } from '@/environments/env'
 
 /**
  * Сервис авторизации

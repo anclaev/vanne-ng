@@ -3,7 +3,7 @@ FROM node:14-alpine AS deps
 
 LABEL org.opencontainers.image.authors="av@anclaev.com"
 LABEL maintrainer="anclaev"
-LABEL description="Vanne Client"
+LABEL description="Vanne Client (stage)"
 
 RUN apk add --no-cache libc6-compat
 
@@ -21,7 +21,7 @@ WORKDIR /client
 COPY . .
 COPY --from=deps /client/node_modules ./node_modules
 
-RUN yarn build
+RUN yarn build:stage
 
 # Stage 3: Запуск приложения
 FROM nginx:latest

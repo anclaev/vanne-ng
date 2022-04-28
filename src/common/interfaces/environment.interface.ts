@@ -3,9 +3,9 @@
  */
 export interface IEnvironment {
   /**
-   * Флаг боевого окружения
+   * Флаг окружения
    */
-  PRODUCTION: boolean
+  ENV: 'production' | 'development' | 'staging'
 
   /**
    * Токен Sentry
