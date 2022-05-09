@@ -7,6 +7,7 @@ import { Apollo } from 'apollo-angular'
 import { inOutComponentAnimation } from '@/common/animations/in-out-component'
 import { ToastService } from '@shared/services/toast.service'
 import { AuthService } from '@shared/services/auth.service'
+import { formatDateFromISO } from '@shared/utils/funcs'
 
 import { IAccount, initialAccount } from '@/common/models/account'
 import { GET_PROFILE } from '@common/schemes/query/getProfile'
@@ -77,6 +78,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
           this.profile$$.next({
             ...this.profile$$.value,
             ...data.account,
+            birthday: data.account.birthday
+              ? formatDateFromISO(data.account.birthday, false)
+              : null,
           })
 
           let profile = this.profile$$.value
