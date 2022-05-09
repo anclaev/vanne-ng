@@ -10,6 +10,7 @@ import { AuthService } from '@shared/services/auth.service'
 import { formatDateFromISO } from '@shared/utils/funcs'
 
 import { IAccount, initialAccount } from '@/common/models/account'
+
 import { GET_PROFILE } from '@common/schemes/query/getProfile'
 
 /**
@@ -36,6 +37,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * Флаг владения этим аккаунтом
    */
   public isMe: boolean = false
+
+  /**
+   * Флаг просмотра администратором
+   */
+  public supervisedByAdmin: boolean = false
 
   /**
    * Подписка на изменение данных аккаунта
@@ -73,7 +79,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       this.isMe = true
     }
 
-    // Установка параметры запроса аккаунта
+    // Установка параметров запроса аккаунта
     if (currentUser && this.isMe) {
       initial = { ...initial, ...this.authService.currentUser }
     } else if (currentUser) {
@@ -107,6 +113,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
           this.profile$$.next({
             ...this.profile$$.value,
             ...data.account,
+            avatar: data.account.avatar.url || '/assets/media/ava-default.webp',
             birthday: data.account.birthday
               ? formatDateFromISO(data.account.birthday, false)
               : null,
@@ -117,6 +124,16 @@ export class ProfileComponent implements OnInit, OnDestroy {
           this.titleService.setTitle(profile.login ? profile.login : 'Профиль')
         },
       })
+  }
+
+  uploadAvatar(event: any) {
+    if (!(this.isMe || this.supervisedByAdmin)) {
+      return
+    }
+
+    let file: File = event.target.files[0]
+
+    if (!file) return
   }
 
   /**

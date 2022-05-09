@@ -1,11 +1,22 @@
 <section @inOutComponent class="profile">
   <div class="profile-card">
-    <div class="profile-card__avatar" [attr.data-online]="isOnline">
+    <div
+      class="profile-card__avatar"
+      [attr.data-online]="isOnline"
+      [attr.data-editable]="isMe || supervisedByAdmin"
+      (click)="avatarUpload.click()"
+    >
       <img
         [src]="profile$$.value.avatar"
         width="200px"
         height="200px"
         [alt]="'Аватар: ' + (profile$$.value.username || profile$$.value.login)"
+      />
+      <input
+        type="file"
+        class="profile-card__avatar--control"
+        #avatarUpload
+        (change)="uploadAvatar($event)"
       />
     </div>
     <div class="profile-card__roles">

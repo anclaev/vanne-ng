@@ -24,6 +24,9 @@
                 height: 200px
                 width: 200px
 
+            &--control
+                display: none
+
             &[data-online="true"]::before
                 content: ''
                 position: absolute
@@ -33,6 +36,28 @@
                 border-radius: 50%
                 width: 46px
                 height: 46px
+
+            &[data-editable="true"]
+                cursor: pointer
+
+                &:after
+                    content: 'Upload'
+                    position: absolute
+                    top: 0
+                    left: 0
+                    right: 0
+                    bottom: 0
+                    color: transparent
+                    background: rgba($color-primary, 0)
+                    border-radius: 50%
+                    transition: .3s
+                    display: flex
+                    align-items: center
+                    justify-content: center
+
+                &:hover:after
+                    color: #fff
+                    background: rgba($color-primary, .5)
 
             & > img
                 border: 2px solid $color-primary-42
