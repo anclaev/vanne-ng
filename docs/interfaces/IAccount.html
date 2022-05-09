@@ -69,6 +69,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Модель аккаунта на основе пользователя</p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -149,6 +156,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Дата рождения на аккаунте</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -182,6 +195,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Электронная почта аккаунта</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -215,6 +234,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Мобильный номер аккаунта</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -224,12 +249,29 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IUser } from &#x27;../interfaces&#x27;
 
+/**
+ * Модель аккаунта на основе пользователя
+ */
 export interface IAccount extends IUser {
+  /**
+   * Электронная почта аккаунта
+   */
   email: string | null
+
+  /**
+   * Мобильный номер аккаунта
+   */
   phone: string | null
+
+  /**
+   * Дата рождения на аккаунте
+   */
   birthday: string | null
 }
 
+/**
+ * Дефолтные значения аккаунта
+ */
 export const initialAccount: IAccount &#x3D; {
   _id: null,
   avatar: null,

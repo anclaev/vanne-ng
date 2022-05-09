@@ -12,6 +12,9 @@ import { formatDateFromISO } from '@shared/utils/funcs'
 import { IAccount, initialAccount } from '@/common/models/account'
 import { GET_PROFILE } from '@common/schemes/query/getProfile'
 
+/**
+ * Компонент профиля пользователя
+ */
 @Component({
   selector: 'vanne-profile',
   templateUrl: './profile.component.html',
@@ -19,12 +22,35 @@ import { GET_PROFILE } from '@common/schemes/query/getProfile'
   animations: [inOutComponentAnimation],
 })
 export class ProfileComponent implements OnInit, OnDestroy {
+  /**
+   * Текущие данные профиля
+   */
   public profile$$: BehaviorSubject<IAccount>
+
+  /**
+   * Флаг онлайна пользователя
+   */
   public isOnline: boolean = true
+
+  /**
+   * Флаг владения этим аккаунтом
+   */
   public isMe: boolean = false
 
+  /**
+   * Подписка на изменение данных аккаунта
+   */
   private sub: Subscription | null = null
 
+  /**
+   * Конструктор компонента аккаунта
+   * @param {AuthService} authService Сервис авторизации
+   * @param {ToastService} toastService Сервис уведомлений
+   * @param {Apollo} apolloService Сервис Apollo
+   * @param {Title} titleService Сервис заголовка страницы
+   * @param {Router} routerService Сервис роутинга
+   * @param {ActivatedRoute} route Текущий маршрут приложения
+   */
   constructor(
     private authService: AuthService,
     private toastService: ToastService,
@@ -57,6 +83,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.profile$$ = new BehaviorSubject(initial)
   }
 
+  /**
+   * Метод получения аккаунта при инициализации компонента
+   */
   ngOnInit(): void {
     this.sub = this.apolloService
       .watchQuery({
@@ -90,6 +119,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
       })
   }
 
+  /**
+   * Отмена подписки на изменение аккаунта при размонтировании компонента
+   */
   ngOnDestroy(): void {
     this.sub?.unsubscribe()
   }
