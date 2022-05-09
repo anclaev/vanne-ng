@@ -191,7 +191,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/users/profile/profile.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/users/profile/profile.component.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -318,8 +318,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="89"
-                            class="link-to-prism">src/app/users/profile/profile.component.ts:89</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:93</a></div>
                 </td>
             </tr>
 
@@ -355,8 +355,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/app/users/profile/profile.component.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:60</a></div>
                 </td>
             </tr>
 
@@ -403,7 +403,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/users/profile/profile.component.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/users/profile/profile.component.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -435,7 +435,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/users/profile/profile.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/users/profile/profile.component.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -462,7 +462,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/users/profile/profile.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/users/profile/profile.component.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -494,7 +494,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/users/profile/profile.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/users/profile/profile.component.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -516,6 +516,7 @@ import { Apollo } from &#x27;apollo-angular&#x27;
 import { inOutComponentAnimation } from &#x27;@/common/animations/in-out-component&#x27;
 import { ToastService } from &#x27;@shared/services/toast.service&#x27;
 import { AuthService } from &#x27;@shared/services/auth.service&#x27;
+import { formatDateFromISO } from &#x27;@shared/utils/funcs&#x27;
 
 import { IAccount, initialAccount } from &#x27;@/common/models/account&#x27;
 import { GET_PROFILE } from &#x27;@common/schemes/query/getProfile&#x27;
@@ -586,6 +587,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
           this.profile$$.next({
             ...this.profile$$.value,
             ...data.account,
+            birthday: data.account.birthday
+              ? formatDateFromISO(data.account.birthday, false)
+              : null,
           })
 
           let profile &#x3D; this.profile$$.value
@@ -683,7 +687,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
                 right: 0
                 top: 0
                 background: $color-primary
-                outline: 1px solid $color-primary-42
                 border-radius: 50%
                 width: 46px
                 height: 46px

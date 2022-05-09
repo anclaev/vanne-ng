@@ -294,7 +294,7 @@ import { GqlModule } from &#x27;@core/gql/gql.module&#x27;
     SharedModule,
     AppRoutingModule,
     ServiceWorkerModule.register(&#x27;ngsw-worker.js&#x27;, {
-      enabled: ENV.PRODUCTION,
+      enabled: ENV.ENV !&#x3D;&#x3D; &#x27;development&#x27;,
       registrationStrategy: &#x27;registerWhenStable:30000&#x27;,
     }),
   ],
