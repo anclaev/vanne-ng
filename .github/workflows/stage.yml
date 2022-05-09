@@ -34,7 +34,7 @@ jobs:
       ## Обновление локального репозитория на сервере
       - name: Getting project code via git
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.PROJECT_PATH }}/server && git checkout main && git pull"
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.PROJECT_PATH }}/client && git checkout main && git pull"
           
       ## Сборка docker-образа
       - name: Building the docker image
