@@ -1,2 +1,56 @@
-
 @import '../../styles/_main'
+@import '../../styles/_vars'
+
+.settings
+    & > div
+        max-width: 80%
+        margin: 0 auto
+
+        @media only screen and (max-width: 576px)
+            max-width: 95%
+
+    &-sessions
+        & > h2
+            margin-bottom: 1.3em
+
+        & span
+            font-weight: $fw-light
+
+        &__wrapper
+            display: grid
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+            grid-gap: 20px
+
+            & > div
+                line-height: 1.5
+                flex-direction: column
+
+                padding: 20px
+                border: 1px solid $color-primary-light
+                border-radius: 20px
+
+                &, & > div
+                    display: flex
+                    flex-wrap: wrap
+
+                & > div
+                    justify-content: space-between
+
+                    &:first-child
+                        margin-bottom: 1em
+
+                        & > h3
+                            margin: 0
+                            flex-grow: 1
+
+                        & > button
+                            border: none
+                            padding: 0
+
+                            &:hover > img
+                                opacity: 1
+
+                            & > img
+                                user-select: none
+                                opacity: .7
+                                transition: .2s

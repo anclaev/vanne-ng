@@ -1,1 +1,24 @@
-<section @inOutComponent>settings is working!</section>
+<section @inOutComponent class="settings">
+  <div class="settings-sessions">
+    <h2>Ваши сессии</h2>
+    <div class="settings-sessions__wrapper">
+      <div *ngFor="let session of sessions$$.value" @inOutComponent>
+        <div>
+          <h3>{{ session.browser }}</h3>
+          <button (click)="onRemoveSessionClick($event, session.fingerprint)">
+            <img
+              src="assets/svg/cross-min.svg"
+              alt="Icon: Cross"
+              width="20"
+              height="20"
+            />
+          </button>
+        </div>
+        <div>
+          <span>{{ session.os }}</span>
+          <span>{{ session.device }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
