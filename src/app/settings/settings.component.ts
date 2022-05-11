@@ -5,6 +5,7 @@ import { Apollo, QueryRef } from 'apollo-angular'
 import { ToastService } from '@shared/services/toast.service'
 import { AuthService } from '@shared/services/auth.service'
 
+import { REMOVE_YOURSELF_SESSION } from '@/common/schemes/mutation/removeYourselfSession'
 import { inOutComponentAnimation } from '@/common/animations/in-out-component'
 import { GET_SESSIONS } from '@/common/schemes/query/getSessions'
 import { ISession } from '@/common/interfaces/session.interface'
@@ -41,6 +42,11 @@ export class SettingsComponent implements OnInit, OnDestroy {
    * Подписка на подтверждение удаления сессии
    */
   private acceptRemoveSessionSub: Subscription | null = null
+
+  /**
+   * Подписка на удаление своей сессии
+   */
+  private removeSessionSub: Subscription | null = null
 
   constructor(
     private authService: AuthService,
@@ -96,8 +102,29 @@ export class SettingsComponent implements OnInit, OnDestroy {
     this.acceptRemoveSessionSub = this.toastService
       .show('Подтвердите удаление сессии...', 'OK', 5)
       .onAction()
-      .subscribe(() => {
-        console.log(`Remove ${fingerprint}!`)
+      .subscribe(() => this.removeSession(fingerprint))
+  }
+
+  removeSession(fingerprint: string) {
+    this.removeSessionSub = this.apolloService
+      .mutate({
+        mutation: REMOVE_YOURSELF_SESSION,
+        variables: {
+          fingerprint,
+        },
+      })
+      .subscribe({
+        error: () => {
+          this.toastService.show('Ошибка при удалении сессии')
+        },
+        next: () => {
+          this.toastService.show('Сессия успешно удалена')
+          this.sessions$$.next(
+            this.sessions$$.value.filter(
+              (item) => item.fingerprint !== fingerprint,
+            ),
+          )
+        },
       })
   }
 
@@ -106,6 +133,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
    */
   ngOnDestroy(): void {
     this.acceptRemoveSessionSub?.unsubscribe()
+    this.removeSessionSub?.unsubscribe()
     this.sessionSub?.unsubscribe()
   }
 }
