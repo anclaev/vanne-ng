@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   /**
    * Флаг онлайна пользователя
    */
-  public isOnline: boolean = true
+  public isOnline: boolean = false
 
   /**
    * Флаг владения этим аккаунтом
