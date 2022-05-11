@@ -225,6 +225,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
         reportProgress: true,
         observe: 'events',
         withCredentials: true,
+        params: {
+          u: this.profile$$.value.login || '',
+        },
       })
       .pipe(
         finalize(() => this.reset()),
@@ -254,6 +257,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         if (uploadedFile) {
           this.authSub = this.authService.me().subscribe(() => {})
           this.profileQuery?.refetch()
+          this.toastService.show('Аватар успешно изменён')
         }
       }
     })
