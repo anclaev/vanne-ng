@@ -277,13 +277,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/UsersModule.html" data-type="entity-link" >UsersModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-UsersModule-d4831fa16c25248225e73a4470b4f42bac1a05f19ae90bfdd1120c080ec0533fe511d7054e972e7e5fe928b084fc4135b2995e295b2626c768ef0131942791b5"' : 'data-target="#xs-components-links-module-UsersModule-d4831fa16c25248225e73a4470b4f42bac1a05f19ae90bfdd1120c080ec0533fe511d7054e972e7e5fe928b084fc4135b2995e295b2626c768ef0131942791b5"' }>
+                                            'data-target="#components-links-module-UsersModule-42f4a9cd1c2aa5d41c70fbaebaa85bfab41d04ed77d54bd971dd644257a5d024aed42a0c889a442e9cf991bbf95ebdb571b6b3b6d9141b75c19dd780d5635c65"' : 'data-target="#xs-components-links-module-UsersModule-42f4a9cd1c2aa5d41c70fbaebaa85bfab41d04ed77d54bd971dd644257a5d024aed42a0c889a442e9cf991bbf95ebdb571b6b3b6d9141b75c19dd780d5635c65"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-UsersModule-d4831fa16c25248225e73a4470b4f42bac1a05f19ae90bfdd1120c080ec0533fe511d7054e972e7e5fe928b084fc4135b2995e295b2626c768ef0131942791b5"' :
-                                            'id="xs-components-links-module-UsersModule-d4831fa16c25248225e73a4470b4f42bac1a05f19ae90bfdd1120c080ec0533fe511d7054e972e7e5fe928b084fc4135b2995e295b2626c768ef0131942791b5"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-UsersModule-42f4a9cd1c2aa5d41c70fbaebaa85bfab41d04ed77d54bd971dd644257a5d024aed42a0c889a442e9cf991bbf95ebdb571b6b3b6d9141b75c19dd780d5635c65"' :
+                                            'id="xs-components-links-module-UsersModule-42f4a9cd1c2aa5d41c70fbaebaa85bfab41d04ed77d54bd971dd644257a5d024aed42a0c889a442e9cf991bbf95ebdb571b6b3b6d9141b75c19dd780d5635c65"' }>
                                             <li class="link">
                                                 <a href="components/ProfileComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ProfileComponent</a>
                                             </li>
@@ -352,6 +352,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ITeam.html" data-type="entity-link" >ITeam</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IUpload.html" data-type="entity-link" >IUpload</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IUser.html" data-type="entity-link" >IUser</a>
