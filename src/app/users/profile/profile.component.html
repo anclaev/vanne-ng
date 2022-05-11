@@ -21,11 +21,10 @@
         (change)="onSelectFile($event)"
         (click)="onClickFile($event)"
       />
-      <div class="profile-card-progress" *ngIf="uploadProgress">
+      <div class="profile-card-progress" *ngIf="uploadProgress" @inOutComponent>
         <mat-progress-spinner
-          mode="determinate"
+          mode="indeterminate"
           class="profile-card-progress__spinner"
-          [value]="uploadProgress"
         ></mat-progress-spinner>
       </div>
     </div>

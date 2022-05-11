@@ -17,7 +17,19 @@ export const createApolloClient = (
     uri: ENV.GQL_HOST,
     withCredentials: true,
   }),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          account: {
+            merge(existing, incoming) {
+              return { ...existing, sessions: incoming.sessions }
+            },
+          },
+        },
+      },
+    },
+  }),
 })
 
 /**
