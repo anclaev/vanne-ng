@@ -1,4 +1,4 @@
-<section @inOutComponent class="profile">
+<section @inOutComponent class="profile" [formGroup]="profileForm">
   <div class="profile-card">
     <div
       class="profile-card__avatar"
@@ -35,25 +35,48 @@
   <div class="profile-desc">
     <div class="profile-desc-info">
       <div class="profile-desc-info__field">
-        <span>{{ profile$$.value.username }}</span
-        ><span>{{ profile$$.value.login }}</span>
+        <input
+          type="text"
+          formControlName="username"
+          (ngModelChange)="onChangeUsername($event)"
+        />
+        <input
+          type="text"
+          formControlName="login"
+          (ngModelChange)="onChangeLogin($event)"
+        />
       </div>
       <div class="profile-desc-info__field">
-        <span
-          ><a
-            [href]="'mailto:' + profile$$.value.email || 'av@anclaev.com'"
-            rel="noopenner noreferrer"
-            >{{ profile$$.value.email || 'av@anclaev.com' }}</a
-          ></span
-        >
+        <input
+          type="text"
+          formControlName="email"
+          (ngModelChange)="onChangeEmail($event)"
+        />
         <img src="/assets/svg/email-min.svg" alt="Icon: Email" />
       </div>
       <div class="profile-desc-info__field">
-        <span>{{ profile$$.value.phone || '7 995 627 06 76' }}</span>
+        <input
+          type="text"
+          formControlName="phone"
+          (ngModelChange)="onChangePhone($event)"
+        />
         <img src="/assets/svg/phone-min.svg" alt="Icon: Phone" />
       </div>
       <div class="profile-desc-info__field">
-        <span>{{ profile$$.value.birthday || '12/10/2001' }}</span>
+        <div>
+          <input
+            [matDatepicker]="picker"
+            formControlName="birthday"
+            class="profile-desc-info__field--date"
+            (ngModelChange)="onChangeBirthday($event)"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+            [style]="!isMe || !supervisedByAdmin ? { display: 'none' } : {}"
+          ></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker></mat-datepicker>
+        </div>
         <img src="/assets/svg/cake-min.svg" alt="Icon: Birthday" />
       </div>
     </div>
