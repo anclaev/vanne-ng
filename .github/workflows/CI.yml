@@ -8,10 +8,8 @@
 
 name: CI
 
-# Запуск при пуше и слиянии в main
+# Запуск при слиянии в main
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
