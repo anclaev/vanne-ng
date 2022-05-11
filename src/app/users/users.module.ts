@@ -1,3 +1,4 @@
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 
@@ -10,6 +11,11 @@ import { UsersComponent } from './users/users.component'
 
 @NgModule({
   declarations: [UsersComponent, ProfileComponent],
-  imports: [CommonModule, SharedModule, UsersRoutingModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    UsersRoutingModule,
+    MatProgressSpinnerModule,
+  ],
 })
 export class UsersModule {}

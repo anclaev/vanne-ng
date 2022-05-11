@@ -1,4 +1,9 @@
-import { MatSnackBar } from '@angular/material/snack-bar'
+import {
+  MatSnackBar,
+  MatSnackBarRef,
+  TextOnlySnackBar,
+} from '@angular/material/snack-bar'
+
 import { Injectable } from '@angular/core'
 
 /**
@@ -16,11 +21,16 @@ export class ToastService {
    * Метод показа уведомления
    * @param {string} message Текст сообщения
    * @param {string} action Текст лейбла кнопки
-   * @returns {any}
+   * @param {number} duration Длительность уведомления в секундах
+   * @returns {MatSnackBarRef<TextOnlySnackBar>} Ссылка на уведомление
    */
-  public show(message: string, action?: string): any {
+  public show(
+    message: string,
+    action?: string,
+    duration: number = 4,
+  ): MatSnackBarRef<TextOnlySnackBar> {
     return this.snackBar.open(message, action, {
-      duration: 4000,
+      duration: duration * 1000,
       horizontalPosition: 'right',
       verticalPosition: 'top',
       panelClass: 'toast',

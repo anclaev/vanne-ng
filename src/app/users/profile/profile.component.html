@@ -4,6 +4,7 @@
       class="profile-card__avatar"
       [attr.data-online]="isOnline"
       [attr.data-editable]="isMe || supervisedByAdmin"
+      [attr.data-loading]="!!uploadProgress"
       (click)="avatarUpload.click()"
     >
       <img
@@ -15,9 +16,18 @@
       <input
         type="file"
         class="profile-card__avatar--control"
+        [accept]="avatarTypes"
         #avatarUpload
-        (change)="uploadAvatar($event)"
+        (change)="onSelectFile($event)"
+        (click)="onClickFile($event)"
       />
+      <div class="profile-card-progress" *ngIf="uploadProgress">
+        <mat-progress-spinner
+          mode="determinate"
+          class="profile-card-progress__spinner"
+          [value]="uploadProgress"
+        ></mat-progress-spinner>
+      </div>
     </div>
     <div class="profile-card__roles">
       <div *ngIf="profile$$.value.role">{{ profile$$.value.role }}</div>

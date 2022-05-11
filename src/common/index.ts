@@ -18,6 +18,11 @@ export const internalRoutes = [
 ]
 
 /**
+ * Массив допустимых типов изображения
+ */
+export const imageMimeTypes = ['image/png', 'image/jpeg', 'image/webp']
+
+/**
  * Зона компонента (внутренний/внешний)
  */
 export type ComponentZone = 'internal' | 'public'

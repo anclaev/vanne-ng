@@ -12,6 +12,7 @@ import { formatDateFromISO } from '@shared/utils/funcs'
 import { IAccount, initialAccount } from '@/common/models/account'
 
 import { GET_PROFILE } from '@common/schemes/query/getProfile'
+import { imageMimeTypes } from '@/common'
 
 /**
  * Компонент профиля пользователя
@@ -44,9 +45,29 @@ export class ProfileComponent implements OnInit, OnDestroy {
   public supervisedByAdmin: boolean = false
 
   /**
+   * Разрешённые типы файла
+   */
+  public avatarTypes: string = imageMimeTypes.join(',')
+
+  /**
+   * Прогресс загрузки файла
+   */
+  public uploadProgress: number | null = null
+
+  /**
    * Подписка на изменение данных аккаунта
    */
-  private sub: Subscription | null = null
+  private changeDataSub: Subscription | null = null
+
+  /**
+   * Подписка на загрузку аватара
+   */
+  public uploadSub: Subscription | null = null
+
+  /**
+   * Подписка на подтверждение загрузки аватара
+   */
+  public acceptUploadSub: Subscription | null = null
 
   /**
    * Конструктор компонента аккаунта
@@ -93,7 +114,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * Метод получения аккаунта при инициализации компонента
    */
   ngOnInit(): void {
-    this.sub = this.apolloService
+    this.changeDataSub = this.apolloService
       .watchQuery({
         query: GET_PROFILE,
         variables: {
@@ -126,20 +147,73 @@ export class ProfileComponent implements OnInit, OnDestroy {
       })
   }
 
-  uploadAvatar(event: any) {
+  /**
+   * Обработчик клика для смены аватара
+   */
+  public onClickFile(event: Event): void {
+    if (!!this.uploadProgress) {
+      this.cancelUpload()
+
+      event.preventDefault()
+      return
+    }
+  }
+
+  /**
+   * Обработчик выбора файла для загрузки
+   * @param {any} event Событие выбора
+   */
+  public onSelectFile(event: any): void {
     if (!(this.isMe || this.supervisedByAdmin)) {
       return
     }
 
     let file: File = event.target.files[0]
 
+    // Проверка на выбор файла
     if (!file) return
+
+    // Проверка на валидность типа файла
+    if (!imageMimeTypes.find((item) => item === file.type)) {
+      this.toastService.show('Неверный тип файла')
+      return
+    }
+
+    // Проверка на текущее подтверждение загрузки
+    if (this.acceptUploadSub) this.acceptUploadSub.unsubscribe()
+
+    // Подтверждение загрузки аватара
+    this.acceptUploadSub = this.toastService
+      .show(
+        `Обновить аватар на ${file.name.slice(0, file.name.lastIndexOf('.'))}?`,
+        'OK',
+        10,
+      )
+      .onAction()
+      .subscribe(() => this.uploadAvatar(file))
+  }
+
+  /**
+   * Метод загрузки аватара
+   * @param {File} file Выбранный файл
+   */
+  private uploadAvatar(file: File): void {
+    console.log(file)
+  }
+
+  /**
+   * Метод отмены загрузки аватара
+   */
+  private cancelUpload(): void {
+    this.uploadProgress = null
   }
 
   /**
    * Отмена подписки на изменение аккаунта при размонтировании компонента
    */
   ngOnDestroy(): void {
-    this.sub?.unsubscribe()
+    this.changeDataSub?.unsubscribe()
+    this.uploadSub?.unsubscribe()
+    this.acceptUploadSub?.unsubscribe()
   }
 }
