@@ -11,6 +11,10 @@
     & > div, &-card__roles, &-desc-info, &-desc-info__field
         display: flex
 
+    &-card input, &-desc input
+        padding: 10px 0
+        border-color: transparent
+
     &-card
         padding: 0 30px
 
@@ -106,33 +110,54 @@
             width: 100%
             max-width: 900px
             justify-content: space-around
-            padding: 0 30px
+            padding: 0 10px
 
             flex-wrap: wrap
 
             & > div
-                padding: 20px 30px
+                padding: 20px 10px
 
-                &:first-child  > span
+                &:first-child  > input
                     &:first-child
-                        font-size: 24px
+                        margin-top: 12px
+                        font-size: 20px
                         font-weight: $fw-bold
-                        margin-bottom: 10px
+                        padding-top: 0
+                        margin-bottom: 5px
+                        padding-bottom: 5px
 
                     &:last-child
                         font-size: 16px
-                        margin-bottom: 0
+                        margin: 0
+                        padding-top: 0
 
             &__field
                 flex-direction: column
                 justify-content: center
                 align-items: center
+                max-width: 210px
 
-                & > span
+                &--date
+                    width: 150px
+
+                & > input, & > span
                     text-align: center
                     font-size: 16px
                     display: block
-                    margin-bottom: 15px
+                    margin-bottom: 5px
+
+                & > input.ng-invalid.ng-dirty
+                    border-color: $color-primary-light
+
+                & input
+                    border-bottom: 1px solid transparent
+                    text-align: center
+                    padding: 10px 0 8px 0
+                    margin-bottom: 9px
+                    transition: .2s
+
+                & > span
+                    padding: 10px
 
                 & a
                     color: #fff

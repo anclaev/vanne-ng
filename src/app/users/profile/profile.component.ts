@@ -1,14 +1,36 @@
-import { BehaviorSubject, catchError, finalize, of, Subscription } from 'rxjs'
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
+} from '@angular/material/core'
 
-import { Component, OnDestroy, OnInit } from '@angular/core'
+import {
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+} from '@angular/material-moment-adapter'
+
+import {
+  BehaviorSubject,
+  catchError,
+  debounceTime,
+  finalize,
+  of,
+  Subject,
+  Subscription,
+  throttleTime,
+} from 'rxjs'
+
+import { FormControl, FormGroup, Validators } from '@angular/forms'
+
 import { HttpClient, HttpEventType } from '@angular/common/http'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Title } from '@angular/platform-browser'
 import { Apollo, QueryRef } from 'apollo-angular'
+import moment, { Moment } from 'moment'
 
 import { ToastService } from '@shared/services/toast.service'
 import { AuthService } from '@shared/services/auth.service'
-import { formatDateFromISO } from '@shared/utils/funcs'
 
 import { inOutComponentAnimation } from '@/common/animations/in-out-component'
 import { IAccount, initialAccount } from '@/common/models/account'
@@ -19,6 +41,18 @@ import { API } from '@/common/enums'
 
 import { ENV } from '@/environments/env'
 
+const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'DD MMMM, YYYY',
+    monthYearLabel: 'MMMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+}
+
 /**
  * Компонент профиля пользователя
  */
@@ -26,6 +60,15 @@ import { ENV } from '@/environments/env'
   selector: 'vanne-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.sass'],
+  providers: [
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    { provide: MAT_DATE_LOCALE, useValue: 'ru-RU' },
+  ],
   animations: [inOutComponentAnimation],
 })
 export class ProfileComponent implements OnInit, OnDestroy {
@@ -56,6 +99,46 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * Флаг просмотра администратором
    */
   public supervisedByAdmin: boolean = false
+
+  /**
+   * Форма профиля
+   */
+  public profileForm = new FormGroup({
+    username: new FormControl(
+      { value: '', disabled: true },
+      {
+        validators: [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.pattern('[a-zA-Z]+s[a-zA-Z]+'),
+        ],
+      },
+    ),
+    login: new FormControl({ value: '', disabled: true }, [
+      Validators.required,
+      Validators.minLength(4),
+    ]),
+    email: new FormControl({ value: '', disabled: true }, [
+      Validators.required,
+      Validators.email,
+      Validators.minLength(6),
+    ]),
+    phone: new FormControl({ value: '', disabled: true }, [
+      Validators.required,
+      Validators.minLength(6),
+      Validators.pattern('[0-9]+s[0-9]+s[0-9]+s[0-9]+s[0-9]+'),
+    ]),
+    birthday: new FormControl(
+      { value: '', disabled: true },
+      Validators.required,
+    ),
+  })
+
+  public changedLogin: Subject<string> = new Subject<string>()
+  public changedUsername: Subject<string> = new Subject<string>()
+  public changedPhone: Subject<string> = new Subject<string>()
+  public changedEmail: Subject<string> = new Subject<string>()
+  public changedBirthday: Subject<Moment> = new Subject<Moment>()
 
   /**
    * Разрешённые типы файла
@@ -113,9 +196,24 @@ export class ProfileComponent implements OnInit, OnDestroy {
     // Текущий пользователь ИС
     let currentUser = this.authService.currentUser
 
+    this.supervisedByAdmin =
+      currentUser?.role === 'ADMIN' || currentUser?.role === 'HEAD'
+
     // Проверка на свою страницу
     if (target && currentUser && currentUser.login === target) {
       this.isMe = true
+    }
+
+    // Смена доступности формы в зависимости от пользователя
+    if (this.supervisedByAdmin) {
+      Object.keys(this.profileForm.controls).forEach((item) =>
+        this.profileForm.controls[item].enable(),
+      )
+    }
+
+    if (this.isMe) {
+      this.profileForm.controls['birthday'].enable()
+      this.profileForm.controls['phone'].enable()
     }
 
     // Установка параметров запроса аккаунта
@@ -153,16 +251,109 @@ export class ProfileComponent implements OnInit, OnDestroy {
           ...this.profile$$.value,
           ...data.account,
           avatar: data.account.avatar.url || '/assets/media/ava-default.webp',
-          birthday: data.account.birthday
-            ? formatDateFromISO(data.account.birthday, false)
-            : null,
+          birthday: data.account.birthday ? data.account.birthday : null,
         })
 
         let profile = this.profile$$.value
 
+        this.profileForm.controls['username'].setValue(profile.username)
+        this.profileForm.controls['email'].setValue(profile.email)
+        this.profileForm.controls['phone'].setValue(profile.phone)
+        this.profileForm.controls['login'].setValue(profile.login)
+        this.profileForm.controls['birthday'].setValue(moment(profile.birthday))
+
         this.titleService.setTitle(profile.login ? profile.login : 'Профиль')
+
+        this.changedLogin
+          .asObservable()
+          .pipe(debounceTime(5000))
+          .subscribe((value) => {
+            this.changeLogin(value)
+          })
+
+        this.changedUsername
+          .asObservable()
+          .pipe(debounceTime(5000))
+          .subscribe((value) => {
+            this.changeUsername(value)
+          })
+
+        this.changedPhone
+          .asObservable()
+          .pipe(debounceTime(5000))
+          .subscribe((value) => {
+            this.changePhone(value)
+          })
+
+        this.changedEmail
+          .asObservable()
+          .pipe(debounceTime(5000))
+          .subscribe((value) => {
+            this.changeEmail(value)
+          })
+
+        this.changedBirthday
+          .asObservable()
+          .pipe(debounceTime(5000))
+          .subscribe((value) => {
+            this.changeBirthday(value.toDate())
+          })
       },
     })
+  }
+
+  public onChangeLogin(val: string) {
+    if (val.trim().length === 0 || !this.profileForm.controls['login'].valid)
+      return
+
+    this.changedLogin.next(val)
+  }
+
+  public changeLogin(val: string) {
+    console.log('Change login: ', val)
+  }
+
+  public onChangeUsername(val: string) {
+    if (val.trim().length === 0 || !this.profileForm.controls['username'].valid)
+      return
+
+    this.changedUsername.next(val)
+  }
+
+  public changeUsername(val: string) {
+    console.log('Change username: ', val)
+  }
+
+  public onChangePhone(val: string) {
+    if (val.trim().length === 0 || !this.profileForm.controls['phone'].valid)
+      return
+
+    this.changedPhone.next(val)
+  }
+
+  public changePhone(val: string) {
+    console.log('Change phone: ', val)
+  }
+
+  public onChangeEmail(val: string) {
+    if (val.trim().length === 0 || !this.profileForm.controls['email'].valid)
+      return
+
+    this.changedEmail.next(val)
+  }
+
+  public changeEmail(val: string) {
+    console.log('Change email: ', val)
+  }
+
+  public onChangeBirthday(val: Moment) {
+    if (!this.profileForm.controls['birthday'].valid) return
+
+    this.changedBirthday.next(val)
+  }
+
+  public changeBirthday(val: Date) {
+    console.log('Change birthday: ', val)
   }
 
   /**

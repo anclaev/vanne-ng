@@ -1,4 +1,7 @@
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { MatMomentDateModule } from '@angular/material-moment-adapter'
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 
@@ -16,6 +19,9 @@ import { UsersComponent } from './users/users.component'
     SharedModule,
     UsersRoutingModule,
     MatProgressSpinnerModule,
+    MatMomentDateModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
   ],
 })
 export class UsersModule {}
