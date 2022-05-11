@@ -17,6 +17,23 @@
         &, &__roles
             flex-direction: column
 
+        &-progress
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+
+            border-radius: 50%
+            background: rgba($color-background, .5)
+
+            &, &__spinner
+                position: absolute
+
+            &__spinner
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+
         &__avatar
             position: relative
 
@@ -41,7 +58,7 @@
                 cursor: pointer
 
                 &:after
-                    content: 'Upload'
+                    content: 'Изменить'
                     position: absolute
                     top: 0
                     left: 0
@@ -58,6 +75,10 @@
                 &:hover:after
                     color: #fff
                     background: rgba($color-primary, .5)
+
+            &[data-loading="true"]
+                &:after
+                    content: 'Отмена'
 
             & > img
                 border: 2px solid $color-primary-42

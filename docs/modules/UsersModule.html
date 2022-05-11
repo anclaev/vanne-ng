@@ -189,7 +189,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MatProgressSpinnerModule } from &#x27;@angular/material/progress-spinner&#x27;
+import { CommonModule } from &#x27;@angular/common&#x27;
 import { NgModule } from &#x27;@angular/core&#x27;
 
 import { SharedModule } from &#x27;@shared/shared.module&#x27;
@@ -201,7 +202,12 @@ import { UsersComponent } from &#x27;./users/users.component&#x27;
 
 @NgModule({
   declarations: [UsersComponent, ProfileComponent],
-  imports: [CommonModule, SharedModule, UsersRoutingModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    UsersRoutingModule,
+    MatProgressSpinnerModule,
+  ],
 })
 export class UsersModule {}
 </code></pre>
