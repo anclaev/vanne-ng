@@ -14,6 +14,7 @@ import {
   catchError,
   debounceTime,
   finalize,
+  Observable,
   of,
   Subject,
   Subscription,
@@ -25,7 +26,14 @@ import { HttpClient, HttpEventType } from '@angular/common/http'
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Title } from '@angular/platform-browser'
-import { Apollo, QueryRef } from 'apollo-angular'
+
+import {
+  Apollo,
+  MutationResult,
+  QueryRef,
+  TypedDocumentNode,
+} from 'apollo-angular'
+
 import moment, { Moment } from 'moment'
 
 import { ToastService } from '@shared/services/toast.service'
@@ -37,6 +45,12 @@ import { IUpload } from '@/common/interfaces/upload.interface'
 import { GET_PROFILE } from '@common/schemes/query/getProfile'
 import { imageMimeTypes } from '@/common'
 import { API } from '@/common/enums'
+
+import {
+  CHANGE_YOURSELF_PHONE,
+  CHANGE_YOURSELF_BIRTHDAY,
+  CHANGE_YOURSELF_EMAIL,
+} from '@/common/schemes/mutation/changeYourself'
 
 import { ENV } from '@/environments/env'
 
@@ -58,7 +72,7 @@ const MY_FORMATS = {
 /**
  * Задержка изменения поля в милисекундах
  */
-const CHANGE_TIMEOUT = 5000
+const CHANGE_TIMEOUT = 2000
 
 /**
  * Компонент профиля пользователя
@@ -117,13 +131,16 @@ export class ProfileComponent implements OnInit, OnDestroy {
         validators: [
           Validators.required,
           Validators.minLength(4),
-          Validators.pattern(/^[A-Z, А-Я][A-Za-z]+\s[A-Z, А-Я][A-Za-z]+$/),
+          Validators.pattern(
+            /^[A-Z, А-Я][a-z, а-я, ё]+\s[A-Z, А-Я][a-z, а-я, ё]+$/,
+          ),
         ],
       },
     ),
     login: new FormControl({ value: '', disabled: true }, [
       Validators.required,
       Validators.minLength(4),
+      Validators.pattern(/^[A-Z, a-z, 0-9]+\S$/),
     ]),
     email: new FormControl({ value: '', disabled: true }, [
       Validators.required,
@@ -175,6 +192,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * Прогресс загрузки файла
    */
   public uploadProgress: number | null = null
+
+  /** Флаг ошибки изменения данных */
+  private isFailedChangeEvent: boolean = false
 
   /**
    * Подписка на изменение данных аккаунта
@@ -295,7 +315,15 @@ export class ProfileComponent implements OnInit, OnDestroy {
           .asObservable()
           .pipe(debounceTime(CHANGE_TIMEOUT))
           .subscribe((value) => {
-            this.changeLogin(value)
+            if (
+              this.profileForm.controls['login'].valid &&
+              !this.isFailedChangeEvent
+            )
+              this.changeLogin(value)
+
+            if (this.isFailedChangeEvent) {
+              this.isFailedChangeEvent = false
+            }
           })
 
         // Отслеживаем изменение имени пользователя
@@ -303,7 +331,15 @@ export class ProfileComponent implements OnInit, OnDestroy {
           .asObservable()
           .pipe(debounceTime(CHANGE_TIMEOUT))
           .subscribe((value) => {
-            this.changeUsername(value)
+            if (
+              this.profileForm.controls['username'].valid &&
+              !this.isFailedChangeEvent
+            )
+              this.changeUsername(value)
+
+            if (this.isFailedChangeEvent) {
+              this.isFailedChangeEvent = false
+            }
           })
 
         // Отслеживаем изменение мобильного номера
@@ -311,7 +347,15 @@ export class ProfileComponent implements OnInit, OnDestroy {
           .asObservable()
           .pipe(debounceTime(CHANGE_TIMEOUT))
           .subscribe((value) => {
-            this.changePhone(value)
+            if (
+              this.profileForm.controls['phone'].valid &&
+              !this.isFailedChangeEvent
+            )
+              this.changePhone(value)
+
+            if (this.isFailedChangeEvent) {
+              this.isFailedChangeEvent = false
+            }
           })
 
         // Отслеживаем изменение email
@@ -319,7 +363,15 @@ export class ProfileComponent implements OnInit, OnDestroy {
           .asObservable()
           .pipe(debounceTime(CHANGE_TIMEOUT))
           .subscribe((value) => {
-            this.changeEmail(value)
+            if (
+              this.profileForm.controls['email'].valid &&
+              !this.isFailedChangeEvent
+            )
+              this.changeEmail(value)
+
+            if (this.isFailedChangeEvent) {
+              this.isFailedChangeEvent = false
+            }
           })
 
         // Отслеживаем изменение даты рождения
@@ -327,7 +379,15 @@ export class ProfileComponent implements OnInit, OnDestroy {
           .asObservable()
           .pipe(debounceTime(CHANGE_TIMEOUT))
           .subscribe((value) => {
-            this.changeBirthday(value.toDate())
+            if (
+              this.profileForm.controls['birthday'].valid &&
+              !this.isFailedChangeEvent
+            )
+              this.changeBirthday(value.toDate())
+
+            if (this.isFailedChangeEvent) {
+              this.isFailedChangeEvent = false
+            }
           })
       },
     })
@@ -351,7 +411,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * @returns {void}
    */
   public changeLogin(val: string): void {
-    console.log('Login is changed to: ', val)
+    this.toastService.show('Изменить логин?', 'Да', 2)
   }
 
   /**
@@ -372,7 +432,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * @returns {void}
    */
   public changeUsername(val: string): void {
-    console.log('Change username: ', val)
+    this.toastService.show('Изменить имя пользователя?', 'Да', 2)
   }
 
   /**
@@ -393,7 +453,41 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * @returns {void}
    */
   public changePhone(val: string): void {
-    console.log('Change phone: ', val)
+    this.toastService
+      .show('Изменить мобильный номер?', 'Да', 2)
+      .onAction()
+      .subscribe(() =>
+        this.mutate<{ phone: string }, { phone: string }>(
+          CHANGE_YOURSELF_PHONE,
+          { phone: val },
+        ).subscribe({
+          error: () => {
+            this.toastService.show(
+              'Ошибка при изменении мобильного номера',
+              undefined,
+              2,
+            )
+
+            this.isFailedChangeEvent = true
+
+            this.profileForm.controls['phone'].setValue(
+              this.profile$$.value.phone,
+            )
+          },
+          next: ({ data }) => {
+            this.profile$$.next({
+              ...this.profile$$.value,
+              phone: data?.phone || '',
+            })
+
+            this.toastService.show(
+              'Мобильный номер успешно изменён',
+              undefined,
+              2,
+            )
+          },
+        }),
+      )
   }
 
   /**
@@ -414,7 +508,35 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * @returns {void}
    */
   public changeEmail(val: string): void {
-    console.log('Change email: ', val)
+    this.toastService
+      .show('Изменить email?', 'Да', 2)
+      .onAction()
+      .subscribe(() =>
+        this.mutate<{ email: string }, { email: string }>(
+          CHANGE_YOURSELF_EMAIL,
+          {
+            email: val,
+          },
+        ).subscribe({
+          error: () => {
+            this.toastService.show('Ошибка при изменении почты', undefined, 2)
+
+            this.isFailedChangeEvent = true
+
+            this.profileForm.controls['email'].setValue(
+              this.profile$$.value.email,
+            )
+          },
+          next: ({ data }) => {
+            this.profile$$.next({
+              ...this.profile$$.value,
+              email: data?.email || '',
+            })
+
+            this.toastService.show('Почта успешно изменена', undefined, 2)
+          },
+        }),
+      )
   }
 
   /**
@@ -434,7 +556,43 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * @returns {void}
    */
   public changeBirthday(val: Date): void {
-    console.log('Change birthday: ', val)
+    this.toastService
+      .show('Изменить дату рождения?', 'Да', 2)
+      .onAction()
+      .subscribe(() =>
+        this.mutate<{ birthday: string }, { birthday: string }>(
+          CHANGE_YOURSELF_BIRTHDAY,
+          {
+            birthday: val.toISOString(),
+          },
+        ).subscribe({
+          error: () => {
+            this.toastService.show(
+              'Ошибка при изменении даты рождения',
+              undefined,
+              2,
+            )
+
+            this.isFailedChangeEvent = true
+
+            this.profileForm.controls['birthday'].setValue(
+              this.profile$$.value.birthday,
+            )
+          },
+          next: ({ data }) => {
+            this.profile$$.next({
+              ...this.profile$$.value,
+              birthday: data?.birthday || '',
+            })
+
+            this.toastService.show(
+              'Дата рождения успешно изменена',
+              undefined,
+              2,
+            )
+          },
+        }),
+      )
   }
 
   /**
@@ -481,6 +639,22 @@ export class ProfileComponent implements OnInit, OnDestroy {
       )
       .onAction()
       .subscribe(() => this.uploadAvatar(file))
+  }
+
+  /**
+   * Абстрактный метод изменения данных профиля
+   * @param {TypedDocument<TResult, TVars>} mutation Мутация в виде gql
+   * @param {TVars} variables Объект с переменными запроса
+   * @returns {Observable<MutationResult<TResult>>} Observable GraphQL-запроса на мутацию
+   */
+  private mutate<TResult, TVars>(
+    mutation: TypedDocumentNode<TResult, TVars>,
+    variables: TVars,
+  ): Observable<MutationResult<TResult>> {
+    return this.apolloService.mutate({
+      mutation,
+      variables,
+    })
   }
 
   /**

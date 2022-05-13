@@ -100,7 +100,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
    */
   onRemoveSessionClick(event: any, fingerprint: string) {
     this.acceptRemoveSessionSub = this.toastService
-      .show('Подтвердите удаление сессии...', 'OK', 5)
+      .show('Удалить выбранную сессию?', 'OK', 5)
       .onAction()
       .subscribe(() => this.removeSession(fingerprint))
   }
