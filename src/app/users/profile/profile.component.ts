@@ -44,7 +44,7 @@ import { IAccount, initialAccount } from '@/common/models/account'
 import { IUpload } from '@/common/interfaces/upload.interface'
 import { GET_PROFILE } from '@common/schemes/query/getProfile'
 import { imageMimeTypes } from '@/common'
-import { API } from '@/common/enums'
+import { API, ROLE } from '@/common/enums'
 
 import {
   CHANGE_YOURSELF_PHONE,
@@ -125,11 +125,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
   public isMe: boolean = false
 
   /**
-   * Флаг просмотра администратором
-   */
-  public supervisedByAdmin: boolean = false
-
-  /**
    * Форма профиля
    */
   public profileForm = new FormGroup({
@@ -165,6 +160,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
       Validators.required,
     ),
   })
+
+  /**
+   * Флаг просмотра администратором
+   */
+  public supervisedByAdmin$$: Subject<boolean> = new Subject<boolean>()
 
   /**
    * Отслеживаемый логин
@@ -255,20 +255,23 @@ export class ProfileComponent implements OnInit, OnDestroy {
     // Текущий пользователь ИС
     let currentUser = this.authService.currentUser
 
-    this.supervisedByAdmin =
-      currentUser?.role === 'ADMIN' || currentUser?.role === 'HEAD'
-
     // Проверка на свою страницу
     if (target && currentUser && currentUser.login === target) {
       this.isMe = true
     }
 
-    // Смена доступности формы в зависимости от пользователя
-    if (this.supervisedByAdmin) {
-      Object.keys(this.profileForm.controls).forEach((item) =>
-        this.profileForm.controls[item].enable(),
-      )
-    }
+    // Смена доступности формы в зависимости от роли пользователя
+    this.otherChangeSubs.push(
+      this.supervisedByAdmin$$.subscribe((val) => {
+        Object.keys(this.profileForm.controls).forEach((item) =>
+          val
+            ? this.profileForm.controls[item].enable()
+            : this.profileForm.controls[item].disable(),
+        )
+      }),
+    )
+
+    this.supervisedByAdmin$$.next(currentUser?.role === 'ADMIN')
 
     if (this.isMe) {
       this.profileForm.controls['birthday'].enable()
@@ -314,6 +317,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
         })
 
         let profile = this.profile$$.value
+
+        if (
+          profile.team?._id === this.authService.currentUser?.team?._id &&
+          this.authService.currentUser?.role === ROLE.HEAD
+        ) {
+          this.supervisedByAdmin$$.next(true)
+        }
 
         this.profileForm.controls['username'].setValue(profile.username)
         this.profileForm.controls['email'].setValue(profile.email)
@@ -835,7 +845,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * @param {any} event Событие выбора
    */
   public handleSelectFile(event: any): void {
-    if (!(this.isMe || this.supervisedByAdmin)) {
+    if (!(this.isMe || this.supervisedByAdmin$$)) {
       return
     }
 
