@@ -52,6 +52,14 @@ import {
   CHANGE_YOURSELF_EMAIL,
 } from '@/common/schemes/mutation/changeYourself'
 
+import {
+  CHANGE_LOGIN,
+  CHANGE_USERNAME,
+  CHANGE_BIRTHDAY,
+  CHANGE_EMAIL,
+  CHANGE_PHONE,
+} from '@/common/schemes/mutation/changeAccount'
+
 import { ENV } from '@/environments/env'
 
 /**
@@ -426,7 +434,56 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * @returns {void}
    */
   public changeLogin(val: string): void {
-    this.toastService.show('Изменить логин?', 'Да', 3)
+    this.otherChangeSubs.push(
+      this.toastService
+        .show('Изменить логин?', 'Да', 3)
+        .onAction()
+        .subscribe(() =>
+          this.mutate<
+            { changeAccount: { login: string } },
+            { login: string; newLogin: string }
+          >(CHANGE_LOGIN, {
+            login: this.profile$$.value.login || '',
+            newLogin: val,
+          }).subscribe({
+            error: () => {
+              this.toastService.show(
+                'Ошибка при изменении логина',
+                undefined,
+                2,
+              )
+
+              this.isFailedChangeEvent = true
+
+              this.profileForm.controls['login'].setValue(
+                this.profile$$.value.login,
+              )
+            },
+            next: ({ data }) => {
+              this.profile$$.next({
+                ...this.profile$$.value,
+                login: data?.changeAccount.login || '',
+              })
+
+              this.toastService.show('Логин успешно изменён', undefined, 2)
+
+              if (this.isMe) {
+                this.otherChangeSubs.push(
+                  this.authService.me().subscribe((payload) => {
+                    this.routerService
+                      .navigate([`/u/${data?.changeAccount.login}`])
+                      .then(() =>
+                        this.titleService.setTitle(
+                          data?.changeAccount.login || 'Профиль',
+                        ),
+                      )
+                  }),
+                )
+              }
+            },
+          }),
+        ),
+    )
   }
 
   /**
@@ -447,7 +504,50 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * @returns {void}
    */
   public changeUsername(val: string): void {
-    this.toastService.show('Изменить имя пользователя?', 'Да', 3)
+    const firstname = val.split(' ')[0]
+    const surname = val.split(' ')[1]
+
+    this.otherChangeSubs.push(
+      this.toastService
+        .show('Изменить имя пользователя?', 'Да', 3)
+        .onAction()
+        .subscribe(() =>
+          this.mutate<
+            { changeAccount: { firstname: string; surname: string } },
+            { login: string; firstname: string; surname: string }
+          >(CHANGE_USERNAME, {
+            login: this.profile$$.value.login || '',
+            firstname,
+            surname,
+          }).subscribe({
+            error: () => {
+              this.toastService.show(
+                'Ошибка при изменении имени пользователя',
+                undefined,
+                2,
+              )
+
+              this.isFailedChangeEvent = true
+
+              this.profileForm.controls['username'].setValue(
+                this.profile$$.value.username,
+              )
+            },
+            next: ({ data }) => {
+              this.profile$$.next({
+                ...this.profile$$.value,
+                username: `${data?.changeAccount.firstname} ${data?.changeAccount.surname}`,
+              })
+
+              this.toastService.show(
+                'Имя пользователя успешно изменено',
+                undefined,
+                2,
+              )
+            },
+          }),
+        ),
+    )
   }
 
   /**
@@ -463,7 +563,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Обработка изменения мобильного номера
+   * Обработка изменения своего мобильного номера
    * @param {string} val Новое значение мобильного номера
    * @returns {void}
    */
@@ -472,38 +572,72 @@ export class ProfileComponent implements OnInit, OnDestroy {
       this.toastService
         .show('Изменить мобильный номер?', 'Да', 3)
         .onAction()
-        .subscribe(() =>
-          this.mutate<{ phone: string }, { phone: string }>(
-            CHANGE_YOURSELF_PHONE,
-            { phone: val },
-          ).subscribe({
-            error: () => {
-              this.toastService.show(
-                'Ошибка при изменении мобильного номера',
-                undefined,
-                2,
-              )
+        .subscribe(() => {
+          this.isMe
+            ? this.mutate<
+                { changeYourself: { phone: string } },
+                { phone: string }
+              >(CHANGE_YOURSELF_PHONE, { phone: val }).subscribe({
+                error: () => {
+                  this.toastService.show(
+                    'Ошибка при изменении мобильного номера',
+                    undefined,
+                    2,
+                  )
 
-              this.isFailedChangeEvent = true
+                  this.isFailedChangeEvent = true
 
-              this.profileForm.controls['phone'].setValue(
-                this.profile$$.value.phone,
-              )
-            },
-            next: ({ data }) => {
-              this.profile$$.next({
-                ...this.profile$$.value,
-                phone: data?.phone || '',
+                  this.profileForm.controls['phone'].setValue(
+                    this.profile$$.value.phone,
+                  )
+                },
+                next: ({ data }) => {
+                  this.profile$$.next({
+                    ...this.profile$$.value,
+                    phone: data?.changeYourself.phone || '',
+                  })
+
+                  this.toastService.show(
+                    'Мобильный номер успешно изменён',
+                    undefined,
+                    2,
+                  )
+                },
               })
+            : this.mutate<
+                { changeAccount: { phone: string } },
+                { login: string; phone: string }
+              >(CHANGE_PHONE, {
+                login: this.profile$$.value.login || '',
+                phone: val,
+              }).subscribe({
+                error: () => {
+                  this.toastService.show(
+                    'Ошибка при изменении мобильного номера',
+                    undefined,
+                    2,
+                  )
 
-              this.toastService.show(
-                'Мобильный номер успешно изменён',
-                undefined,
-                2,
-              )
-            },
-          }),
-        ),
+                  this.isFailedChangeEvent = true
+
+                  this.profileForm.controls['phone'].setValue(
+                    this.profile$$.value.phone,
+                  )
+                },
+                next: ({ data }) => {
+                  this.profile$$.next({
+                    ...this.profile$$.value,
+                    phone: data?.changeAccount.phone || '',
+                  })
+
+                  this.toastService.show(
+                    'Мобильный номер успешно изменён',
+                    undefined,
+                    2,
+                  )
+                },
+              })
+        }),
     )
   }
 
@@ -530,30 +664,64 @@ export class ProfileComponent implements OnInit, OnDestroy {
         .show('Изменить email?', 'Да', 3)
         .onAction()
         .subscribe(() =>
-          this.mutate<{ email: string }, { email: string }>(
-            CHANGE_YOURSELF_EMAIL,
-            {
-              email: val,
-            },
-          ).subscribe({
-            error: (err) => {
-              this.toastService.show('Ошибка при изменении почты', undefined, 2)
+          this.isMe
+            ? this.mutate<
+                { changeYourself: { email: string } },
+                { email: string }
+              >(CHANGE_YOURSELF_EMAIL, {
+                email: val,
+              }).subscribe({
+                error: (err) => {
+                  this.toastService.show(
+                    'Ошибка при изменении почты',
+                    undefined,
+                    2,
+                  )
 
-              this.isFailedChangeEvent = true
+                  this.isFailedChangeEvent = true
 
-              this.profileForm.controls['email'].setValue(
-                this.profile$$.value.email,
-              )
-            },
-            next: ({ data }) => {
-              this.profile$$.next({
-                ...this.profile$$.value,
-                email: data?.email || '',
+                  this.profileForm.controls['email'].setValue(
+                    this.profile$$.value.email,
+                  )
+                },
+                next: ({ data }) => {
+                  this.profile$$.next({
+                    ...this.profile$$.value,
+                    email: data?.changeYourself.email || '',
+                  })
+
+                  this.toastService.show('Почта успешно изменена', undefined, 2)
+                },
               })
+            : this.mutate<
+                { changeAccount: { email: string } },
+                { login: string; email: string }
+              >(CHANGE_EMAIL, {
+                login: this.profile$$.value.email || '',
+                email: val,
+              }).subscribe({
+                error: (err) => {
+                  this.toastService.show(
+                    'Ошибка при изменении почты',
+                    undefined,
+                    2,
+                  )
 
-              this.toastService.show('Почта успешно изменена', undefined, 2)
-            },
-          }),
+                  this.isFailedChangeEvent = true
+
+                  this.profileForm.controls['email'].setValue(
+                    this.profile$$.value.email,
+                  )
+                },
+                next: ({ data }) => {
+                  this.profile$$.next({
+                    ...this.profile$$.value,
+                    email: data?.changeAccount.email || '',
+                  })
+
+                  this.toastService.show('Почта успешно изменена', undefined, 2)
+                },
+              }),
         ),
     )
   }
@@ -580,38 +748,72 @@ export class ProfileComponent implements OnInit, OnDestroy {
         .show('Изменить дату рождения?', 'Да', 3)
         .onAction()
         .subscribe(() =>
-          this.mutate<{ birthday: string }, { birthday: string }>(
-            CHANGE_YOURSELF_BIRTHDAY,
-            {
-              birthday: val.toISOString(),
-            },
-          ).subscribe({
-            error: () => {
-              this.toastService.show(
-                'Ошибка при изменении даты рождения',
-                undefined,
-                2,
-              )
+          this.isMe
+            ? this.mutate<
+                { changeYourself: { birthday: string } },
+                { birthday: string }
+              >(CHANGE_YOURSELF_BIRTHDAY, {
+                birthday: val.toISOString(),
+              }).subscribe({
+                error: () => {
+                  this.toastService.show(
+                    'Ошибка при изменении даты рождения',
+                    undefined,
+                    2,
+                  )
 
-              this.isFailedChangeEvent = true
+                  this.isFailedChangeEvent = true
 
-              this.profileForm.controls['birthday'].setValue(
-                this.profile$$.value.birthday,
-              )
-            },
-            next: ({ data }) => {
-              this.profile$$.next({
-                ...this.profile$$.value,
-                birthday: data?.birthday || '',
+                  this.profileForm.controls['birthday'].setValue(
+                    this.profile$$.value.birthday,
+                  )
+                },
+                next: ({ data }) => {
+                  this.profile$$.next({
+                    ...this.profile$$.value,
+                    birthday: data?.changeYourself.birthday || '',
+                  })
+
+                  this.toastService.show(
+                    'Дата рождения успешно изменена',
+                    undefined,
+                    2,
+                  )
+                },
               })
+            : this.mutate<
+                { changeAccount: { birthday: string } },
+                { login: string; birthday: string }
+              >(CHANGE_BIRTHDAY, {
+                login: this.profile$$.value.login || '',
+                birthday: val.toISOString(),
+              }).subscribe({
+                error: () => {
+                  this.toastService.show(
+                    'Ошибка при изменении даты рождения',
+                    undefined,
+                    2,
+                  )
 
-              this.toastService.show(
-                'Дата рождения успешно изменена',
-                undefined,
-                2,
-              )
-            },
-          }),
+                  this.isFailedChangeEvent = true
+
+                  this.profileForm.controls['birthday'].setValue(
+                    this.profile$$.value.birthday,
+                  )
+                },
+                next: ({ data }) => {
+                  this.profile$$.next({
+                    ...this.profile$$.value,
+                    birthday: data?.changeAccount.birthday || '',
+                  })
+
+                  this.toastService.show(
+                    'Дата рождения успешно изменена',
+                    undefined,
+                    2,
+                  )
+                },
+              }),
         ),
     )
   }
