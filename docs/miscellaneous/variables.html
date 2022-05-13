@@ -61,7 +61,31 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#CHANGE_YOURSELF" title="src/common/schemes/query/changeYourself.ts" ><b>CHANGE_YOURSELF</b>&nbsp;&nbsp;&nbsp;(src/.../changeYourself.ts)</a>
+                            <a href="#CHANGE_BIRTHDAY" title="src/common/schemes/mutation/changeAccount.ts" ><b>CHANGE_BIRTHDAY</b>&nbsp;&nbsp;&nbsp;(src/.../changeAccount.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CHANGE_EMAIL" title="src/common/schemes/mutation/changeAccount.ts" ><b>CHANGE_EMAIL</b>&nbsp;&nbsp;&nbsp;(src/.../changeAccount.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CHANGE_LOGIN" title="src/common/schemes/mutation/changeAccount.ts" ><b>CHANGE_LOGIN</b>&nbsp;&nbsp;&nbsp;(src/.../changeAccount.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CHANGE_PHONE" title="src/common/schemes/mutation/changeAccount.ts" ><b>CHANGE_PHONE</b>&nbsp;&nbsp;&nbsp;(src/.../changeAccount.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CHANGE_TIMEOUT" title="src/app/users/profile/profile.component.ts" ><b>CHANGE_TIMEOUT</b>&nbsp;&nbsp;&nbsp;(src/.../profile.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CHANGE_USERNAME" title="src/common/schemes/mutation/changeAccount.ts" ><b>CHANGE_USERNAME</b>&nbsp;&nbsp;&nbsp;(src/.../changeAccount.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CHANGE_YOURSELF_BIRTHDAY" title="src/common/schemes/mutation/changeYourself.ts" ><b>CHANGE_YOURSELF_BIRTHDAY</b>&nbsp;&nbsp;&nbsp;(src/.../changeYourself.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CHANGE_YOURSELF_EMAIL" title="src/common/schemes/mutation/changeYourself.ts" ><b>CHANGE_YOURSELF_EMAIL</b>&nbsp;&nbsp;&nbsp;(src/.../changeYourself.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CHANGE_YOURSELF_PHONE" title="src/common/schemes/mutation/changeYourself.ts" ><b>CHANGE_YOURSELF_PHONE</b>&nbsp;&nbsp;&nbsp;(src/.../changeYourself.ts)</a>
                         </li>
                         <li>
                             <a href="#createApolloClient" title="src/app/core/gql/gql.module.ts" ><b>createApolloClient</b>&nbsp;&nbsp;&nbsp;(src/.../gql.module.ts)</a>
@@ -71,6 +95,9 @@
                         </li>
                         <li>
                             <a href="#GET_PROFILE" title="src/common/schemes/query/getProfile.ts" ><b>GET_PROFILE</b>&nbsp;&nbsp;&nbsp;(src/.../getProfile.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#GET_SESSIONS" title="src/common/schemes/query/getSessions.ts" ><b>GET_SESSIONS</b>&nbsp;&nbsp;&nbsp;(src/.../getSessions.ts)</a>
                         </li>
                         <li>
                             <a href="#imageMimeTypes" title="src/common/index.ts" ><b>imageMimeTypes</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
@@ -85,7 +112,13 @@
                             <a href="#internalRoutes" title="src/common/index.ts" ><b>internalRoutes</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
+                            <a href="#MY_FORMATS" title="src/app/users/profile/profile.component.ts" ><b>MY_FORMATS</b>&nbsp;&nbsp;&nbsp;(src/.../profile.component.ts)</a>
+                        </li>
+                        <li>
                             <a href="#randomNum" title="src/app/shared/utils/funcs.ts" ><b>randomNum</b>&nbsp;&nbsp;&nbsp;(src/.../funcs.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#REMOVE_YOURSELF_SESSION" title="src/common/schemes/mutation/removeYourselfSession.ts" ><b>REMOVE_YOURSELF_SESSION</b>&nbsp;&nbsp;&nbsp;(src/.../removeYourselfSession.ts)</a>
                         </li>
                         <li>
                             <a href="#sentryIgnoreRegex" title="src/common/index.ts" ><b>sentryIgnoreRegex</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
@@ -97,26 +130,132 @@
     </table>
 </section>
 
-    <h3>src/common/schemes/query/changeYourself.ts</h3>
+    <h3>src/common/schemes/mutation/changeAccount.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="CHANGE_YOURSELF"></a>
+                    <a name="CHANGE_BIRTHDAY"></a>
                     <span class="name">
-                        <span ><b>CHANGE_YOURSELF</b></span>
-                        <a href="#CHANGE_YOURSELF"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>CHANGE_BIRTHDAY</b></span>
+                        <a href="#CHANGE_BIRTHDAY"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>gql&lt;{ account: IAccount }, ChangeYourselfInput&gt;&#x60;
-  query getProfile($data: ChangeYourselfInput!) {
-    account(data: $data) {
+                        <i>Default value : </i><code>gql&lt;
+  { changeAccount: { birthday: string } },
+  { login: string; birthday: string }
+&gt;&#x60;
+  mutation changeAccountBirthday($login: String!, $birthday: String!) {
+    changeAccount(data: { login: $login, birthday: $birthday }) {
       birthday
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Мутация на изменение даты рождения аккаунта</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CHANGE_EMAIL"></a>
+                    <span class="name">
+                        <span ><b>CHANGE_EMAIL</b></span>
+                        <a href="#CHANGE_EMAIL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>gql&lt;
+  { changeAccount: { email: string } },
+  { login: string; email: string }
+&gt;&#x60;
+  mutation changeAccountEmail($login: String!, $email: String!) {
+    changeAccount(data: { login: $login, email: $email }) {
       email
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Мутация на изменение email аккаунта</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CHANGE_LOGIN"></a>
+                    <span class="name">
+                        <span ><b>CHANGE_LOGIN</b></span>
+                        <a href="#CHANGE_LOGIN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>gql&lt;
+  { changeAccount: { login: string } },
+  { login: string }
+&gt;&#x60;
+  mutation changeAccountLogin($login: String!, $newLogin: String!) {
+    changeAccount(data: { login: $login, newLogin: $newLogin }) {
+      login
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Мутация на изменение логина аккаунта</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CHANGE_PHONE"></a>
+                    <span class="name">
+                        <span ><b>CHANGE_PHONE</b></span>
+                        <a href="#CHANGE_PHONE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>gql&lt;
+  { changeAccount: { phone: string } },
+  { login: string; phone: string }
+&gt;&#x60;
+  mutation changeAccountPhone($login: String!, $phone: String!) {
+    changeAccount(data: { login: $login, phone: $phone }) {
       phone
     }
   }
@@ -126,7 +265,234 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Запрос на изменение своих данных</p>
+                    <div class="io-description"><p>Мутация на изменение мобильного номера аккаунта</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CHANGE_USERNAME"></a>
+                    <span class="name">
+                        <span ><b>CHANGE_USERNAME</b></span>
+                        <a href="#CHANGE_USERNAME"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>gql&lt;
+  { changeAccount: { firstname: string; surname: string } },
+  { login: string; firstname: string; surname: string }
+&gt;&#x60;
+  mutation changeAccountUsername(
+    $login: String!
+    $firstname: String!
+    $surname: String!
+  ) {
+    changeAccount(
+      data: { login: $login, firstname: $firstname, surname: $surname }
+    ) {
+      firstname
+      surname
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Мутация на изменение имени аккаунта</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/users/profile/profile.component.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CHANGE_TIMEOUT"></a>
+                    <span class="name">
+                        <span ><b>CHANGE_TIMEOUT</b></span>
+                        <a href="#CHANGE_TIMEOUT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>2000</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Задержка изменения поля в милисекундах</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MY_FORMATS"></a>
+                    <span class="name">
+                        <span ><b>MY_FORMATS</b></span>
+                        <a href="#MY_FORMATS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  parse: {
+    dateInput: &#x27;LL&#x27;,
+  },
+  display: {
+    dateInput: &#x27;DD MMMM, YYYY&#x27;,
+    monthYearLabel: &#x27;MMMM YYYY&#x27;,
+    dateA11yLabel: &#x27;LL&#x27;,
+    monthYearA11yLabel: &#x27;MMMM YYYY&#x27;,
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Параметры форматирования даты</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/schemes/mutation/changeYourself.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CHANGE_YOURSELF_BIRTHDAY"></a>
+                    <span class="name">
+                        <span ><b>CHANGE_YOURSELF_BIRTHDAY</b></span>
+                        <a href="#CHANGE_YOURSELF_BIRTHDAY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>gql&lt;
+  { changeYourself: { birthday: string } },
+  { birthday: string }
+&gt;&#x60;
+  mutation changeYourselfBirthday($birthday: String!) {
+    changeYourself(data: { birthday: $birthday }) {
+      birthday
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Мутация на изменение даты своего рождения</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CHANGE_YOURSELF_EMAIL"></a>
+                    <span class="name">
+                        <span ><b>CHANGE_YOURSELF_EMAIL</b></span>
+                        <a href="#CHANGE_YOURSELF_EMAIL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>gql&lt;
+  { changeYourself: { email: string } },
+  { email: string }
+&gt;&#x60;
+  mutation changeYourselfEmail($email: String!) {
+    changeYourself(data: { email: $email }) {
+      email
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Мутация на изменение своего email</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CHANGE_YOURSELF_PHONE"></a>
+                    <span class="name">
+                        <span ><b>CHANGE_YOURSELF_PHONE</b></span>
+                        <a href="#CHANGE_YOURSELF_PHONE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>gql&lt;
+  { changeYourself: { phone: string } },
+  { phone: string }
+&gt;&#x60;
+  mutation changeYourselfPhone($phone: String!) {
+    changeYourself(data: { phone: $phone }) {
+      phone
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Мутация на изменение своего мобильного номера</p>
 </div>
                 </td>
             </tr>
@@ -156,7 +522,19 @@
     uri: ENV.GQL_HOST,
     withCredentials: true,
   }),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          account: {
+            merge(existing, incoming) {
+              return { ...existing, sessions: incoming.sessions }
+            },
+          },
+        },
+      },
+    },
+  }),
 })</code>
                     </td>
                 </tr>
@@ -257,6 +635,47 @@
       phone
       avatar {
         url
+      }
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Запрос на получение профиля по логину</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/schemes/query/getSessions.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GET_SESSIONS"></a>
+                    <span class="name">
+                        <span ><b>GET_SESSIONS</b></span>
+                        <a href="#GET_SESSIONS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>gql&lt;{ account: { sessions: Sessions } }, Login&gt;&#x60;
+  query getProfile($login: String!) {
+    account(login: $login) {
+      sessions {
+        browser
+        os
+        device
+        fingerprint
+        expiration
       }
     }
   }
@@ -449,6 +868,39 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Анимация появления и исчезновения компонента</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/schemes/mutation/removeYourselfSession.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="REMOVE_YOURSELF_SESSION"></a>
+                    <span class="name">
+                        <span ><b>REMOVE_YOURSELF_SESSION</b></span>
+                        <a href="#REMOVE_YOURSELF_SESSION"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>gql&lt;boolean, { fingerprint: string }&gt;&#x60;
+  mutation removeSession($fingerprint: String!) {
+    removeYourselfSession(data: { fingerprint: $fingerprint })
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Мутация на удаление своей сессии</p>
 </div>
                 </td>
             </tr>

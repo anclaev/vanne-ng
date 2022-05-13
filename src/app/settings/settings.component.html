@@ -5,7 +5,9 @@
       <div *ngFor="let session of sessions$$.value" @inOutComponent>
         <div>
           <h3>{{ session.browser }}</h3>
-          <button (click)="onRemoveSessionClick($event, session.fingerprint)">
+          <button
+            (click)="handleRemoveSessionClick($event, session.fingerprint)"
+          >
             <img
               src="assets/svg/cross-min.svg"
               alt="Icon: Cross"

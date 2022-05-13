@@ -48,6 +48,12 @@ export class SettingsComponent implements OnInit, OnDestroy {
    */
   private removeSessionSub: Subscription | null = null
 
+  /**
+   * Конструктор компонента настроек
+   * @param {AuthService} authService Сервис авторизации
+   * @param {ToastService} toastService Сервис уведомлений
+   * @param {Apollo} apolloService Сервис Apollo GraphQL
+   */
   constructor(
     private authService: AuthService,
     private toastService: ToastService,
@@ -98,14 +104,19 @@ export class SettingsComponent implements OnInit, OnDestroy {
    * @param {any} event Событие нажатия
    * @param {string} fingerprint Отпечаток сессии
    */
-  onRemoveSessionClick(event: any, fingerprint: string) {
+  public handleRemoveSessionClick(event: any, fingerprint: string) {
     this.acceptRemoveSessionSub = this.toastService
       .show('Удалить выбранную сессию?', 'OK', 5)
       .onAction()
       .subscribe(() => this.removeSession(fingerprint))
   }
 
-  removeSession(fingerprint: string) {
+  /**
+   * Метод удаления сессии
+   * @param {string} fingerprint Отпечаток устройства пользователя
+   * @returns {void}
+   */
+  private removeSession(fingerprint: string): void {
     this.removeSessionSub = this.apolloService
       .mutate({
         mutation: REMOVE_YOURSELF_SESSION,

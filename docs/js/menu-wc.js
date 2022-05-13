@@ -251,13 +251,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SharedModule.html" data-type="entity-link" >SharedModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-SharedModule-4f5d0279e52e0f8e1e656a30854c109a442245e547f5817a70eb3eff9c851f47c0b055849af6ea3c20f586249f0442e8e38f8a42ff9bc269b012f127adaaf301"' : 'data-target="#xs-components-links-module-SharedModule-4f5d0279e52e0f8e1e656a30854c109a442245e547f5817a70eb3eff9c851f47c0b055849af6ea3c20f586249f0442e8e38f8a42ff9bc269b012f127adaaf301"' }>
+                                            'data-target="#components-links-module-SharedModule-f0830586829589f076b853a2244d40d4a7cd8a9c47e41f8c2d9b1b1cccb6140ce321739843dff541d148412a1f7b4908c4dd2596f13cde36513ee7ba8c84777d"' : 'data-target="#xs-components-links-module-SharedModule-f0830586829589f076b853a2244d40d4a7cd8a9c47e41f8c2d9b1b1cccb6140ce321739843dff541d148412a1f7b4908c4dd2596f13cde36513ee7ba8c84777d"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SharedModule-4f5d0279e52e0f8e1e656a30854c109a442245e547f5817a70eb3eff9c851f47c0b055849af6ea3c20f586249f0442e8e38f8a42ff9bc269b012f127adaaf301"' :
-                                            'id="xs-components-links-module-SharedModule-4f5d0279e52e0f8e1e656a30854c109a442245e547f5817a70eb3eff9c851f47c0b055849af6ea3c20f586249f0442e8e38f8a42ff9bc269b012f127adaaf301"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SharedModule-f0830586829589f076b853a2244d40d4a7cd8a9c47e41f8c2d9b1b1cccb6140ce321739843dff541d148412a1f7b4908c4dd2596f13cde36513ee7ba8c84777d"' :
+                                            'id="xs-components-links-module-SharedModule-f0830586829589f076b853a2244d40d4a7cd8a9c47e41f8c2d9b1b1cccb6140ce321739843dff541d148412a1f7b4908c4dd2596f13cde36513ee7ba8c84777d"' }>
                                             <li class="link">
                                                 <a href="components/BgVideoComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >BgVideoComponent</a>
                                             </li>
@@ -277,13 +277,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/UsersModule.html" data-type="entity-link" >UsersModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-UsersModule-42f4a9cd1c2aa5d41c70fbaebaa85bfab41d04ed77d54bd971dd644257a5d024aed42a0c889a442e9cf991bbf95ebdb571b6b3b6d9141b75c19dd780d5635c65"' : 'data-target="#xs-components-links-module-UsersModule-42f4a9cd1c2aa5d41c70fbaebaa85bfab41d04ed77d54bd971dd644257a5d024aed42a0c889a442e9cf991bbf95ebdb571b6b3b6d9141b75c19dd780d5635c65"' }>
+                                            'data-target="#components-links-module-UsersModule-94c9438449940b72663c634add633c370fc81477ad0b417a428c571086d3f4e64771a1ae728362dc5c9bff79f4d56681908dc9f0768cd7eb239f14168ec0fe4a"' : 'data-target="#xs-components-links-module-UsersModule-94c9438449940b72663c634add633c370fc81477ad0b417a428c571086d3f4e64771a1ae728362dc5c9bff79f4d56681908dc9f0768cd7eb239f14168ec0fe4a"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-UsersModule-42f4a9cd1c2aa5d41c70fbaebaa85bfab41d04ed77d54bd971dd644257a5d024aed42a0c889a442e9cf991bbf95ebdb571b6b3b6d9141b75c19dd780d5635c65"' :
-                                            'id="xs-components-links-module-UsersModule-42f4a9cd1c2aa5d41c70fbaebaa85bfab41d04ed77d54bd971dd644257a5d024aed42a0c889a442e9cf991bbf95ebdb571b6b3b6d9141b75c19dd780d5635c65"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-UsersModule-94c9438449940b72663c634add633c370fc81477ad0b417a428c571086d3f4e64771a1ae728362dc5c9bff79f4d56681908dc9f0768cd7eb239f14168ec0fe4a"' :
+                                            'id="xs-components-links-module-UsersModule-94c9438449940b72663c634add633c370fc81477ad0b417a428c571086d3f4e64771a1ae728362dc5c9bff79f4d56681908dc9f0768cd7eb239f14168ec0fe4a"' }>
                                             <li class="link">
                                                 <a href="components/ProfileComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ProfileComponent</a>
                                             </li>
@@ -349,6 +349,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/IRouteData.html" data-type="entity-link" >IRouteData</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ISession.html" data-type="entity-link" >ISession</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ITeam.html" data-type="entity-link" >ITeam</a>
