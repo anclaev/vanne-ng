@@ -17,7 +17,6 @@ import {
   of,
   Subject,
   Subscription,
-  throttleTime,
 } from 'rxjs'
 
 import { FormControl, FormGroup, Validators } from '@angular/forms'
@@ -41,6 +40,9 @@ import { API } from '@/common/enums'
 
 import { ENV } from '@/environments/env'
 
+/**
+ * Параметры форматирования даты
+ */
 const MY_FORMATS = {
   parse: {
     dateInput: 'LL',
@@ -52,6 +54,11 @@ const MY_FORMATS = {
     monthYearA11yLabel: 'MMMM YYYY',
   },
 }
+
+/**
+ * Задержка изменения поля в милисекундах
+ */
+const CHANGE_TIMEOUT = 5000
 
 /**
  * Компонент профиля пользователя
@@ -110,7 +117,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         validators: [
           Validators.required,
           Validators.minLength(4),
-          Validators.pattern('[a-zA-Z]+s[a-zA-Z]+'),
+          Validators.pattern(/^[A-Z, А-Я][A-Za-z]+\s[A-Z, А-Я][A-Za-z]+$/),
         ],
       },
     ),
@@ -126,7 +133,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     phone: new FormControl({ value: '', disabled: true }, [
       Validators.required,
       Validators.minLength(6),
-      Validators.pattern('[0-9]+s[0-9]+s[0-9]+s[0-9]+s[0-9]+'),
+      Validators.pattern(/^\d{1,1}\s\d{3,3}\s\d{3,3}\s\d{2,2}\s\d{2,2}$/),
     ]),
     birthday: new FormControl(
       { value: '', disabled: true },
@@ -134,11 +141,30 @@ export class ProfileComponent implements OnInit, OnDestroy {
     ),
   })
 
-  public changedLogin: Subject<string> = new Subject<string>()
-  public changedUsername: Subject<string> = new Subject<string>()
-  public changedPhone: Subject<string> = new Subject<string>()
-  public changedEmail: Subject<string> = new Subject<string>()
-  public changedBirthday: Subject<Moment> = new Subject<Moment>()
+  /**
+   * Отслеживаемый логин
+   */
+  public changedLogin$$: Subject<string> = new Subject<string>()
+
+  /**
+   * Отслеживаемое имя пользователя
+   */
+  public changedUsername$$: Subject<string> = new Subject<string>()
+
+  /**
+   * Отслеживаемый мобильный номер
+   */
+  public changedPhone$$: Subject<string> = new Subject<string>()
+
+  /**
+   * Отслеживаемый email
+   */
+  public changedEmail$$: Subject<string> = new Subject<string>()
+
+  /**
+   * Отслеживаемая дата рождения
+   */
+  public changedBirthday$$: Subject<Moment> = new Subject<Moment>()
 
   /**
    * Разрешённые типы файла
@@ -264,37 +290,42 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
         this.titleService.setTitle(profile.login ? profile.login : 'Профиль')
 
-        this.changedLogin
+        // Отслеживаем изменение логина
+        this.changedLogin$$
           .asObservable()
-          .pipe(debounceTime(5000))
+          .pipe(debounceTime(CHANGE_TIMEOUT))
           .subscribe((value) => {
             this.changeLogin(value)
           })
 
-        this.changedUsername
+        // Отслеживаем изменение имени пользователя
+        this.changedUsername$$
           .asObservable()
-          .pipe(debounceTime(5000))
+          .pipe(debounceTime(CHANGE_TIMEOUT))
           .subscribe((value) => {
             this.changeUsername(value)
           })
 
-        this.changedPhone
+        // Отслеживаем изменение мобильного номера
+        this.changedPhone$$
           .asObservable()
-          .pipe(debounceTime(5000))
+          .pipe(debounceTime(CHANGE_TIMEOUT))
           .subscribe((value) => {
             this.changePhone(value)
           })
 
-        this.changedEmail
+        // Отслеживаем изменение email
+        this.changedEmail$$
           .asObservable()
-          .pipe(debounceTime(5000))
+          .pipe(debounceTime(CHANGE_TIMEOUT))
           .subscribe((value) => {
             this.changeEmail(value)
           })
 
-        this.changedBirthday
+        // Отслеживаем изменение даты рождения
+        this.changedBirthday$$
           .asObservable()
-          .pipe(debounceTime(5000))
+          .pipe(debounceTime(CHANGE_TIMEOUT))
           .subscribe((value) => {
             this.changeBirthday(value.toDate())
           })
@@ -302,64 +333,114 @@ export class ProfileComponent implements OnInit, OnDestroy {
     })
   }
 
-  public onChangeLogin(val: string) {
+  /**
+   * Обработка события изменения логина
+   * @param {string} val Новое значение логина
+   * @returns {void}
+   */
+  public handleChangeLogin(val: string): void {
     if (val.trim().length === 0 || !this.profileForm.controls['login'].valid)
       return
 
-    this.changedLogin.next(val)
+    this.changedLogin$$.next(val)
   }
 
-  public changeLogin(val: string) {
-    console.log('Change login: ', val)
+  /**
+   * Обработка изменения логина
+   * @param {string} val Новое значение логина
+   * @returns {void}
+   */
+  public changeLogin(val: string): void {
+    console.log('Login is changed to: ', val)
   }
 
-  public onChangeUsername(val: string) {
+  /**
+   * Обработка события изменения имени пользователя
+   * @param {string} val Новое значение имени пользователя
+   * @returns {void}
+   */
+  public handleChangeUsername(val: string): void {
     if (val.trim().length === 0 || !this.profileForm.controls['username'].valid)
       return
 
-    this.changedUsername.next(val)
+    this.changedUsername$$.next(val)
   }
 
-  public changeUsername(val: string) {
+  /**
+   * Обработка изменения имени пользователя
+   * @param {string} val Новое значение имени пользователя
+   * @returns {void}
+   */
+  public changeUsername(val: string): void {
     console.log('Change username: ', val)
   }
 
-  public onChangePhone(val: string) {
+  /**
+   * Обработка события изменения мобильного номера
+   * @param {string} val Новое значение мобильного номера
+   * @returns {void}
+   */
+  public handleChangePhone(val: string): void {
     if (val.trim().length === 0 || !this.profileForm.controls['phone'].valid)
       return
 
-    this.changedPhone.next(val)
+    this.changedPhone$$.next(val)
   }
 
-  public changePhone(val: string) {
+  /**
+   * Обработка изменения мобильного номера
+   * @param {string} val Новое значение мобильного номера
+   * @returns {void}
+   */
+  public changePhone(val: string): void {
     console.log('Change phone: ', val)
   }
 
-  public onChangeEmail(val: string) {
+  /**
+   * Обработка события изменения email
+   * @param {string} val Новое значение email
+   * @returns {void}
+   */
+  public handleChangeEmail(val: string): void {
     if (val.trim().length === 0 || !this.profileForm.controls['email'].valid)
       return
 
-    this.changedEmail.next(val)
+    this.changedEmail$$.next(val)
   }
 
-  public changeEmail(val: string) {
+  /**
+   * Обработка изменения email
+   * @param {string} val Новое значение email
+   * @returns {void}
+   */
+  public changeEmail(val: string): void {
     console.log('Change email: ', val)
   }
 
-  public onChangeBirthday(val: Moment) {
+  /**
+   * Обработка события изменения даты рождения
+   * @param {string} val Новое значение даты рождения
+   * @returns {void}
+   */
+  public handleChangeBirthday(val: Moment): void {
     if (!this.profileForm.controls['birthday'].valid) return
 
-    this.changedBirthday.next(val)
+    this.changedBirthday$$.next(val)
   }
 
-  public changeBirthday(val: Date) {
+  /**
+   * Обработка изменения даты рождения
+   * @param {string} val Новое значение даты рождения
+   * @returns {void}
+   */
+  public changeBirthday(val: Date): void {
     console.log('Change birthday: ', val)
   }
 
   /**
    * Обработчик клика для смены аватара
    */
-  public onClickFile(event: Event): void {
+  public handleClickFile(event: Event): void {
     if (!!this.uploadProgress) {
       this.cancelUpload()
 
@@ -372,7 +453,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * Обработчик выбора файла для загрузки
    * @param {any} event Событие выбора
    */
-  public onSelectFile(event: any): void {
+  public handleSelectFile(event: any): void {
     if (!(this.isMe || this.supervisedByAdmin)) {
       return
     }
@@ -478,5 +559,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.uploadSub?.unsubscribe()
     this.acceptUploadSub?.unsubscribe()
     this.authSub?.unsubscribe()
+    this.changedPhone$$.unsubscribe()
+    this.changedBirthday$$.unsubscribe()
+    this.changedEmail$$.unsubscribe()
+    this.changedLogin$$.unsubscribe()
+    this.changedUsername$$.unsubscribe()
   }
 }

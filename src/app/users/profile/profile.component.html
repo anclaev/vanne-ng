@@ -18,8 +18,8 @@
         class="profile-card__avatar--control"
         [accept]="avatarTypes"
         #avatarUpload
-        (change)="onSelectFile($event)"
-        (click)="onClickFile($event)"
+        (change)="handleSelectFile($event)"
+        (click)="handleClickFile($event)"
       />
       <div class="profile-card-progress" *ngIf="uploadProgress" @inOutComponent>
         <mat-progress-spinner
@@ -38,19 +38,19 @@
         <input
           type="text"
           formControlName="username"
-          (ngModelChange)="onChangeUsername($event)"
+          (ngModelChange)="handleChangeUsername($event)"
         />
         <input
           type="text"
           formControlName="login"
-          (ngModelChange)="onChangeLogin($event)"
+          (ngModelChange)="handleChangeLogin($event)"
         />
       </div>
       <div class="profile-desc-info__field">
         <input
           type="text"
           formControlName="email"
-          (ngModelChange)="onChangeEmail($event)"
+          (ngModelChange)="handleChangeEmail($event)"
         />
         <img src="/assets/svg/email-min.svg" alt="Icon: Email" />
       </div>
@@ -58,7 +58,7 @@
         <input
           type="text"
           formControlName="phone"
-          (ngModelChange)="onChangePhone($event)"
+          (ngModelChange)="handleChangePhone($event)"
         />
         <img src="/assets/svg/phone-min.svg" alt="Icon: Phone" />
       </div>
@@ -68,7 +68,7 @@
             [matDatepicker]="picker"
             formControlName="birthday"
             class="profile-desc-info__field--date"
-            (ngModelChange)="onChangeBirthday($event)"
+            (ngModelChange)="handleChangeBirthday($event)"
           />
           <mat-datepicker-toggle
             matSuffix
