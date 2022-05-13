@@ -43,7 +43,7 @@ import { inOutComponentAnimation } from '@/common/animations/in-out-component'
 import { IAccount, initialAccount } from '@/common/models/account'
 import { IUpload } from '@/common/interfaces/upload.interface'
 import { GET_PROFILE } from '@common/schemes/query/getProfile'
-import { imageMimeTypes } from '@/common'
+import { imageMimeTypes, IntlRole } from '@/common'
 import { API, ROLE } from '@/common/enums'
 
 import {
@@ -948,6 +948,15 @@ export class ProfileComponent implements OnInit, OnDestroy {
   private cancelUpload(): void {
     this.uploadSub?.unsubscribe()
     this.reset()
+  }
+
+  /**
+   * Метод локализации роли
+   * @param {ROLE} role Системная роль пользователя
+   * @returns {string} Русифицированная роль
+   */
+  public translateRole(role: ROLE): string {
+    return IntlRole[role]
   }
 
   /**

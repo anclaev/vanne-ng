@@ -29,7 +29,9 @@
       </div>
     </div>
     <div class="profile-card__roles">
-      <div *ngIf="profile$$.value.role">{{ profile$$.value.role }}</div>
+      <div *ngIf="profile$$.value.role">
+        {{ translateRole(profile$$.value.role) }}
+      </div>
     </div>
   </div>
   <div class="profile-desc">
