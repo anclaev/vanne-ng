@@ -435,13 +435,18 @@ export class AppComponent {
     grid-template-rows: 60px 1fr
 
     @media only screen and (max-width: 576px)
-        height: calc(100vh - 20px)
+        height: calc(100vh - 120px)
 
         grid-template-areas: &#x27;header&#x27; &#x27;main&#x27;
         grid-template-rows: 50px 1fr
         grid-template-columns: auto !important
 
+        overflow-y: scroll
+
         grid-gap: 30px
+
+        &amp;::-webkit-scrollbar
+            width: 0
 </code></pre>
     </div>
 

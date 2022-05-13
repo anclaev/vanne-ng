@@ -99,6 +99,16 @@
 
 
 
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>{
+    provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+}</code>
+                                <code><a href="../miscellaneous/variables.html#MY_FORMATS" target="_self" >{ provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }</a></code>
+                            <code>{ provide: MAT_DATE_LOCALE, useValue:  }</code>
+                </td>
+            </tr>
 
 
             <tr>
@@ -155,6 +165,30 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#changedBirthday$$" >changedBirthday$$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changedEmail$$" >changedEmail$$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changedLogin$$" >changedLogin$$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changedPhone$$" >changedPhone$$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changedUsername$$" >changedUsername$$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isFailedChangeEvent" >isFailedChangeEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#isMe" >isMe</a>
                             </li>
                             <li>
@@ -162,8 +196,16 @@
                                 <a href="#isOnline" >isOnline</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#otherChangeSubs" >otherChangeSubs</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#profile$$" >profile$$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#profileForm" >profileForm</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -202,18 +244,62 @@
                                 <a href="#cancelUpload" >cancelUpload</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changeBirthday" >changeBirthday</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changeEmail" >changeEmail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changeLogin" >changeLogin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changePhone" >changePhone</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changeUsername" >changeUsername</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleChangeBirthday" >handleChangeBirthday</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleChangeEmail" >handleChangeEmail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleChangeLogin" >handleChangeLogin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleChangePhone" >handleChangePhone</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleChangeUsername" >handleChangeUsername</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleClickFile" >handleClickFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleSelectFile" >handleSelectFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mutate" >mutate</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#onClickFile" >onClickFile</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#onSelectFile" >onSelectFile</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -246,7 +332,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/users/profile/profile.component.ts:86</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="228" class="link-to-prism">src/app/users/profile/profile.component.ts:228</a></div>
                             </td>
                         </tr>
 
@@ -418,8 +504,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="265"
-                            class="link-to-prism">src/app/users/profile/profile.component.ts:265</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="938"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:938</a></div>
                 </td>
             </tr>
 
@@ -441,104 +527,806 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ngOnDestroy"></a>
-                    <span class="name">
-                        <span ><b>ngOnDestroy</b></span>
-                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnDestroy()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="281"
-                            class="link-to-prism">src/app/users/profile/profile.component.ts:281</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Отмена подписки на изменение аккаунта при размонтировании компонента</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ngOnInit"></a>
-                    <span class="name">
-                        <span ><b>ngOnInit</b></span>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnInit()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="134"
-                            class="link-to-prism">src/app/users/profile/profile.component.ts:134</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Метод получения аккаунта при инициализации компонента</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="onClickFile"></a>
+                    <a name="changeBirthday"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
-                        <span ><b>onClickFile</b></span>
-                        <a href="#onClickFile"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>changeBirthday</b></span>
+                        <a href="#changeBirthday"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onClickFile(event: <a href="https://angular.io/api/router/Event" target="_blank">Event</a>)</code>
+                    <code>changeBirthday(val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="171"
-                            class="link-to-prism">src/app/users/profile/profile.component.ts:171</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="745"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:745</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработка изменения даты рождения</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>val</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Новое значение даты рождения</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeEmail"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>changeEmail</b></span>
+                        <a href="#changeEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeEmail(val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="661"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:661</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработка изменения email</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>val</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Новое значение email</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeLogin"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>changeLogin</b></span>
+                        <a href="#changeLogin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeLogin(val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="436"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:436</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработка изменения логина</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>val</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Новое значение логина</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changePhone"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>changePhone</b></span>
+                        <a href="#changePhone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changePhone(val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="570"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:570</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработка изменения своего мобильного номера</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>val</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Новое значение мобильного номера</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeUsername"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>changeUsername</b></span>
+                        <a href="#changeUsername"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeUsername(val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="506"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:506</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработка изменения имени пользователя</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>val</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Новое значение имени пользователя</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleChangeBirthday"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleChangeBirthday</b></span>
+                        <a href="#handleChangeBirthday"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleChangeBirthday(val: Moment)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="734"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:734</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработка события изменения даты рождения</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>val</td>
+                                    <td>
+                                            <code>Moment</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Новое значение даты рождения</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleChangeEmail"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleChangeEmail</b></span>
+                        <a href="#handleChangeEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleChangeEmail(val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="649"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:649</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработка события изменения email</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>val</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Новое значение email</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleChangeLogin"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleChangeLogin</b></span>
+                        <a href="#handleChangeLogin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleChangeLogin(val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="424"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:424</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработка события изменения логина</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>val</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Новое значение логина</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleChangePhone"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleChangePhone</b></span>
+                        <a href="#handleChangePhone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleChangePhone(val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="558"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:558</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработка события изменения мобильного номера</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>val</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Новое значение мобильного номера</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleChangeUsername"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleChangeUsername</b></span>
+                        <a href="#handleChangeUsername"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleChangeUsername(val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="494"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:494</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработка события изменения имени пользователя</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>val</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Новое значение имени пользователя</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleClickFile"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleClickFile</b></span>
+                        <a href="#handleClickFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleClickFile(event: <a href="https://angular.io/api/router/Event" target="_blank">Event</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="824"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:824</a></div>
                 </td>
             </tr>
 
@@ -592,26 +1380,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="onSelectFile"></a>
+                    <a name="handleSelectFile"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
-                        <span ><b>onSelectFile</b></span>
-                        <a href="#onSelectFile"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>handleSelectFile</b></span>
+                        <a href="#handleSelectFile"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onSelectFile(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    <code>handleSelectFile(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="184"
-                            class="link-to-prism">src/app/users/profile/profile.component.ts:184</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="837"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:837</a></div>
                 </td>
             </tr>
 
@@ -670,6 +1458,188 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="mutate"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>mutate</b></span>
+                        <a href="#mutate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mutate(mutation: TypedDocumentNode<TResult | TVars>, variables: TVars)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="873"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:873</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>TResult</li>
+                        <li>TVars</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Абстрактный метод изменения данных профиля</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>mutation</td>
+                                    <td>
+                                            <code>TypedDocumentNode&lt;TResult | TVars&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Мутация в виде gql</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>variables</td>
+                                    <td>
+                                            <code>TVars</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Объект с переменными запроса</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;MutationResult&lt;TResult&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Observable GraphQL-запроса на мутацию</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="954"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:954</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Отмена подписки на изменение аккаунта при размонтировании компонента</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="291"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:291</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Метод получения аккаунта при инициализации компонента</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="reset"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -688,8 +1658,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="273"
-                            class="link-to-prism">src/app/users/profile/profile.component.ts:273</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="946"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:946</a></div>
                 </td>
             </tr>
 
@@ -729,8 +1699,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="218"
-                            class="link-to-prism">src/app/users/profile/profile.component.ts:218</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="887"
+                            class="link-to-prism">src/app/users/profile/profile.component.ts:887</a></div>
                 </td>
             </tr>
 
@@ -816,7 +1786,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/users/profile/profile.component.ts:83</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="220" class="link-to-prism">src/app/users/profile/profile.component.ts:220</a></div>
                         </td>
                     </tr>
 
@@ -854,7 +1824,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/users/profile/profile.component.ts:86</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="223" class="link-to-prism">src/app/users/profile/profile.component.ts:223</a></div>
                         </td>
                     </tr>
 
@@ -892,13 +1862,241 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/users/profile/profile.component.ts:63</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="197" class="link-to-prism">src/app/users/profile/profile.component.ts:197</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Разрешённые типы файла</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changedBirthday$$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>changedBirthday$$</b></span>
+                        <a href="#changedBirthday$$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;Moment&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;Moment&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="192" class="link-to-prism">src/app/users/profile/profile.component.ts:192</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Отслеживаемая дата рождения</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changedEmail$$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>changedEmail$$</b></span>
+                        <a href="#changedEmail$$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;string&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="187" class="link-to-prism">src/app/users/profile/profile.component.ts:187</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Отслеживаемый email</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changedLogin$$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>changedLogin$$</b></span>
+                        <a href="#changedLogin$$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;string&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="172" class="link-to-prism">src/app/users/profile/profile.component.ts:172</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Отслеживаемый логин</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changedPhone$$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>changedPhone$$</b></span>
+                        <a href="#changedPhone$$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;string&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">src/app/users/profile/profile.component.ts:182</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Отслеживаемый мобильный номер</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changedUsername$$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>changedUsername$$</b></span>
+                        <a href="#changedUsername$$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;string&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="177" class="link-to-prism">src/app/users/profile/profile.component.ts:177</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Отслеживаемое имя пользователя</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isFailedChangeEvent"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isFailedChangeEvent</b></span>
+                        <a href="#isFailedChangeEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="205" class="link-to-prism">src/app/users/profile/profile.component.ts:205</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Флаг ошибки изменения данных</p>
 </div>
                 </td>
             </tr>
@@ -930,7 +2128,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/users/profile/profile.component.ts:53</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/app/users/profile/profile.component.ts:125</a></div>
                         </td>
                     </tr>
 
@@ -963,18 +2161,56 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>true</code>
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/users/profile/profile.component.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">src/app/users/profile/profile.component.ts:120</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Флаг онлайна пользователя</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="otherChangeSubs"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>otherChangeSubs</b></span>
+                        <a href="#otherChangeSubs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="228" class="link-to-prism">src/app/users/profile/profile.component.ts:228</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Массив вторичных подписок внутри методов изменения</p>
 </div>
                 </td>
             </tr>
@@ -1001,13 +2237,77 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/users/profile/profile.component.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/users/profile/profile.component.ts:107</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Текущие данные профиля</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profileForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>profileForm</b></span>
+                        <a href="#profileForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    username: new FormControl(
+      { value: &#x27;&#x27;, disabled: true },
+      {
+        validators: [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.pattern(
+            /^[A-Z, А-Я][a-z, а-я, ё]+\s[A-Z, А-Я][a-z, а-я, ё]+$/,
+          ),
+        ],
+      },
+    ),
+    login: new FormControl({ value: &#x27;&#x27;, disabled: true }, [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.pattern(/^[A-Z, a-z, 0-9]+\S$/),
+    ]),
+    email: new FormControl({ value: &#x27;&#x27;, disabled: true }, [
+      Validators.required,
+      Validators.email,
+      Validators.minLength(6),
+    ]),
+    phone: new FormControl({ value: &#x27;&#x27;, disabled: true }, [
+      Validators.required,
+      Validators.minLength(6),
+      Validators.pattern(/^\d{1,1}\s\d{3,3}\s\d{3,3}\s\d{2,2}\s\d{2,2}$/),
+    ]),
+    birthday: new FormControl(
+      { value: &#x27;&#x27;, disabled: true },
+      Validators.required,
+    ),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/app/users/profile/profile.component.ts:135</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Форма профиля</p>
 </div>
                 </td>
             </tr>
@@ -1039,7 +2339,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/users/profile/profile.component.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/users/profile/profile.component.ts:112</a></div>
                         </td>
                     </tr>
 
@@ -1077,7 +2377,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/users/profile/profile.component.ts:73</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="210" class="link-to-prism">src/app/users/profile/profile.component.ts:210</a></div>
                         </td>
                     </tr>
 
@@ -1115,7 +2415,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/users/profile/profile.component.ts:58</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/app/users/profile/profile.component.ts:130</a></div>
                         </td>
                     </tr>
 
@@ -1153,7 +2453,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/users/profile/profile.component.ts:68</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="202" class="link-to-prism">src/app/users/profile/profile.component.ts:202</a></div>
                         </td>
                     </tr>
 
@@ -1191,7 +2491,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/users/profile/profile.component.ts:78</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="215" class="link-to-prism">src/app/users/profile/profile.component.ts:215</a></div>
                         </td>
                     </tr>
 
@@ -1210,17 +2510,46 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BehaviorSubject, catchError, finalize, of, Subscription } from &#x27;rxjs&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
+} from &#x27;@angular/material/core&#x27;
 
-import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;
+import {
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+} from &#x27;@angular/material-moment-adapter&#x27;
+
+import {
+  BehaviorSubject,
+  catchError,
+  debounceTime,
+  finalize,
+  Observable,
+  of,
+  Subject,
+  Subscription,
+} from &#x27;rxjs&#x27;
+
+import { FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;
+
 import { HttpClient, HttpEventType } from &#x27;@angular/common/http&#x27;
+import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;
 import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;
 import { Title } from &#x27;@angular/platform-browser&#x27;
-import { Apollo, QueryRef } from &#x27;apollo-angular&#x27;
+
+import {
+  Apollo,
+  MutationResult,
+  QueryRef,
+  TypedDocumentNode,
+} from &#x27;apollo-angular&#x27;
+
+import moment, { Moment } from &#x27;moment&#x27;
 
 import { ToastService } from &#x27;@shared/services/toast.service&#x27;
 import { AuthService } from &#x27;@shared/services/auth.service&#x27;
-import { formatDateFromISO } from &#x27;@shared/utils/funcs&#x27;
 
 import { inOutComponentAnimation } from &#x27;@/common/animations/in-out-component&#x27;
 import { IAccount, initialAccount } from &#x27;@/common/models/account&#x27;
@@ -1229,7 +2558,41 @@ import { GET_PROFILE } from &#x27;@common/schemes/query/getProfile&#x27;
 import { imageMimeTypes } from &#x27;@/common&#x27;
 import { API } from &#x27;@/common/enums&#x27;
 
+import {
+  CHANGE_YOURSELF_PHONE,
+  CHANGE_YOURSELF_BIRTHDAY,
+  CHANGE_YOURSELF_EMAIL,
+} from &#x27;@/common/schemes/mutation/changeYourself&#x27;
+
+import {
+  CHANGE_LOGIN,
+  CHANGE_USERNAME,
+  CHANGE_BIRTHDAY,
+  CHANGE_EMAIL,
+  CHANGE_PHONE,
+} from &#x27;@/common/schemes/mutation/changeAccount&#x27;
+
 import { ENV } from &#x27;@/environments/env&#x27;
+
+/**
+ * Параметры форматирования даты
+ */
+const MY_FORMATS &#x3D; {
+  parse: {
+    dateInput: &#x27;LL&#x27;,
+  },
+  display: {
+    dateInput: &#x27;DD MMMM, YYYY&#x27;,
+    monthYearLabel: &#x27;MMMM YYYY&#x27;,
+    dateA11yLabel: &#x27;LL&#x27;,
+    monthYearA11yLabel: &#x27;MMMM YYYY&#x27;,
+  },
+}
+
+/**
+ * Задержка изменения поля в милисекундах
+ */
+const CHANGE_TIMEOUT &#x3D; 2000
 
 /**
  * Компонент профиля пользователя
@@ -1238,6 +2601,15 @@ import { ENV } from &#x27;@/environments/env&#x27;
   selector: &#x27;vanne-profile&#x27;,
   templateUrl: &#x27;./profile.component.html&#x27;,
   styleUrls: [&#x27;./profile.component.sass&#x27;],
+  providers: [
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    { provide: MAT_DATE_LOCALE, useValue: &#x27;ru-RU&#x27; },
+  ],
   animations: [inOutComponentAnimation],
 })
 export class ProfileComponent implements OnInit, OnDestroy {
@@ -1257,7 +2629,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   /**
    * Флаг онлайна пользователя
    */
-  public isOnline: boolean &#x3D; true
+  public isOnline: boolean &#x3D; false
 
   /**
    * Флаг владения этим аккаунтом
@@ -1270,6 +2642,68 @@ export class ProfileComponent implements OnInit, OnDestroy {
   public supervisedByAdmin: boolean &#x3D; false
 
   /**
+   * Форма профиля
+   */
+  public profileForm &#x3D; new FormGroup({
+    username: new FormControl(
+      { value: &#x27;&#x27;, disabled: true },
+      {
+        validators: [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.pattern(
+            /^[A-Z, А-Я][a-z, а-я, ё]+\s[A-Z, А-Я][a-z, а-я, ё]+$/,
+          ),
+        ],
+      },
+    ),
+    login: new FormControl({ value: &#x27;&#x27;, disabled: true }, [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.pattern(/^[A-Z, a-z, 0-9]+\S$/),
+    ]),
+    email: new FormControl({ value: &#x27;&#x27;, disabled: true }, [
+      Validators.required,
+      Validators.email,
+      Validators.minLength(6),
+    ]),
+    phone: new FormControl({ value: &#x27;&#x27;, disabled: true }, [
+      Validators.required,
+      Validators.minLength(6),
+      Validators.pattern(/^\d{1,1}\s\d{3,3}\s\d{3,3}\s\d{2,2}\s\d{2,2}$/),
+    ]),
+    birthday: new FormControl(
+      { value: &#x27;&#x27;, disabled: true },
+      Validators.required,
+    ),
+  })
+
+  /**
+   * Отслеживаемый логин
+   */
+  public changedLogin$$: Subject&lt;string&gt; &#x3D; new Subject&lt;string&gt;()
+
+  /**
+   * Отслеживаемое имя пользователя
+   */
+  public changedUsername$$: Subject&lt;string&gt; &#x3D; new Subject&lt;string&gt;()
+
+  /**
+   * Отслеживаемый мобильный номер
+   */
+  public changedPhone$$: Subject&lt;string&gt; &#x3D; new Subject&lt;string&gt;()
+
+  /**
+   * Отслеживаемый email
+   */
+  public changedEmail$$: Subject&lt;string&gt; &#x3D; new Subject&lt;string&gt;()
+
+  /**
+   * Отслеживаемая дата рождения
+   */
+  public changedBirthday$$: Subject&lt;Moment&gt; &#x3D; new Subject&lt;Moment&gt;()
+
+  /**
    * Разрешённые типы файла
    */
   public avatarTypes: string &#x3D; imageMimeTypes.join(&#x27;,&#x27;)
@@ -1278,6 +2712,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * Прогресс загрузки файла
    */
   public uploadProgress: number | null &#x3D; null
+
+  /** Флаг ошибки изменения данных */
+  private isFailedChangeEvent: boolean &#x3D; false
 
   /**
    * Подписка на изменение данных аккаунта
@@ -1296,6 +2733,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   /** Подписка на обновление авторизационных данных аккаунта */
   private authSub: Subscription | null &#x3D; null
+
+  /**
+   * Массив вторичных подписок внутри методов изменения
+   */
+  private otherChangeSubs: Subscription[] &#x3D; []
 
   /**
    * Конструктор компонента аккаунта
@@ -1325,9 +2767,24 @@ export class ProfileComponent implements OnInit, OnDestroy {
     // Текущий пользователь ИС
     let currentUser &#x3D; this.authService.currentUser
 
+    this.supervisedByAdmin &#x3D;
+      currentUser?.role &#x3D;&#x3D;&#x3D; &#x27;ADMIN&#x27; || currentUser?.role &#x3D;&#x3D;&#x3D; &#x27;HEAD&#x27;
+
     // Проверка на свою страницу
     if (target &amp;&amp; currentUser &amp;&amp; currentUser.login &#x3D;&#x3D;&#x3D; target) {
       this.isMe &#x3D; true
+    }
+
+    // Смена доступности формы в зависимости от пользователя
+    if (this.supervisedByAdmin) {
+      Object.keys(this.profileForm.controls).forEach((item) &#x3D;&gt;
+        this.profileForm.controls[item].enable(),
+      )
+    }
+
+    if (this.isMe) {
+      this.profileForm.controls[&#x27;birthday&#x27;].enable()
+      this.profileForm.controls[&#x27;phone&#x27;].enable()
     }
 
     // Установка параметров запроса аккаунта
@@ -1365,22 +2822,518 @@ export class ProfileComponent implements OnInit, OnDestroy {
           ...this.profile$$.value,
           ...data.account,
           avatar: data.account.avatar.url || &#x27;/assets/media/ava-default.webp&#x27;,
-          birthday: data.account.birthday
-            ? formatDateFromISO(data.account.birthday, false)
-            : null,
+          birthday: data.account.birthday ? data.account.birthday : null,
         })
 
         let profile &#x3D; this.profile$$.value
 
+        this.profileForm.controls[&#x27;username&#x27;].setValue(profile.username)
+        this.profileForm.controls[&#x27;email&#x27;].setValue(profile.email)
+        this.profileForm.controls[&#x27;phone&#x27;].setValue(profile.phone)
+        this.profileForm.controls[&#x27;login&#x27;].setValue(profile.login)
+        this.profileForm.controls[&#x27;birthday&#x27;].setValue(moment(profile.birthday))
+
         this.titleService.setTitle(profile.login ? profile.login : &#x27;Профиль&#x27;)
+
+        // Отслеживаем изменение логина
+        this.changedLogin$$
+          .asObservable()
+          .pipe(debounceTime(CHANGE_TIMEOUT))
+          .subscribe((value) &#x3D;&gt; {
+            if (
+              this.profileForm.controls[&#x27;login&#x27;].valid &amp;&amp;
+              this.profileForm.controls[&#x27;login&#x27;].value !&#x3D;&#x3D;
+                this.profile$$.value.login &amp;&amp;
+              !this.isFailedChangeEvent
+            )
+              this.changeLogin(value)
+
+            if (this.isFailedChangeEvent) {
+              this.isFailedChangeEvent &#x3D; false
+            }
+          })
+
+        // Отслеживаем изменение имени пользователя
+        this.changedUsername$$
+          .asObservable()
+          .pipe(debounceTime(CHANGE_TIMEOUT))
+          .subscribe((value) &#x3D;&gt; {
+            if (
+              this.profileForm.controls[&#x27;username&#x27;].valid &amp;&amp;
+              this.profileForm.controls[&#x27;username&#x27;].value !&#x3D;&#x3D;
+                this.profile$$.value.username &amp;&amp;
+              !this.isFailedChangeEvent
+            )
+              this.changeUsername(value)
+
+            if (this.isFailedChangeEvent) {
+              this.isFailedChangeEvent &#x3D; false
+            }
+          })
+
+        // Отслеживаем изменение мобильного номера
+        this.changedPhone$$
+          .asObservable()
+          .pipe(debounceTime(CHANGE_TIMEOUT))
+          .subscribe((value) &#x3D;&gt; {
+            if (
+              this.profileForm.controls[&#x27;phone&#x27;].valid &amp;&amp;
+              this.profileForm.controls[&#x27;phone&#x27;].value !&#x3D;&#x3D;
+                this.profile$$.value.phone &amp;&amp;
+              !this.isFailedChangeEvent
+            )
+              this.changePhone(value)
+
+            if (this.isFailedChangeEvent) {
+              this.isFailedChangeEvent &#x3D; false
+            }
+          })
+
+        // Отслеживаем изменение email
+        this.changedEmail$$
+          .asObservable()
+          .pipe(debounceTime(CHANGE_TIMEOUT))
+          .subscribe((value) &#x3D;&gt; {
+            if (
+              this.profileForm.controls[&#x27;email&#x27;].valid &amp;&amp;
+              this.profileForm.controls[&#x27;email&#x27;].value !&#x3D;&#x3D;
+                this.profile$$.value.email &amp;&amp;
+              !this.isFailedChangeEvent
+            )
+              this.changeEmail(value)
+
+            if (this.isFailedChangeEvent) {
+              this.isFailedChangeEvent &#x3D; false
+            }
+          })
+
+        // Отслеживаем изменение даты рождения
+        this.changedBirthday$$
+          .asObservable()
+          .pipe(debounceTime(CHANGE_TIMEOUT))
+          .subscribe((value) &#x3D;&gt; {
+            if (
+              this.profileForm.controls[&#x27;birthday&#x27;].valid &amp;&amp;
+              this.profileForm.controls[&#x27;birthday&#x27;].value.toISOString() !&#x3D;&#x3D;
+                this.profile$$.value.birthday &amp;&amp;
+              !this.isFailedChangeEvent
+            )
+              this.changeBirthday(value.toDate())
+
+            if (this.isFailedChangeEvent) {
+              this.isFailedChangeEvent &#x3D; false
+            }
+          })
       },
     })
   }
 
   /**
+   * Обработка события изменения логина
+   * @param {string} val Новое значение логина
+   * @returns {void}
+   */
+  public handleChangeLogin(val: string): void {
+    if (val.trim().length &#x3D;&#x3D;&#x3D; 0 || !this.profileForm.controls[&#x27;login&#x27;].valid)
+      return
+
+    this.changedLogin$$.next(val)
+  }
+
+  /**
+   * Обработка изменения логина
+   * @param {string} val Новое значение логина
+   * @returns {void}
+   */
+  public changeLogin(val: string): void {
+    this.otherChangeSubs.push(
+      this.toastService
+        .show(&#x27;Изменить логин?&#x27;, &#x27;Да&#x27;, 3)
+        .onAction()
+        .subscribe(() &#x3D;&gt;
+          this.mutate&lt;
+            { changeAccount: { login: string } },
+            { login: string; newLogin: string }
+          &gt;(CHANGE_LOGIN, {
+            login: this.profile$$.value.login || &#x27;&#x27;,
+            newLogin: val,
+          }).subscribe({
+            error: () &#x3D;&gt; {
+              this.toastService.show(
+                &#x27;Ошибка при изменении логина&#x27;,
+                undefined,
+                2,
+              )
+
+              this.isFailedChangeEvent &#x3D; true
+
+              this.profileForm.controls[&#x27;login&#x27;].setValue(
+                this.profile$$.value.login,
+              )
+            },
+            next: ({ data }) &#x3D;&gt; {
+              this.profile$$.next({
+                ...this.profile$$.value,
+                login: data?.changeAccount.login || &#x27;&#x27;,
+              })
+
+              this.toastService.show(&#x27;Логин успешно изменён&#x27;, undefined, 2)
+
+              if (this.isMe) {
+                this.otherChangeSubs.push(
+                  this.authService.me().subscribe((payload) &#x3D;&gt; {
+                    this.routerService
+                      .navigate([&#x60;/u/${data?.changeAccount.login}&#x60;])
+                      .then(() &#x3D;&gt;
+                        this.titleService.setTitle(
+                          data?.changeAccount.login || &#x27;Профиль&#x27;,
+                        ),
+                      )
+                  }),
+                )
+              }
+            },
+          }),
+        ),
+    )
+  }
+
+  /**
+   * Обработка события изменения имени пользователя
+   * @param {string} val Новое значение имени пользователя
+   * @returns {void}
+   */
+  public handleChangeUsername(val: string): void {
+    if (val.trim().length &#x3D;&#x3D;&#x3D; 0 || !this.profileForm.controls[&#x27;username&#x27;].valid)
+      return
+
+    this.changedUsername$$.next(val)
+  }
+
+  /**
+   * Обработка изменения имени пользователя
+   * @param {string} val Новое значение имени пользователя
+   * @returns {void}
+   */
+  public changeUsername(val: string): void {
+    const firstname &#x3D; val.split(&#x27; &#x27;)[0]
+    const surname &#x3D; val.split(&#x27; &#x27;)[1]
+
+    this.otherChangeSubs.push(
+      this.toastService
+        .show(&#x27;Изменить имя пользователя?&#x27;, &#x27;Да&#x27;, 3)
+        .onAction()
+        .subscribe(() &#x3D;&gt;
+          this.mutate&lt;
+            { changeAccount: { firstname: string; surname: string } },
+            { login: string; firstname: string; surname: string }
+          &gt;(CHANGE_USERNAME, {
+            login: this.profile$$.value.login || &#x27;&#x27;,
+            firstname,
+            surname,
+          }).subscribe({
+            error: () &#x3D;&gt; {
+              this.toastService.show(
+                &#x27;Ошибка при изменении имени пользователя&#x27;,
+                undefined,
+                2,
+              )
+
+              this.isFailedChangeEvent &#x3D; true
+
+              this.profileForm.controls[&#x27;username&#x27;].setValue(
+                this.profile$$.value.username,
+              )
+            },
+            next: ({ data }) &#x3D;&gt; {
+              this.profile$$.next({
+                ...this.profile$$.value,
+                username: &#x60;${data?.changeAccount.firstname} ${data?.changeAccount.surname}&#x60;,
+              })
+
+              this.toastService.show(
+                &#x27;Имя пользователя успешно изменено&#x27;,
+                undefined,
+                2,
+              )
+            },
+          }),
+        ),
+    )
+  }
+
+  /**
+   * Обработка события изменения мобильного номера
+   * @param {string} val Новое значение мобильного номера
+   * @returns {void}
+   */
+  public handleChangePhone(val: string): void {
+    if (val.trim().length &#x3D;&#x3D;&#x3D; 0 || !this.profileForm.controls[&#x27;phone&#x27;].valid)
+      return
+
+    this.changedPhone$$.next(val)
+  }
+
+  /**
+   * Обработка изменения своего мобильного номера
+   * @param {string} val Новое значение мобильного номера
+   * @returns {void}
+   */
+  public changePhone(val: string): void {
+    this.otherChangeSubs.push(
+      this.toastService
+        .show(&#x27;Изменить мобильный номер?&#x27;, &#x27;Да&#x27;, 3)
+        .onAction()
+        .subscribe(() &#x3D;&gt; {
+          this.isMe
+            ? this.mutate&lt;
+                { changeYourself: { phone: string } },
+                { phone: string }
+              &gt;(CHANGE_YOURSELF_PHONE, { phone: val }).subscribe({
+                error: () &#x3D;&gt; {
+                  this.toastService.show(
+                    &#x27;Ошибка при изменении мобильного номера&#x27;,
+                    undefined,
+                    2,
+                  )
+
+                  this.isFailedChangeEvent &#x3D; true
+
+                  this.profileForm.controls[&#x27;phone&#x27;].setValue(
+                    this.profile$$.value.phone,
+                  )
+                },
+                next: ({ data }) &#x3D;&gt; {
+                  this.profile$$.next({
+                    ...this.profile$$.value,
+                    phone: data?.changeYourself.phone || &#x27;&#x27;,
+                  })
+
+                  this.toastService.show(
+                    &#x27;Мобильный номер успешно изменён&#x27;,
+                    undefined,
+                    2,
+                  )
+                },
+              })
+            : this.mutate&lt;
+                { changeAccount: { phone: string } },
+                { login: string; phone: string }
+              &gt;(CHANGE_PHONE, {
+                login: this.profile$$.value.login || &#x27;&#x27;,
+                phone: val,
+              }).subscribe({
+                error: () &#x3D;&gt; {
+                  this.toastService.show(
+                    &#x27;Ошибка при изменении мобильного номера&#x27;,
+                    undefined,
+                    2,
+                  )
+
+                  this.isFailedChangeEvent &#x3D; true
+
+                  this.profileForm.controls[&#x27;phone&#x27;].setValue(
+                    this.profile$$.value.phone,
+                  )
+                },
+                next: ({ data }) &#x3D;&gt; {
+                  this.profile$$.next({
+                    ...this.profile$$.value,
+                    phone: data?.changeAccount.phone || &#x27;&#x27;,
+                  })
+
+                  this.toastService.show(
+                    &#x27;Мобильный номер успешно изменён&#x27;,
+                    undefined,
+                    2,
+                  )
+                },
+              })
+        }),
+    )
+  }
+
+  /**
+   * Обработка события изменения email
+   * @param {string} val Новое значение email
+   * @returns {void}
+   */
+  public handleChangeEmail(val: string): void {
+    if (val.trim().length &#x3D;&#x3D;&#x3D; 0 || !this.profileForm.controls[&#x27;email&#x27;].valid)
+      return
+
+    this.changedEmail$$.next(val)
+  }
+
+  /**
+   * Обработка изменения email
+   * @param {string} val Новое значение email
+   * @returns {void}
+   */
+  public changeEmail(val: string): void {
+    this.otherChangeSubs.push(
+      this.toastService
+        .show(&#x27;Изменить email?&#x27;, &#x27;Да&#x27;, 3)
+        .onAction()
+        .subscribe(() &#x3D;&gt;
+          this.isMe
+            ? this.mutate&lt;
+                { changeYourself: { email: string } },
+                { email: string }
+              &gt;(CHANGE_YOURSELF_EMAIL, {
+                email: val,
+              }).subscribe({
+                error: (err) &#x3D;&gt; {
+                  this.toastService.show(
+                    &#x27;Ошибка при изменении почты&#x27;,
+                    undefined,
+                    2,
+                  )
+
+                  this.isFailedChangeEvent &#x3D; true
+
+                  this.profileForm.controls[&#x27;email&#x27;].setValue(
+                    this.profile$$.value.email,
+                  )
+                },
+                next: ({ data }) &#x3D;&gt; {
+                  this.profile$$.next({
+                    ...this.profile$$.value,
+                    email: data?.changeYourself.email || &#x27;&#x27;,
+                  })
+
+                  this.toastService.show(&#x27;Почта успешно изменена&#x27;, undefined, 2)
+                },
+              })
+            : this.mutate&lt;
+                { changeAccount: { email: string } },
+                { login: string; email: string }
+              &gt;(CHANGE_EMAIL, {
+                login: this.profile$$.value.email || &#x27;&#x27;,
+                email: val,
+              }).subscribe({
+                error: (err) &#x3D;&gt; {
+                  this.toastService.show(
+                    &#x27;Ошибка при изменении почты&#x27;,
+                    undefined,
+                    2,
+                  )
+
+                  this.isFailedChangeEvent &#x3D; true
+
+                  this.profileForm.controls[&#x27;email&#x27;].setValue(
+                    this.profile$$.value.email,
+                  )
+                },
+                next: ({ data }) &#x3D;&gt; {
+                  this.profile$$.next({
+                    ...this.profile$$.value,
+                    email: data?.changeAccount.email || &#x27;&#x27;,
+                  })
+
+                  this.toastService.show(&#x27;Почта успешно изменена&#x27;, undefined, 2)
+                },
+              }),
+        ),
+    )
+  }
+
+  /**
+   * Обработка события изменения даты рождения
+   * @param {string} val Новое значение даты рождения
+   * @returns {void}
+   */
+  public handleChangeBirthday(val: Moment): void {
+    if (!this.profileForm.controls[&#x27;birthday&#x27;].valid) return
+
+    this.changedBirthday$$.next(val)
+  }
+
+  /**
+   * Обработка изменения даты рождения
+   * @param {string} val Новое значение даты рождения
+   * @returns {void}
+   */
+  public changeBirthday(val: Date): void {
+    this.otherChangeSubs.push(
+      this.toastService
+        .show(&#x27;Изменить дату рождения?&#x27;, &#x27;Да&#x27;, 3)
+        .onAction()
+        .subscribe(() &#x3D;&gt;
+          this.isMe
+            ? this.mutate&lt;
+                { changeYourself: { birthday: string } },
+                { birthday: string }
+              &gt;(CHANGE_YOURSELF_BIRTHDAY, {
+                birthday: val.toISOString(),
+              }).subscribe({
+                error: () &#x3D;&gt; {
+                  this.toastService.show(
+                    &#x27;Ошибка при изменении даты рождения&#x27;,
+                    undefined,
+                    2,
+                  )
+
+                  this.isFailedChangeEvent &#x3D; true
+
+                  this.profileForm.controls[&#x27;birthday&#x27;].setValue(
+                    this.profile$$.value.birthday,
+                  )
+                },
+                next: ({ data }) &#x3D;&gt; {
+                  this.profile$$.next({
+                    ...this.profile$$.value,
+                    birthday: data?.changeYourself.birthday || &#x27;&#x27;,
+                  })
+
+                  this.toastService.show(
+                    &#x27;Дата рождения успешно изменена&#x27;,
+                    undefined,
+                    2,
+                  )
+                },
+              })
+            : this.mutate&lt;
+                { changeAccount: { birthday: string } },
+                { login: string; birthday: string }
+              &gt;(CHANGE_BIRTHDAY, {
+                login: this.profile$$.value.login || &#x27;&#x27;,
+                birthday: val.toISOString(),
+              }).subscribe({
+                error: () &#x3D;&gt; {
+                  this.toastService.show(
+                    &#x27;Ошибка при изменении даты рождения&#x27;,
+                    undefined,
+                    2,
+                  )
+
+                  this.isFailedChangeEvent &#x3D; true
+
+                  this.profileForm.controls[&#x27;birthday&#x27;].setValue(
+                    this.profile$$.value.birthday,
+                  )
+                },
+                next: ({ data }) &#x3D;&gt; {
+                  this.profile$$.next({
+                    ...this.profile$$.value,
+                    birthday: data?.changeAccount.birthday || &#x27;&#x27;,
+                  })
+
+                  this.toastService.show(
+                    &#x27;Дата рождения успешно изменена&#x27;,
+                    undefined,
+                    2,
+                  )
+                },
+              }),
+        ),
+    )
+  }
+
+  /**
    * Обработчик клика для смены аватара
    */
-  public onClickFile(event: Event): void {
+  public handleClickFile(event: Event): void {
     if (!!this.uploadProgress) {
       this.cancelUpload()
 
@@ -1393,7 +3346,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * Обработчик выбора файла для загрузки
    * @param {any} event Событие выбора
    */
-  public onSelectFile(event: any): void {
+  public handleSelectFile(event: any): void {
     if (!(this.isMe || this.supervisedByAdmin)) {
       return
     }
@@ -1424,6 +3377,22 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Абстрактный метод изменения данных профиля
+   * @param {TypedDocument&lt;TResult, TVars&gt;} mutation Мутация в виде gql
+   * @param {TVars} variables Объект с переменными запроса
+   * @returns {Observable&lt;MutationResult&lt;TResult&gt;&gt;} Observable GraphQL-запроса на мутацию
+   */
+  private mutate&lt;TResult, TVars&gt;(
+    mutation: TypedDocumentNode&lt;TResult, TVars&gt;,
+    variables: TVars,
+  ): Observable&lt;MutationResult&lt;TResult&gt;&gt; {
+    return this.apolloService.mutate({
+      mutation,
+      variables,
+    })
+  }
+
+  /**
    * Метод загрузки аватара
    * @param {File} file Выбранный файл
    */
@@ -1437,6 +3406,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
         reportProgress: true,
         observe: &#x27;events&#x27;,
         withCredentials: true,
+        params: {
+          u: this.profile$$.value.login || &#x27;&#x27;,
+        },
       })
       .pipe(
         finalize(() &#x3D;&gt; this.reset()),
@@ -1466,6 +3438,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         if (uploadedFile) {
           this.authSub &#x3D; this.authService.me().subscribe(() &#x3D;&gt; {})
           this.profileQuery?.refetch()
+          this.toastService.show(&#x27;Аватар успешно изменён&#x27;)
         }
       }
     })
@@ -1495,13 +3468,20 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.uploadSub?.unsubscribe()
     this.acceptUploadSub?.unsubscribe()
     this.authSub?.unsubscribe()
+    this.changedPhone$$.unsubscribe()
+    this.changedBirthday$$.unsubscribe()
+    this.changedEmail$$.unsubscribe()
+    this.changedLogin$$.unsubscribe()
+    this.changedUsername$$.unsubscribe()
+
+    this.otherChangeSubs.forEach((item) &#x3D;&gt; item.unsubscribe())
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;section @inOutComponent class&#x3D;&quot;profile&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;section @inOutComponent class&#x3D;&quot;profile&quot; [formGroup]&#x3D;&quot;profileForm&quot;&gt;
   &lt;div class&#x3D;&quot;profile-card&quot;&gt;
     &lt;div
       class&#x3D;&quot;profile-card__avatar&quot;
@@ -1521,14 +3501,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
         class&#x3D;&quot;profile-card__avatar--control&quot;
         [accept]&#x3D;&quot;avatarTypes&quot;
         #avatarUpload
-        (change)&#x3D;&quot;onSelectFile($event)&quot;
-        (click)&#x3D;&quot;onClickFile($event)&quot;
+        (change)&#x3D;&quot;handleSelectFile($event)&quot;
+        (click)&#x3D;&quot;handleClickFile($event)&quot;
       /&gt;
-      &lt;div class&#x3D;&quot;profile-card-progress&quot; *ngIf&#x3D;&quot;uploadProgress&quot;&gt;
+      &lt;div class&#x3D;&quot;profile-card-progress&quot; *ngIf&#x3D;&quot;uploadProgress&quot; @inOutComponent&gt;
         &lt;mat-progress-spinner
-          mode&#x3D;&quot;determinate&quot;
+          mode&#x3D;&quot;indeterminate&quot;
           class&#x3D;&quot;profile-card-progress__spinner&quot;
-          [value]&#x3D;&quot;uploadProgress&quot;
         &gt;&lt;/mat-progress-spinner&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -1539,25 +3518,48 @@ export class ProfileComponent implements OnInit, OnDestroy {
   &lt;div class&#x3D;&quot;profile-desc&quot;&gt;
     &lt;div class&#x3D;&quot;profile-desc-info&quot;&gt;
       &lt;div class&#x3D;&quot;profile-desc-info__field&quot;&gt;
-        &lt;span&gt;{{ profile$$.value.username }}&lt;/span
-        &gt;&lt;span&gt;{{ profile$$.value.login }}&lt;/span&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          formControlName&#x3D;&quot;username&quot;
+          (ngModelChange)&#x3D;&quot;handleChangeUsername($event)&quot;
+        /&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          formControlName&#x3D;&quot;login&quot;
+          (ngModelChange)&#x3D;&quot;handleChangeLogin($event)&quot;
+        /&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;profile-desc-info__field&quot;&gt;
-        &lt;span
-          &gt;&lt;a
-            [href]&#x3D;&quot;&#x27;mailto:&#x27; + profile$$.value.email || &#x27;av@anclaev.com&#x27;&quot;
-            rel&#x3D;&quot;noopenner noreferrer&quot;
-            &gt;{{ profile$$.value.email || &#x27;av@anclaev.com&#x27; }}&lt;/a
-          &gt;&lt;/span
-        &gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          formControlName&#x3D;&quot;email&quot;
+          (ngModelChange)&#x3D;&quot;handleChangeEmail($event)&quot;
+        /&gt;
         &lt;img src&#x3D;&quot;/assets/svg/email-min.svg&quot; alt&#x3D;&quot;Icon: Email&quot; /&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;profile-desc-info__field&quot;&gt;
-        &lt;span&gt;{{ profile$$.value.phone || &#x27;7 995 627 06 76&#x27; }}&lt;/span&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          formControlName&#x3D;&quot;phone&quot;
+          (ngModelChange)&#x3D;&quot;handleChangePhone($event)&quot;
+        /&gt;
         &lt;img src&#x3D;&quot;/assets/svg/phone-min.svg&quot; alt&#x3D;&quot;Icon: Phone&quot; /&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;profile-desc-info__field&quot;&gt;
-        &lt;span&gt;{{ profile$$.value.birthday || &#x27;12/10/2001&#x27; }}&lt;/span&gt;
+        &lt;div&gt;
+          &lt;input
+            [matDatepicker]&#x3D;&quot;picker&quot;
+            formControlName&#x3D;&quot;birthday&quot;
+            class&#x3D;&quot;profile-desc-info__field--date&quot;
+            (ngModelChange)&#x3D;&quot;handleChangeBirthday($event)&quot;
+          /&gt;
+          &lt;mat-datepicker-toggle
+            matSuffix
+            [for]&#x3D;&quot;picker&quot;
+            [style]&#x3D;&quot;!isMe || !supervisedByAdmin ? { display: &#x27;none&#x27; } : {}&quot;
+          &gt;&lt;/mat-datepicker-toggle&gt;
+          &lt;mat-datepicker touchUi #picker&gt;&lt;/mat-datepicker&gt;
+        &lt;/div&gt;
         &lt;img src&#x3D;&quot;/assets/svg/cake-min.svg&quot; alt&#x3D;&quot;Icon: Birthday&quot; /&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -1582,6 +3584,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
     &amp; &gt; div, &amp;-card__roles, &amp;-desc-info, &amp;-desc-info__field
         display: flex
+
+    &amp;-card input, &amp;-desc input
+        padding: 10px 0
+        border-color: transparent
 
     &amp;-card
         padding: 0 30px
@@ -1678,33 +3684,54 @@ export class ProfileComponent implements OnInit, OnDestroy {
             width: 100%
             max-width: 900px
             justify-content: space-around
-            padding: 0 30px
+            padding: 0 10px
 
             flex-wrap: wrap
 
             &amp; &gt; div
-                padding: 20px 30px
+                padding: 20px 10px
 
-                &amp;:first-child  &gt; span
+                &amp;:first-child  &gt; input
                     &amp;:first-child
-                        font-size: 24px
+                        margin-top: 12px
+                        font-size: 20px
                         font-weight: $fw-bold
-                        margin-bottom: 10px
+                        padding-top: 0
+                        margin-bottom: 5px
+                        padding-bottom: 5px
 
                     &amp;:last-child
                         font-size: 16px
-                        margin-bottom: 0
+                        margin: 0
+                        padding-top: 0
 
             &amp;__field
                 flex-direction: column
                 justify-content: center
                 align-items: center
+                max-width: 210px
 
-                &amp; &gt; span
+                &amp;--date
+                    width: 150px
+
+                &amp; &gt; input, &amp; &gt; span
                     text-align: center
                     font-size: 16px
                     display: block
-                    margin-bottom: 15px
+                    margin-bottom: 5px
+
+                &amp; &gt; input.ng-invalid.ng-dirty
+                    border-color: $color-primary-carrot
+
+                &amp; input
+                    border-bottom: 1px solid transparent
+                    text-align: center
+                    padding: 10px 0 8px 0
+                    margin-bottom: 9px
+                    transition: .2s
+
+                &amp; &gt; span
+                    padding: 10px
 
                 &amp; a
                     color: #fff
@@ -1756,7 +3783,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section @inOutComponent class="profile">  <div class="profile-card">    <div      class="profile-card__avatar"      [attr.data-online]="isOnline"      [attr.data-editable]="isMe || supervisedByAdmin"      [attr.data-loading]="!!uploadProgress"      (click)="avatarUpload.click()"    >      <img        [src]="profile$$.value.avatar"        width="200px"        height="200px"        [alt]="\'Аватар: \' + (profile$$.value.username || profile$$.value.login)"      />      <input        type="file"        class="profile-card__avatar--control"        [accept]="avatarTypes"        #avatarUpload        (change)="onSelectFile($event)"        (click)="onClickFile($event)"      />      <div class="profile-card-progress" *ngIf="uploadProgress">        <mat-progress-spinner          mode="determinate"          class="profile-card-progress__spinner"          [value]="uploadProgress"        ></mat-progress-spinner>      </div>    </div>    <div class="profile-card__roles">      <div *ngIf="profile$$.value.role">{{ profile$$.value.role }}</div>    </div>  </div>  <div class="profile-desc">    <div class="profile-desc-info">      <div class="profile-desc-info__field">        <span>{{ profile$$.value.username }}</span        ><span>{{ profile$$.value.login }}</span>      </div>      <div class="profile-desc-info__field">        <span          ><a            [href]="\'mailto:\' + profile$$.value.email || \'av@anclaev.com\'"            rel="noopenner noreferrer"            >{{ profile$$.value.email || \'av@anclaev.com\' }}</a          ></span        >        <img src="/assets/svg/email-min.svg" alt="Icon: Email" />      </div>      <div class="profile-desc-info__field">        <span>{{ profile$$.value.phone || \'7 995 627 06 76\' }}</span>        <img src="/assets/svg/phone-min.svg" alt="Icon: Phone" />      </div>      <div class="profile-desc-info__field">        <span>{{ profile$$.value.birthday || \'12/10/2001\' }}</span>        <img src="/assets/svg/cake-min.svg" alt="Icon: Birthday" />      </div>    </div>  </div></section></div>'
+        var COMPONENT_TEMPLATE = '<div><section @inOutComponent class="profile" [formGroup]="profileForm">  <div class="profile-card">    <div      class="profile-card__avatar"      [attr.data-online]="isOnline"      [attr.data-editable]="isMe || supervisedByAdmin"      [attr.data-loading]="!!uploadProgress"      (click)="avatarUpload.click()"    >      <img        [src]="profile$$.value.avatar"        width="200px"        height="200px"        [alt]="\'Аватар: \' + (profile$$.value.username || profile$$.value.login)"      />      <input        type="file"        class="profile-card__avatar--control"        [accept]="avatarTypes"        #avatarUpload        (change)="handleSelectFile($event)"        (click)="handleClickFile($event)"      />      <div class="profile-card-progress" *ngIf="uploadProgress" @inOutComponent>        <mat-progress-spinner          mode="indeterminate"          class="profile-card-progress__spinner"        ></mat-progress-spinner>      </div>    </div>    <div class="profile-card__roles">      <div *ngIf="profile$$.value.role">{{ profile$$.value.role }}</div>    </div>  </div>  <div class="profile-desc">    <div class="profile-desc-info">      <div class="profile-desc-info__field">        <input          type="text"          formControlName="username"          (ngModelChange)="handleChangeUsername($event)"        />        <input          type="text"          formControlName="login"          (ngModelChange)="handleChangeLogin($event)"        />      </div>      <div class="profile-desc-info__field">        <input          type="text"          formControlName="email"          (ngModelChange)="handleChangeEmail($event)"        />        <img src="/assets/svg/email-min.svg" alt="Icon: Email" />      </div>      <div class="profile-desc-info__field">        <input          type="text"          formControlName="phone"          (ngModelChange)="handleChangePhone($event)"        />        <img src="/assets/svg/phone-min.svg" alt="Icon: Phone" />      </div>      <div class="profile-desc-info__field">        <div>          <input            [matDatepicker]="picker"            formControlName="birthday"            class="profile-desc-info__field--date"            (ngModelChange)="handleChangeBirthday($event)"          />          <mat-datepicker-toggle            matSuffix            [for]="picker"            [style]="!isMe || !supervisedByAdmin ? { display: \'none\' } : {}"          ></mat-datepicker-toggle>          <mat-datepicker touchUi #picker></mat-datepicker>        </div>        <img src="/assets/svg/cake-min.svg" alt="Icon: Birthday" />      </div>    </div>  </div></section></div>'
     var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProfileComponent', 'selector': 'vanne-profile'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ProfileComponent'};
