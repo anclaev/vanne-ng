@@ -554,6 +554,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
                 undefined,
                 2,
               )
+
+              if (this.isMe) {
+                this.otherChangeSubs.push(this.authService.me().subscribe())
+              }
             },
           }),
         ),
