@@ -1,5 +1,4 @@
 import { IUser } from '../interfaces'
-import { ISession } from '../interfaces/session.interface'
 
 /**
  * Модель аккаунта на основе пользователя

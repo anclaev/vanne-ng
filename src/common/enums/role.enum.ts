@@ -29,3 +29,7 @@ export enum ROLE {
 }
 
 export type Role = keyof typeof ROLE
+
+export type TRole = {
+  [Property in keyof typeof ROLE]: string
+}

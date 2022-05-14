@@ -1,0 +1,15 @@
+@import '../../../../styles/_vars'
+
+:host
+    & > form
+        display: flex
+        flex-direction: column
+
+        & > input
+            margin-bottom: 25px
+
+            &:first-child
+                margin-bottom: 10px
+
+            &.ng-invalid
+                border-bottom-color: $color-primary-carrot
