@@ -5,6 +5,7 @@ import { Apollo } from 'apollo-angular'
 import { Subscription } from 'rxjs'
 
 import { CHANGE_YOURSELF_PASSWORD } from '@/common/schemes/mutation/changeYourselfPassword'
+import { inOutComponentAnimation } from '@/common/animations/in-out-component'
 
 import { ToastService } from '@/app/shared/services/toast.service'
 
@@ -17,6 +18,7 @@ import { ProfileComponent } from '../profile.component'
   selector: 'vanne-change-pass',
   templateUrl: './change-pass.component.html',
   styleUrls: ['./change-pass.component.sass'],
+  animations: [inOutComponentAnimation],
 })
 export class ChangePassComponent implements OnDestroy {
   /**
@@ -52,7 +54,7 @@ export class ChangePassComponent implements OnDestroy {
    * Обработчик смены пароля
    * @returns {void}
    */
-  public handleChangePass(): void {
+  public handleChangePass(event: Event): void {
     if (!this.changePassForm.controls['oldPassword'].valid) {
       this.toastService.show('Текущий пароль обязателен')
       return
@@ -63,6 +65,20 @@ export class ChangePassComponent implements OnDestroy {
       return
     }
 
+    this.toastService
+      .show('Сменить пароль?', 'Да')
+      .onAction()
+      .subscribe(() => {
+        this.changePassword()
+      })
+
+    event.preventDefault()
+  }
+
+  /**
+   * Обработка запроса на смену пароля
+   */
+  public changePassword() {
     this.changePassSub = this.apolloService
       .mutate<
         { changeYourselfPassword: boolean },
@@ -80,7 +96,7 @@ export class ChangePassComponent implements OnDestroy {
           this.dialogRef.close()
         },
         error: (err) => {
-          this.toastService.show(err.message)
+          this.toastService.show('Некорректный текущий пароль')
 
           this.changePassForm.controls['oldPassword'].setValue('')
           this.changePassForm.controls['newPassword'].setValue('')
