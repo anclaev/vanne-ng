@@ -24,6 +24,9 @@ export const internalRoutes = [
  */
 export const imageMimeTypes = ['image/png', 'image/jpeg', 'image/webp']
 
+/**
+ * Локализированные роли пользователей
+ */
 export const IntlRole: TRole = {
   ADMIN: 'Администратор',
   HEAD: 'Руководитель',

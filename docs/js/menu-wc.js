@@ -277,13 +277,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/UsersModule.html" data-type="entity-link" >UsersModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-UsersModule-94c9438449940b72663c634add633c370fc81477ad0b417a428c571086d3f4e64771a1ae728362dc5c9bff79f4d56681908dc9f0768cd7eb239f14168ec0fe4a"' : 'data-target="#xs-components-links-module-UsersModule-94c9438449940b72663c634add633c370fc81477ad0b417a428c571086d3f4e64771a1ae728362dc5c9bff79f4d56681908dc9f0768cd7eb239f14168ec0fe4a"' }>
+                                            'data-target="#components-links-module-UsersModule-8caad969058569d5c2149442781eed638993378891e45e8f6727107ed9f4bc29fa2b20541269a42b0cf16ce8dbd1be09aea8075126fb97af5aa9a96bc068dad7"' : 'data-target="#xs-components-links-module-UsersModule-8caad969058569d5c2149442781eed638993378891e45e8f6727107ed9f4bc29fa2b20541269a42b0cf16ce8dbd1be09aea8075126fb97af5aa9a96bc068dad7"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-UsersModule-94c9438449940b72663c634add633c370fc81477ad0b417a428c571086d3f4e64771a1ae728362dc5c9bff79f4d56681908dc9f0768cd7eb239f14168ec0fe4a"' :
-                                            'id="xs-components-links-module-UsersModule-94c9438449940b72663c634add633c370fc81477ad0b417a428c571086d3f4e64771a1ae728362dc5c9bff79f4d56681908dc9f0768cd7eb239f14168ec0fe4a"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-UsersModule-8caad969058569d5c2149442781eed638993378891e45e8f6727107ed9f4bc29fa2b20541269a42b0cf16ce8dbd1be09aea8075126fb97af5aa9a96bc068dad7"' :
+                                            'id="xs-components-links-module-UsersModule-8caad969058569d5c2149442781eed638993378891e45e8f6727107ed9f4bc29fa2b20541269a42b0cf16ce8dbd1be09aea8075126fb97af5aa9a96bc068dad7"' }>
+                                            <li class="link">
+                                                <a href="components/ChangePassComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ChangePassComponent</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/ProfileComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ProfileComponent</a>
                                             </li>

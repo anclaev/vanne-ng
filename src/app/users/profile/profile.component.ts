@@ -4,6 +4,8 @@ import {
   MAT_DATE_LOCALE,
 } from '@angular/material/core'
 
+import { MatDialog } from '@angular/material/dialog'
+
 import {
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
@@ -61,6 +63,7 @@ import {
 } from '@/common/schemes/mutation/changeAccount'
 
 import { ENV } from '@/environments/env'
+import { ChangePassComponent } from './change-pass/change-pass.component'
 
 /**
  * Параметры форматирования даты
@@ -245,6 +248,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private routerService: Router,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
+    private dialogService: MatDialog,
   ) {
     // Инициализация пустого аккаунта
     let initial = initialAccount
@@ -830,6 +834,16 @@ export class ProfileComponent implements OnInit, OnDestroy {
               }),
         ),
     )
+  }
+
+  /**
+   * Обработка клика на смену пароля
+   * @returns {void}
+   */
+  public handleChangePass(): void {
+    this.dialogService.open(ChangePassComponent, {
+      width: '300px',
+    })
   }
 
   /**

@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Смена пароля</h1>
+<form [formGroup]="changePassForm">
+  <input
+    type="password"
+    formControlName="oldPassword"
+    placeholder="Текущий пароль"
+    autocomplete="off"
+    readonly
+    onfocus="this.removeAttribute('readonly')"
+  />
+  <input
+    type="password"
+    formControlName="newPassword"
+    placeholder="Новый пароль"
+    autocomplete="off"
+    readonly
+    onfocus="this.removeAttribute('readonly')"
+  />
+  <button (click)="handleChangePass()">Сменить</button>
+</form>
