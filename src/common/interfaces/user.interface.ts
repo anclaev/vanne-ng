@@ -37,3 +37,15 @@ export interface IUser {
 }
 
 export type User = IUser | null
+
+export const testingUser: User = {
+  _id: '1',
+  avatar: 'test',
+  login: 'test',
+  username: 'test',
+  role: ROLE.ADMIN,
+  team: {
+    _id: '1',
+    name: 'test',
+  },
+}

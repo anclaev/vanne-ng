@@ -68,6 +68,7 @@ export class AuthService {
       .pipe(
         map((user) => {
           this.user$$.next(user)
+
           return user
         }),
       )
@@ -123,13 +124,19 @@ export class AuthService {
    * @param {strung} returnUrl Callback url
    * @returns {Observable<boolean>} Статус авторизации
    */
-  public check(returnUrl: string, redirect?: boolean): Observable<boolean> {
+  public check(
+    returnUrl: string,
+    redirect?: boolean,
+    testing: boolean = false,
+  ): Observable<boolean> {
     return this.me().pipe(
       map((data) => !!data),
       catchError((err) => {
-        this.router.navigate(['/auth'], {
-          queryParams: { returnUrl, redirect },
-        })
+        if (!testing) {
+          this.router.navigate(['/auth'], {
+            queryParams: { returnUrl, redirect },
+          })
+        }
 
         return of(err !== 'Unauthorized')
       }),
@@ -140,7 +147,7 @@ export class AuthService {
    * Метод выхода из системы
    * @returns {Subscription} Подписка на выход из системы
    */
-  public logout(): Subscription {
+  public logout(redirect: boolean = true): Subscription {
     return this.httpClient
       .post(
         this.api + API.AUTH_SIGN_OUT,
@@ -154,7 +161,10 @@ export class AuthService {
       .subscribe({
         next: () => {
           this.user$$.next(null)
-          this.router.navigate(['/auth'])
+
+          if (redirect) {
+            this.router.navigate(['/auth'])
+          }
         },
       })
   }
