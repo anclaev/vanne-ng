@@ -38,6 +38,9 @@ export interface IUser {
 
 export type User = IUser | null
 
+/**
+ * Тестовые данные пользователя
+ */
 export const testingUser: User = {
   _id: '1',
   avatar: 'test',

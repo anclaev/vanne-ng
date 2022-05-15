@@ -246,15 +246,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>check(returnUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, redirect?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    <code>check(returnUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, redirect?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, testing: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="126"
-                            class="link-to-prism">src/app/shared/services/auth.service.ts:126</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">src/app/shared/services/auth.service.ts:127</a></div>
                 </td>
             </tr>
 
@@ -273,6 +273,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                     <td>Description</td>
                                 </tr>
                             </thead>
@@ -287,6 +288,8 @@
                                         No
                                     </td>
 
+                                    <td>
+                                    </td>
 
                                     <td>
                                         <p>Callback url</p>
@@ -303,6 +306,25 @@
                                         Yes
                                     </td>
 
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>testing</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>false</code>
+                                    </td>
 
                                     <td>
                                     </td>
@@ -418,15 +440,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>logout()</code>
+                    <code>logout(redirect: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="143"
-                            class="link-to-prism">src/app/shared/services/auth.service.ts:143</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="150"
+                            class="link-to-prism">src/app/shared/services/auth.service.ts:150</a></div>
                 </td>
             </tr>
 
@@ -436,6 +458,37 @@
                     <div class="io-description"><p>Метод выхода из системы</p>
 </div>
 
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>redirect</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>true</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div>
                     </div>
                     <div class="io-description">
@@ -472,8 +525,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="96"
-                            class="link-to-prism">src/app/shared/services/auth.service.ts:96</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/shared/services/auth.service.ts:97</a></div>
                 </td>
             </tr>
 
@@ -519,8 +572,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/app/shared/services/auth.service.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/shared/services/auth.service.ts:81</a></div>
                 </td>
             </tr>
 
@@ -768,6 +821,7 @@ export class AuthService {
       .pipe(
         map((user) &#x3D;&gt; {
           this.user$$.next(user)
+
           return user
         }),
       )
@@ -823,13 +877,19 @@ export class AuthService {
    * @param {strung} returnUrl Callback url
    * @returns {Observable&lt;boolean&gt;} Статус авторизации
    */
-  public check(returnUrl: string, redirect?: boolean): Observable&lt;boolean&gt; {
+  public check(
+    returnUrl: string,
+    redirect?: boolean,
+    testing: boolean &#x3D; false,
+  ): Observable&lt;boolean&gt; {
     return this.me().pipe(
       map((data) &#x3D;&gt; !!data),
       catchError((err) &#x3D;&gt; {
-        this.router.navigate([&#x27;/auth&#x27;], {
-          queryParams: { returnUrl, redirect },
-        })
+        if (!testing) {
+          this.router.navigate([&#x27;/auth&#x27;], {
+            queryParams: { returnUrl, redirect },
+          })
+        }
 
         return of(err !&#x3D;&#x3D; &#x27;Unauthorized&#x27;)
       }),
@@ -840,7 +900,7 @@ export class AuthService {
    * Метод выхода из системы
    * @returns {Subscription} Подписка на выход из системы
    */
-  public logout(): Subscription {
+  public logout(redirect: boolean &#x3D; true): Subscription {
     return this.httpClient
       .post(
         this.api + API.AUTH_SIGN_OUT,
@@ -854,7 +914,10 @@ export class AuthService {
       .subscribe({
         next: () &#x3D;&gt; {
           this.user$$.next(null)
-          this.router.navigate([&#x27;/auth&#x27;])
+
+          if (redirect) {
+            this.router.navigate([&#x27;/auth&#x27;])
+          }
         },
       })
   }
