@@ -11,6 +11,7 @@
     "build:stage": "ng build -c staging",
     "build:prod": "ng build -c production",
     "test": "ng test",
+    "test:coverage": "ng test --no-watch --code-coverage",
     "doc:serve": "compodoc --hideGenerator -d docs --customFavicon src/favicon.ico --customLogo src/assets/svg/logo-min.svg -n Vanne -p tsconfig.doc.json -s",
     "doc": "compodoc --hideGenerator -d docs --customFavicon src/favicon.ico --customLogo src/assets/svg/logo-min.svg -n Vanne -p tsconfig.doc.json"
   },
