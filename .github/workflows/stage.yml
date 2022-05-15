@@ -17,6 +17,27 @@ on:
   workflow_dispatch:
 
 jobs:
+  # Промежуточное тестирование
+  testing:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      # Установка пакетов
+      - name: Install packages
+        run: yarn install --frozen-lockfile
+
+      # Запуск тестирования
+      - name: Running testing
+        run: |
+          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+  # Деплой приложения на staging
   deploy:
     runs-on: ubuntu-latest
 
