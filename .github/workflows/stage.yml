@@ -29,7 +29,7 @@ jobs:
 
       # Установка пакетов
       - name: Install packages
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       # Запуск тестирования
       - name: Running testing
