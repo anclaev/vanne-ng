@@ -17,6 +17,7 @@ on:
   workflow_dispatch:
 
 jobs:
+  # Промежуточное тестирование
   testing:
     runs-on: ubuntu-latest
 
@@ -36,8 +37,8 @@ jobs:
         run: |
           npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
+  # Деплой приложения на staging
   deploy:
-    needs: testing
     runs-on: ubuntu-latest
 
     steps:

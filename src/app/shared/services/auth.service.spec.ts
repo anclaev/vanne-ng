@@ -8,7 +8,7 @@ import { TestBed } from '@angular/core/testing'
 
 import { AuthService } from './auth.service'
 
-import { mockBackendProvider } from '../interceptors/mockBackend.interceptor'
+import { mockHttpProvider } from '../interceptors/mockHttp.interceptor'
 import { testingUser } from '@/common/interfaces/user.interface'
 
 describe('AuthService', () => {
@@ -18,7 +18,7 @@ describe('AuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
-      providers: [mockBackendProvider],
+      providers: [mockHttpProvider],
     })
 
     service = TestBed.inject(AuthService)

@@ -25,7 +25,7 @@ import {
 } from 'rxjs'
 
 @Injectable()
-export class MockBackendInterceptor implements HttpInterceptor {
+export class MockHttpInterceptor implements HttpInterceptor {
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler,
@@ -118,8 +118,8 @@ export class MockBackendInterceptor implements HttpInterceptor {
   }
 }
 
-export const mockBackendProvider = {
+export const mockHttpProvider = {
   provide: HTTP_INTERCEPTORS,
-  useClass: MockBackendInterceptor,
+  useClass: MockHttpInterceptor,
   multi: true,
 }
