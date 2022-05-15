@@ -589,16 +589,16 @@ export class SignInComponent implements OnInit {
     // Validate credentials
 
     if (login.invalid &amp;&amp; password.invalid) {
-      this.toastService.show(&#x27;Incorrect credentials&#x27;)
+      this.toastService.show(&#x27;Некорректные данные&#x27;)
       return
     }
 
     if (login.invalid) {
-      this.toastService.show(&#x27;Incorrent login&#x27;)
+      this.toastService.show(&#x27;Некорректный логин&#x27;)
     }
 
     if (password.invalid) {
-      this.toastService.show(&#x27;Incorrect password&#x27;)
+      this.toastService.show(&#x27;Некорректный пароль&#x27;)
     }
 
     if (this.authForm.invalid) return
@@ -622,7 +622,7 @@ export class SignInComponent implements OnInit {
         error: () &#x3D;&gt; {
           this.loading &#x3D; false
 
-          this.toastService.show(&#x27;Wrong credentials&#x27;)
+          this.toastService.show(&#x27;Вход не выполнен&#x27;)
         },
       })
   }

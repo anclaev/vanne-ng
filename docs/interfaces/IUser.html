@@ -415,6 +415,21 @@ export interface IUser {
 }
 
 export type User &#x3D; IUser | null
+
+/**
+ * Тестовые данные пользователя
+ */
+export const testingUser: User &#x3D; {
+  _id: &#x27;1&#x27;,
+  avatar: &#x27;test&#x27;,
+  login: &#x27;test&#x27;,
+  username: &#x27;test&#x27;,
+  role: ROLE.ADMIN,
+  team: {
+    _id: &#x27;1&#x27;,
+    name: &#x27;test&#x27;,
+  },
+}
 </code></pre>
     </div>
 </div>

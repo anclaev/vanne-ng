@@ -24,8 +24,17 @@ import {
   throwError,
 } from 'rxjs'
 
+/**
+ * Перехватчик HTTP-запросов для тестирования
+ */
 @Injectable()
 export class MockHttpInterceptor implements HttpInterceptor {
+  /**
+   * Обработчик перехватчика
+   * @param {HttpRequest<any>} req Объект запроса
+   * @param {HttpHandler} next Handler запроса
+   * @returns {Observable<HttpEvent<any>>} HTTP-событие
+   */
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler,
@@ -118,6 +127,9 @@ export class MockHttpInterceptor implements HttpInterceptor {
   }
 }
 
+/**
+ * Провайдер HTTP-перехватчика для тестирования
+ */
 export const mockHttpProvider = {
   provide: HTTP_INTERCEPTORS,
   useClass: MockHttpInterceptor,

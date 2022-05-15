@@ -318,6 +318,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </ul>
                         </li>
                     <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#interceptors-links"' :
+                            'data-target="#xs-interceptors-links"' }>
+                            <span class="icon ion-ios-swap"></span>
+                            <span>Interceptors</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="interceptors-links"' : 'id="xs-interceptors-links"' }>
+                            <li class="link">
+                                <a href="interceptors/MockHttpInterceptor.html" data-type="entity-link" >MockHttpInterceptor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#guards-links"' :
                             'data-target="#xs-guards-links"' }>
                             <span class="icon ion-ios-lock"></span>
