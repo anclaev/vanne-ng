@@ -93,7 +93,7 @@ export class AddUserComponent implements OnDestroy {
   /**
    * Форма создания пользователя (шаг 2)
    */
-  addUserForm_2 = new FormGroup({
+  public addUserForm_2 = new FormGroup({
     username: new FormControl('', {
       validators: [
         Validators.required,
@@ -114,8 +114,6 @@ export class AddUserComponent implements OnDestroy {
     ]),
     birthday: new FormControl('', Validators.required),
   })
-
-  public addUserForm_3 = new FormGroup({})
 
   constructor(
     private apolloService: Apollo,

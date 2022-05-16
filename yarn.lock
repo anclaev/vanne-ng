@@ -5380,6 +5380,13 @@ next-tick@^1.1.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.1.0.tgz#1836ee30ad56d67ef281b22bd199f709449b35eb"
   integrity sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==
 
+ngx-infinite-scroll@^13.0.2:
+  version "13.0.2"
+  resolved "https://registry.yarnpkg.com/ngx-infinite-scroll/-/ngx-infinite-scroll-13.0.2.tgz#87f10269aae722ca2743ff8f8a84a318c503a41e"
+  integrity sha512-RSezL0DUxo1B57SyRMOSt3a/5lLXJs6P8lavtxOh10uhX+hn662cMYHUO7LiU2a/vJxef2R020s4jkUqhnXTcg==
+  dependencies:
+    tslib "^2.3.0"
+
 nice-napi@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/nice-napi/-/nice-napi-1.0.2.tgz#dc0ab5a1eac20ce548802fc5686eaa6bc654927b"

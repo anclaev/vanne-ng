@@ -13,6 +13,7 @@ export const GET_PROFILE = gql<
   query getProfile($login: String!) {
     account(login: $login) {
       birthday
+      role
       email
       firstname
       surname

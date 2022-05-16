@@ -79,4 +79,34 @@
       </button>
     </div>
   </div>
+  <div class="users-grid" infinite-scroll (scrolled)="handleScrollDown($event)">
+    <div class="users-grid-list">
+      <div
+        class="users-grid-list-item"
+        *ngFor="let account of accounts$$ | async"
+        @inOutComponent
+      >
+        <div
+          class="users-grid-list-item__avatar"
+          (click)="handleSelectAccount(account.login)"
+        >
+          <img
+            [src]="account.avatar!.url"
+            alt="Avatar"
+            width="150px"
+            height="150px"
+          />
+        </div>
+        <div class="users-grid-list-item-data">
+          <div class="users-grid-list-item-data__credentials">
+            <span>{{ account.firstname }} {{ account.surname }}</span>
+            <span>{{ account.login }}</span>
+          </div>
+          <div class="users-grid-list-item-data__role">
+            <span>{{ account.role }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,4 +1,5 @@
 import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core'
+import { offsetLimitPagination } from '@apollo/client/utilities'
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular'
 import { HttpLink } from 'apollo-angular/http'
 import { NgModule } from '@angular/core'
@@ -26,6 +27,7 @@ export const createApolloClient = (
               return { ...existing, sessions: incoming.sessions }
             },
           },
+          accounts: offsetLimitPagination(),
         },
       },
     },

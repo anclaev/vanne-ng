@@ -4,6 +4,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatProgressBarModule } from '@angular/material/progress-bar'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatStepperModule } from '@angular/material/stepper'
+import { InfiniteScrollModule } from 'ngx-infinite-scroll'
 import { MatSelectModule } from '@angular/material/select'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatChipsModule } from '@angular/material/chips'
@@ -26,6 +27,7 @@ import { AddUserComponent } from './users/add-user/add-user.component'
     CommonModule,
     SharedModule,
     UsersRoutingModule,
+    InfiniteScrollModule,
     MatProgressSpinnerModule,
     MatMomentDateModule,
     MatStepperModule,
