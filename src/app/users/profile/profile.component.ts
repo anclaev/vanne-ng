@@ -308,8 +308,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
     })
 
     this.profileSub = this.profileQuery.valueChanges.subscribe({
-      next: ({ data }) => {
-        if (!data) {
+      next: (data) => {
+        if (!data.data) {
           this.toastService.show('Пользователь не найден')
           this.routerService.navigate(['/'])
 
@@ -318,9 +318,12 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
         this.profile$$.next({
           ...this.profile$$.value,
-          ...data.account,
-          avatar: data.account.avatar.url || '/assets/media/ava-default.webp',
-          birthday: data.account.birthday ? data.account.birthday : null,
+          ...data.data.account,
+          avatar:
+            data.data.account.avatar.url || '/assets/media/ava-default.webp',
+          birthday: data.data.account.birthday
+            ? data.data.account.birthday
+            : null,
         })
 
         let profile = this.profile$$.value
@@ -932,8 +935,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
       .pipe(
         finalize(() => this.reset()),
         catchError((err) => {
-          console.log(err)
-
           this.reset()
 
           return of(null)
