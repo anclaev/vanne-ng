@@ -1,1 +1,82 @@
-<section @inOutComponent>users is working!</section>
+<section @inOutComponent class="users">
+  <div class="users-title">
+    <div class="users-title__search">
+      <div>
+        <mat-chip-list #roleList aria-label="Выбор ролей">
+          <mat-chip *ngFor="let role of roles" (removed)="removeRole(role)">
+            {{ role }}
+            <button matChipRemove>
+              <mat-icon aria-hidden="false" aria-label="Отменить роль"
+                >cancel</mat-icon
+              >
+            </button>
+          </mat-chip>
+          <input
+            placeholder="Роль"
+            #roleInput
+            [formControl]="roleCtrl"
+            [matAutocomplete]="roleAutocomplete"
+            [matChipInputFor]="roleList"
+            [matChipInputSeparatorKeyCodes]="separatorKeyCodes"
+            (matChipInputTokenEnd)="addRole($event)"
+          />
+        </mat-chip-list>
+        <mat-autocomplete
+          #roleAutocomplete="matAutocomplete"
+          (optionSelected)="selectedRole($event)"
+          @inOutComponent
+        >
+          <mat-option
+            *ngFor="let role of filteredRoles$ | async"
+            [value]="role"
+          >
+            {{ role }}
+          </mat-option></mat-autocomplete
+        >
+      </div>
+      <div *ngIf="supervisedByAdmin$$.value">
+        <mat-chip-list #companyList aria-label="Выбор организаций">
+          <mat-chip
+            *ngFor="let company of companies"
+            (removed)="removeCompany(company)"
+          >
+            {{ company }}
+            <button matChipRemove>
+              <mat-icon aria-hidden="false" aria-label="Отменить организацию"
+                >cancel</mat-icon
+              >
+            </button>
+          </mat-chip>
+          <input
+            placeholder="Организация"
+            #companyInput
+            [formControl]="companyCtrl"
+            [matAutocomplete]="companyAutocomplete"
+            [matChipInputFor]="companyList"
+            [matChipInputSeparatorKeyCodes]="separatorKeyCodes"
+            (matChipInputTokenEnd)="addCompany($event)"
+          />
+        </mat-chip-list>
+        <mat-autocomplete
+          @inOutComponent
+          #companyAutocomplete="matAutocomplete"
+          (optionSelected)="selectedCompany($event)"
+        >
+          <mat-option
+            *ngFor="let company of filteredCompanies$ | async"
+            [value]="company"
+          >
+            {{ company }}
+          </mat-option></mat-autocomplete
+        >
+      </div>
+    </div>
+    <div class="users-title__commands">
+      <button *ngIf="supervisedByAdmin$$.value" (click)="handleAddUser()">
+        <mat-icon aria-hidden="false" aria-label="Создать пользователя">
+          add
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+</section>

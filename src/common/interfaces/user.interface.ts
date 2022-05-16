@@ -50,5 +50,7 @@ export const testingUser: User = {
   team: {
     _id: '1',
     name: 'test',
+    short_name: 'test',
+    activated: true,
   },
 }

@@ -11,6 +11,16 @@ export interface ITeam {
    * Наименование компании
    */
   name: string
+
+  /**
+   * Короткое название компании
+   */
+  short_name: string
+
+  /**
+   * Статус действия компании
+   */
+  activated: boolean
 }
 
 export type Team = ITeam
