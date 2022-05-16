@@ -63,6 +63,7 @@ import {
 } from '@/common/schemes/mutation/changeAccount'
 
 import { ENV } from '@/environments/env'
+
 import { ChangePassComponent } from './change-pass/change-pass.component'
 
 /**
@@ -167,7 +168,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
   /**
    * Флаг просмотра администратором
    */
-  public supervisedByAdmin$$: Subject<boolean> = new Subject<boolean>()
+  public supervisedByAdmin$$: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false)
 
   /**
    * Отслеживаемый логин

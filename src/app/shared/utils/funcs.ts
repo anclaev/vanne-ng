@@ -1,5 +1,8 @@
 import moment from 'moment'
 
+import { IntlRole } from '@/common'
+import { ROLE } from '@/common/enums'
+
 /**
  * Функция случайного числа в заданном диапазоне
  * @param {number} min Минимальное число
@@ -23,3 +26,25 @@ export const formatDateFromISO = (
   short: boolean = true,
 ): string =>
   short ? moment(date).format('L') : moment(date).locale('ru').format('LL')
+
+/**
+ * Метод локализации роли
+ * @param {ROLE} role Системная роль пользователя
+ * @returns {string} Русифицированная роль
+ */
+export const translateRole = (role: ROLE | string): string => {
+  return IntlRole[role as ROLE]
+}
+
+/**
+ * Массив ролей
+ */
+export const intlRoles = () => {
+  let roles: string[] = []
+
+  for (let role in IntlRole) {
+    roles.push(IntlRole[role as keyof typeof IntlRole])
+  }
+
+  return roles
+}

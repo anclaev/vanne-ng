@@ -1,0 +1,60 @@
+@import '../../../../styles/_vars'
+
+:host
+    & > form
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        & input
+            margin-bottom: 10px
+
+        & input, & button
+            width: 100%
+
+            &.ng-invalid
+                border-bottom-color: $color-primary-carrot
+
+        & button
+            margin-top: 20px
+
+.add-user
+    &__team, &__birthday, &__role, &-credentials, &-data
+        display: flex
+        width: 100%
+        align-items: center
+
+    &-credentials, &-data
+        & > *:not(:last-child)
+            margin-right: 20px
+
+        @media only screen and (max-width: 576px)
+            flex-direction: column
+
+            & > *:not(:last-child)
+                margin-right: 0 !important
+                margin-bottom: 10px
+
+    &__birthday
+        & input
+            margin-bottom: 0 !important
+
+    &__team, &__birthday, &__role
+
+        margin-bottom: 10px
+
+        & input
+            border-bottom: 1px solid $color-primary
+            flex-grow: 1
+            padding: 14px 12px
+            transition: .2s
+
+    &__birthday
+        & > input::placeholder
+            color: rgba($color-content, 0.5) !important
+
+        & > input.ng-invalid.ng-dirty
+            border-color: $color-primary-carrot
+            text-align: left
+            font-size: 16px
+            display: block

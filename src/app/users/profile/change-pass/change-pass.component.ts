@@ -22,7 +22,7 @@ import { ProfileComponent } from '../profile.component'
 })
 export class ChangePassComponent implements OnDestroy {
   /**
-   * Форма смены своегго пароля
+   * Форма смены своего пароля
    */
   public changePassForm = new FormGroup({
     oldPassword: new FormControl('', {
