@@ -1,9 +1,9 @@
 import { gql } from 'apollo-angular'
 
 import { ISession } from '@/common/interfaces/session.interface'
-import { IAccount } from '@/common/models/account'
+import { Account } from '@/common/models/account'
 
-type Login = Pick<IAccount, 'login'>
+type Login = Pick<Account, 'login'>
 type Sessions = ISession[]
 
 /**

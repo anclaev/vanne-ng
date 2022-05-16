@@ -41,13 +41,13 @@ import moment, { Moment } from 'moment'
 import { ToastService } from '@shared/services/toast.service'
 import { AuthService } from '@shared/services/auth.service'
 
+import { IAccount, initialAccount } from '@/common/interfaces/account.interface'
 import { inOutComponentAnimation } from '@/common/animations/in-out-component'
-import { IAccount, initialAccount } from '@/common/models/account'
 import { IUpload } from '@/common/interfaces/upload.interface'
 import { GET_PROFILE } from '@common/schemes/query/getProfile'
-import { IntlRole } from '@/common/enums/role.enum'
+import { API, ROLE, IntlRole } from '@/common/enums'
+import { Account } from '@/common/models/account'
 import { imageMimeTypes } from '@/common'
-import { API, ROLE } from '@/common/enums'
 
 import {
   CHANGE_YOURSELF_PHONE,
@@ -115,7 +115,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * Запрос на получение профиля
    */
   private profileQuery: QueryRef<
-    { account: IAccount & { avatar: { url: string } } },
+    { account: Account & { avatar: { url: string } } },
     { login: string | null }
   > | null = null
 
@@ -308,8 +308,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
     })
 
     this.profileSub = this.profileQuery.valueChanges.subscribe({
-      next: (data) => {
-        if (!data.data) {
+      next: ({ data }) => {
+        if (!data) {
           this.toastService.show('Пользователь не найден')
           this.routerService.navigate(['/'])
 
@@ -318,12 +318,16 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
         this.profile$$.next({
           ...this.profile$$.value,
-          ...data.data.account,
+          ...data.account,
+          username:
+            data.account.firstname && data.account.surname
+              ? `${data.account.firstname} ${data.account.surname}`
+              : '',
           avatar:
-            data.data.account.avatar.url || '/assets/media/ava-default.webp',
-          birthday: data.data.account.birthday
-            ? data.data.account.birthday
-            : null,
+            data.account.avatar && data.account.avatar.url
+              ? data.account.avatar.url
+              : '/assets/media/ava-default.webp',
+          birthday: data.account.birthday ? data.account.birthday : null,
         })
 
         let profile = this.profile$$.value
@@ -512,7 +516,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * @returns {void}
    */
   public handleChangeUsername(val: string): void {
-    if (val.trim().length === 0 || !this.profileForm.controls['username'].valid)
+    if (
+      val &&
+      (val.trim().length === 0 || !this.profileForm.controls['username'].valid)
+    )
       return
 
     this.changedUsername$$.next(val)
@@ -935,6 +942,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
       .pipe(
         finalize(() => this.reset()),
         catchError((err) => {
+          console.log(err)
+
           this.reset()
 
           return of(null)

@@ -59,6 +59,7 @@
         <input
           type="text"
           formControlName="email"
+          placeholder="Электронная почта"
           (ngModelChange)="handleChangeEmail($event)"
         />
         <img src="/assets/svg/email-min.svg" alt="Icon: Email" />
@@ -67,6 +68,7 @@
         <input
           type="text"
           formControlName="phone"
+          placeholder="7 999 666 22 11"
           (ngModelChange)="handleChangePhone($event)"
         />
         <img src="/assets/svg/phone-min.svg" alt="Icon: Phone" />
@@ -76,6 +78,7 @@
           <input
             [matDatepicker]="picker"
             formControlName="birthday"
+            placeholder="01 мая, 1997"
             class="profile-desc-info__field--date"
             (ngModelChange)="handleChangeBirthday($event)"
           />

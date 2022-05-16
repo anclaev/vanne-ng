@@ -1,19 +1,21 @@
-import { IAccount } from '@/common/models/account'
+import { Account } from '@/common/models/account'
 import { gql } from 'apollo-angular'
 
-type Login = Pick<IAccount, 'login'>
+type Login = Pick<Account, 'login'>
 
 /**
  * Запрос на получение профиля по логину
  */
 export const GET_PROFILE = gql<
-  { account: IAccount & { avatar: { url: string } } },
+  { account: Account & { avatar: { url: string } } },
   Login
 >`
   query getProfile($login: String!) {
     account(login: $login) {
       birthday
       email
+      firstname
+      surname
       phone
       avatar {
         url
