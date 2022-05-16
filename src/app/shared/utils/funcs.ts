@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-import { IntlRole } from '@/common'
+import { CodeRole, IntlRole } from '@/common/enums/role.enum'
 import { ROLE } from '@/common/enums'
 
 /**
@@ -37,6 +37,15 @@ export const translateRole = (role: ROLE | string): string => {
 }
 
 /**
+ * Метод кодирования роли
+ * @param {string} role Переведённая роль пользователя
+ * @returns {string} Русифицированная роль
+ */
+export const codingRole = (role: ROLE | string): string => {
+  return CodeRole[role as keyof typeof CodeRole]
+}
+
+/**
  * Массив ролей
  */
 export const intlRoles = () => {
@@ -47,4 +56,17 @@ export const intlRoles = () => {
   }
 
   return roles
+}
+
+/**
+ * Массив кодов ролей
+ */
+export const codeRoles = () => {
+  let role_codes: string[] = []
+
+  for (let role in CodeRole) {
+    role_codes.push(CodeRole[role as keyof typeof CodeRole])
+  }
+
+  return role_codes
 }

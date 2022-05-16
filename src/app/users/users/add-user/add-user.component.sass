@@ -1,60 +1,66 @@
 @import '../../../../styles/_vars'
 
 :host
-    & > form
+    & form
+        width: 100%
         display: flex
         flex-direction: column
         align-items: center
 
-        & input
-            margin-bottom: 10px
-
         & input, & button
             width: 100%
-
-            &.ng-invalid
-                border-bottom-color: $color-primary-carrot
-
         & button
             margin-top: 20px
 
-.add-user
-    &__team, &__birthday, &__role, &-credentials, &-data
-        display: flex
-        width: 100%
-        align-items: center
+.add-user-stepper
 
-    &-credentials, &-data
-        & > *:not(:last-child)
+    & form > div:last-child, &__final > div
+        width: 100%
+        display: flex
+        flex-direction: row
+        justify-content: space-around
+
+        & > button:not(:last-child)
             margin-right: 20px
 
-        @media only screen and (max-width: 576px)
-            flex-direction: column
-
-            & > *:not(:last-child)
-                margin-right: 0 !important
-                margin-bottom: 10px
-
-    &__birthday
-        & input
-            margin-bottom: 0 !important
-
-    &__team, &__birthday, &__role
-
+    &__input
+        width: 100%
         margin-bottom: 10px
 
-        & input
-            border-bottom: 1px solid $color-primary
-            flex-grow: 1
-            padding: 14px 12px
-            transition: .2s
-
-    &__birthday
-        & > input::placeholder
-            color: rgba($color-content, 0.5) !important
-
-        & > input.ng-invalid.ng-dirty
+        & input.ng-invalid.ng-dirty
             border-color: $color-primary-carrot
-            text-align: left
+
+        & input
+            padding: 14px 12px
+            border-bottom: 1px solid rgba(250, 204, 109, 0.42)
             font-size: 16px
-            display: block
+
+            &::placeholder
+                color: rgba($color-content, 0.67)
+
+        &--date
+            display: flex
+            flex-direction: row
+
+            & > input
+                flex-grow: 1
+
+    &__final > div
+        margin-top: 40px
+        align-items: center
+        justify-content: space-between
+
+        & > button:not(:last-child)
+            margin-right: 0
+
+        @media only screen and ( max-width: 576px )
+            margin-top: 30px
+            flex-wrap: wrap
+            flex-direction: row
+
+            & > p
+                width: 100%
+                flex-grow: 1
+                order: -1
+                margin-bottom: 30px
+                text-align: center

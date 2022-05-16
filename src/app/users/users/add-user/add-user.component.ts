@@ -1,5 +1,7 @@
-import { debounceTime, map, Observable, startWith, Subject } from 'rxjs'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { map, Observable, startWith, Subject } from 'rxjs'
+import { StepperOrientation } from '@angular/cdk/stepper'
+import { BreakpointObserver } from '@angular/cdk/layout'
 import { MatDialogRef } from '@angular/material/dialog'
 import { Component, OnDestroy } from '@angular/core'
 import { Apollo } from 'apollo-angular'
@@ -21,10 +23,11 @@ import { inOutComponentAnimation } from '@/common/animations/in-out-component'
 import { CREATE_ACCOUNT } from '@/common/schemes/mutation/createAccount'
 
 import { Team } from '@/common/interfaces'
+import { ERROR } from '@/common/enums'
 
 import { ToastService } from '@/app/shared/services/toast.service'
 import { TeamsService } from '@/app/shared/services/teams.service'
-import { intlRoles } from '@/app/shared/utils/funcs'
+import { codingRole, intlRoles } from '@/app/shared/utils/funcs'
 
 import { UsersComponent } from '../users.component'
 
@@ -64,13 +67,15 @@ export class AddUserComponent implements OnDestroy {
 
   public filteredTeams$: Observable<string[]>
   public filteredRoles$: Observable<string[]>
+  public stepperOrientation$: Observable<StepperOrientation>
 
   public birthday$$: Subject<Moment> = new Subject<Moment>()
+  public loading$$: Subject<boolean> = new Subject<boolean>()
 
   /**
-   * Форма создания пользователя
+   * Форма создания пользователя (шан 1)
    */
-  public addUserForm = new FormGroup({
+  public addUserForm_1 = new FormGroup({
     login: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
@@ -82,11 +87,13 @@ export class AddUserComponent implements OnDestroy {
     role: new FormControl('', {
       validators: [Validators.required],
     }),
-    email: new FormControl('', [
-      Validators.required,
-      Validators.email,
-      Validators.minLength(6),
-    ]),
+    team: new FormControl('', Validators.required),
+  })
+
+  /**
+   * Форма создания пользователя (шаг 2)
+   */
+  addUserForm_2 = new FormGroup({
     username: new FormControl('', {
       validators: [
         Validators.required,
@@ -96,20 +103,31 @@ export class AddUserComponent implements OnDestroy {
         ),
       ],
     }),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email,
+      Validators.minLength(6),
+    ]),
     phone: new FormControl('', [
       Validators.minLength(6),
       Validators.pattern(/^\d{1,1}\s\d{3,3}\s\d{3,3}\s\d{2,2}\s\d{2,2}$/),
     ]),
     birthday: new FormControl('', Validators.required),
-    team: new FormControl('', Validators.required),
   })
+
+  public addUserForm_3 = new FormGroup({})
 
   constructor(
     private apolloService: Apollo,
-    public dialogRef: MatDialogRef<UsersComponent>,
     private toastService: ToastService,
     private teamsService: TeamsService,
+    private breakpointObserver: BreakpointObserver,
+    public dialogRef: MatDialogRef<UsersComponent>,
   ) {
+    this.stepperOrientation$ = breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')))
+
     let currentTeams = this.teamsService.teams$$.value
 
     if (currentTeams.length === 0) {
@@ -120,12 +138,12 @@ export class AddUserComponent implements OnDestroy {
       this.teams = currentTeams
     }
 
-    this.filteredTeams$ = this.addUserForm.controls['team'].valueChanges.pipe(
+    this.filteredTeams$ = this.addUserForm_1.controls['team'].valueChanges.pipe(
       startWith(''),
       map((val) => this._filterTeams(val)),
     )
 
-    this.filteredRoles$ = this.addUserForm.controls['role'].valueChanges.pipe(
+    this.filteredRoles$ = this.addUserForm_1.controls['role'].valueChanges.pipe(
       startWith(''),
       map((val) => this._filterRoles(val)),
     )
@@ -140,39 +158,59 @@ export class AddUserComponent implements OnDestroy {
   }
 
   public createAccoount() {
-    let username: string = this.addUserForm.controls['username'].value
+    let username: string = this.addUserForm_2.controls['username'].value
     let firstname = username.split(' ')[0]
     let surname = username.split(' ')[1]
 
     let team =
       this.teams.find(
-        (item) => item.name === this.addUserForm.controls['email'].value,
+        (item) => item.name === this.addUserForm_1.controls['team'].value,
       )?._id || ''
 
-    // this.apolloService
-    //   .mutate<any>({
-    //     mutation: CREATE_ACCOUNT,
-    //     variables: {
-    //       birthday: moment(
-    //         this.addUserForm.controls['birthday'].value,
-    //       ).toDate(),
-    //       email: this.addUserForm.controls['email'].value,
-    //       login: this.addUserForm.controls['login'].value,
-    //       phone: this.addUserForm.controls['phone'].value,
-    //       role: this.addUserForm.controls['role'].value,
-    //       firstname,
-    //       surname,
-    //       team,
-    //     },
-    //   })
-    //   .subscribe({
-    //     next: ({ data }) => {
-    //       this.toastService.show(`Пользователь '${data?.login}' успешно создан`)
-    //     },
-    //     error: (e) => {
-    //       this.toastService.show('Ошибка при создании пользователя')
-    //     },
-    //   })
+    this.loading$$.next(true)
+
+    this.apolloService
+      .mutate<any>({
+        mutation: CREATE_ACCOUNT,
+        variables: {
+          password: this.addUserForm_1.controls['password'].value,
+          birthday: moment(
+            this.addUserForm_2.controls['birthday'].value,
+          ).toDate(),
+          email: this.addUserForm_2.controls['email'].value,
+          login: this.addUserForm_1.controls['login'].value,
+          phone: this.addUserForm_2.controls['phone'].value,
+          role: codingRole(this.addUserForm_1.controls['role'].value),
+          firstname,
+          surname,
+          team,
+        },
+        errorPolicy: 'all',
+      })
+      .subscribe({
+        next: ({ data, errors }) => {
+          this.loading$$.next(false)
+
+          if (errors) {
+            errors.map((item) => {
+              if (item.message === ERROR.ACCOUNT_ALREADY_EXISTS) {
+                this.toastService.show('Аккаунт уже зарегистрирован')
+              }
+            })
+
+            return
+          }
+
+          if (data && data.createAccount.login) {
+            this.toastService.show('Аккаунт успешно зарегистрирован')
+            this.onNoClick()
+          }
+        },
+        error: (e) => {
+          this.toastService.show('Ошибка при создании пользователя')
+          this.loading$$.next(false)
+        },
+      })
   }
 
   /**
@@ -186,38 +224,47 @@ export class AddUserComponent implements OnDestroy {
   ngOnDestroy(): void {}
 
   private _validateForm(): boolean {
-    if (!this.addUserForm.controls['login'].valid) {
+    if (!this.addUserForm_1.controls['login'].valid) {
       this.toastService.show('Логин обязателен')
       return false
     }
 
-    if (!this.addUserForm.controls['password'].valid) {
+    if (!this.addUserForm_1.controls['password'].valid) {
       this.toastService.show('Пароль должен быть не менее 8 символов')
       return false
     }
 
-    if (!this.addUserForm.controls['username'].valid) {
+    if (!this.addUserForm_2.controls['username'].valid) {
       this.toastService.show('Некорректное имя и фамилия')
       return false
     }
 
-    if (!this.addUserForm.controls['email'].valid) {
+    if (!this.addUserForm_2.controls['email'].valid) {
       this.toastService.show('Некорректный email')
       return false
     }
 
-    if (!this.addUserForm.controls['birthday'].valid) {
+    if (!this.addUserForm_2.controls['birthday'].valid) {
       this.toastService.show('Некорректная дата рождения')
       return false
     }
 
-    if (!this.addUserForm.controls['phone'].valid) {
+    if (!this.addUserForm_2.controls['phone'].valid) {
       this.toastService.show('Некорректный мобильный номер')
       return false
     }
 
-    if (!this.addUserForm.controls['team'].valid) {
-      this.toastService.show('Некорректный email')
+    if (!this.addUserForm_1.controls['team'].valid) {
+      this.toastService.show('Некорректная организация')
+      return false
+    }
+
+    if (
+      !!!this.roles.find(
+        (item) => item === this.addUserForm_1.controls['role'].value,
+      )
+    ) {
+      this.toastService.show('Некорректная роль')
       return false
     }
 

@@ -25,17 +25,6 @@ export const internalRoutes = [
 export const imageMimeTypes = ['image/png', 'image/jpeg', 'image/webp']
 
 /**
- * Локализированные роли пользователей
- */
-export const IntlRole: TRole = {
-  ADMIN: 'Администратор',
-  HEAD: 'Руководитель',
-  STUDENT: 'Студент',
-  SUPERVISOR: 'Куратор',
-  TEACHER: 'Преподаватель',
-}
-
-/**
  * Зона компонента (внутренний/внешний)
  */
 export type ComponentZone = 'internal' | 'public'

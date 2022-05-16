@@ -153,7 +153,7 @@ export class UsersComponent {
 
   public handleAddUser() {
     this.dialogService.open(AddUserComponent, {
-      width: '500px',
+      width: '600px',
     })
   }
 

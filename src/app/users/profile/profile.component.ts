@@ -45,7 +45,8 @@ import { inOutComponentAnimation } from '@/common/animations/in-out-component'
 import { IAccount, initialAccount } from '@/common/models/account'
 import { IUpload } from '@/common/interfaces/upload.interface'
 import { GET_PROFILE } from '@common/schemes/query/getProfile'
-import { imageMimeTypes, IntlRole } from '@/common'
+import { IntlRole } from '@/common/enums/role.enum'
+import { imageMimeTypes } from '@/common'
 import { API, ROLE } from '@/common/enums'
 
 import {

@@ -1,84 +1,131 @@
-<h1 mat-dialog-title>Новый аккаунт</h1>
-<form [formGroup]="addUserForm">
-  <div class="add-user-credentials">
-    <input
-      type="text"
-      formControlName="login"
-      placeholder="Логин"
-      autocomplete="off"
-    />
-    <input
-      type="password"
-      formControlName="password"
-      placeholder="Пароль"
-      autocomplete="off"
-    />
-  </div>
-  <input
-    type="text"
-    formControlName="username"
-    placeholder="Имя и фамилия"
-    autocomplete="off"
-  />
-
-  <mat-divider></mat-divider>
-
-  <div class="add-user-data">
-    <input
-      type="text"
-      formControlName="email"
-      placeholder="Email"
-      autocomplete="off"
-    />
-    <div class="add-user__birthday">
-      <input
-        [matDatepicker]="picker"
-        formControlName="birthday"
-        placeholder="Дата рождения"
-      />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker touchUi #picker></mat-datepicker>
+<h1 mat-dialog-title>
+  {{
+    addUserForm_1.controls['login'].value.trim().length > 0
+      ? addUserForm_1.controls['login'].value
+      : 'Новый аккаунт'
+  }}
+</h1>
+<mat-stepper
+  class="add-user-stepper"
+  [orientation]="(stepperOrientation$ | async)!"
+>
+  <mat-step [stepControl]="addUserForm_1" label="Учётные данные">
+    <form [formGroup]="addUserForm_1">
+      <div class="add-user-stepper__input">
+        <input
+          type="text"
+          placeholder="Логин"
+          formControlName="login"
+          autocomplete="false"
+          required
+        />
+      </div>
+      <div class="add-user-stepper__input">
+        <input
+          type="password"
+          placeholder="Пароль"
+          formControlName="password"
+          autocomplete="false"
+          required
+        />
+      </div>
+      <div class="add-user-stepper__input">
+        <input
+          type="text"
+          placeholder="Роль"
+          aria-label="Роль"
+          matInput
+          formControlName="role"
+          [matAutocomplete]="roleAuto"
+          required
+        />
+        <mat-autocomplete autoActiveFirstOption #roleAuto="matAutocomplete">
+          <mat-option
+            *ngFor="let role of filteredRoles$ | async"
+            [value]="role"
+          >
+            {{ role }}
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+      <div class="add-user-stepper__input">
+        <input
+          type="text"
+          placeholder="Организация"
+          aria-label="Организация"
+          matInput
+          formControlName="team"
+          required
+          [matAutocomplete]="teamAuto"
+        />
+        <mat-autocomplete autoActiveFirstOption #teamAuto="matAutocomplete">
+          <mat-option
+            *ngFor="let team of filteredTeams$ | async"
+            [value]="team"
+          >
+            {{ team }}
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+      <div><button mat-button matStepperNext>Далее</button></div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="addUserForm_2" label="Контакты">
+    <form [formGroup]="addUserForm_2">
+      <div class="add-user-stepper__input">
+        <input
+          type="text"
+          formControlName="username"
+          placeholder="Александр Петров"
+          autocomplete="off"
+          required
+        />
+      </div>
+      <div class="add-user-stepper__input">
+        <input
+          type="text"
+          formControlName="email"
+          placeholder="example@vanne.uno"
+          autocomplete="off"
+        />
+      </div>
+      <div class="add-user-stepper__input">
+        <input
+          type="text"
+          formControlName="phone"
+          placeholder="7 999 333 11 77"
+          autocomplete="off"
+        />
+      </div>
+      <div class="add-user-stepper__input add-user-stepper__input--date">
+        <input
+          [matDatepicker]="picker"
+          formControlName="birthday"
+          placeholder="Дата рождения"
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Назад</button>
+        <button mat-button matStepperNext>Далее</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Финал</ng-template>
+    <div class="add-user-stepper__final">
+      <div *ngIf="!(loading$$ | async)">
+        <button mat-button matStepperPrevious>Назад</button>
+        <p>Создать аккаунт?</p>
+        <button mat-button matStepperNext (click)="handleAddUser($event)">
+          Да
+        </button>
+      </div>
+      <div *ngIf="loading$$ | async" @inOutComponent>
+        <mat-progress-bar mode="indeterminate"> </mat-progress-bar>
+      </div>
     </div>
-  </div>
-  <input
-    type="text"
-    formControlName="phone"
-    placeholder="Мобильный номер"
-    autocomplete="off"
-  />
-
-  <mat-divider></mat-divider>
-
-  <div class="add-user__team">
-    <input
-      type="text"
-      placeholder="Организация"
-      aria-label="Организация"
-      matInput
-      formControlName="team"
-      [matAutocomplete]="teamAuto"
-    />
-    <mat-autocomplete autoActiveFirstOption #teamAuto="matAutocomplete">
-      <mat-option *ngFor="let team of filteredTeams$ | async" [value]="team">
-        {{ team }}
-      </mat-option>
-    </mat-autocomplete>
-  </div>
-  <div class="add-user__role">
-    <input
-      type="text"
-      placeholder="Роль"
-      aria-label="Роль"
-      matInput
-      formControlName="role"
-      [matAutocomplete]="roleAuto"
-    />
-    <mat-autocomplete autoActiveFirstOption #roleAuto="matAutocomplete">
-      <mat-option *ngFor="let role of filteredRoles$ | async" [value]="role">
-        {{ role }}
-      </mat-option>
-    </mat-autocomplete>
-  </div>
-
-  <button (click)="handleAddUser($event)">Создать</button>
-</form>
+  </mat-step>
+</mat-stepper>
