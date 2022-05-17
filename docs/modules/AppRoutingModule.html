@@ -129,7 +129,7 @@ const APP_ROUTES: Routes &#x3D; [
     loadChildren: () &#x3D;&gt;
       &quot;import(&#x27;./chats/chats.module&#x27;).then((m) &#x3D;&gt; m.ChatsModule)&quot;,
     data: {
-      title: &#x27;Чаты&#x27;,
+      title: &#x27;Мессенджер&#x27;,
     },
     canActivate: [AuthGuard],
   },
@@ -139,7 +139,7 @@ const APP_ROUTES: Routes &#x3D; [
     loadChildren: () &#x3D;&gt;
       &quot;import(&#x27;./settings/settings.module&#x27;).then((m) &#x3D;&gt; m.SettingsModule)&quot;,
     data: {
-      title: &#x27;Параметры&#x27;,
+      title: &#x27;Настройки&#x27;,
     },
     canActivate: [AuthGuard],
   },
@@ -155,7 +155,7 @@ const APP_ROUTES: Routes &#x3D; [
     loadChildren: () &#x3D;&gt;
       &quot;import(&#x27;./users/users.module&#x27;).then((m) &#x3D;&gt; m.UsersModule)&quot;,
     data: {
-      title: &#x27;Пользователи&#x27;,
+      title: &#x27;Аккаунты&#x27;,
     },
     canActivate: [AuthGuard],
   },
