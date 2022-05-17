@@ -3,7 +3,10 @@
     <div class="users-title__search">
       <div>
         <mat-chip-list #roleList aria-label="Выбор ролей">
-          <mat-chip *ngFor="let role of roles" (removed)="removeRole(role)">
+          <mat-chip
+            *ngFor="let role of roles"
+            (removed)="handleRemoveRole(role)"
+          >
             {{ role }}
             <button matChipRemove>
               <mat-icon aria-hidden="false" aria-label="Отменить роль"
@@ -18,12 +21,12 @@
             [matAutocomplete]="roleAutocomplete"
             [matChipInputFor]="roleList"
             [matChipInputSeparatorKeyCodes]="separatorKeyCodes"
-            (matChipInputTokenEnd)="addRole($event)"
+            (matChipInputTokenEnd)="handleAddRole($event)"
           />
         </mat-chip-list>
         <mat-autocomplete
           #roleAutocomplete="matAutocomplete"
-          (optionSelected)="selectedRole($event)"
+          (optionSelected)="handleSelectedRole($event)"
           @inOutComponent
         >
           <mat-option
@@ -38,7 +41,7 @@
         <mat-chip-list #companyList aria-label="Выбор организаций">
           <mat-chip
             *ngFor="let company of companies"
-            (removed)="removeCompany(company)"
+            (removed)="handleRemoveCompany(company)"
           >
             {{ company }}
             <button matChipRemove>
@@ -54,13 +57,13 @@
             [matAutocomplete]="companyAutocomplete"
             [matChipInputFor]="companyList"
             [matChipInputSeparatorKeyCodes]="separatorKeyCodes"
-            (matChipInputTokenEnd)="addCompany($event)"
+            (matChipInputTokenEnd)="handleAddCompany($event)"
           />
         </mat-chip-list>
         <mat-autocomplete
           @inOutComponent
           #companyAutocomplete="matAutocomplete"
-          (optionSelected)="selectedCompany($event)"
+          (optionSelected)="handleSelectedCompany($event)"
         >
           <mat-option
             *ngFor="let company of filteredCompanies$ | async"

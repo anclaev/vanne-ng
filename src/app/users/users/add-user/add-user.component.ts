@@ -3,7 +3,7 @@ import { map, Observable, startWith, Subject } from 'rxjs'
 import { StepperOrientation } from '@angular/cdk/stepper'
 import { BreakpointObserver } from '@angular/cdk/layout'
 import { MatDialogRef } from '@angular/material/dialog'
-import { Component, OnDestroy } from '@angular/core'
+import { Component } from '@angular/core'
 import { Apollo } from 'apollo-angular'
 import moment, { Moment } from 'moment'
 
@@ -24,6 +24,7 @@ import { CREATE_ACCOUNT } from '@/common/schemes/mutation/createAccount'
 
 import { Team } from '@/common/interfaces'
 import { ERROR } from '@/common/enums'
+import { MY_FORMATS } from '@/common'
 
 import { ToastService } from '@/app/shared/services/toast.service'
 import { TeamsService } from '@/app/shared/services/teams.service'
@@ -32,20 +33,8 @@ import { codingRole, intlRoles } from '@/app/shared/utils/funcs'
 import { UsersComponent } from '../users.component'
 
 /**
- * Параметры форматирования даты
+ * Компонент создания аккаунта
  */
-const MY_FORMATS = {
-  parse: {
-    dateInput: 'LL',
-  },
-  display: {
-    dateInput: 'DD MMMM, YYYY',
-    monthYearLabel: 'MMMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
-}
-
 @Component({
   selector: 'vanne-add-user',
   templateUrl: './add-user.component.html',
@@ -61,15 +50,40 @@ const MY_FORMATS = {
   ],
   animations: [inOutComponentAnimation],
 })
-export class AddUserComponent implements OnDestroy {
+export class AddUserComponent {
+  /**
+   * Массив организаций для выбора
+   */
   public teams: Team[] = []
+
+  /**
+   * Массив ролей для выбора
+   */
   public roles: string[] = []
 
+  /**
+   * Отфильтрованные организации в списке выбора
+   */
   public filteredTeams$: Observable<string[]>
+
+  /**
+   * Отфильтрованные роли в списке выбора
+   */
   public filteredRoles$: Observable<string[]>
+
+  /**
+   * Ориентация формы
+   */
   public stepperOrientation$: Observable<StepperOrientation>
 
+  /**
+   * Сабжект с датой рождения
+   */
   public birthday$$: Subject<Moment> = new Subject<Moment>()
+
+  /**
+   * Флаг на процесс загрузки
+   */
   public loading$$: Subject<boolean> = new Subject<boolean>()
 
   /**
@@ -115,6 +129,14 @@ export class AddUserComponent implements OnDestroy {
     birthday: new FormControl('', Validators.required),
   })
 
+  /**
+   * Конструктор компонента создания аккаунта
+   * @param {Apollo} apolloService Сервис Apollo
+   * @param {ToastService} toastService Сервис уведомлений
+   * @param {TeamsService} teamsService Сервис организаций
+   * @param {BreakpointObserver} breakpointObserver Наблюдатель за изменением разрешения экрана
+   * @param {MatDialogRef<UsersComponent>} dialogRef Ссылка на родителя формы
+   */
   constructor(
     private apolloService: Apollo,
     private toastService: ToastService,
@@ -149,13 +171,24 @@ export class AddUserComponent implements OnDestroy {
     this.roles = intlRoles()
   }
 
+  /**
+   * Обработчик клика на создание пользователя
+   * @description Полностью валидирует форму и вызывает метод создания аккаунта при успехе
+   * @param {Event} event Событие клика
+   * @returns {void}
+   */
   public handleAddUser(event: Event): void {
     if (!this._validateForm()) return
 
-    this.createAccoount()
+    this.createAccount()
   }
 
-  public createAccoount() {
+  /**
+   * Метод создания аккаунта
+   * @description Отправляет запрос на создание аккаунта и, в случае успеха, информирует об этом пользователя
+   * @returns {void}
+   */
+  public createAccount(): void {
     let username: string = this.addUserForm_2.controls['username'].value
     let firstname = username.split(' ')[0]
     let surname = username.split(' ')[1]
@@ -219,8 +252,11 @@ export class AddUserComponent implements OnDestroy {
     this.dialogRef.close()
   }
 
-  ngOnDestroy(): void {}
-
+  /**
+   * Функция валидации формы
+   * @description Валидирует поля формы, сообщает о найденных ошибках и возвращает статус валидации
+   * @returns {boolean} Флаг валидности формы
+   */
   private _validateForm(): boolean {
     if (!this.addUserForm_1.controls['login'].valid) {
       this.toastService.show('Логин обязателен')
@@ -269,6 +305,12 @@ export class AddUserComponent implements OnDestroy {
     return true
   }
 
+  /**
+   * Функция фильтрации организаций
+   * @description Фильтрует выбранную в списке организацию и возвращает новый массив организаций
+   * @param {string} value Выбранная организаций
+   * @returns {string[]} Массив отфильтрованных организаций
+   */
   private _filterTeams(value: string): string[] {
     const filterValue = value.toLowerCase() || this.teams[0].name.toLowerCase()
 
@@ -277,6 +319,12 @@ export class AddUserComponent implements OnDestroy {
       .map((item) => item.name)
   }
 
+  /**
+   * Функция фильтрации ролей
+   * @description Фильтрует выбранную в списке роль и возвращает новый массив ролей
+   * @param {string} value Выбранная роль
+   * @returns {string[]} Массив отфильтрованных ролей
+   */
   private _filterRoles(value: string): string[] {
     const filterValue = value.toLowerCase()
 

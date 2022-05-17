@@ -45,9 +45,9 @@ import { IAccount, initialAccount } from '@/common/interfaces/account.interface'
 import { inOutComponentAnimation } from '@/common/animations/in-out-component'
 import { IUpload } from '@/common/interfaces/upload.interface'
 import { GET_PROFILE } from '@common/schemes/query/getProfile'
+import { imageMimeTypes, MY_FORMATS } from '@/common'
 import { API, ROLE, IntlRole } from '@/common/enums'
 import { Account } from '@/common/models/account'
-import { imageMimeTypes } from '@/common'
 
 import {
   CHANGE_YOURSELF_PHONE,
@@ -66,21 +66,6 @@ import {
 import { ENV } from '@/environments/env'
 
 import { ChangePassComponent } from './change-pass/change-pass.component'
-
-/**
- * Параметры форматирования даты
- */
-const MY_FORMATS = {
-  parse: {
-    dateInput: 'LL',
-  },
-  display: {
-    dateInput: 'DD MMMM, YYYY',
-    monthYearLabel: 'MMMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
-}
 
 /**
  * Задержка изменения поля в милисекундах

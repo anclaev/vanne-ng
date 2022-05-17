@@ -77,6 +77,12 @@
     </p>
 
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
 
 
 <section>
@@ -122,21 +128,1870 @@
     </table>
 </section>
 
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_isLoading" >_isLoading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_limit" >_limit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_start" >_start</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#accounts$$" >accounts$$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#accountsQuery" >accountsQuery</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#allCompanies" >allCompanies</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#allRoles" >allRoles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#companies" >companies</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#companyCtrl" >companyCtrl</a>
+                            </li>
+                            <li>
+                                <a href="#companyInput" >companyInput</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#filteredCompanies$" >filteredCompanies$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#filteredRoles$" >filteredRoles$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#roleCtrl" >roleCtrl</a>
+                            </li>
+                            <li>
+                                <a href="#roleInput" >roleInput</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#roles" >roles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#separatorKeyCodes" >separatorKeyCodes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#supervisedByAdmin$$" >supervisedByAdmin$$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_filterCompanies" >_filterCompanies</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_filterRoles" >_filterRoles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fetchMoreAccounts" >fetchMoreAccounts</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleAddCompany" >handleAddCompany</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleAddRole" >handleAddRole</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleAddUser" >handleAddUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleRemoveCompany" >handleRemoveCompany</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleRemoveRole" >handleRemoveRole</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleScrollDown" >handleScrollDown</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleSelectAccount" >handleSelectAccount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleSelectedCompany" >handleSelectedCompany</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleSelectedRole" >handleSelectedRole</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
 
 
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, apolloService: Apollo, teamService: <a href="../injectables/TeamsService.html" target="_self">TeamsService</a>, routerService: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, dialogService: MatDialog)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/app/users/users/users.component.ts:125</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Конструктор компонения просмотра аккаунтов</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Сервис авторизации</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>apolloService</td>
+                                                  
+                                                        <td>
+                                                                    <code>Apollo</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Сервис Apollo</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>teamService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TeamsService.html" target="_self" >TeamsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Сервис организаций</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>routerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Сервис роутера</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Сервис диалоговых окон</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_filterCompanies"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>_filterCompanies</b></span>
+                        <a href="#_filterCompanies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_filterCompanies(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="381"
+                            class="link-to-prism">src/app/users/users/users.component.ts:381</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Функция фильтрации списка организаций после выбора</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Выбранная организация</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Обновлённый список организаций</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_filterRoles"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>_filterRoles</b></span>
+                        <a href="#_filterRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_filterRoles(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="368"
+                            class="link-to-prism">src/app/users/users/users.component.ts:368</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Функция фильтрации списка ролей после выбора</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Выбранная роль</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Обновлённый список ролей</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchMoreAccounts"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>fetchMoreAccounts</b></span>
+                        <a href="#fetchMoreAccounts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fetchMoreAccounts()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="222"
+                            class="link-to-prism">src/app/users/users/users.component.ts:222</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Метод получения дополнительных аккаунтов для бесконечной ленты</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleAddCompany"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleAddCompany</b></span>
+                        <a href="#handleAddCompany"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleAddCompany(event: MatChipInputEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="261"
+                            class="link-to-prism">src/app/users/users/users.component.ts:261</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработчик выбора организации для поиска</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatChipInputEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Событие выбора</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleAddRole"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleAddRole</b></span>
+                        <a href="#handleAddRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleAddRole(event: MatChipInputEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="240"
+                            class="link-to-prism">src/app/users/users/users.component.ts:240</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработчик выбора роли для поиска</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatChipInputEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Событие выбора</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleAddUser"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleAddUser</b></span>
+                        <a href="#handleAddUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleAddUser()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="337"
+                            class="link-to-prism">src/app/users/users/users.component.ts:337</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработчик клика на создание аккаунта</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleRemoveCompany"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleRemoveCompany</b></span>
+                        <a href="#handleRemoveCompany"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleRemoveCompany(company: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="295"
+                            class="link-to-prism">src/app/users/users/users.component.ts:295</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработчик отмены выбора организации</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>company</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Выбранная организация</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleRemoveRole"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleRemoveRole</b></span>
+                        <a href="#handleRemoveRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleRemoveRole(role: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="282"
+                            class="link-to-prism">src/app/users/users/users.component.ts:282</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработчик отмены выбора роли</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>role</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Выбранная роль</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleScrollDown"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleScrollDown</b></span>
+                        <a href="#handleScrollDown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleScrollDown(event: IInfiniteScrollEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="349"
+                            class="link-to-prism">src/app/users/users/users.component.ts:349</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработчик прокрутки сттраницы</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>IInfiniteScrollEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Событие бесконечной прокрутки</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSelectAccount"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleSelectAccount</b></span>
+                        <a href="#handleSelectAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleSelectAccount(login: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="359"
+                            class="link-to-prism">src/app/users/users/users.component.ts:359</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработчик клика на аккаунт</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>login</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Логин аккаунта</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSelectedCompany"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleSelectedCompany</b></span>
+                        <a href="#handleSelectedCompany"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleSelectedCompany(event: MatAutocompleteSelectedEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="322"
+                            class="link-to-prism">src/app/users/users/users.component.ts:322</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработчик выбора организации через Autocomplete</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatAutocompleteSelectedEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Событие выбора</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSelectedRole"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleSelectedRole</b></span>
+                        <a href="#handleSelectedRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleSelectedRole(event: MatAutocompleteSelectedEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="308"
+                            class="link-to-prism">src/app/users/users/users.component.ts:308</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработчик выбора роли через Autocomplete</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatAutocompleteSelectedEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Событие выбора</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="184"
+                            class="link-to-prism">src/app/users/users/users.component.ts:184</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Метод инициализации компонента</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_isLoading"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_isLoading</b></span>
+                        <a href="#_isLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/users/users/users.component.ts:108</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Флаг статуса загрузки</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_limit"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_limit</b></span>
+                        <a href="#_limit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>9</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/users/users/users.component.ts:103</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Лимит выборки аккаунтов</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_start"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_start</b></span>
+                        <a href="#_start"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/users/users/users.component.ts:98</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Начальный индекс выборки аккаунтов</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="accounts$$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>accounts$$</b></span>
+                        <a href="#accounts$$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;Account[]&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;
+    Account[]
+  &gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/users/users/users.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Массив аккаунтов</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="accountsQuery"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>accountsQuery</b></span>
+                        <a href="#accountsQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>QueryRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/users/users/users.component.ts:113</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Ссылка на запрос на получение аккаунтов</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allCompanies"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>allCompanies</b></span>
+                        <a href="#allCompanies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/users/users/users.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Массив всех организаций</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allRoles"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>allRoles</b></span>
+                        <a href="#allRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    &#x27;Администратор&#x27;,
+    &#x27;Руководитель&#x27;,
+    &#x27;Студент&#x27;,
+    &#x27;Куратор&#x27;,
+    &#x27;Преподаватель&#x27;,
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/users/users/users.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Массив всех доступных ролей аккаунта</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="companies"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>companies</b></span>
+                        <a href="#companies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/users/users/users.component.ts:77</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Массив организаций для выбора</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="companyCtrl"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>companyCtrl</b></span>
+                        <a href="#companyCtrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/users/users/users.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Поле выбора организации</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="companyInput"></a>
+                    <span class="name">
+                        <span ><b>companyInput</b></span>
+                        <a href="#companyInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef&lt;HTMLInputElement&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;companyInput&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/app/users/users/users.component.ts:125</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Ссылка на поле выбора организации</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filteredCompanies$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>filteredCompanies$</b></span>
+                        <a href="#filteredCompanies$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;string[]&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/users/users/users.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Наблюдатель за отфильтрованными ролями</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filteredRoles$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>filteredRoles$</b></span>
+                        <a href="#filteredRoles$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;string[]&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/users/users/users.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Наблюдатель за отфильтрованными ролями</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roleCtrl"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>roleCtrl</b></span>
+                        <a href="#roleCtrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/users/users/users.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Поле выбора роли</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roleInput"></a>
+                    <span class="name">
+                        <span ><b>roleInput</b></span>
+                        <a href="#roleInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef&lt;HTMLInputElement&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;roleInput&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/app/users/users/users.component.ts:119</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Ссылка на поле выбора роли</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roles"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>roles</b></span>
+                        <a href="#roles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/users/users/users.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Массив ролей для выбора</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="separatorKeyCodes"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>separatorKeyCodes</b></span>
+                        <a href="#separatorKeyCodes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[ENTER, COMMA]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/users/users/users.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Коды символов-разделителей</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="supervisedByAdmin$$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>supervisedByAdmin$$</b></span>
+                        <a href="#supervisedByAdmin$$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/users/users/users.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Флаг просмотра администратором</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MatAutocompleteSelectedEvent } from &#x27;@angular/material/autocomplete&#x27;
+import { Component, ElementRef, OnInit, ViewChild } from &#x27;@angular/core&#x27;
+import { BehaviorSubject, map, Observable, startWith } from &#x27;rxjs&#x27;
+import { MatChipInputEvent } from &#x27;@angular/material/chips&#x27;
+import { IInfiniteScrollEvent } from &#x27;ngx-infinite-scroll&#x27;
+import { COMMA, ENTER } from &#x27;@angular/cdk/keycodes&#x27;
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;
+import { Apollo, QueryRef } from &#x27;apollo-angular&#x27;
+import { FormControl } from &#x27;@angular/forms&#x27;
+import { Router } from &#x27;@angular/router&#x27;
 
 import { inOutComponentAnimation } from &#x27;@/common/animations/in-out-component&#x27;
+import { Account, GET_ACCOUNTS } from &#x27;@/common/schemes/query/getAccounts&#x27;
+
+import { TeamsService } from &#x27;@/app/shared/services/teams.service&#x27;
+import { AuthService } from &#x27;@/app/shared/services/auth.service&#x27;
+import { translateRole } from &#x27;@/app/shared/utils/funcs&#x27;
+
+import { AddUserComponent } from &#x27;./add-user/add-user.component&#x27;
 
 /**
  * Компонент страницы пользователей
@@ -147,12 +2002,484 @@ import { inOutComponentAnimation } from &#x27;@/common/animations/in-out-compone
   styleUrls: [&#x27;./users.component.sass&#x27;],
   animations: [inOutComponentAnimation],
 })
-export class UsersComponent {}
+export class UsersComponent implements OnInit {
+  /**
+   * Флаг просмотра администратором
+   */
+  public supervisedByAdmin$$: BehaviorSubject&lt;boolean&gt; &#x3D;
+    new BehaviorSubject&lt;boolean&gt;(false)
+
+  /**
+   * Массив аккаунтов
+   */
+  public accounts$$: BehaviorSubject&lt;Account[]&gt; &#x3D; new BehaviorSubject&lt;
+    Account[]
+  &gt;([])
+
+  /**
+   * Коды символов-разделителей
+   */
+  public separatorKeyCodes: any[] &#x3D; [ENTER, COMMA]
+
+  /**
+   * Поле выбора роли
+   */
+  public roleCtrl &#x3D; new FormControl()
+
+  /**
+   * Поле выбора организации
+   */
+  public companyCtrl &#x3D; new FormControl()
+
+  /**
+   * Наблюдатель за отфильтрованными ролями
+   */
+  public filteredRoles$: Observable&lt;string[]&gt;
+
+  /**
+   * Наблюдатель за отфильтрованными ролями
+   */
+  public filteredCompanies$: Observable&lt;string[]&gt;
+
+  /**
+   * Массив ролей для выбора
+   */
+  public roles: string[] &#x3D; []
+
+  /**
+   * Массив организаций для выбора
+   */
+  public companies: string[] &#x3D; []
+
+  /**
+   * Массив всех доступных ролей аккаунта
+   */
+  public allRoles: string[] &#x3D; [
+    &#x27;Администратор&#x27;,
+    &#x27;Руководитель&#x27;,
+    &#x27;Студент&#x27;,
+    &#x27;Куратор&#x27;,
+    &#x27;Преподаватель&#x27;,
+  ]
+
+  /**
+   * Массив всех организаций
+   */
+  public allCompanies: string[] &#x3D; []
+
+  /**
+   * Начальный индекс выборки аккаунтов
+   */
+  private _start: number &#x3D; 0
+
+  /**
+   * Лимит выборки аккаунтов
+   */
+  private _limit: number &#x3D; 9
+
+  /**
+   * Флаг статуса загрузки
+   */
+  private _isLoading: boolean &#x3D; false
+
+  /**
+   * Ссылка на запрос на получение аккаунтов
+   */
+  private accountsQuery!: QueryRef&lt;any&gt;
+
+  /**
+   * Ссылка на поле выбора роли
+   */
+  @ViewChild(&#x27;roleInput&#x27;)
+  roleInput!: ElementRef&lt;HTMLInputElement&gt;
+
+  /**
+   * Ссылка на поле выбора организации
+   */
+  @ViewChild(&#x27;companyInput&#x27;)
+  companyInput!: ElementRef&lt;HTMLInputElement&gt;
+
+  /**
+   * Конструктор компонения просмотра аккаунтов
+   * @param {AuthService} authService Сервис авторизации
+   * @param {Apollo} apolloService Сервис Apollo
+   * @param {TeamService} teamService Сервис организаций
+   * @param {Router} routerService Сервис роутера
+   * @param {MatDialog} dialogService Сервис диалоговых окон
+   */
+  constructor(
+    private readonly authService: AuthService,
+    private readonly apolloService: Apollo,
+    private readonly teamService: TeamsService,
+    private readonly routerService: Router,
+    private readonly dialogService: MatDialog,
+  ) {
+    if (window.innerWidth &lt;&#x3D; 768 || window.innerHeight &lt;&#x3D; 415) {
+      this._limit &#x3D; 6
+    }
+
+    if (window.innerWidth &lt;&#x3D; 576 || window.innerHeight &lt;&#x3D; 415) {
+      this._limit &#x3D; 3
+    }
+
+    this.teamService.teams$$.subscribe((data) &#x3D;&gt; {
+      if (data.length &gt; 0) {
+        this.allCompanies &#x3D; data.map((item) &#x3D;&gt; item.short_name)
+      }
+    })
+
+    this.supervisedByAdmin$$.next(
+      this.authService.currentUser?.role &#x3D;&#x3D;&#x3D; &#x27;ADMIN&#x27;,
+    )
+
+    if (this.supervisedByAdmin$$.value) {
+      this.teamService.fetchTeams()
+    }
+
+    this.filteredRoles$ &#x3D; this.roleCtrl.valueChanges.pipe(
+      startWith(null),
+      map((role: string | null) &#x3D;&gt;
+        role ? this._filterRoles(role) : this.allRoles.slice(),
+      ),
+    )
+
+    this.filteredCompanies$ &#x3D; this.companyCtrl.valueChanges.pipe(
+      startWith(null),
+      map((company: string | null) &#x3D;&gt;
+        company ? this._filterCompanies(company) : this.allCompanies.slice(),
+      ),
+    )
+  }
+
+  /**
+   * Метод инициализации компонента
+   * @description Отправляет запрос на получение аккаунтов и подписывается на изменение полученных данных
+   * @returns {void}
+   */
+  ngOnInit(): void {
+    this.accountsQuery &#x3D; this.apolloService.watchQuery&lt;Account, {}&gt;({
+      query: GET_ACCOUNTS,
+      variables: {
+        start: this._start,
+        limit: this._limit,
+      },
+      fetchPolicy: &#x27;network-only&#x27;,
+      errorPolicy: &#x27;all&#x27;,
+    })
+
+    this._isLoading &#x3D; true
+
+    this.accountsQuery.valueChanges.subscribe({
+      next: ({ data }) &#x3D;&gt; {
+        const accounts &#x3D; data.accounts.map((item: Account) &#x3D;&gt; ({
+          ...item,
+          role: translateRole(item.role),
+          avatar: item.avatar
+            ? item.avatar
+            : {
+                url: &#x27;/assets/media/ava-default.webp&#x27;,
+              },
+        }))
+
+        this.accounts$$.next([...this.accounts$$.value, ...accounts])
+
+        this._start +&#x3D; this._limit
+        this._isLoading &#x3D; false
+      },
+      error: (err) &#x3D;&gt; console.log(err.networkError),
+    })
+  }
+
+  /**
+   * Метод получения дополнительных аккаунтов для бесконечной ленты
+   * @returns {void}
+   */
+  public fetchMoreAccounts(): void {
+    if (!this._isLoading) {
+      this._isLoading &#x3D; true
+
+      this.accountsQuery.fetchMore({
+        variables: {
+          start: this._start,
+          limit: this._limit,
+        },
+      })
+    }
+  }
+
+  /**
+   * Обработчик выбора роли для поиска
+   * @param {MatChipInputEvent} event Событие выбора
+   * @returns {void}
+   */
+  public handleAddRole(event: MatChipInputEvent): void {
+    const value &#x3D; (event.value || &#x27;&#x27;).trim()
+
+    let isValidRole &#x3D; !!this.allRoles.find(
+      (item) &#x3D;&gt; translateRole(item) &#x3D;&#x3D;&#x3D; value,
+    )
+
+    if (!!value &amp;&amp; isValidRole) {
+      this.roles.push(value)
+    }
+
+    event.chipInput!.clear()
+
+    this.roleCtrl.setValue(null)
+  }
+
+  /**
+   * Обработчик выбора организации для поиска
+   * @param {MatChipInputEvent} event Событие выбора
+   * @returns {void}
+   */
+  public handleAddCompany(event: MatChipInputEvent): void {
+    const value &#x3D; (event.value || &#x27;&#x27;).trim()
+
+    if (
+      value &amp;&amp;
+      !!!this.companies.find((item) &#x3D;&gt; item &#x3D;&#x3D;&#x3D; value) &amp;&amp;
+      this.allCompanies.indexOf(value) &gt;&#x3D; 0
+    ) {
+      this.companies.push(value)
+    }
+
+    event.chipInput!.clear()
+
+    this.companyCtrl.setValue(null)
+  }
+
+  /**
+   * Обработчик отмены выбора роли
+   * @param {string} role Выбранная роль
+   * @returns {void}
+   */
+  public handleRemoveRole(role: string): void {
+    const index &#x3D; this.roles.indexOf(role)
+
+    if (index &gt;&#x3D; 0) {
+      this.roles.splice(index, 1)
+    }
+  }
+
+  /**
+   * Обработчик отмены выбора организации
+   * @param {string} company Выбранная организация
+   * @returns {void}
+   */
+  public handleRemoveCompany(company: string): void {
+    const index &#x3D; this.companies.indexOf(company)
+
+    if (index &gt;&#x3D; 0) {
+      this.companies.splice(index, 1)
+    }
+  }
+
+  /**
+   * Обработчик выбора роли через Autocomplete
+   * @param {MatAutocompleteSelectedEvent} event Событие выбора
+   * @returns {void}
+   */
+  public handleSelectedRole(event: MatAutocompleteSelectedEvent): void {
+    const isCurrentRole &#x3D; this.roles.indexOf(event.option.viewValue) &#x3D;&#x3D;&#x3D; -1
+
+    if (isCurrentRole) this.roles.push(event.option.viewValue)
+
+    this.roleInput.nativeElement.value &#x3D; &#x27;&#x27;
+    this.roleCtrl.setValue(null)
+  }
+
+  /**
+   * Обработчик выбора организации через Autocomplete
+   * @param {MatAutocompleteSelectedEvent} event Событие выбора
+   * @returns {void}
+   */
+  public handleSelectedCompany(event: MatAutocompleteSelectedEvent): void {
+    const isCurrentCompany &#x3D;
+      this.companies.indexOf(event.option.viewValue) &#x3D;&#x3D;&#x3D; -1
+
+    if (isCurrentCompany) this.companies.push(event.option.viewValue)
+
+    this.companyInput.nativeElement.value &#x3D; &#x27;&#x27;
+    this.companyCtrl.setValue(null)
+  }
+
+  /**
+   * Обработчик клика на создание аккаунта
+   * @description Открывает модальное окно создания аккаунта
+   * @returns {void}
+   */
+  public handleAddUser(): void {
+    this.dialogService.open(AddUserComponent, {
+      width: &#x27;600px&#x27;,
+    })
+  }
+
+  /**
+   * Обработчик прокрутки сттраницы
+   * @description Запускает получение аккаунтов при прокрутке до конца страницы
+   * @param {IInfiniteScrollEvent} event Событие бесконечной прокрутки
+   * @returns {void}
+   */
+  public handleScrollDown(event: IInfiniteScrollEvent): void {
+    this.fetchMoreAccounts()
+  }
+
+  /**
+   * Обработчик клика на аккаунт
+   * @description Открывает страницу профиля выбранного аккаунта
+   * @param {string} login Логин аккаунта
+   * @returns {void}
+   */
+  public handleSelectAccount(login: string): void {
+    this.routerService.navigate([&#x60;/u/${login}&#x60;])
+  }
+
+  /**
+   * Функция фильтрации списка ролей после выбора
+   * @param {string} value Выбранная роль
+   * @returns {string[]} Обновлённый список ролей
+   */
+  private _filterRoles(value: string): string[] {
+    const filterValue &#x3D; value.toUpperCase()
+
+    return this.allRoles.filter((role) &#x3D;&gt;
+      role.toUpperCase().includes(filterValue),
+    )
+  }
+
+  /**
+   * Функция фильтрации списка организаций после выбора
+   * @param {string} value Выбранная организация
+   * @returns {string[]} Обновлённый список организаций
+   */
+  private _filterCompanies(value: string): string[] {
+    const filterValue &#x3D; value.toLowerCase()
+
+    return this.allCompanies.filter((company) &#x3D;&gt;
+      company.toLowerCase().includes(filterValue),
+    )
+  }
+}
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;section @inOutComponent&gt;users is working!&lt;/section&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;section @inOutComponent class&#x3D;&quot;users&quot;&gt;
+  &lt;div class&#x3D;&quot;users-title&quot;&gt;
+    &lt;div class&#x3D;&quot;users-title__search&quot;&gt;
+      &lt;div&gt;
+        &lt;mat-chip-list #roleList aria-label&#x3D;&quot;Выбор ролей&quot;&gt;
+          &lt;mat-chip
+            *ngFor&#x3D;&quot;let role of roles&quot;
+            (removed)&#x3D;&quot;handleRemoveRole(role)&quot;
+          &gt;
+            {{ role }}
+            &lt;button matChipRemove&gt;
+              &lt;mat-icon aria-hidden&#x3D;&quot;false&quot; aria-label&#x3D;&quot;Отменить роль&quot;
+                &gt;cancel&lt;/mat-icon
+              &gt;
+            &lt;/button&gt;
+          &lt;/mat-chip&gt;
+          &lt;input
+            placeholder&#x3D;&quot;Роль&quot;
+            #roleInput
+            [formControl]&#x3D;&quot;roleCtrl&quot;
+            [matAutocomplete]&#x3D;&quot;roleAutocomplete&quot;
+            [matChipInputFor]&#x3D;&quot;roleList&quot;
+            [matChipInputSeparatorKeyCodes]&#x3D;&quot;separatorKeyCodes&quot;
+            (matChipInputTokenEnd)&#x3D;&quot;handleAddRole($event)&quot;
+          /&gt;
+        &lt;/mat-chip-list&gt;
+        &lt;mat-autocomplete
+          #roleAutocomplete&#x3D;&quot;matAutocomplete&quot;
+          (optionSelected)&#x3D;&quot;handleSelectedRole($event)&quot;
+          @inOutComponent
+        &gt;
+          &lt;mat-option
+            *ngFor&#x3D;&quot;let role of filteredRoles$ | async&quot;
+            [value]&#x3D;&quot;role&quot;
+          &gt;
+            {{ role }}
+          &lt;/mat-option&gt;&lt;/mat-autocomplete
+        &gt;
+      &lt;/div&gt;
+      &lt;div *ngIf&#x3D;&quot;supervisedByAdmin$$.value&quot;&gt;
+        &lt;mat-chip-list #companyList aria-label&#x3D;&quot;Выбор организаций&quot;&gt;
+          &lt;mat-chip
+            *ngFor&#x3D;&quot;let company of companies&quot;
+            (removed)&#x3D;&quot;handleRemoveCompany(company)&quot;
+          &gt;
+            {{ company }}
+            &lt;button matChipRemove&gt;
+              &lt;mat-icon aria-hidden&#x3D;&quot;false&quot; aria-label&#x3D;&quot;Отменить организацию&quot;
+                &gt;cancel&lt;/mat-icon
+              &gt;
+            &lt;/button&gt;
+          &lt;/mat-chip&gt;
+          &lt;input
+            placeholder&#x3D;&quot;Организация&quot;
+            #companyInput
+            [formControl]&#x3D;&quot;companyCtrl&quot;
+            [matAutocomplete]&#x3D;&quot;companyAutocomplete&quot;
+            [matChipInputFor]&#x3D;&quot;companyList&quot;
+            [matChipInputSeparatorKeyCodes]&#x3D;&quot;separatorKeyCodes&quot;
+            (matChipInputTokenEnd)&#x3D;&quot;handleAddCompany($event)&quot;
+          /&gt;
+        &lt;/mat-chip-list&gt;
+        &lt;mat-autocomplete
+          @inOutComponent
+          #companyAutocomplete&#x3D;&quot;matAutocomplete&quot;
+          (optionSelected)&#x3D;&quot;handleSelectedCompany($event)&quot;
+        &gt;
+          &lt;mat-option
+            *ngFor&#x3D;&quot;let company of filteredCompanies$ | async&quot;
+            [value]&#x3D;&quot;company&quot;
+          &gt;
+            {{ company }}
+          &lt;/mat-option&gt;&lt;/mat-autocomplete
+        &gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;users-title__commands&quot;&gt;
+      &lt;button *ngIf&#x3D;&quot;supervisedByAdmin$$.value&quot; (click)&#x3D;&quot;handleAddUser()&quot;&gt;
+        &lt;mat-icon aria-hidden&#x3D;&quot;false&quot; aria-label&#x3D;&quot;Создать пользователя&quot;&gt;
+          add
+        &lt;/mat-icon&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;users-grid&quot; infinite-scroll (scrolled)&#x3D;&quot;handleScrollDown($event)&quot;&gt;
+    &lt;div class&#x3D;&quot;users-grid-list&quot;&gt;
+      &lt;div
+        class&#x3D;&quot;users-grid-list-item&quot;
+        *ngFor&#x3D;&quot;let account of accounts$$ | async&quot;
+        @inOutComponent
+      &gt;
+        &lt;div
+          class&#x3D;&quot;users-grid-list-item__avatar&quot;
+          (click)&#x3D;&quot;handleSelectAccount(account.login)&quot;
+        &gt;
+          &lt;img
+            [src]&#x3D;&quot;account.avatar!.url&quot;
+            alt&#x3D;&quot;Avatar&quot;
+            width&#x3D;&quot;150px&quot;
+            height&#x3D;&quot;150px&quot;
+          /&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;users-grid-list-item-data&quot;&gt;
+          &lt;div class&#x3D;&quot;users-grid-list-item-data__credentials&quot;&gt;
+            &lt;span&gt;{{ account.firstname }} {{ account.surname }}&lt;/span&gt;
+            &lt;span&gt;{{ account.login }}&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;users-grid-list-item-data__role&quot;&gt;
+            &lt;span&gt;{{ account.role }}&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
 </code></pre>
     </div>
 
@@ -162,6 +2489,164 @@ export class UsersComponent {}
                 </p>
                 <pre class="line-numbers"><code class="language-scss">
 @import &#x27;../../../styles/_main&#x27;
+@import &#x27;../../../styles/_vars&#x27;
+
+.users
+    &amp;-title
+        justify-content: space-between
+        position: relative
+        margin-bottom: 20px
+
+        &amp;, &amp;__search, &amp;__commands
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+            align-items: center
+
+        @media only screen and (max-width: 576px)
+            flex-direction: column
+
+            &amp;__search
+                width: 100%
+
+                &amp; &gt; div:last-child
+                    margin-bottom: 0 !important
+
+                &amp; &gt; div:not(:last-child)
+                    margin-bottom: 15px !important
+
+            &amp;__commands
+                z-index: 100
+                position: absolute
+                right: 0
+
+                &amp; button
+                    border-color: rgb(250, 204, 109) !important
+
+                &amp; mat-icon
+                    padding: 0 !important
+
+        &amp;__search
+            justify-content: start
+            flex-grow: 1
+
+            &amp; &gt; div
+                min-width: 300px
+                overflow-x: hidden
+                overflow-y: hidden
+
+                border-bottom: 1px solid $color-primary-carrot
+                margin-bottom: 20px
+
+                &amp;:not(:last-child)
+                    margin-right: 20px
+
+                &amp; input
+                    min-height: 60px
+
+                @media only screen and (max-width: 576px)
+                    min-width: auto
+                    width: 100%
+
+                    &amp;:first-child
+                        width: calc(100% - 58px)
+
+                    &amp; input
+                        min-height: 48px
+
+        &amp;__commands
+            justify-content: flex-end
+
+            &amp; &gt; button
+                display: flex
+                border-radius: 50%
+                padding: 16px
+                align-items: center
+                justify-content: center
+
+                &amp; &gt; mat-icon
+                    color: #DCBF9D
+
+                @media only screen and ( max-width: 576px )
+                    padding: 11px
+
+    &amp;-grid-list
+        display: grid
+        grid-template-columns: repeat(3, minmax(200px, 1fr))
+        justify-items: stretch
+        align-items: stretch
+
+        grid-gap: 30px 40px
+
+        @media only screen and  (max-width: 1200px)
+            grid-template-columns: repeat(2, minmax(200px, 1fr))
+
+        @media only screen and  (max-width: 576px)
+            margin-top: 40px
+            grid-template-columns: repeat(1, minmax(200px, 1fr))
+
+            &amp;-item
+                flex-direction: column
+
+                &amp;__avatar
+                    width: 150px !important
+                    margin-right: 0 !important
+
+        &amp;-item
+            border: 1px solid $color-primary
+            border-radius: 20px
+            padding: 0 20px
+
+            &amp;, &amp;-data, &amp;__avatar
+                display: flex
+                align-items: center
+
+            &amp;-data, &amp;__avatar
+                margin-top: 20px
+                margin-bottom: 20px
+
+            &amp;__avatar
+                width: min(150px, 50%)
+
+                margin-right: 20px
+
+                justify-content: center
+
+                &amp; &gt; img
+                    width: 100%
+                    height: auto
+                    border-radius: 50%
+
+            &amp;-data
+                flex-grow: 1
+                justify-content: center
+                flex-direction: column
+
+                &amp; span
+                    display: block
+                    text-align: center
+
+                &amp;__credentials
+                    margin-bottom: 20px
+
+                    &amp; &gt; span:first-child
+                        font-size: 20px
+                        line-height: 1.3
+                        margin-bottom: 15px
+
+                    &amp; &gt; span:last-child
+                        font-size: 16px
+
+                &amp;__role
+                    padding: 5px 15px
+                    border: 2px solid $color-primary-light
+                    border-radius: 7px
+
+                    color: #fff
+
+                    font-size: 14px
+                    user-select: none
+                    text-align: center
 </code></pre>
     </div>
 
@@ -190,8 +2675,8 @@ export class UsersComponent {}
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section @inOutComponent>users is working!</section></div>'
-    var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChangePassComponent', 'selector': 'vanne-change-pass'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProfileComponent', 'selector': 'vanne-profile'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
+        var COMPONENT_TEMPLATE = '<div><section @inOutComponent class="users">  <div class="users-title">    <div class="users-title__search">      <div>        <mat-chip-list #roleList aria-label="Выбор ролей">          <mat-chip            *ngFor="let role of roles"            (removed)="handleRemoveRole(role)"          >            {{ role }}            <button matChipRemove>              <mat-icon aria-hidden="false" aria-label="Отменить роль"                >cancel</mat-icon              >            </button>          </mat-chip>          <input            placeholder="Роль"            #roleInput            [formControl]="roleCtrl"            [matAutocomplete]="roleAutocomplete"            [matChipInputFor]="roleList"            [matChipInputSeparatorKeyCodes]="separatorKeyCodes"            (matChipInputTokenEnd)="handleAddRole($event)"          />        </mat-chip-list>        <mat-autocomplete          #roleAutocomplete="matAutocomplete"          (optionSelected)="handleSelectedRole($event)"          @inOutComponent        >          <mat-option            *ngFor="let role of filteredRoles$ | async"            [value]="role"          >            {{ role }}          </mat-option></mat-autocomplete        >      </div>      <div *ngIf="supervisedByAdmin$$.value">        <mat-chip-list #companyList aria-label="Выбор организаций">          <mat-chip            *ngFor="let company of companies"            (removed)="handleRemoveCompany(company)"          >            {{ company }}            <button matChipRemove>              <mat-icon aria-hidden="false" aria-label="Отменить организацию"                >cancel</mat-icon              >            </button>          </mat-chip>          <input            placeholder="Организация"            #companyInput            [formControl]="companyCtrl"            [matAutocomplete]="companyAutocomplete"            [matChipInputFor]="companyList"            [matChipInputSeparatorKeyCodes]="separatorKeyCodes"            (matChipInputTokenEnd)="handleAddCompany($event)"          />        </mat-chip-list>        <mat-autocomplete          @inOutComponent          #companyAutocomplete="matAutocomplete"          (optionSelected)="handleSelectedCompany($event)"        >          <mat-option            *ngFor="let company of filteredCompanies$ | async"            [value]="company"          >            {{ company }}          </mat-option></mat-autocomplete        >      </div>    </div>    <div class="users-title__commands">      <button *ngIf="supervisedByAdmin$$.value" (click)="handleAddUser()">        <mat-icon aria-hidden="false" aria-label="Создать пользователя">          add        </mat-icon>      </button>    </div>  </div>  <div class="users-grid" infinite-scroll (scrolled)="handleScrollDown($event)">    <div class="users-grid-list">      <div        class="users-grid-list-item"        *ngFor="let account of accounts$$ | async"        @inOutComponent      >        <div          class="users-grid-list-item__avatar"          (click)="handleSelectAccount(account.login)"        >          <img            [src]="account.avatar!.url"            alt="Avatar"            width="150px"            height="150px"          />        </div>        <div class="users-grid-list-item-data">          <div class="users-grid-list-item-data__credentials">            <span>{{ account.firstname }} {{ account.surname }}</span>            <span>{{ account.login }}</span>          </div>          <div class="users-grid-list-item-data__role">            <span>{{ account.role }}</span>          </div>        </div>      </div>    </div>  </div></section></div>'
+    var COMPONENTS = [{'name': 'AddUserComponent', 'selector': 'vanne-add-user'},{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChangePassComponent', 'selector': 'vanne-change-pass'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProfileComponent', 'selector': 'vanne-profile'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'UsersComponent'};
 </script>

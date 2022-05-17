@@ -1,6 +1,8 @@
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete'
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { BehaviorSubject, map, Observable, startWith } from 'rxjs'
 import { MatChipInputEvent } from '@angular/material/chips'
+import { IInfiniteScrollEvent } from 'ngx-infinite-scroll'
 import { COMMA, ENTER } from '@angular/cdk/keycodes'
 import { MatDialog } from '@angular/material/dialog'
 import { Apollo, QueryRef } from 'apollo-angular'
@@ -39,17 +41,44 @@ export class UsersComponent implements OnInit {
     Account[]
   >([])
 
+  /**
+   * Коды символов-разделителей
+   */
   public separatorKeyCodes: any[] = [ENTER, COMMA]
 
+  /**
+   * Поле выбора роли
+   */
   public roleCtrl = new FormControl()
+
+  /**
+   * Поле выбора организации
+   */
   public companyCtrl = new FormControl()
 
+  /**
+   * Наблюдатель за отфильтрованными ролями
+   */
   public filteredRoles$: Observable<string[]>
+
+  /**
+   * Наблюдатель за отфильтрованными ролями
+   */
   public filteredCompanies$: Observable<string[]>
 
+  /**
+   * Массив ролей для выбора
+   */
   public roles: string[] = []
+
+  /**
+   * Массив организаций для выбора
+   */
   public companies: string[] = []
 
+  /**
+   * Массив всех доступных ролей аккаунта
+   */
   public allRoles: string[] = [
     'Администратор',
     'Руководитель',
@@ -58,20 +87,51 @@ export class UsersComponent implements OnInit {
     'Преподаватель',
   ]
 
+  /**
+   * Массив всех организаций
+   */
   public allCompanies: string[] = []
 
+  /**
+   * Начальный индекс выборки аккаунтов
+   */
   private _start: number = 0
+
+  /**
+   * Лимит выборки аккаунтов
+   */
   private _limit: number = 9
+
+  /**
+   * Флаг статуса загрузки
+   */
   private _isLoading: boolean = false
 
+  /**
+   * Ссылка на запрос на получение аккаунтов
+   */
   private accountsQuery!: QueryRef<any>
 
+  /**
+   * Ссылка на поле выбора роли
+   */
   @ViewChild('roleInput')
   roleInput!: ElementRef<HTMLInputElement>
 
+  /**
+   * Ссылка на поле выбора организации
+   */
   @ViewChild('companyInput')
   companyInput!: ElementRef<HTMLInputElement>
 
+  /**
+   * Конструктор компонения просмотра аккаунтов
+   * @param {AuthService} authService Сервис авторизации
+   * @param {Apollo} apolloService Сервис Apollo
+   * @param {TeamService} teamService Сервис организаций
+   * @param {Router} routerService Сервис роутера
+   * @param {MatDialog} dialogService Сервис диалоговых окон
+   */
   constructor(
     private readonly authService: AuthService,
     private readonly apolloService: Apollo,
@@ -116,6 +176,11 @@ export class UsersComponent implements OnInit {
     )
   }
 
+  /**
+   * Метод инициализации компонента
+   * @description Отправляет запрос на получение аккаунтов и подписывается на изменение полученных данных
+   * @returns {void}
+   */
   ngOnInit(): void {
     this.accountsQuery = this.apolloService.watchQuery<Account, {}>({
       query: GET_ACCOUNTS,
@@ -150,7 +215,11 @@ export class UsersComponent implements OnInit {
     })
   }
 
-  public fetchMoreAccounts() {
+  /**
+   * Метод получения дополнительных аккаунтов для бесконечной ленты
+   * @returns {void}
+   */
+  public fetchMoreAccounts(): void {
     if (!this._isLoading) {
       this._isLoading = true
 
@@ -163,7 +232,12 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  public addRole(event: MatChipInputEvent) {
+  /**
+   * Обработчик выбора роли для поиска
+   * @param {MatChipInputEvent} event Событие выбора
+   * @returns {void}
+   */
+  public handleAddRole(event: MatChipInputEvent): void {
     const value = (event.value || '').trim()
 
     let isValidRole = !!this.allRoles.find(
@@ -179,7 +253,12 @@ export class UsersComponent implements OnInit {
     this.roleCtrl.setValue(null)
   }
 
-  public addCompany(event: MatChipInputEvent) {
+  /**
+   * Обработчик выбора организации для поиска
+   * @param {MatChipInputEvent} event Событие выбора
+   * @returns {void}
+   */
+  public handleAddCompany(event: MatChipInputEvent): void {
     const value = (event.value || '').trim()
 
     if (
@@ -195,7 +274,12 @@ export class UsersComponent implements OnInit {
     this.companyCtrl.setValue(null)
   }
 
-  public removeRole(role: string) {
+  /**
+   * Обработчик отмены выбора роли
+   * @param {string} role Выбранная роль
+   * @returns {void}
+   */
+  public handleRemoveRole(role: string): void {
     const index = this.roles.indexOf(role)
 
     if (index >= 0) {
@@ -203,7 +287,12 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  public removeCompany(company: string) {
+  /**
+   * Обработчик отмены выбора организации
+   * @param {string} company Выбранная организация
+   * @returns {void}
+   */
+  public handleRemoveCompany(company: string): void {
     const index = this.companies.indexOf(company)
 
     if (index >= 0) {
@@ -211,7 +300,12 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  public selectedRole(event: any) {
+  /**
+   * Обработчик выбора роли через Autocomplete
+   * @param {MatAutocompleteSelectedEvent} event Событие выбора
+   * @returns {void}
+   */
+  public handleSelectedRole(event: MatAutocompleteSelectedEvent): void {
     const isCurrentRole = this.roles.indexOf(event.option.viewValue) === -1
 
     if (isCurrentRole) this.roles.push(event.option.viewValue)
@@ -220,7 +314,12 @@ export class UsersComponent implements OnInit {
     this.roleCtrl.setValue(null)
   }
 
-  public selectedCompany(event: any) {
+  /**
+   * Обработчик выбора организации через Autocomplete
+   * @param {MatAutocompleteSelectedEvent} event Событие выбора
+   * @returns {void}
+   */
+  public handleSelectedCompany(event: MatAutocompleteSelectedEvent): void {
     const isCurrentCompany =
       this.companies.indexOf(event.option.viewValue) === -1
 
@@ -230,24 +329,42 @@ export class UsersComponent implements OnInit {
     this.companyCtrl.setValue(null)
   }
 
-  public translate(role: string) {
-    translateRole(role)
-  }
-
-  public handleAddUser() {
+  /**
+   * Обработчик клика на создание аккаунта
+   * @description Открывает модальное окно создания аккаунта
+   * @returns {void}
+   */
+  public handleAddUser(): void {
     this.dialogService.open(AddUserComponent, {
       width: '600px',
     })
   }
 
-  public handleScrollDown(event: any) {
+  /**
+   * Обработчик прокрутки сттраницы
+   * @description Запускает получение аккаунтов при прокрутке до конца страницы
+   * @param {IInfiniteScrollEvent} event Событие бесконечной прокрутки
+   * @returns {void}
+   */
+  public handleScrollDown(event: IInfiniteScrollEvent): void {
     this.fetchMoreAccounts()
   }
 
-  public handleSelectAccount(login: string) {
+  /**
+   * Обработчик клика на аккаунт
+   * @description Открывает страницу профиля выбранного аккаунта
+   * @param {string} login Логин аккаунта
+   * @returns {void}
+   */
+  public handleSelectAccount(login: string): void {
     this.routerService.navigate([`/u/${login}`])
   }
 
+  /**
+   * Функция фильтрации списка ролей после выбора
+   * @param {string} value Выбранная роль
+   * @returns {string[]} Обновлённый список ролей
+   */
   private _filterRoles(value: string): string[] {
     const filterValue = value.toUpperCase()
 
@@ -255,6 +372,12 @@ export class UsersComponent implements OnInit {
       role.toUpperCase().includes(filterValue),
     )
   }
+
+  /**
+   * Функция фильтрации списка организаций после выбора
+   * @param {string} value Выбранная организация
+   * @returns {string[]} Обновлённый список организаций
+   */
   private _filterCompanies(value: string): string[] {
     const filterValue = value.toLowerCase()
 

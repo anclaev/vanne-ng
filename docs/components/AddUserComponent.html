@@ -1,0 +1,1781 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Vanne</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Vanne</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  AddUserComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/users/users/add-user/add-user.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Компонент создания аккаунта</p>
+
+    </p>
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>{
+    provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+}</code>
+                                <code><a href="../miscellaneous/variables.html#MY_FORMATS" target="_self" >{ provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }</a></code>
+                            <code>{ provide: MAT_DATE_LOCALE, useValue:  }</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>vanne-add-user</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./add-user.component.sass</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./add-user.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addUserForm_1" >addUserForm_1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addUserForm_2" >addUserForm_2</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#birthday$$" >birthday$$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialogRef" >dialogRef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#filteredRoles$" >filteredRoles$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#filteredTeams$" >filteredTeams$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loading$$" >loading$$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#roles" >roles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stepperOrientation$" >stepperOrientation$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#teams" >teams</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_filterRoles" >_filterRoles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_filterTeams" >_filterTeams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_validateForm" >_validateForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#createAccount" >createAccount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleAddUser" >handleAddUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onNoClick" >onNoClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(apolloService: Apollo, toastService: <a href="../injectables/ToastService.html" target="_self">ToastService</a>, teamsService: <a href="../injectables/TeamsService.html" target="_self">TeamsService</a>, breakpointObserver: BreakpointObserver, dialogRef: <a href="../components/UsersComponent.html" target="_self">MatDialogRef&lt;UsersComponent&gt;</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:130</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Конструктор компонента создания аккаунта</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>apolloService</td>
+                                                  
+                                                        <td>
+                                                                    <code>Apollo</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Сервис Apollo</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>toastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ToastService.html" target="_self" >ToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Сервис уведомлений</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>teamsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TeamsService.html" target="_self" >TeamsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Сервис организаций</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>breakpointObserver</td>
+                                                  
+                                                        <td>
+                                                                    <code>BreakpointObserver</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Наблюдатель за изменением разрешения экрана</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogRef</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../components/UsersComponent.html" target="_self" >MatDialogRef&lt;UsersComponent&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Ссылка на родителя формы</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_filterRoles"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>_filterRoles</b></span>
+                        <a href="#_filterRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_filterRoles(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="328"
+                            class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:328</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Функция фильтрации ролей</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Выбранная роль</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Массив отфильтрованных ролей</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_filterTeams"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>_filterTeams</b></span>
+                        <a href="#_filterTeams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_filterTeams(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="314"
+                            class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:314</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Функция фильтрации организаций</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Выбранная организаций</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Массив отфильтрованных организаций</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_validateForm"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>_validateForm</b></span>
+                        <a href="#_validateForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_validateForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="260"
+                            class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:260</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Функция валидации формы</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Флаг валидности формы</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createAccount"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>createAccount</b></span>
+                        <a href="#createAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createAccount()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="191"
+                            class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:191</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Метод создания аккаунта</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleAddUser"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>handleAddUser</b></span>
+                        <a href="#handleAddUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleAddUser(event: <a href="https://angular.io/api/router/Event" target="_blank">Event</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="180"
+                            class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:180</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработчик клика на создание пользователя</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/router/Event" target="_blank" >Event</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Событие клика</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onNoClick"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>onNoClick</b></span>
+                        <a href="#onNoClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onNoClick()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="251"
+                            class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:251</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Обработчик выхода из диалога</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addUserForm_1"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>addUserForm_1</b></span>
+                        <a href="#addUserForm_1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    login: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.pattern(/^[A-Z, a-z, 0-9]+\S$/),
+    ]),
+    password: new FormControl(&#x27;&#x27;, {
+      validators: [Validators.required, Validators.minLength(8)],
+    }),
+    role: new FormControl(&#x27;&#x27;, {
+      validators: [Validators.required],
+    }),
+    team: new FormControl(&#x27;&#x27;, Validators.required),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:92</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Форма создания пользователя (шан 1)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addUserForm_2"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>addUserForm_2</b></span>
+                        <a href="#addUserForm_2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    username: new FormControl(&#x27;&#x27;, {
+      validators: [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.pattern(
+          /^[A-Z, А-Я][a-z, а-я, ё]+\s[A-Z, А-Я][a-z, а-я, ё]+$/,
+        ),
+      ],
+    }),
+    email: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.email,
+      Validators.minLength(6),
+    ]),
+    phone: new FormControl(&#x27;&#x27;, [
+      Validators.minLength(6),
+      Validators.pattern(/^\d{1,1}\s\d{3,3}\s\d{3,3}\s\d{2,2}\s\d{2,2}$/),
+    ]),
+    birthday: new FormControl(&#x27;&#x27;, Validators.required),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Форма создания пользователя (шаг 2)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="birthday$$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>birthday$$</b></span>
+                        <a href="#birthday$$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;Moment&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;Moment&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Сабжект с датой рождения</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialogRef"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dialogRef</b></span>
+                        <a href="#dialogRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/UsersComponent.html" target="_self" >MatDialogRef&lt;UsersComponent&gt;</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:145</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Ссылка на родителя формы</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filteredRoles$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>filteredRoles$</b></span>
+                        <a href="#filteredRoles$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;string[]&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Отфильтрованные роли в списке выбора</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filteredTeams$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>filteredTeams$</b></span>
+                        <a href="#filteredTeams$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;string[]&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Отфильтрованные организации в списке выбора</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading$$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>loading$$</b></span>
+                        <a href="#loading$$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;boolean&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Флаг на процесс загрузки</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roles"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>roles</b></span>
+                        <a href="#roles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Массив ролей для выбора</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stepperOrientation$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>stepperOrientation$</b></span>
+                        <a href="#stepperOrientation$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;StepperOrientation&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:77</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Ориентация формы</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="teams"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>teams</b></span>
+                        <a href="#teams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Team" target="_self" >Team[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/users/users/add-user/add-user.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Массив организаций для выбора</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;
+import { map, Observable, startWith, Subject } from &#x27;rxjs&#x27;
+import { StepperOrientation } from &#x27;@angular/cdk/stepper&#x27;
+import { BreakpointObserver } from &#x27;@angular/cdk/layout&#x27;
+import { MatDialogRef } from &#x27;@angular/material/dialog&#x27;
+import { Component } from &#x27;@angular/core&#x27;
+import { Apollo } from &#x27;apollo-angular&#x27;
+import moment, { Moment } from &#x27;moment&#x27;
+
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
+} from &#x27;@angular/material/core&#x27;
+
+import {
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+  MomentDateAdapter,
+} from &#x27;@angular/material-moment-adapter&#x27;
+
+import { inOutComponentAnimation } from &#x27;@/common/animations/in-out-component&#x27;
+
+import { CREATE_ACCOUNT } from &#x27;@/common/schemes/mutation/createAccount&#x27;
+
+import { Team } from &#x27;@/common/interfaces&#x27;
+import { ERROR } from &#x27;@/common/enums&#x27;
+import { MY_FORMATS } from &#x27;@/common&#x27;
+
+import { ToastService } from &#x27;@/app/shared/services/toast.service&#x27;
+import { TeamsService } from &#x27;@/app/shared/services/teams.service&#x27;
+import { codingRole, intlRoles } from &#x27;@/app/shared/utils/funcs&#x27;
+
+import { UsersComponent } from &#x27;../users.component&#x27;
+
+/**
+ * Компонент создания аккаунта
+ */
+@Component({
+  selector: &#x27;vanne-add-user&#x27;,
+  templateUrl: &#x27;./add-user.component.html&#x27;,
+  styleUrls: [&#x27;./add-user.component.sass&#x27;],
+  providers: [
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    { provide: MAT_DATE_LOCALE, useValue: &#x27;ru-RU&#x27; },
+  ],
+  animations: [inOutComponentAnimation],
+})
+export class AddUserComponent {
+  /**
+   * Массив организаций для выбора
+   */
+  public teams: Team[] &#x3D; []
+
+  /**
+   * Массив ролей для выбора
+   */
+  public roles: string[] &#x3D; []
+
+  /**
+   * Отфильтрованные организации в списке выбора
+   */
+  public filteredTeams$: Observable&lt;string[]&gt;
+
+  /**
+   * Отфильтрованные роли в списке выбора
+   */
+  public filteredRoles$: Observable&lt;string[]&gt;
+
+  /**
+   * Ориентация формы
+   */
+  public stepperOrientation$: Observable&lt;StepperOrientation&gt;
+
+  /**
+   * Сабжект с датой рождения
+   */
+  public birthday$$: Subject&lt;Moment&gt; &#x3D; new Subject&lt;Moment&gt;()
+
+  /**
+   * Флаг на процесс загрузки
+   */
+  public loading$$: Subject&lt;boolean&gt; &#x3D; new Subject&lt;boolean&gt;()
+
+  /**
+   * Форма создания пользователя (шан 1)
+   */
+  public addUserForm_1 &#x3D; new FormGroup({
+    login: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.pattern(/^[A-Z, a-z, 0-9]+\S$/),
+    ]),
+    password: new FormControl(&#x27;&#x27;, {
+      validators: [Validators.required, Validators.minLength(8)],
+    }),
+    role: new FormControl(&#x27;&#x27;, {
+      validators: [Validators.required],
+    }),
+    team: new FormControl(&#x27;&#x27;, Validators.required),
+  })
+
+  /**
+   * Форма создания пользователя (шаг 2)
+   */
+  public addUserForm_2 &#x3D; new FormGroup({
+    username: new FormControl(&#x27;&#x27;, {
+      validators: [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.pattern(
+          /^[A-Z, А-Я][a-z, а-я, ё]+\s[A-Z, А-Я][a-z, а-я, ё]+$/,
+        ),
+      ],
+    }),
+    email: new FormControl(&#x27;&#x27;, [
+      Validators.required,
+      Validators.email,
+      Validators.minLength(6),
+    ]),
+    phone: new FormControl(&#x27;&#x27;, [
+      Validators.minLength(6),
+      Validators.pattern(/^\d{1,1}\s\d{3,3}\s\d{3,3}\s\d{2,2}\s\d{2,2}$/),
+    ]),
+    birthday: new FormControl(&#x27;&#x27;, Validators.required),
+  })
+
+  /**
+   * Конструктор компонента создания аккаунта
+   * @param {Apollo} apolloService Сервис Apollo
+   * @param {ToastService} toastService Сервис уведомлений
+   * @param {TeamsService} teamsService Сервис организаций
+   * @param {BreakpointObserver} breakpointObserver Наблюдатель за изменением разрешения экрана
+   * @param {MatDialogRef&lt;UsersComponent&gt;} dialogRef Ссылка на родителя формы
+   */
+  constructor(
+    private apolloService: Apollo,
+    private toastService: ToastService,
+    private teamsService: TeamsService,
+    private breakpointObserver: BreakpointObserver,
+    public dialogRef: MatDialogRef&lt;UsersComponent&gt;,
+  ) {
+    this.stepperOrientation$ &#x3D; breakpointObserver
+      .observe(&#x27;(min-width: 800px)&#x27;)
+      .pipe(map(({ matches }) &#x3D;&gt; (matches ? &#x27;horizontal&#x27; : &#x27;vertical&#x27;)))
+
+    let currentTeams &#x3D; this.teamsService.teams$$.value
+
+    if (currentTeams.length &#x3D;&#x3D;&#x3D; 0) {
+      this.teamsService.fetchTeams()
+
+      this.teamsService.teams$$.subscribe((data) &#x3D;&gt; (this.teams &#x3D; data))
+    } else {
+      this.teams &#x3D; currentTeams
+    }
+
+    this.filteredTeams$ &#x3D; this.addUserForm_1.controls[&#x27;team&#x27;].valueChanges.pipe(
+      startWith(&#x27;&#x27;),
+      map((val) &#x3D;&gt; this._filterTeams(val)),
+    )
+
+    this.filteredRoles$ &#x3D; this.addUserForm_1.controls[&#x27;role&#x27;].valueChanges.pipe(
+      startWith(&#x27;&#x27;),
+      map((val) &#x3D;&gt; this._filterRoles(val)),
+    )
+
+    this.roles &#x3D; intlRoles()
+  }
+
+  /**
+   * Обработчик клика на создание пользователя
+   * @description Полностью валидирует форму и вызывает метод создания аккаунта при успехе
+   * @param {Event} event Событие клика
+   * @returns {void}
+   */
+  public handleAddUser(event: Event): void {
+    if (!this._validateForm()) return
+
+    this.createAccount()
+  }
+
+  /**
+   * Метод создания аккаунта
+   * @description Отправляет запрос на создание аккаунта и, в случае успеха, информирует об этом пользователя
+   * @returns {void}
+   */
+  public createAccount(): void {
+    let username: string &#x3D; this.addUserForm_2.controls[&#x27;username&#x27;].value
+    let firstname &#x3D; username.split(&#x27; &#x27;)[0]
+    let surname &#x3D; username.split(&#x27; &#x27;)[1]
+
+    let team &#x3D;
+      this.teams.find(
+        (item) &#x3D;&gt; item.name &#x3D;&#x3D;&#x3D; this.addUserForm_1.controls[&#x27;team&#x27;].value,
+      )?._id || &#x27;&#x27;
+
+    this.loading$$.next(true)
+
+    this.apolloService
+      .mutate&lt;any&gt;({
+        mutation: CREATE_ACCOUNT,
+        variables: {
+          password: this.addUserForm_1.controls[&#x27;password&#x27;].value,
+          birthday: moment(
+            this.addUserForm_2.controls[&#x27;birthday&#x27;].value,
+          ).toDate(),
+          email: this.addUserForm_2.controls[&#x27;email&#x27;].value,
+          login: this.addUserForm_1.controls[&#x27;login&#x27;].value,
+          phone: this.addUserForm_2.controls[&#x27;phone&#x27;].value,
+          role: codingRole(this.addUserForm_1.controls[&#x27;role&#x27;].value),
+          firstname,
+          surname,
+          team,
+        },
+        errorPolicy: &#x27;all&#x27;,
+      })
+      .subscribe({
+        next: ({ data, errors }) &#x3D;&gt; {
+          this.loading$$.next(false)
+
+          if (errors) {
+            errors.map((item) &#x3D;&gt; {
+              if (item.message &#x3D;&#x3D;&#x3D; ERROR.ACCOUNT_ALREADY_EXISTS) {
+                this.toastService.show(&#x27;Аккаунт уже зарегистрирован&#x27;)
+              }
+            })
+
+            return
+          }
+
+          if (data &amp;&amp; data.createAccount.login) {
+            this.toastService.show(&#x27;Аккаунт успешно зарегистрирован&#x27;)
+            this.onNoClick()
+          }
+        },
+        error: (e) &#x3D;&gt; {
+          this.toastService.show(&#x27;Ошибка при создании пользователя&#x27;)
+          this.loading$$.next(false)
+        },
+      })
+  }
+
+  /**
+   * Обработчик выхода из диалога
+   * @returns {void}
+   */
+  public onNoClick(): void {
+    this.dialogRef.close()
+  }
+
+  /**
+   * Функция валидации формы
+   * @description Валидирует поля формы, сообщает о найденных ошибках и возвращает статус валидации
+   * @returns {boolean} Флаг валидности формы
+   */
+  private _validateForm(): boolean {
+    if (!this.addUserForm_1.controls[&#x27;login&#x27;].valid) {
+      this.toastService.show(&#x27;Логин обязателен&#x27;)
+      return false
+    }
+
+    if (!this.addUserForm_1.controls[&#x27;password&#x27;].valid) {
+      this.toastService.show(&#x27;Пароль должен быть не менее 8 символов&#x27;)
+      return false
+    }
+
+    if (!this.addUserForm_2.controls[&#x27;username&#x27;].valid) {
+      this.toastService.show(&#x27;Некорректное имя и фамилия&#x27;)
+      return false
+    }
+
+    if (!this.addUserForm_2.controls[&#x27;email&#x27;].valid) {
+      this.toastService.show(&#x27;Некорректный email&#x27;)
+      return false
+    }
+
+    if (!this.addUserForm_2.controls[&#x27;birthday&#x27;].valid) {
+      this.toastService.show(&#x27;Некорректная дата рождения&#x27;)
+      return false
+    }
+
+    if (!this.addUserForm_2.controls[&#x27;phone&#x27;].valid) {
+      this.toastService.show(&#x27;Некорректный мобильный номер&#x27;)
+      return false
+    }
+
+    if (!this.addUserForm_1.controls[&#x27;team&#x27;].valid) {
+      this.toastService.show(&#x27;Некорректная организация&#x27;)
+      return false
+    }
+
+    if (
+      !!!this.roles.find(
+        (item) &#x3D;&gt; item &#x3D;&#x3D;&#x3D; this.addUserForm_1.controls[&#x27;role&#x27;].value,
+      )
+    ) {
+      this.toastService.show(&#x27;Некорректная роль&#x27;)
+      return false
+    }
+
+    return true
+  }
+
+  /**
+   * Функция фильтрации организаций
+   * @description Фильтрует выбранную в списке организацию и возвращает новый массив организаций
+   * @param {string} value Выбранная организаций
+   * @returns {string[]} Массив отфильтрованных организаций
+   */
+  private _filterTeams(value: string): string[] {
+    const filterValue &#x3D; value.toLowerCase() || this.teams[0].name.toLowerCase()
+
+    return this.teams
+      .filter((team) &#x3D;&gt; team.name.toLowerCase().includes(filterValue))
+      .map((item) &#x3D;&gt; item.name)
+  }
+
+  /**
+   * Функция фильтрации ролей
+   * @description Фильтрует выбранную в списке роль и возвращает новый массив ролей
+   * @param {string} value Выбранная роль
+   * @returns {string[]} Массив отфильтрованных ролей
+   */
+  private _filterRoles(value: string): string[] {
+    const filterValue &#x3D; value.toLowerCase()
+
+    return this.roles.filter((role) &#x3D;&gt; role.toLowerCase().includes(filterValue))
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;h1 mat-dialog-title&gt;
+  {{
+    addUserForm_1.controls[&#x27;login&#x27;].value.trim().length &gt; 0
+      ? addUserForm_1.controls[&#x27;login&#x27;].value
+      : &#x27;Новый аккаунт&#x27;
+  }}
+&lt;/h1&gt;
+&lt;mat-stepper
+  class&#x3D;&quot;add-user-stepper&quot;
+  [orientation]&#x3D;&quot;(stepperOrientation$ | async)!&quot;
+&gt;
+  &lt;mat-step [stepControl]&#x3D;&quot;addUserForm_1&quot; label&#x3D;&quot;Учётные данные&quot;&gt;
+    &lt;form [formGroup]&#x3D;&quot;addUserForm_1&quot;&gt;
+      &lt;div class&#x3D;&quot;add-user-stepper__input&quot;&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          placeholder&#x3D;&quot;Логин&quot;
+          formControlName&#x3D;&quot;login&quot;
+          autocomplete&#x3D;&quot;false&quot;
+          required
+        /&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;add-user-stepper__input&quot;&gt;
+        &lt;input
+          type&#x3D;&quot;password&quot;
+          placeholder&#x3D;&quot;Пароль&quot;
+          formControlName&#x3D;&quot;password&quot;
+          autocomplete&#x3D;&quot;false&quot;
+          required
+        /&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;add-user-stepper__input&quot;&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          placeholder&#x3D;&quot;Роль&quot;
+          aria-label&#x3D;&quot;Роль&quot;
+          matInput
+          formControlName&#x3D;&quot;role&quot;
+          [matAutocomplete]&#x3D;&quot;roleAuto&quot;
+          required
+        /&gt;
+        &lt;mat-autocomplete autoActiveFirstOption #roleAuto&#x3D;&quot;matAutocomplete&quot;&gt;
+          &lt;mat-option
+            *ngFor&#x3D;&quot;let role of filteredRoles$ | async&quot;
+            [value]&#x3D;&quot;role&quot;
+          &gt;
+            {{ role }}
+          &lt;/mat-option&gt;
+        &lt;/mat-autocomplete&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;add-user-stepper__input&quot;&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          placeholder&#x3D;&quot;Организация&quot;
+          aria-label&#x3D;&quot;Организация&quot;
+          matInput
+          formControlName&#x3D;&quot;team&quot;
+          required
+          [matAutocomplete]&#x3D;&quot;teamAuto&quot;
+        /&gt;
+        &lt;mat-autocomplete autoActiveFirstOption #teamAuto&#x3D;&quot;matAutocomplete&quot;&gt;
+          &lt;mat-option
+            *ngFor&#x3D;&quot;let team of filteredTeams$ | async&quot;
+            [value]&#x3D;&quot;team&quot;
+          &gt;
+            {{ team }}
+          &lt;/mat-option&gt;
+        &lt;/mat-autocomplete&gt;
+      &lt;/div&gt;
+      &lt;div&gt;&lt;button mat-button matStepperNext&gt;Далее&lt;/button&gt;&lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/mat-step&gt;
+  &lt;mat-step [stepControl]&#x3D;&quot;addUserForm_2&quot; label&#x3D;&quot;Контакты&quot;&gt;
+    &lt;form [formGroup]&#x3D;&quot;addUserForm_2&quot;&gt;
+      &lt;div class&#x3D;&quot;add-user-stepper__input&quot;&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          formControlName&#x3D;&quot;username&quot;
+          placeholder&#x3D;&quot;Александр Петров&quot;
+          autocomplete&#x3D;&quot;off&quot;
+          required
+        /&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;add-user-stepper__input&quot;&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          formControlName&#x3D;&quot;email&quot;
+          placeholder&#x3D;&quot;example@vanne.uno&quot;
+          autocomplete&#x3D;&quot;off&quot;
+        /&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;add-user-stepper__input&quot;&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          formControlName&#x3D;&quot;phone&quot;
+          placeholder&#x3D;&quot;7 999 333 11 77&quot;
+          autocomplete&#x3D;&quot;off&quot;
+        /&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;add-user-stepper__input add-user-stepper__input--date&quot;&gt;
+        &lt;input
+          [matDatepicker]&#x3D;&quot;picker&quot;
+          formControlName&#x3D;&quot;birthday&quot;
+          placeholder&#x3D;&quot;Дата рождения&quot;
+          required
+        /&gt;
+        &lt;mat-datepicker-toggle matSuffix [for]&#x3D;&quot;picker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+        &lt;mat-datepicker touchUi #picker&gt;&lt;/mat-datepicker&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;button mat-button matStepperPrevious&gt;Назад&lt;/button&gt;
+        &lt;button mat-button matStepperNext&gt;Далее&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/mat-step&gt;
+  &lt;mat-step&gt;
+    &lt;ng-template matStepLabel&gt;Финал&lt;/ng-template&gt;
+    &lt;div class&#x3D;&quot;add-user-stepper__final&quot;&gt;
+      &lt;div *ngIf&#x3D;&quot;!(loading$$ | async)&quot;&gt;
+        &lt;button mat-button matStepperPrevious&gt;Назад&lt;/button&gt;
+        &lt;p&gt;Создать аккаунт?&lt;/p&gt;
+        &lt;button mat-button matStepperNext (click)&#x3D;&quot;handleAddUser($event)&quot;&gt;
+          Да
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div *ngIf&#x3D;&quot;loading$$ | async&quot; @inOutComponent&gt;
+        &lt;mat-progress-bar mode&#x3D;&quot;indeterminate&quot;&gt; &lt;/mat-progress-bar&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/mat-step&gt;
+&lt;/mat-stepper&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./add-user.component.sass</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;../../../../styles/_vars&#x27;
+
+:host
+    &amp; form
+        width: 100%
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        &amp; input, &amp; button
+            width: 100%
+        &amp; button
+            margin-top: 20px
+
+.add-user-stepper
+
+    &amp; form &gt; div:last-child, &amp;__final &gt; div
+        width: 100%
+        display: flex
+        flex-direction: row
+        justify-content: space-around
+
+        &amp; &gt; button:not(:last-child)
+            margin-right: 20px
+
+    &amp;__input
+        width: 100%
+        margin-bottom: 10px
+
+        &amp; input.ng-invalid.ng-dirty
+            border-color: $color-primary-carrot
+
+        &amp; input
+            padding: 14px 12px
+            border-bottom: 1px solid rgba(250, 204, 109, 0.42)
+            font-size: 16px
+
+            &amp;::placeholder
+                color: rgba($color-content, 0.67)
+
+        &amp;--date
+            display: flex
+            flex-direction: row
+
+            &amp; &gt; input
+                flex-grow: 1
+
+    &amp;__final &gt; div
+        margin-top: 40px
+        align-items: center
+        justify-content: space-between
+
+        &amp; &gt; button:not(:last-child)
+            margin-right: 0
+
+        @media only screen and ( max-width: 576px )
+            margin-top: 30px
+            flex-wrap: wrap
+            flex-direction: row
+
+            &amp; &gt; p
+                width: 100%
+                flex-grow: 1
+                order: -1
+                margin-bottom: 30px
+                text-align: center
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><h1 mat-dialog-title>  {{    addUserForm_1.controls[\'login\'].value.trim().length > 0      ? addUserForm_1.controls[\'login\'].value      : \'Новый аккаунт\'  }}</h1><mat-stepper  class="add-user-stepper"  [orientation]="(stepperOrientation$ | async)!">  <mat-step [stepControl]="addUserForm_1" label="Учётные данные">    <form [formGroup]="addUserForm_1">      <div class="add-user-stepper__input">        <input          type="text"          placeholder="Логин"          formControlName="login"          autocomplete="false"          required        />      </div>      <div class="add-user-stepper__input">        <input          type="password"          placeholder="Пароль"          formControlName="password"          autocomplete="false"          required        />      </div>      <div class="add-user-stepper__input">        <input          type="text"          placeholder="Роль"          aria-label="Роль"          matInput          formControlName="role"          [matAutocomplete]="roleAuto"          required        />        <mat-autocomplete autoActiveFirstOption #roleAuto="matAutocomplete">          <mat-option            *ngFor="let role of filteredRoles$ | async"            [value]="role"          >            {{ role }}          </mat-option>        </mat-autocomplete>      </div>      <div class="add-user-stepper__input">        <input          type="text"          placeholder="Организация"          aria-label="Организация"          matInput          formControlName="team"          required          [matAutocomplete]="teamAuto"        />        <mat-autocomplete autoActiveFirstOption #teamAuto="matAutocomplete">          <mat-option            *ngFor="let team of filteredTeams$ | async"            [value]="team"          >            {{ team }}          </mat-option>        </mat-autocomplete>      </div>      <div><button mat-button matStepperNext>Далее</button></div>    </form>  </mat-step>  <mat-step [stepControl]="addUserForm_2" label="Контакты">    <form [formGroup]="addUserForm_2">      <div class="add-user-stepper__input">        <input          type="text"          formControlName="username"          placeholder="Александр Петров"          autocomplete="off"          required        />      </div>      <div class="add-user-stepper__input">        <input          type="text"          formControlName="email"          placeholder="example@vanne.uno"          autocomplete="off"        />      </div>      <div class="add-user-stepper__input">        <input          type="text"          formControlName="phone"          placeholder="7 999 333 11 77"          autocomplete="off"        />      </div>      <div class="add-user-stepper__input add-user-stepper__input--date">        <input          [matDatepicker]="picker"          formControlName="birthday"          placeholder="Дата рождения"          required        />        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>        <mat-datepicker touchUi #picker></mat-datepicker>      </div>      <div>        <button mat-button matStepperPrevious>Назад</button>        <button mat-button matStepperNext>Далее</button>      </div>    </form>  </mat-step>  <mat-step>    <ng-template matStepLabel>Финал</ng-template>    <div class="add-user-stepper__final">      <div *ngIf="!(loading$$ | async)">        <button mat-button matStepperPrevious>Назад</button>        <p>Создать аккаунт?</p>        <button mat-button matStepperNext (click)="handleAddUser($event)">          Да        </button>      </div>      <div *ngIf="loading$$ | async" @inOutComponent>        <mat-progress-bar mode="indeterminate"> </mat-progress-bar>      </div>    </div>  </mat-step></mat-stepper></div>'
+    var COMPONENTS = [{'name': 'AddUserComponent', 'selector': 'vanne-add-user'},{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChangePassComponent', 'selector': 'vanne-change-pass'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProfileComponent', 'selector': 'vanne-profile'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AddUserComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AddUserComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

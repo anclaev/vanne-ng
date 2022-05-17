@@ -47,7 +47,7 @@
   <li>Interfaces</li>
   <li
   >
-  IUser</li>
+  Account</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -65,7 +65,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/common/interfaces/user.interface.ts</code>
+            <code>src/common/models/account.ts</code>
         </p>
 
 
@@ -73,7 +73,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Интерфейс данных пользователя</p>
+                <p>Модель аккаунта на основе пользователя</p>
 
             </p>
 
@@ -103,9 +103,33 @@
                                         </a>
                                 </li>
                                 <li>
+                                        <a href="#birthday" 
+>
+                                            birthday
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#email" 
+>
+                                            email
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#firstname" 
+>
+                                            firstname
+                                        </a>
+                                </li>
+                                <li>
                                         <a href="#login" 
 >
                                             login
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#phone" 
+>
+                                            phone
                                         </a>
                                 </li>
                                 <li>
@@ -115,15 +139,15 @@
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#team" 
+                                        <a href="#surname" 
 >
-                                            team
+                                            surname
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#username" 
+                                        <a href="#team" 
 >
-                                            username
+                                            team
                                         </a>
                                 </li>
                             </ul>
@@ -219,6 +243,123 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
+                                        <a name="birthday"></a>
+                                        <span class="name "><b>birthday</b>
+                                            <a href="#birthday">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>birthday:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Дата рождения на аккаунте</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="email"></a>
+                                        <span class="name "><b>email</b>
+                                            <a href="#email">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>email:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Электронная почта аккаунта</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="firstname"></a>
+                                        <span class="name "><b>firstname</b>
+                                            <a href="#firstname">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>firstname:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Имя пользователя</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
                                         <a name="login"></a>
                                         <span class="name "><b>login</b>
                                             <a href="#login">
@@ -249,6 +390,45 @@
                             <tr>
                                 <td class="col-md-4">
                                     <div class="io-description"><p>Логин аккаунта</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="phone"></a>
+                                        <span class="name "><b>phone</b>
+                                            <a href="#phone">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>phone:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Мобильный номер аккаунта</p>
 </div>
                                 </td>
                             </tr>
@@ -297,6 +477,45 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
+                                        <a name="surname"></a>
+                                        <span class="name "><b>surname</b>
+                                            <a href="#surname">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>surname:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Фамилия пользователя</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
                                         <a name="team"></a>
                                         <span class="name "><b>team</b>
                                             <a href="#team">
@@ -332,57 +551,18 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="username"></a>
-                                        <span class="name "><b>username</b>
-                                            <a href="#username">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>username:     <code>string | null</code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code>string | null</code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Имя пользователя</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
             </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ROLE } from &#x27;../enums&#x27;
-import { ITeam } from &#x27;./team.interface&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ITeam } from &#x27;../interfaces&#x27;
+import { ROLE } from &#x27;../enums&#x27;
 
 /**
- * Интерфейс данных пользователя
+ * Модель аккаунта на основе пользователя
  */
-export interface IUser {
+export interface Account {
   /**
    * ID аккаунта
    */
@@ -396,7 +576,12 @@ export interface IUser {
   /**
    * Имя пользователя
    */
-  username: string | null
+  firstname: string | null
+
+  /**
+   * Фамилия пользователя
+   */
+  surname: string | null
 
   /**
    * Роль аккаунта
@@ -412,25 +597,21 @@ export interface IUser {
    * Аватар аккаунта
    */
   avatar: string | null
-}
 
-export type User &#x3D; IUser | null
+  /**
+   * Электронная почта аккаунта
+   */
+  email: string | null
 
-/**
- * Тестовые данные пользователя
- */
-export const testingUser: User &#x3D; {
-  _id: &#x27;1&#x27;,
-  avatar: &#x27;test&#x27;,
-  login: &#x27;test&#x27;,
-  username: &#x27;test&#x27;,
-  role: ROLE.ADMIN,
-  team: {
-    _id: &#x27;1&#x27;,
-    name: &#x27;test&#x27;,
-    short_name: &#x27;test&#x27;,
-    activated: true,
-  },
+  /**
+   * Мобильный номер аккаунта
+   */
+  phone: string | null
+
+  /**
+   * Дата рождения на аккаунте
+   */
+  birthday: string | null
 }
 </code></pre>
     </div>
@@ -469,7 +650,7 @@ export const testingUser: User &#x3D; {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'IUser.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'Account.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

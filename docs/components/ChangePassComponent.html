@@ -525,7 +525,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Форма смены своегго пароля</p>
+                    <div class="io-description"><p>Форма смены своего пароля</p>
 </div>
                 </td>
             </tr>
@@ -632,7 +632,7 @@ import { ProfileComponent } from &#x27;../profile.component&#x27;
 })
 export class ChangePassComponent implements OnDestroy {
   /**
-   * Форма смены своегго пароля
+   * Форма смены своего пароля
    */
   public changePassForm &#x3D; new FormGroup({
     oldPassword: new FormControl(&#x27;&#x27;, {
@@ -808,7 +808,7 @@ export class ChangePassComponent implements OnDestroy {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><h1 mat-dialog-title>Смена пароля</h1><form [formGroup]="changePassForm">  <input    type="password"    formControlName="oldPassword"    placeholder="Текущий пароль"    autocomplete="off"    readonly    onfocus="this.removeAttribute(\'readonly\')"  />  <input    type="password"    formControlName="newPassword"    placeholder="Новый пароль"    autocomplete="off"    readonly    onfocus="this.removeAttribute(\'readonly\')"  />  <button (click)="handleChangePass($event)">Сменить</button></form></div>'
-    var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChangePassComponent', 'selector': 'vanne-change-pass'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProfileComponent', 'selector': 'vanne-profile'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
+    var COMPONENTS = [{'name': 'AddUserComponent', 'selector': 'vanne-add-user'},{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChangePassComponent', 'selector': 'vanne-change-pass'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProfileComponent', 'selector': 'vanne-profile'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ChangePassComponent'};
 </script>

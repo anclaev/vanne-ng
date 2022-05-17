@@ -2,16 +2,41 @@ import { gql } from 'apollo-angular'
 
 import { ROLE } from '@/common/enums'
 
+/**
+ * DTO получаемого аккаунта в списке
+ */
 export interface Account {
+  /**
+   * Логин аккаунта
+   */
   login: string
+
+  /**
+   * Роль аккаунта
+   */
   role: ROLE
+
+  /**
+   * Имя аккаунта
+   */
   firstname?: string
+
+  /**
+   * Фамилия аккаунта
+   */
   surname?: string
+
+  /**
+   * Аватар аккаунта
+   */
   avatar?: {
     url: string
   }
 }
 
+/**
+ * Переменные запроса
+ */
 export type Variables = {
   start: number
   limit: number

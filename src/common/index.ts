@@ -28,3 +28,18 @@ export const imageMimeTypes = ['image/png', 'image/jpeg', 'image/webp']
  * Зона компонента (внутренний/внешний)
  */
 export type ComponentZone = 'internal' | 'public'
+
+/**
+ * Параметры форматирования даты
+ */
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'DD MMMM, YYYY',
+    monthYearLabel: 'MMMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+}
