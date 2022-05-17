@@ -48,11 +48,13 @@
           type="text"
           formControlName="username"
           (ngModelChange)="handleChangeUsername($event)"
+          [title]="this.profileForm.controls['username'].value"
         />
         <input
           type="text"
           formControlName="login"
           (ngModelChange)="handleChangeLogin($event)"
+          [title]="this.profileForm.controls['login'].value"
         />
       </div>
       <div class="profile-desc-info__field">
@@ -61,6 +63,7 @@
           formControlName="email"
           placeholder="Электронная почта"
           (ngModelChange)="handleChangeEmail($event)"
+          [title]="this.profileForm.controls['email'].value"
         />
         <img src="/assets/svg/email-min.svg" alt="Icon: Email" />
       </div>
@@ -69,6 +72,7 @@
           type="text"
           formControlName="phone"
           placeholder="7 999 666 22 11"
+          [title]="this.profileForm.controls['phone'].value"
           (ngModelChange)="handleChangePhone($event)"
         />
         <img src="/assets/svg/phone-min.svg" alt="Icon: Phone" />
