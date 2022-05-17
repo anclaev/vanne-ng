@@ -1,5 +1,13 @@
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete'
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
+
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core'
+
 import { BehaviorSubject, map, Observable, startWith } from 'rxjs'
 import { MatChipInputEvent } from '@angular/material/chips'
 import { IInfiniteScrollEvent } from 'ngx-infinite-scroll'
@@ -12,11 +20,13 @@ import { Router } from '@angular/router'
 import { inOutComponentAnimation } from '@/common/animations/in-out-component'
 import { Account, GET_ACCOUNTS } from '@/common/schemes/query/getAccounts'
 
+import { StorageService } from '@/app/shared/services/storage.service'
 import { TeamsService } from '@/app/shared/services/teams.service'
 import { AuthService } from '@/app/shared/services/auth.service'
 import { translateRole } from '@/app/shared/utils/funcs'
 
 import { AddUserComponent } from './add-user/add-user.component'
+import { STORAGE } from '@/common/enums'
 
 /**
  * Компонент страницы пользователей
@@ -27,7 +37,7 @@ import { AddUserComponent } from './add-user/add-user.component'
   styleUrls: ['./users.component.sass'],
   animations: [inOutComponentAnimation],
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
   /**
    * Флаг просмотра администратором
    */
@@ -130,6 +140,7 @@ export class UsersComponent implements OnInit {
    * @param {Apollo} apolloService Сервис Apollo
    * @param {TeamService} teamService Сервис организаций
    * @param {Router} routerService Сервис роутера
+   * @param {StorageService} storageService Сервис взаимодействия с storage
    * @param {MatDialog} dialogService Сервис диалоговых окон
    */
   constructor(
@@ -137,6 +148,7 @@ export class UsersComponent implements OnInit {
     private readonly apolloService: Apollo,
     private readonly teamService: TeamsService,
     private readonly routerService: Router,
+    private readonly storageService: StorageService,
     private readonly dialogService: MatDialog,
   ) {
     if (window.innerWidth <= 768 || window.innerHeight <= 415) {
@@ -384,5 +396,18 @@ export class UsersComponent implements OnInit {
     return this.allCompanies.filter((company) =>
       company.toLowerCase().includes(filterValue),
     )
+  }
+
+  /**
+   * Удаление временных данных из session storage
+   */
+  ngOnDestroy(): void {
+    this.storageService.removeSessionStorage(STORAGE.ADD_USER_LOGIN)
+    this.storageService.removeSessionStorage(STORAGE.ADD_USER_ROLE)
+    this.storageService.removeSessionStorage(STORAGE.ADD_USER_TEAM)
+    this.storageService.removeSessionStorage(STORAGE.ADD_USER_USERNAME)
+    this.storageService.removeSessionStorage(STORAGE.ADD_USER_PHONE)
+    this.storageService.removeSessionStorage(STORAGE.ADD_USER_EMAIL)
+    this.storageService.removeSessionStorage(STORAGE.ADD_USER_BIRTHDAY)
   }
 }

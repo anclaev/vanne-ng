@@ -17,6 +17,7 @@
           placeholder="Логин"
           formControlName="login"
           autocomplete="false"
+          (change)="handleChangeField('login', $event)"
           required
         />
       </div>
@@ -39,7 +40,11 @@
           [matAutocomplete]="roleAuto"
           required
         />
-        <mat-autocomplete autoActiveFirstOption #roleAuto="matAutocomplete">
+        <mat-autocomplete
+          autoActiveFirstOption
+          #roleAuto="matAutocomplete"
+          (optionSelected)="handleChangeField('role', $event)"
+        >
           <mat-option
             *ngFor="let role of filteredRoles$ | async"
             [value]="role"
@@ -58,7 +63,11 @@
           required
           [matAutocomplete]="teamAuto"
         />
-        <mat-autocomplete autoActiveFirstOption #teamAuto="matAutocomplete">
+        <mat-autocomplete
+          autoActiveFirstOption
+          #teamAuto="matAutocomplete"
+          (optionSelected)="handleChangeField('team', $event)"
+        >
           <mat-option
             *ngFor="let team of filteredTeams$ | async"
             [value]="team"
@@ -78,6 +87,7 @@
           formControlName="username"
           placeholder="Александр Петров"
           autocomplete="off"
+          (change)="handleChangeField('username', $event)"
           required
         />
       </div>
@@ -85,6 +95,7 @@
         <input
           type="text"
           formControlName="email"
+          (change)="handleChangeField('email', $event)"
           placeholder="example@vanne.uno"
           autocomplete="off"
         />
@@ -93,6 +104,7 @@
         <input
           type="text"
           formControlName="phone"
+          (change)="handleChangeField('phone', $event)"
           placeholder="7 999 333 11 77"
           autocomplete="off"
         />
@@ -100,6 +112,7 @@
       <div class="add-user-stepper__input add-user-stepper__input--date">
         <input
           [matDatepicker]="picker"
+          (dateChange)="handleChangeField('birthday', $event)"
           formControlName="birthday"
           placeholder="Дата рождения"
           required

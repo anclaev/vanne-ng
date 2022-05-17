@@ -22,15 +22,29 @@ import { inOutComponentAnimation } from '@/common/animations/in-out-component'
 
 import { CREATE_ACCOUNT } from '@/common/schemes/mutation/createAccount'
 
+import { ERROR, STORAGE } from '@/common/enums'
 import { Team } from '@/common/interfaces'
-import { ERROR } from '@/common/enums'
 import { MY_FORMATS } from '@/common'
 
+import { StorageService } from '@/app/shared/services/storage.service'
 import { ToastService } from '@/app/shared/services/toast.service'
 import { TeamsService } from '@/app/shared/services/teams.service'
 import { codingRole, intlRoles } from '@/app/shared/utils/funcs'
 
 import { UsersComponent } from '../users.component'
+
+/**
+ * Тип полей формы создания аккаунта
+ */
+type AddUserFormField =
+  | 'login'
+  | 'password'
+  | 'role'
+  | 'team'
+  | 'username'
+  | 'email'
+  | 'phone'
+  | 'birthday'
 
 /**
  * Компонент создания аккаунта
@@ -90,43 +104,64 @@ export class AddUserComponent {
    * Форма создания пользователя (шан 1)
    */
   public addUserForm_1 = new FormGroup({
-    login: new FormControl('', [
-      Validators.required,
-      Validators.minLength(4),
-      Validators.pattern(/^[A-Z, a-z, 0-9]+\S$/),
-    ]),
+    login: new FormControl(
+      this.storageService.getSessionStorage(STORAGE.ADD_USER_LOGIN) || '',
+      [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.pattern(/^[A-Z, a-z, 0-9]+\S$/),
+      ],
+    ),
     password: new FormControl('', {
       validators: [Validators.required, Validators.minLength(8)],
     }),
-    role: new FormControl('', {
-      validators: [Validators.required],
-    }),
-    team: new FormControl('', Validators.required),
+    role: new FormControl(
+      this.storageService.getSessionStorage(STORAGE.ADD_USER_ROLE) || '',
+      {
+        validators: [Validators.required],
+      },
+    ),
+    team: new FormControl(
+      this.storageService.getSessionStorage(STORAGE.ADD_USER_TEAM) || '',
+      Validators.required,
+    ),
   })
 
   /**
    * Форма создания пользователя (шаг 2)
    */
   public addUserForm_2 = new FormGroup({
-    username: new FormControl('', {
-      validators: [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.pattern(
-          /^[A-Z, А-Я][a-z, а-я, ё]+\s[A-Z, А-Я][a-z, а-я, ё]+$/,
-        ),
+    username: new FormControl(
+      this.storageService.getSessionStorage(STORAGE.ADD_USER_USERNAME) || '',
+      {
+        validators: [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.pattern(
+            /^[A-Z, А-Я][a-z, а-я, ё]+\s[A-Z, А-Я][a-z, а-я, ё]+$/,
+          ),
+        ],
+      },
+    ),
+    email: new FormControl(
+      this.storageService.getSessionStorage(STORAGE.ADD_USER_EMAIL) || '',
+      [Validators.required, Validators.email, Validators.minLength(6)],
+    ),
+    phone: new FormControl(
+      this.storageService.getSessionStorage(STORAGE.ADD_USER_PHONE) || '',
+      [
+        Validators.minLength(6),
+        Validators.pattern(/^\d{1,1}\s\d{3,3}\s\d{3,3}\s\d{2,2}\s\d{2,2}$/),
       ],
-    }),
-    email: new FormControl('', [
+    ),
+    birthday: new FormControl(
+      new Date(
+        this.storageService.getSessionStorage(
+          STORAGE.ADD_USER_BIRTHDAY,
+        ) as string,
+      ),
       Validators.required,
-      Validators.email,
-      Validators.minLength(6),
-    ]),
-    phone: new FormControl('', [
-      Validators.minLength(6),
-      Validators.pattern(/^\d{1,1}\s\d{3,3}\s\d{3,3}\s\d{2,2}\s\d{2,2}$/),
-    ]),
-    birthday: new FormControl('', Validators.required),
+    ),
   })
 
   /**
@@ -134,6 +169,7 @@ export class AddUserComponent {
    * @param {Apollo} apolloService Сервис Apollo
    * @param {ToastService} toastService Сервис уведомлений
    * @param {TeamsService} teamsService Сервис организаций
+   * @param {StorageService} storageService Сервис взаимодействия с storage
    * @param {BreakpointObserver} breakpointObserver Наблюдатель за изменением разрешения экрана
    * @param {MatDialogRef<UsersComponent>} dialogRef Ссылка на родителя формы
    */
@@ -141,6 +177,7 @@ export class AddUserComponent {
     private apolloService: Apollo,
     private toastService: ToastService,
     private teamsService: TeamsService,
+    public storageService: StorageService,
     private breakpointObserver: BreakpointObserver,
     public dialogRef: MatDialogRef<UsersComponent>,
   ) {
@@ -169,6 +206,65 @@ export class AddUserComponent {
     )
 
     this.roles = intlRoles()
+  }
+
+  /**
+   * Обработчик изменения данных в полях формы
+   * @description Записывает данные в session storage
+   * @param {AddUserFormField} field Ключ поля формы
+   * @param {any} event Новое значение
+   */
+  public handleChangeField(field: AddUserFormField, event: any): void {
+    switch (field) {
+      case 'login':
+        this.storageService.setSessionStorage(
+          STORAGE.ADD_USER_LOGIN,
+          event.target.value,
+        )
+        return
+
+      case 'birthday':
+        this.storageService.setSessionStorage(
+          STORAGE.ADD_USER_BIRTHDAY,
+          event.target.value,
+        )
+        return
+
+      case 'team':
+        this.storageService.setSessionStorage(
+          STORAGE.ADD_USER_TEAM,
+          event.option.value,
+        )
+        return
+
+      case 'role':
+        this.storageService.setSessionStorage(
+          STORAGE.ADD_USER_ROLE,
+          event.option.value,
+        )
+        return
+
+      case 'phone':
+        this.storageService.setSessionStorage(
+          STORAGE.ADD_USER_PHONE,
+          event.target.value,
+        )
+        return
+
+      case 'email':
+        this.storageService.setSessionStorage(
+          STORAGE.ADD_USER_EMAIL,
+          event.target.value,
+        )
+        return
+
+      case 'username':
+        this.storageService.setSessionStorage(
+          STORAGE.ADD_USER_USERNAME,
+          event.target.value,
+        )
+        return
+    }
   }
 
   /**
@@ -234,6 +330,15 @@ export class AddUserComponent {
 
           if (data && data.createAccount.login) {
             this.toastService.show('Аккаунт успешно зарегистрирован')
+
+            this.storageService.removeSessionStorage(STORAGE.ADD_USER_LOGIN)
+            this.storageService.removeSessionStorage(STORAGE.ADD_USER_ROLE)
+            this.storageService.removeSessionStorage(STORAGE.ADD_USER_TEAM)
+            this.storageService.removeSessionStorage(STORAGE.ADD_USER_USERNAME)
+            this.storageService.removeSessionStorage(STORAGE.ADD_USER_PHONE)
+            this.storageService.removeSessionStorage(STORAGE.ADD_USER_EMAIL)
+            this.storageService.removeSessionStorage(STORAGE.ADD_USER_BIRTHDAY)
+
             this.onNoClick()
           }
         },

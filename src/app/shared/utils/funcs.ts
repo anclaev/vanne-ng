@@ -1,7 +1,6 @@
 import moment from 'moment'
 
-import { CodeRole, IntlRole } from '@/common/enums/role.enum'
-import { ROLE } from '@/common/enums'
+import { ROLE, STORAGE, CodeRole, IntlRole } from '@/common/enums'
 
 /**
  * Функция случайного числа в заданном диапазоне

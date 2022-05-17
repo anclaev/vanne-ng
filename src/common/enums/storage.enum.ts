@@ -1,6 +1,14 @@
 /**
  * Перечисление с ключами storage
  */
-export enum STORAGE {}
+export enum STORAGE {
+  ADD_USER_LOGIN = 'ADD_USER_LOGIN',
+  ADD_USER_USERNAME = 'ADD_USER_USERNAME',
+  ADD_USER_TEAM = 'ADD_USER_TEAM',
+  ADD_USER_ROLE = 'ADD_USER_ROLE',
+  ADD_USER_PHONE = 'ADD_USER_PHONE',
+  ADD_USER_EMAIL = 'ADD_USER_EMAIL',
+  ADD_USER_BIRTHDAY = 'ADD_USER_BIRTHDAY',
+}
 
-export type Storage = keyof typeof STORAGE
+export type StorageKey = keyof typeof STORAGE
