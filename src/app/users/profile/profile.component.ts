@@ -24,9 +24,9 @@ import {
 
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 import { HttpClient, HttpEventType } from '@angular/common/http'
 import { Component, OnDestroy, OnInit } from '@angular/core'
-import { ActivatedRoute, Router } from '@angular/router'
 import { Title } from '@angular/platform-browser'
 
 import {
@@ -284,6 +284,43 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * Метод получения аккаунта при инициализации компонента
    */
   ngOnInit(): void {
+    this.otherChangeSubs.push(
+      this.routerService.events.subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          let login = event.url.slice(3, event.url.length).trim()
+          let initial = initialAccount
+
+          if (login !== this.profile$$.value.login) {
+            // Проверка на свою страницу
+            if (
+              this.authService.currentUser &&
+              this.authService.currentUser.login === login
+            ) {
+              this.isMe = true
+            }
+
+            if (this.isMe) {
+              this.profileForm.controls['birthday'].enable()
+              this.profileForm.controls['phone'].enable()
+            }
+
+            // Установка параметров запроса аккаунта
+            if (this.authService.currentUser && this.isMe) {
+              initial = { ...initial, ...this.authService.currentUser }
+            } else if (this.authService.currentUser) {
+              initial = { ...initial, login }
+            }
+
+            this.profile$$ = new BehaviorSubject(initial)
+
+            this.profileQuery?.refetch({
+              login,
+            })
+          }
+        }
+      }),
+    )
+
     this.profileQuery = this.apolloService.watchQuery({
       query: GET_PROFILE,
       variables: {

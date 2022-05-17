@@ -3,7 +3,7 @@
     <div
       class="profile-card__avatar"
       [attr.data-online]="isOnline"
-      [attr.data-editable]="isMe || supervisedByAdmin$$"
+      [attr.data-editable]="isMe || supervisedByAdmin$$ ? true : false"
       [attr.data-loading]="!!uploadProgress"
       (click)="avatarUpload.click()"
     >
@@ -85,7 +85,7 @@
           <mat-datepicker-toggle
             matSuffix
             [for]="picker"
-            [style]="!isMe || !supervisedByAdmin$$ ? { display: 'none' } : {}"
+            [style]="isMe || supervisedByAdmin$$ ? {} : { display: 'none' }"
           ></mat-datepicker-toggle>
           <mat-datepicker touchUi #picker></mat-datepicker>
         </div>
