@@ -47,7 +47,7 @@
   <li>Interfaces</li>
   <li
   >
-  IAccount</li>
+  Account</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -65,7 +65,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/common/interfaces/account.interface.ts</code>
+            <code>src/common/schemes/query/getAccounts.ts</code>
         </p>
 
 
@@ -73,16 +73,10 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Интерфейс аккаунта</p>
+                <p>DTO получаемого аккаунта в списке</p>
 
             </p>
 
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                        <code><a href="../interfaces/IUser.html" target="_self" >IUser</a></code>
-            </p>
 
         <section>
             <h3 id="index">Index</h3>
@@ -97,21 +91,36 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#birthday" 
+                                            <span class="modifier">Optional</span>
+                                        <a href="#avatar" 
 >
-                                            birthday
+                                            avatar
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#email" 
+                                            <span class="modifier">Optional</span>
+                                        <a href="#firstname" 
 >
-                                            email
+                                            firstname
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#phone" 
+                                        <a href="#login" 
 >
-                                            phone
+                                            login
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#role" 
+>
+                                            role
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#surname" 
+>
+                                            surname
                                         </a>
                                 </li>
                             </ul>
@@ -129,9 +138,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="birthday"></a>
-                                        <span class="name "><b>birthday</b>
-                                            <a href="#birthday">
+                                        <a name="avatar"></a>
+                                        <span class="name "><b>avatar</b>
+                                            <a href="#avatar">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -139,7 +148,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>birthday:     <code>string | null</code>
+                                        <code>avatar:     <code>literal type</code>
 </code>
                                     </td>
                                 </tr>
@@ -147,18 +156,23 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code>string | null</code>
+                                            <i>Type : </i>    <code>literal type</code>
 
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
                                         </td>
                                     </tr>
 
 
 
 
-
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Дата рождения на аккаунте</p>
+                                    <div class="io-description"><p>Аватар аккаунта</p>
 </div>
                                 </td>
                             </tr>
@@ -168,9 +182,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="email"></a>
-                                        <span class="name "><b>email</b>
-                                            <a href="#email">
+                                        <a name="firstname"></a>
+                                        <span class="name "><b>firstname</b>
+                                            <a href="#firstname">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -178,7 +192,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>email:     <code>string | null</code>
+                                        <code>firstname:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -186,18 +200,23 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code>string | null</code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
                                         </td>
                                     </tr>
 
 
 
 
-
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Электронная почта аккаунта</p>
+                                    <div class="io-description"><p>Имя аккаунта</p>
 </div>
                                 </td>
                             </tr>
@@ -207,9 +226,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="phone"></a>
-                                        <span class="name "><b>phone</b>
-                                            <a href="#phone">
+                                        <a name="login"></a>
+                                        <span class="name "><b>login</b>
+                                            <a href="#login">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -217,7 +236,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>phone:     <code>string | null</code>
+                                        <code>login:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -225,7 +244,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code>string | null</code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                                         </td>
                                     </tr>
@@ -236,7 +255,90 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Мобильный номер аккаунта</p>
+                                    <div class="io-description"><p>Логин аккаунта</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="role"></a>
+                                        <span class="name "><b>role</b>
+                                            <a href="#role">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>role:         <code><a href="../miscellaneous/enumerations.html#ROLE" target="_self" >ROLE</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#ROLE" target="_self" >ROLE</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Роль аккаунта</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="surname"></a>
+                                        <span class="name "><b>surname</b>
+                                            <a href="#surname">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>surname:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Фамилия аккаунта</p>
 </div>
                                 </td>
                             </tr>
@@ -247,42 +349,73 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IUser } from &#x27;./user.interface&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { gql } from &#x27;apollo-angular&#x27;
+
+import { ROLE } from &#x27;@/common/enums&#x27;
 
 /**
- * Интерфейс аккаунта
+ * DTO получаемого аккаунта в списке
  */
-export interface IAccount extends IUser {
+export interface Account {
   /**
-   * Электронная почта аккаунта
+   * Логин аккаунта
    */
-  email: string | null
+  login: string
 
   /**
-   * Мобильный номер аккаунта
+   * Роль аккаунта
    */
-  phone: string | null
+  role: ROLE
 
   /**
-   * Дата рождения на аккаунте
+   * Имя аккаунта
    */
-  birthday: string | null
+  firstname?: string
+
+  /**
+   * Фамилия аккаунта
+   */
+  surname?: string
+
+  /**
+   * Аватар аккаунта
+   */
+  avatar?: {
+    url: string
+  }
 }
 
 /**
- * Дефолтные значения аккаунта
+ * Переменные запроса
  */
-export const initialAccount: IAccount &#x3D; {
-  _id: null,
-  avatar: null,
-  birthday: null,
-  email: null,
-  login: null,
-  phone: null,
-  role: null,
-  team: null,
-  username: null,
+export type Variables &#x3D; {
+  start: number
+  limit: number
+  role?: ROLE
+  company?: string
 }
+
+/**
+ * Запрос на получение аккаунтов
+ */
+export const GET_ACCOUNTS &#x3D; gql&lt;{ accounts: Account[] }, Variables&gt;&#x60;
+  query getAccounts(
+    $start: Float!
+    $limit: Float!
+    $role: String
+    $company: String
+  ) {
+    accounts(start: $start, limit: $limit, role: $role, team: $company) {
+      firstname
+      surname
+      login
+      avatar {
+        url
+      }
+      role
+    }
+  }
+&#x60;
 </code></pre>
     </div>
 </div>
@@ -320,7 +453,7 @@ export const initialAccount: IAccount &#x3D; {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'IAccount.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'Account-1.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

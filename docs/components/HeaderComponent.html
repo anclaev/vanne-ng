@@ -533,7 +533,7 @@ export class HeaderComponent {
         <pre class="line-numbers"><code class="language-html">&lt;header *ngIf&#x3D;&quot;status&quot; class&#x3D;&quot;header--internal&quot; @inOutComponent&gt;
   &lt;vanne-logo [type]&#x3D;&quot;&#x27;small&#x27;&quot;&gt;&lt;/vanne-logo&gt;
   &lt;div class&#x3D;&quot;header--internal__me&quot;&gt;
-    &lt;a [routerLink]&#x3D;&quot;&#x27;/u/&#x27; + login&quot; title&#x3D;&quot;To me&quot;&gt;
+    &lt;a [routerLink]&#x3D;&quot;&#x27;/u/&#x27; + login&quot; title&#x3D;&quot;Мой профиль&quot;&gt;
       &lt;img [src]&#x3D;&quot;avatar&quot; width&#x3D;&quot;60&quot; height&#x3D;&quot;60&quot; alt&#x3D;&quot;User Avatar&quot; /&gt;
     &lt;/a&gt;
     &lt;div&gt;
@@ -546,7 +546,7 @@ export class HeaderComponent {
       class&#x3D;&quot;pin&quot;
       routerLink&#x3D;&quot;/settings&quot;
       routerLinkActive&#x3D;&quot;header--internal__options--active&quot;
-      title&#x3D;&quot;Settings&quot;
+      title&#x3D;&quot;Настройки&quot;
       &gt;&lt;img
         src&#x3D;&quot;/assets/svg/settings-min.svg&quot;
         width&#x3D;&quot;16&quot;
@@ -554,7 +554,7 @@ export class HeaderComponent {
         alt&#x3D;&quot;Settings&quot;
     /&gt;&lt;/a&gt;
 
-    &lt;button class&#x3D;&quot;pin&quot; (click)&#x3D;&quot;authService.logout()&quot; title&#x3D;&quot;Sign out&quot;&gt;
+    &lt;button class&#x3D;&quot;pin&quot; (click)&#x3D;&quot;authService.logout()&quot; title&#x3D;&quot;Выйти&quot;&gt;
       &lt;img
         src&#x3D;&quot;/assets/svg/logout-min.svg&quot;
         width&#x3D;&quot;16&quot;
@@ -715,8 +715,8 @@ export class HeaderComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><header *ngIf="status" class="header--internal" @inOutComponent>  <vanne-logo [type]="\'small\'"></vanne-logo>  <div class="header--internal__me">    <a [routerLink]="\'/u/\' + login" title="To me">      <img [src]="avatar" width="60" height="60" alt="User Avatar" />    </a>    <div>      <span>{{ user }}</span>      <span>{{ company }}</span>    </div>  </div>  <div class="header--internal__options">    <a      class="pin"      routerLink="/settings"      routerLinkActive="header--internal__options--active"      title="Settings"      ><img        src="/assets/svg/settings-min.svg"        width="16"        height="16"        alt="Settings"    /></a>    <button class="pin" (click)="authService.logout()" title="Sign out">      <img        src="/assets/svg/logout-min.svg"        width="16"        height="16"        alt="Logout"      />    </button>  </div></header></div>'
-    var COMPONENTS = [{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChangePassComponent', 'selector': 'vanne-change-pass'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProfileComponent', 'selector': 'vanne-profile'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
+        var COMPONENT_TEMPLATE = '<div><header *ngIf="status" class="header--internal" @inOutComponent>  <vanne-logo [type]="\'small\'"></vanne-logo>  <div class="header--internal__me">    <a [routerLink]="\'/u/\' + login" title="Мой профиль">      <img [src]="avatar" width="60" height="60" alt="User Avatar" />    </a>    <div>      <span>{{ user }}</span>      <span>{{ company }}</span>    </div>  </div>  <div class="header--internal__options">    <a      class="pin"      routerLink="/settings"      routerLinkActive="header--internal__options--active"      title="Настройки"      ><img        src="/assets/svg/settings-min.svg"        width="16"        height="16"        alt="Settings"    /></a>    <button class="pin" (click)="authService.logout()" title="Выйти">      <img        src="/assets/svg/logout-min.svg"        width="16"        height="16"        alt="Logout"      />    </button>  </div></header></div>'
+    var COMPONENTS = [{'name': 'AddUserComponent', 'selector': 'vanne-add-user'},{'name': 'AlarmsComponent', 'selector': 'vanne-alarms'},{'name': 'AppComponent', 'selector': 'vanne-root'},{'name': 'BgVideoComponent', 'selector': 'vanne-bg-video'},{'name': 'ChangePassComponent', 'selector': 'vanne-change-pass'},{'name': 'ChatsComponent', 'selector': 'vanne-chats'},{'name': 'DashboardComponent', 'selector': 'vanne-dashboard'},{'name': 'DebtsComponent', 'selector': 'vanne-debts'},{'name': 'HeaderComponent', 'selector': 'vanne-header'},{'name': 'LogoComponent', 'selector': 'vanne-logo'},{'name': 'NavComponent', 'selector': 'vanne-nav'},{'name': 'ProfileComponent', 'selector': 'vanne-profile'},{'name': 'ProgressComponent', 'selector': 'vanne-progress'},{'name': 'SettingsComponent', 'selector': 'vanne-settings'},{'name': 'SignInComponent', 'selector': 'vanne-sign-in'},{'name': 'UsersComponent', 'selector': 'vanne-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
 </script>

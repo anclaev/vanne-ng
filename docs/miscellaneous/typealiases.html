@@ -61,10 +61,16 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#AddUserFormField" title="src/app/users/users/add-user/add-user.component.ts" ><b>AddUserFormField</b>&nbsp;&nbsp;&nbsp;(src/.../add-user.component.ts)</a>
+                        </li>
+                        <li>
                             <a href="#ComponentType" title="src/common/interfaces/index.ts" ><b>ComponentType</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
                             <a href="#ComponentZone" title="src/common/index.ts" ><b>ComponentZone</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CreateAccountDto" title="src/common/schemes/mutation/createAccount.ts" ><b>CreateAccountDto</b>&nbsp;&nbsp;&nbsp;(src/.../createAccount.ts)</a>
                         </li>
                         <li>
                             <a href="#Credentials" title="src/common/interfaces/credentials.interface.ts" ><b>Credentials</b>&nbsp;&nbsp;&nbsp;(src/.../credentials.interface.ts)</a>
@@ -73,10 +79,10 @@
                             <a href="#Environment" title="src/common/interfaces/environment.interface.ts" ><b>Environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.interface.ts)</a>
                         </li>
                         <li>
-                            <a href="#Login" title="src/common/schemes/query/getProfile.ts" ><b>Login</b>&nbsp;&nbsp;&nbsp;(src/.../getProfile.ts)</a>
+                            <a href="#Login" title="src/common/schemes/query/getSessions.ts" ><b>Login</b>&nbsp;&nbsp;&nbsp;(src/.../getSessions.ts)</a>
                         </li>
                         <li>
-                            <a href="#Login" title="src/common/schemes/query/getSessions.ts" ><b>Login</b>&nbsp;&nbsp;&nbsp;(src/.../getSessions.ts)</a>
+                            <a href="#Login" title="src/common/schemes/query/getProfile.ts" ><b>Login</b>&nbsp;&nbsp;&nbsp;(src/.../getProfile.ts)</a>
                         </li>
                         <li>
                             <a href="#Role" title="src/common/enums/role.enum.ts" ><b>Role</b>&nbsp;&nbsp;&nbsp;(src/.../role.enum.ts)</a>
@@ -88,7 +94,7 @@
                             <a href="#Sessions" title="src/common/schemes/query/getSessions.ts" ><b>Sessions</b>&nbsp;&nbsp;&nbsp;(src/.../getSessions.ts)</a>
                         </li>
                         <li>
-                            <a href="#Storage" title="src/common/enums/storage.enum.ts" ><b>Storage</b>&nbsp;&nbsp;&nbsp;(src/.../storage.enum.ts)</a>
+                            <a href="#StorageKey" title="src/common/enums/storage.enum.ts" ><b>StorageKey</b>&nbsp;&nbsp;&nbsp;(src/.../storage.enum.ts)</a>
                         </li>
                         <li>
                             <a href="#Team" title="src/common/interfaces/team.interface.ts" ><b>Team</b>&nbsp;&nbsp;&nbsp;(src/.../team.interface.ts)</a>
@@ -99,6 +105,9 @@
                         <li>
                             <a href="#User" title="src/common/interfaces/user.interface.ts" ><b>User</b>&nbsp;&nbsp;&nbsp;(src/.../user.interface.ts)</a>
                         </li>
+                        <li>
+                            <a href="#Variables" title="src/common/schemes/query/getAccounts.ts" ><b>Variables</b>&nbsp;&nbsp;&nbsp;(src/.../getAccounts.ts)</a>
+                        </li>
                     </ul>
                 </td>
             </tr>
@@ -106,7 +115,31 @@
     </table>
 </section>
 
-    <h3>src/common/interfaces/index.ts</h3>
+    <h3>src/app/users/users/add-user/add-user.component.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AddUserFormField"></a>
+                    <span class="name "><b>AddUserFormField</b><a href="#AddUserFormField"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Тип полей формы создания аккаунта</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;login&quot; | &quot;password&quot; | &quot;role&quot; | &quot;team&quot; | &quot;username&quot; | &quot;email&quot; | &quot;phone&quot; | &quot;birthday&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/common/interfaces/index.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
         <tbody>
@@ -148,6 +181,24 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>src/common/schemes/mutation/createAccount.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CreateAccountDto"></a>
+                    <span class="name "><b>CreateAccountDto</b><a href="#CreateAccountDto"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>src/common/interfaces/credentials.interface.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
@@ -184,24 +235,6 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/common/schemes/query/getProfile.ts</h3>
-    <section>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="Login"></a>
-                    <span class="name "><b>Login</b><a href="#Login"><span class="icon ion-ios-link"></span></a></span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <code>        <code><a href="../interfaces/IAccount.html" target="_self" >Pick&lt;IAccount | login&gt;</a></code>
-</code>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>    <h3>src/common/schemes/query/getSessions.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
@@ -214,7 +247,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <code>        <code><a href="../interfaces/IAccount.html" target="_self" >Pick&lt;IAccount | login&gt;</a></code>
+                    <code>    <code>Pick&lt;Account | login&gt;</code>
 </code>
                 </td>
             </tr>
@@ -231,6 +264,24 @@
             <tr>
                 <td class="col-md-4">
                     <code>        <code><a href="../interfaces/ISession.html" target="_self" >ISession[]</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/common/schemes/query/getProfile.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Login"></a>
+                    <span class="name "><b>Login</b><a href="#Login"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Pick&lt;Account | login&gt;</code>
 </code>
                 </td>
             </tr>
@@ -294,8 +345,8 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="Storage"></a>
-                    <span class="name "><b>Storage</b><a href="#Storage"><span class="icon ion-ios-link"></span></a></span>
+                    <a name="StorageKey"></a>
+                    <span class="name "><b>StorageKey</b><a href="#StorageKey"><span class="icon ion-ios-link"></span></a></span>
                 </td>
             </tr>
             <tr>
@@ -337,6 +388,30 @@
             <tr>
                 <td class="col-md-4">
                     <code>        <code><a href="../interfaces/IUser.html" target="_self" >IUser | null</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/common/schemes/query/getAccounts.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Variables"></a>
+                    <span class="name "><b>Variables</b><a href="#Variables"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Переменные запроса</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
 </code>
                 </td>
             </tr>

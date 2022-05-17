@@ -35,20 +35,23 @@ export const CREATE_ACCOUNT = gql<
     $confirmed: Boolean
     $banned: Boolean
   ) {
-    createAccount(data: { 
-        login: $login,
-        firstname: $firstname,
-        surname: $surname, 
-        password: $password,
-        email: $email,
-        phone: $phone,
-        birthday: $birthday,
-        role: $role,
-        team: $team,
-        confirmed: $confirmed,
+    createAccount(
+      data: {
+        login: $login
+        firstname: $firstname
+        surname: $surname
+        password: $password
+        email: $email
+        phone: $phone
+        birthday: $birthday
+        role: $role
+        team: $team
+        confirmed: $confirmed
         banned: $banned
-        ) {
+      }
+    ) {
       _id
+      login
     }
   }
 `

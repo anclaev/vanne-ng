@@ -1,8 +1,10 @@
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatMomentDateModule } from '@angular/material-moment-adapter'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 import { MatDatepickerModule } from '@angular/material/datepicker'
-import { MatDividerModule } from '@angular/material/divider'
+import { MatStepperModule } from '@angular/material/stepper'
+import { InfiniteScrollModule } from 'ngx-infinite-scroll'
 import { MatSelectModule } from '@angular/material/select'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatChipsModule } from '@angular/material/chips'
@@ -21,26 +23,28 @@ import { UsersComponent } from './users/users.component'
 import { AddUserComponent } from './users/add-user/add-user.component'
 
 @NgModule({
-  declarations: [
-    UsersComponent,
-    ChangePassComponent,
-    ProfileComponent,
-    AddUserComponent,
-  ],
   imports: [
     CommonModule,
     SharedModule,
     UsersRoutingModule,
+    InfiniteScrollModule,
     MatProgressSpinnerModule,
     MatMomentDateModule,
-    MatDividerModule,
+    MatStepperModule,
     MatDatepickerModule,
+    MatProgressBarModule,
     MatDialogModule,
     MatSelectModule,
     MatAutocompleteModule,
     MatChipsModule,
     MatIconModule,
     ReactiveFormsModule,
+  ],
+  declarations: [
+    AddUserComponent,
+    UsersComponent,
+    ChangePassComponent,
+    ProfileComponent,
   ],
 })
 export class UsersModule {}

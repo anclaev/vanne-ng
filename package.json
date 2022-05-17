@@ -36,6 +36,7 @@
     "apollo-angular": "3.0.1",
     "graphql": "^16",
     "moment": "^2.29.3",
+    "ngx-infinite-scroll": "^13.0.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

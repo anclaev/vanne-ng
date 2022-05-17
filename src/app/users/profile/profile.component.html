@@ -3,7 +3,7 @@
     <div
       class="profile-card__avatar"
       [attr.data-online]="isOnline"
-      [attr.data-editable]="isMe || supervisedByAdmin$$"
+      [attr.data-editable]="isMe || supervisedByAdmin$$ ? true : false"
       [attr.data-loading]="!!uploadProgress"
       (click)="avatarUpload.click()"
     >
@@ -48,18 +48,22 @@
           type="text"
           formControlName="username"
           (ngModelChange)="handleChangeUsername($event)"
+          [title]="this.profileForm.controls['username'].value"
         />
         <input
           type="text"
           formControlName="login"
           (ngModelChange)="handleChangeLogin($event)"
+          [title]="this.profileForm.controls['login'].value"
         />
       </div>
       <div class="profile-desc-info__field">
         <input
           type="text"
           formControlName="email"
+          placeholder="Электронная почта"
           (ngModelChange)="handleChangeEmail($event)"
+          [title]="this.profileForm.controls['email'].value"
         />
         <img src="/assets/svg/email-min.svg" alt="Icon: Email" />
       </div>
@@ -67,6 +71,8 @@
         <input
           type="text"
           formControlName="phone"
+          placeholder="7 999 666 22 11"
+          [title]="this.profileForm.controls['phone'].value"
           (ngModelChange)="handleChangePhone($event)"
         />
         <img src="/assets/svg/phone-min.svg" alt="Icon: Phone" />
@@ -76,13 +82,14 @@
           <input
             [matDatepicker]="picker"
             formControlName="birthday"
+            placeholder="01 мая, 1997"
             class="profile-desc-info__field--date"
             (ngModelChange)="handleChangeBirthday($event)"
           />
           <mat-datepicker-toggle
             matSuffix
             [for]="picker"
-            [style]="!isMe || !supervisedByAdmin$$ ? { display: 'none' } : {}"
+            [style]="isMe || supervisedByAdmin$$ ? {} : { display: 'none' }"
           ></mat-datepicker-toggle>
           <mat-datepicker touchUi #picker></mat-datepicker>
         </div>

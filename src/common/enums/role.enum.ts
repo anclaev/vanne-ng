@@ -1,5 +1,3 @@
-import { IntlRole } from '..'
-
 /**
  * Перечисление с ролями пользователя
  */
@@ -34,4 +32,26 @@ export type Role = keyof typeof ROLE
 
 export type TRole = {
   [Property in keyof typeof ROLE]: string
+}
+
+/**
+ * Локализированные роли пользователей
+ */
+export const IntlRole: TRole = {
+  ADMIN: 'Администратор',
+  HEAD: 'Руководитель',
+  STUDENT: 'Студент',
+  SUPERVISOR: 'Куратор',
+  TEACHER: 'Преподаватель',
+}
+
+/**
+ * Коды ролей
+ */
+export const CodeRole = {
+  Администратор: 'ADMIN',
+  Руководитель: 'HEAD',
+  Студент: 'STUDENT',
+  Куратор: 'SUPERVISOR',
+  Преподаватель: 'TEACHER',
 }

@@ -24,9 +24,9 @@ import {
 
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 import { HttpClient, HttpEventType } from '@angular/common/http'
 import { Component, OnDestroy, OnInit } from '@angular/core'
-import { ActivatedRoute, Router } from '@angular/router'
 import { Title } from '@angular/platform-browser'
 
 import {
@@ -41,12 +41,13 @@ import moment, { Moment } from 'moment'
 import { ToastService } from '@shared/services/toast.service'
 import { AuthService } from '@shared/services/auth.service'
 
+import { IAccount, initialAccount } from '@/common/interfaces/account.interface'
 import { inOutComponentAnimation } from '@/common/animations/in-out-component'
-import { IAccount, initialAccount } from '@/common/models/account'
 import { IUpload } from '@/common/interfaces/upload.interface'
 import { GET_PROFILE } from '@common/schemes/query/getProfile'
-import { imageMimeTypes, IntlRole } from '@/common'
-import { API, ROLE } from '@/common/enums'
+import { imageMimeTypes, MY_FORMATS } from '@/common'
+import { API, ROLE, IntlRole } from '@/common/enums'
+import { Account } from '@/common/models/account'
 
 import {
   CHANGE_YOURSELF_PHONE,
@@ -65,21 +66,6 @@ import {
 import { ENV } from '@/environments/env'
 
 import { ChangePassComponent } from './change-pass/change-pass.component'
-
-/**
- * Параметры форматирования даты
- */
-const MY_FORMATS = {
-  parse: {
-    dateInput: 'LL',
-  },
-  display: {
-    dateInput: 'DD MMMM, YYYY',
-    monthYearLabel: 'MMMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
-}
 
 /**
  * Задержка изменения поля в милисекундах
@@ -114,7 +100,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * Запрос на получение профиля
    */
   private profileQuery: QueryRef<
-    { account: IAccount & { avatar: { url: string } } },
+    { account: Account & { avatar: { url: string } } },
     { login: string | null }
   > | null = null
 
@@ -298,6 +284,43 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * Метод получения аккаунта при инициализации компонента
    */
   ngOnInit(): void {
+    this.otherChangeSubs.push(
+      this.routerService.events.subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          let login = event.url.slice(3, event.url.length).trim()
+          let initial = initialAccount
+
+          if (login !== this.profile$$.value.login) {
+            // Проверка на свою страницу
+            if (
+              this.authService.currentUser &&
+              this.authService.currentUser.login === login
+            ) {
+              this.isMe = true
+            }
+
+            if (this.isMe) {
+              this.profileForm.controls['birthday'].enable()
+              this.profileForm.controls['phone'].enable()
+            }
+
+            // Установка параметров запроса аккаунта
+            if (this.authService.currentUser && this.isMe) {
+              initial = { ...initial, ...this.authService.currentUser }
+            } else if (this.authService.currentUser) {
+              initial = { ...initial, login }
+            }
+
+            this.profile$$ = new BehaviorSubject(initial)
+
+            this.profileQuery?.refetch({
+              login,
+            })
+          }
+        }
+      }),
+    )
+
     this.profileQuery = this.apolloService.watchQuery({
       query: GET_PROFILE,
       variables: {
@@ -318,7 +341,14 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.profile$$.next({
           ...this.profile$$.value,
           ...data.account,
-          avatar: data.account.avatar.url || '/assets/media/ava-default.webp',
+          username:
+            data.account.firstname && data.account.surname
+              ? `${data.account.firstname} ${data.account.surname}`
+              : '',
+          avatar:
+            data.account.avatar && data.account.avatar.url
+              ? data.account.avatar.url
+              : '/assets/media/ava-default.webp',
           birthday: data.account.birthday ? data.account.birthday : null,
         })
 
@@ -508,7 +538,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
    * @returns {void}
    */
   public handleChangeUsername(val: string): void {
-    if (val.trim().length === 0 || !this.profileForm.controls['username'].valid)
+    if (
+      val &&
+      (val.trim().length === 0 || !this.profileForm.controls['username'].valid)
+    )
       return
 
     this.changedUsername$$.next(val)

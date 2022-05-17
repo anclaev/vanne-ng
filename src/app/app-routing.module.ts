@@ -55,7 +55,7 @@ const APP_ROUTES: Routes = [
     loadChildren: () =>
       import('./chats/chats.module').then((m) => m.ChatsModule),
     data: {
-      title: 'Чаты',
+      title: 'Мессенджер',
     },
     canActivate: [AuthGuard],
   },
@@ -65,7 +65,7 @@ const APP_ROUTES: Routes = [
     loadChildren: () =>
       import('./settings/settings.module').then((m) => m.SettingsModule),
     data: {
-      title: 'Параметры',
+      title: 'Настройки',
     },
     canActivate: [AuthGuard],
   },
@@ -81,7 +81,7 @@ const APP_ROUTES: Routes = [
     loadChildren: () =>
       import('./users/users.module').then((m) => m.UsersModule),
     data: {
-      title: 'Пользователи',
+      title: 'Аккаунты',
     },
     canActivate: [AuthGuard],
   },

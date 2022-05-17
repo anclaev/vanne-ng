@@ -7,18 +7,34 @@ import { Team } from '@/common/interfaces'
 
 import { ToastService } from './toast.service'
 
+/**
+ * Сервис организаций
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class TeamsService {
+  /**
+   * Массив имеющихся организаций
+   */
   public teams$$: BehaviorSubject<Team[]> = new BehaviorSubject<Team[]>([])
 
+  /**
+   * Конструктор сервиса организаций
+   * @param {Apollo} apolloService Сервис Apollo
+   * @param {ToastService} toastService Сервис уведомлений
+   */
   constructor(
     private apolloService: Apollo,
     private toastService: ToastService,
   ) {}
 
-  public fetchTeams() {
+  /**
+   * Метод получения организаций
+   * @description Получает полный список организаций для последующего использования в приложении
+   * @returns {Subscription} Подписка на запрос
+   */
+  public fetchTeams(): Subscription {
     return this.apolloService
       .watchQuery({
         query: GET_TEAMS,
