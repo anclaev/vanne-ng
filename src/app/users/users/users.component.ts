@@ -39,6 +39,16 @@ import { STORAGE } from '@/common/enums'
 })
 export class UsersComponent implements OnInit, OnDestroy {
   /**
+   * Флаг мобильного устройства
+   */
+  public isMobile = window.innerWidth < 576
+
+  /**
+   * Контейнер для бесконечного скролла
+   */
+  public scrollContainer = 'main'
+
+  /**
    * Флаг просмотра администратором
    */
   public supervisedByAdmin$$: BehaviorSubject<boolean> =
@@ -359,6 +369,7 @@ export class UsersComponent implements OnInit, OnDestroy {
    * @returns {void}
    */
   public handleScrollDown(event: IInfiniteScrollEvent): void {
+    console.log('scroll!')
     this.fetchMoreAccounts()
   }
 

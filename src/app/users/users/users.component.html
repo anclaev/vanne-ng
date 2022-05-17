@@ -82,7 +82,14 @@
       </button>
     </div>
   </div>
-  <div class="users-grid" infinite-scroll (scrolled)="handleScrollDown($event)">
+  <div
+    class="users-grid"
+    infinite-scroll
+    [scrollWindow]="!isMobile"
+    [infiniteScrollContainer]="isMobile ? scrollContainer : undefined"
+    [fromRoot]="isMobile"
+    (scrolled)="handleScrollDown($event)"
+  >
     <div class="users-grid-list">
       <div
         class="users-grid-list-item"

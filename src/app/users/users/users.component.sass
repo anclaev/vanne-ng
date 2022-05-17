@@ -92,16 +92,17 @@
         @media only screen and  (max-width: 1200px)
             grid-template-columns: repeat(2, minmax(200px, 1fr))
 
-        @media only screen and  (max-width: 576px)
-            margin-top: 40px
-            grid-template-columns: repeat(1, minmax(200px, 1fr))
-
+        @media only screen and (max-width: 768px)
             &-item
                 flex-direction: column
 
                 &__avatar
                     width: 150px !important
                     margin-right: 0 !important
+
+        @media only screen and  (max-width: 576px)
+            margin-top: 40px
+            grid-template-columns: repeat(1, minmax(200px, 1fr))
 
         &-item
             border: 1px solid $color-primary
@@ -124,9 +125,8 @@
                 justify-content: center
 
                 & > img
-                    width: 100%
-                    height: auto
                     border-radius: 50%
+                    user-select: none
 
             &-data
                 flex-grow: 1
