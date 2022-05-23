@@ -1,0 +1,61 @@
+image: node:14-alpine
+
+variables:
+  REGISTRY_LOGIN: $DOCKER_HUB_LOGIN
+  REGISTRY_TOKEN: $DOCKER_HUB_ACCESS_TOKEN
+
+stages:
+  - install
+  - testing
+  - build
+  - deploy
+  - cleaning
+
+install dependencies:
+  stage: install
+  script:
+    - yarn install --frozen-lockfile
+
+  cache:
+    key:
+      files:
+        - yarn.lock
+      paths:
+        - node_modules
+  
+    except:
+      changes:
+        - "*.md"
+
+running testing: 
+  stage: testing
+  script:
+   - npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+  except:
+    changes:
+      - "*.md"
+
+build image:
+  stage: build
+  script: 
+   - docker build --pull --rm -f "./Dockerfile" -t vanne-client:$CI_COMMIT_REF_SLUG
+   - docker tag vanne-client:$CI_COMMIT_REF_SLUG anclaev/vanne-client:$CI_COMMIT_REF_SLUG
+
+  #rules:
+  #  - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"
+
+  except:
+    changes:
+      - "*.md"
+
+deploy to registry:
+  stage: deploy
+  script:
+   - docker login -u $REGISTRY_LOGIN -p $REGISTRY_TOKEN
+   - docker push anclaev/vanne-client:$CI_COMMIT_REF_SLUG
+
+clear local image:
+  stage: cleaning
+  script: 
+    - docker rmi vanne-client:$CI_COMMIT_REF_SLUG

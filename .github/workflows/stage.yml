@@ -1,68 +1,68 @@
-# Stage клиентской части
+# # Stage клиентской части
 
-# Secrets
-# - SSH_PRIVATE_KEY
-# - SSH_USER
-# - SSH_HOST
-# - PROJECT_PATH
+# # Secrets
+# # - SSH_PRIVATE_KEY
+# # - SSH_USER
+# # - SSH_HOST
+# # - PROJECT_PATH
 
-name: stage
+# name: stage
 
-# Запуск при пуше в develop
-on:
-  push:
-    branches: [develop]
+# # Запуск при пуше в develop
+# on:
+#   push:
+#     branches: [develop]
 
-  # Мануальный запуск CI
-  workflow_dispatch:
+#   # Мануальный запуск CI
+#   workflow_dispatch:
 
-jobs:
-  # Промежуточное тестирование
-  testing:
-    runs-on: ubuntu-latest
+# jobs:
+#   # Промежуточное тестирование
+#   testing:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Use Node.js 14.x
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: 14.x
 
-      # Установка пакетов
-      - name: Install packages
-        run: yarn install --frozen-lockfile
+#       # Установка пакетов
+#       - name: Install packages
+#         run: yarn install --frozen-lockfile
 
-      # Запуск тестирования
-      - name: Running testing
-        run: |
-          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+#       # Запуск тестирования
+#       - name: Running testing
+#         run: |
+#           npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
-  # Деплой приложения на staging
-  deploy:
-    runs-on: ubuntu-latest
+#   # Деплой приложения на staging
+#   deploy:
+#     runs-on: ubuntu-latest
 
-    steps:
-      # Настройка подключения через SSH
-      - name: Setting up an SSH connection
-        uses: webfactory/ssh-agent@v0.5.1
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+#     steps:
+#       # Настройка подключения через SSH
+#       - name: Setting up an SSH connection
+#         uses: webfactory/ssh-agent@v0.5.1
+#         with:
+#           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      # Добавление хоста сервера
-      - name: Adding a server host
-        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+#       # Добавление хоста сервера
+#       - name: Adding a server host
+#         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      ## Обновление локального репозитория на сервере
-      - name: Getting project code via git
-        run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.PROJECT_PATH }}/client && git checkout develop && git pull"
+#       ## Обновление локального репозитория на сервере
+#       - name: Getting project code via git
+#         run: |
+#           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.PROJECT_PATH }}/client && git checkout develop && git pull"
 
-      ## Сборка docker-образа
-      - name: Building the docker image
-        run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.PROJECT_PATH }} && ./build-client.sh stage"
+#       ## Сборка docker-образа
+#       - name: Building the docker image
+#         run: |
+#           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.PROJECT_PATH }} && ./build-client.sh stage"
 
-      ## Рестарт docker-compose
-      - name: Restarting docker-compose
-        run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.PROJECT_PATH }} && ./run.sh stage"
+#       ## Рестарт docker-compose
+#       - name: Restarting docker-compose
+#         run: |
+#           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.PROJECT_PATH }} && ./run.sh stage"
